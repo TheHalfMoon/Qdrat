@@ -22,6 +22,8 @@ Qdrat is intentionally not a bundle of copied applications. External projects ar
 | `UX_NORTH_STAR.md` | Unified product shell, role-based home, My Work, search, command palette, object pages and Ask Qdrat |
 | `EXECUTION_ROADMAP.md` | Dependency-ordered Gates 0–13 and exit conditions |
 | `SOURCE_LANDSCAPE.md` | Technical classification of all researched source repositories and organizations |
+| `SOURCE_EXPANSION.md` | Additional public source research closing Jira/Zendesk/ServiceNow/platform capability gaps |
+| `COMPETITIVE_SUPERSET.md` | Canonical capability target for exceeding work, support, ITSM and collaboration competitors |
 | `FOUNDER_AUTHORITY.md` | Standing founder execution authority and no-routine-permission directive |
 | `SOURCE_AUTHORIZATIONS.md` | Standing founder authorization register for every supplied source-code repository/organization |
 | `REFERENCE_SOURCES.md` | Commercial competitor, standards, dataset and official regulatory references with permission/use class |

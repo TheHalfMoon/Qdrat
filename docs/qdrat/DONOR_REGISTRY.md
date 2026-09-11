@@ -45,6 +45,18 @@ Reciprocal/restricted source code is not copied into Qdrat core unless the proje
 | `ollama/ollama` | DEPENDENCY candidate | MIT | Local model runtime and development ergonomics. |
 | `ggml-org/llama.cpp` | DEPENDENCY candidate | MIT | Local/edge inference runtime option. |
 | `temporalio/temporal` | DEPENDENCY candidate | MIT | Optional durable orchestration only after native Qdrat Flow proves insufficient. |
+| `block/buzz` | DIRECT_DONOR/REFERENCE candidate | Apache-2.0 + founder standing authorization | Human/agent principal symmetry, event/audit patterns, agent-first CLI, workflow/collaboration/project-memory concepts; do not adopt Nostr automatically. |
+| `chatwoot/chatwoot` | SELECTIVE_DONOR candidate | MIT core + separately licensed enterprise directory | Omnichannel/shared-inbox/conversation/widget patterns from qualified core paths. |
+| `LiveHelperChat/livehelperchat` | DIRECT_DONOR/REFERENCE candidate | Apache-2.0 | Real-time support, messaging, voice/video/screenshare and channel adapter patterns. |
+| `netbox-community/netbox` | DIRECT_DONOR/REFERENCE candidate | Apache-2.0 | Typed infrastructure source-of-truth, topology, plugin/API and reconciliation patterns for Qdrat Ops/Digital Twin. |
+| `backstage/backstage` | DIRECT_DONOR/REFERENCE candidate | Apache-2.0 | Catalog, plugin architecture, developer portal and self-service template patterns. |
+| `apache/camel` | DEPENDENCY/REFERENCE candidate | Apache-2.0 | Integration-pattern and connector breadth; investigate selected components/sidecar use, not wholesale framework adoption. |
+| `debezium/debezium` | DEPENDENCY candidate | Apache-2.0 | Optional CDC engine for certified `SYNCED` Data Fabric connectors. |
+| `flowable/flowable-engine` | REFERENCE/DEPENDENCY candidate | Apache-2.0 | BPMN/human-task/process semantics; Qdrat Flow remains canonical. |
+| `activepieces/activepieces` | SELECTIVE_DONOR/REFERENCE candidate | MIT core + separately licensed EE paths | Connector/piece SDK, workflow builder and MCP/agent integration patterns from qualified core paths. |
+| `open-policy-agent/opa` | DEPENDENCY/REFERENCE candidate | Apache-2.0 | General policy-as-code evaluation; optional engine behind Qdrat policy vocabulary. |
+| `open-telemetry/opentelemetry-collector` | DEPENDENCY candidate | Apache-2.0 | Optional local telemetry collection/export profile under customer-controlled egress policy. |
+| `prometheus/prometheus` | DEPENDENCY/REFERENCE candidate | Apache-2.0 | Optional local metrics/alerting integration profile. |
 | `docling-project/docling` | DEPENDENCY candidate | MIT | Local document parsing/extraction. |
 
 ## Reference-only examples under current policy

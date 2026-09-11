@@ -57,13 +57,15 @@ Read every document below before finalizing the plan:
 8. `docs/qdrat/ARCHITECTURE.md`
 9. `docs/qdrat/UX_NORTH_STAR.md`
 10. `docs/qdrat/EXECUTION_ROADMAP.md`
-11. `docs/qdrat/SOURCE_AUTHORIZATIONS.md`
-12. `docs/qdrat/SOURCE_LANDSCAPE.md`
-13. `docs/qdrat/DONOR_REGISTRY.md`
-14. `docs/qdrat/REFERENCE_SOURCES.md`
-15. `docs/qdrat/FEATURE_BENCHMARK.md`
-16. `docs/qdrat/UPSTREAM.md`
-17. `docs/qdrat/BASELINE_STATUS.md`
+11. `docs/qdrat/COMPETITIVE_SUPERSET.md`
+12. `docs/qdrat/SOURCE_AUTHORIZATIONS.md`
+13. `docs/qdrat/SOURCE_LANDSCAPE.md`
+14. `docs/qdrat/SOURCE_EXPANSION.md`
+15. `docs/qdrat/DONOR_REGISTRY.md`
+16. `docs/qdrat/REFERENCE_SOURCES.md`
+17. `docs/qdrat/FEATURE_BENCHMARK.md`
+18. `docs/qdrat/UPSTREAM.md`
+19. `docs/qdrat/BASELINE_STATUS.md`
 
 Also inspect the actual inherited codebase, not only the planning documents.
 
@@ -151,6 +153,10 @@ You must produce a donor intake decision for each supplied source using one of:
 
 For every non-reference intake, record target Qdrat boundary, exact source version/commit strategy, provenance requirements, license/notice handling, test strategy, upgrade strategy, and removal/replacement strategy.
 
+For sources in `SOURCE_AUTHORIZATIONS.md`, preserve the standing founder-authorization provenance. For sources in `SOURCE_EXPANSION.md`, record them as discovered public sources and base intake on the exact observed public license/path. Never collapse these provenance classes.
+
+The donor map must explicitly evaluate `block/buzz`, Chatwoot, LiveHelperChat, Kanboard, OpenProject, GLPI, NetBox, Backstage, Temporal, Flowable, Apache Camel, Debezium, Activepieces, Zulip, Keycloak, Frappe Framework, OpenFGA, OPA, OpenTelemetry Collector, Prometheus and other verified candidates in `SOURCE_EXPANSION.md`; none is automatically selected merely because it appears there.
+
 ## Required planning artifacts
 
 Create a planning directory and produce these repository-ready artifacts:
@@ -172,6 +178,7 @@ Create a planning directory and produce these repository-ready artifacts:
 - `docs/qdrat/plan/13_RISK_REGISTER.md` — technical/product/operational/compliance/source risks and mitigations.
 - `docs/qdrat/plan/14_PHASE_NON_GOALS.md` — explicit non-goals per phase to control scope.
 - `docs/qdrat/plan/15_MASTER_EXECUTION_PLAN.md` — final integrated plan and recommended execution frontier.
+- `docs/qdrat/plan/16_COMPETITIVE_PARITY_AND_SUPERSET.md` — competitor-by-competitor job map for Jira/JSM, Zendesk-class support, ServiceNow-class ITSM/ESM, collaboration and knowledge; mark `PARITY_REQUIRED`, `QDRAT_ADVANTAGE`, `CONNECT_FIRST`, or `INTENTIONAL_NON_GOAL`, with evidence and phase.
 - `docs/qdrat/plan/EXECUTION_GRAPH.yaml` — machine-readable units, dependencies, gates, acceptance evidence, and status vocabulary.
 
 ## Work-unit quality bar

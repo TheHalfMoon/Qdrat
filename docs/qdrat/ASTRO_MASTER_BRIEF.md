@@ -18,6 +18,14 @@ The desired end state is:
 
 Qdrat must be usable by a small company on a single server and remain architecturally capable of growing into a large enterprise deployment. It must not require a Qdrat-hosted cloud control plane.
 
+## Competitive ambition
+
+Qdrat must be planned as a simpler private functional superset of the valuable jobs currently spread across Jira/Jira Service Management, Zendesk/Intercom-class customer service, ServiceNow-class enterprise service management, modern work/project tools, collaboration, knowledge, internal tools, analytics and agent automation.
+
+Read `COMPETITIVE_SUPERSET.md` as a product requirement, not marketing copy. The plan must identify which capabilities are required to reach parity, which Qdrat-native unifications make the product materially better, and which legacy competitor features should intentionally not be copied because they add configuration tax without proportional value.
+
+Read `SOURCE_EXPANSION.md` together with `SOURCE_AUTHORIZATIONS.md`. The first contains newly discovered public sources; the second records founder-supplied sources and standing authorization. Astro must evaluate both landscapes and produce one donor/intake map while preserving the difference in provenance class.
+
 ## Product category
 
 Qdrat is not merely:

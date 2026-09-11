@@ -2,6 +2,12 @@
 
 Verified against the listed public GitHub repositories on 2026-09-11. This document is an engineering intake register, not legal advice. Repository-level licenses can hide directory-level exceptions; file-level provenance remains mandatory before copying code.
 
+## Expansion note — 2026-09-11
+
+The founder subsequently added `https://github.com/block/buzz` under standing source authorization. Additional public-source research for Work/Jira, Service/Zendesk, ITSM/CMDB, workflow, Data Fabric, authorization, observability, knowledge and collaboration is maintained in `SOURCE_EXPANSION.md`. `COMPETITIVE_SUPERSET.md` defines the capability target those sources support.
+
+`block/buzz` is Apache-2.0 at the currently researched `main` state and is especially relevant for human/agent principal symmetry, event/audit patterns, agent-first CLI surfaces, collaboration/workflow integration and project memory. Qdrat should adapt these patterns behind Qdrat contracts rather than automatically adopting Nostr as its canonical protocol.
+
 ## Intake rules
 
 - `DIRECT_DONOR`: permissive source may be copied selectively after file-level provenance/security review.

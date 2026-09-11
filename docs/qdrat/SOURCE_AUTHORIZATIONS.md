@@ -89,6 +89,7 @@ When importing code, record at minimum: source repository, exact commit/tag, sou
 | 59 | https://github.com/localstack/localstack | FOUNDER_STANDING_AUTHORIZATION — full source | Reference candidate; current repo archived |
 | 60 | https://github.com/Geta | FOUNDER_STANDING_AUTHORIZATION — organization source | No primary Qdrat donor selected yet |
 | 61 | https://github.com/uvdesk | FOUNDER_STANDING_AUTHORIZATION — organization source | Resolved primarily to uvdesk/community-skeleton and related bundles |
+| 62 | https://github.com/block/buzz | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified donor/reference; Apache-2.0; human/agent principal, signed-event, collaboration, workflow and audit patterns |
 
 ## Future additions
 
