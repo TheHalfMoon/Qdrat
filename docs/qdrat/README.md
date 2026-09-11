@@ -1,6 +1,6 @@
 # Qdrat Canon
 
-This directory is the canonical product, architecture, source-intake, and execution record for Qdrat.
+This directory is the canonical product, architecture, source-intake, authorization, reference-source, and execution record for Qdrat.
 
 ## Product definition
 
@@ -19,7 +19,8 @@ Qdrat is intentionally not a bundle of copied applications. External projects ar
 | `UX_NORTH_STAR.md` | Unified product shell, role-based home, My Work, search, command palette, object pages and Ask Qdrat |
 | `EXECUTION_ROADMAP.md` | Dependency-ordered Gates 0–13 and exit conditions |
 | `SOURCE_LANDSCAPE.md` | Technical classification of all researched source repositories and organizations |
-| `SOURCE_AUTHORIZATIONS.md` | Founder-provided authorization register for the supplied source landscape |
+| `SOURCE_AUTHORIZATIONS.md` | Founder-provided authorization register for every supplied source-code repository/organization |
+| `REFERENCE_SOURCES.md` | Commercial competitor, standards, dataset and official regulatory references with permission/use class |
 | `DONOR_REGISTRY.md` | Qualified donor/dependency/reference registry and supply-chain gate |
 | `UPSTREAM.md` | Horilla upstream/provenance synchronization policy |
 | `BASELINE_STATUS.md` | Verified inherited baseline evidence and known gaps |
@@ -74,6 +75,8 @@ Role-based Home, `My Work`, global search, command palette, common object pages,
 The founder has stated permission to copy the complete source code of the sources recorded in `SOURCE_AUTHORIZATIONS.md`. That authorization is recorded as `FOUNDER_ATTESTED` and is part of Qdrat's provenance evidence.
 
 Engineering intake remains controlled by `SOURCE_LANDSCAPE.md` and `DONOR_REGISTRY.md`. Founder permission does not by itself prove that third-party notices, contributor rights, trademarks, dependency licenses, patents, or directory-specific license conditions have been waived. Those obligations are preserved unless a separate written grant explicitly covers them.
+
+Commercial competitors, standards, public datasets, and government/regulatory sites are recorded separately in `REFERENCE_SOURCES.md` so product research is not confused with source-code authorization.
 
 ## Current repository baseline
 
