@@ -20,10 +20,14 @@ GPL-family source code is not copied into the Qdrat codebase unless the project 
 | ggml-org/llama.cpp | DEPENDENCY candidate | MIT | Local/edge inference runtime option. |
 | temporalio/temporal | DEPENDENCY candidate | MIT | Future durable workflow engine if native automation is insufficient. |
 | docling-project/docling | DEPENDENCY candidate | MIT | Local document parsing and extraction. |
+| sevendyne/sevendyne_hrms | CODE_DONOR candidate | MIT | Inspect narrow implementation patterns; copy only after file-level provenance review. |
+| mimnets/OpenHRApp | CODE_DONOR candidate | MIT | Modern React/PWA and self-hosting patterns; avoid Supabase coupling unless independently justified. |
+| michaelnjuguna/open-source-hrm | CODE_DONOR candidate | MIT | Inspect narrow HR implementation patterns after provenance/security review. |
+| AnitChaudhry/HRKit | REFERENCE_ONLY | AGPL-3.0 | Study product ideas only under the current licensing policy; do not copy code. |
 
 ## Candidate code/reference sources requiring qualification
 
-The following open-source HR projects are useful research candidates but must pass repository-level and file-level license/provenance review before any implementation is copied: OpenHRApp, HRKit, Sevendyne HRMS, open-source-hrm, and other modern HRIS/HRMS projects discovered during research.
+Additional open-source HR projects may be added only after repository-level and file-level license/provenance review. The registry above records the projects already qualified at repository-license level; that qualification does not authorize copying individual files automatically.
 
 ## Proprietary product references
 
