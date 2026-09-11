@@ -2,6 +2,31 @@
 
 The roadmap keeps Qdrat People as the first complete commercial-quality suite while deliberately building the shared Company OS kernel first. Gates are dependency-ordered; later breadth must not bypass earlier integrity, privacy, deployment or data-model gates.
 
+## Standing execution authority
+
+This roadmap operates under `FOUNDER_AUTHORITY.md` and `SOURCE_AUTHORIZATIONS.md`. The founder has granted standing authorization for ordinary Qdrat execution and for use of the supplied source landscape. Routine permission must not be requested again.
+
+- Reverify exact repository truth before each material execution unit.
+- Continue automatically through dependency-ordered work when prerequisites and evidence are satisfied.
+- Treat source/license/provenance analysis as an intake-method decision, not a new founder-permission question.
+- Record real blockers precisely and continue independent authorized work instead of stopping the project.
+- Never fabricate CI, tests, benchmarks, provenance, compliance, readiness or completion evidence.
+
+## Current execution frontier
+
+The current active frontier is **Gate 0 — Inherited baseline and provenance**. Foundation strategy and source authorization are documented; runtime expansion must not begin by blindly importing donor repositories.
+
+Immediate dependency-ordered execution units:
+
+1. `G0-01 Reproducible Dependencies` — make inherited dependency acquisition deterministic and usable in connected, private-network and offline/air-gapped workflows.
+2. `G0-02 Baseline Build` — complete a clean inherited container/application build and record exact evidence.
+3. `G0-03 Baseline Tests` — run inherited smoke, unit and coverage targets without weakening thresholds or hiding failures.
+4. `G0-04 Supply-Chain Baseline` — produce dependency inventory, SBOM, license inventory, secret scan and vulnerability baseline.
+5. `G0-05 System Inventory` — inventory inherited modules, models/tables, endpoints, jobs, permissions, integrations, data flows and migration surfaces.
+6. `G0-06 Gate Evidence` — publish a Gate 0 evidence report that distinguishes PASS, FAIL, INCONCLUSIVE and inherited debt.
+
+When the Gate 0 exit condition is demonstrated, execution proceeds directly to Gate 1 without requesting routine founder approval.
+
 ## Gate 0 — Inherited baseline and provenance
 
 - Preserve Horilla Git history, LGPL notices, and exact accepted upstream commits.

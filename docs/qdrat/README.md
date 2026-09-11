@@ -19,7 +19,8 @@ Qdrat is intentionally not a bundle of copied applications. External projects ar
 | `UX_NORTH_STAR.md` | Unified product shell, role-based home, My Work, search, command palette, object pages and Ask Qdrat |
 | `EXECUTION_ROADMAP.md` | Dependency-ordered Gates 0–13 and exit conditions |
 | `SOURCE_LANDSCAPE.md` | Technical classification of all researched source repositories and organizations |
-| `SOURCE_AUTHORIZATIONS.md` | Founder-provided authorization register for every supplied source-code repository/organization |
+| `FOUNDER_AUTHORITY.md` | Standing founder execution authority and no-routine-permission directive |
+| `SOURCE_AUTHORIZATIONS.md` | Standing founder authorization register for every supplied source-code repository/organization |
 | `REFERENCE_SOURCES.md` | Commercial competitor, standards, dataset and official regulatory references with permission/use class |
 | `DONOR_REGISTRY.md` | Qualified donor/dependency/reference registry and supply-chain gate |
 | `UPSTREAM.md` | Horilla upstream/provenance synchronization policy |
@@ -72,9 +73,9 @@ Role-based Home, `My Work`, global search, command palette, common object pages,
 
 ## Source-use policy
 
-The founder has stated permission to copy the complete source code of the sources recorded in `SOURCE_AUTHORIZATIONS.md`. That authorization is recorded as `FOUNDER_ATTESTED` and is part of Qdrat's provenance evidence.
+The founder has granted standing permission to copy, use, adapt, refactor and integrate the complete source code of the sources recorded in `SOURCE_AUTHORIZATIONS.md`. That authorization is recorded as `FOUNDER_STANDING_AUTHORIZATION` and must not be repeatedly questioned or re-requested during ordinary project execution. `FOUNDER_AUTHORITY.md` is the canonical execution directive.
 
-Engineering intake remains controlled by `SOURCE_LANDSCAPE.md` and `DONOR_REGISTRY.md`. Founder permission does not by itself prove that third-party notices, contributor rights, trademarks, dependency licenses, patents, or directory-specific license conditions have been waived. Those obligations are preserved unless a separate written grant explicitly covers them.
+Engineering intake remains controlled by `SOURCE_LANDSCAPE.md` and `DONOR_REGISTRY.md`. License, attribution, dependency, contributor, patent, trademark and path-specific analysis determines the correct intake method and provenance obligations; it does not reopen the founder-permission question. Preserve applicable notices and provenance in the intake record.
 
 Commercial competitors, standards, public datasets, and government/regulatory sites are recorded separately in `REFERENCE_SOURCES.md` so product research is not confused with source-code authorization.
 
@@ -84,4 +85,6 @@ Qdrat `main` was initialized from the Horilla 2.x source history at commit `e2d2
 
 ## Execution rule
 
-Follow `EXECUTION_ROADMAP.md` in dependency order. Breadth does not override integrity gates. No phase is complete if it creates a competing source of truth for company identity, permissions, workflow, files, search, audit or AI governance without an explicit architecture decision explaining the exception.
+Follow `EXECUTION_ROADMAP.md` in dependency order under the standing authority in `FOUNDER_AUTHORITY.md`. The default action is to continue: after an execution unit is evidenced, reverify repository truth and proceed automatically to the next executable dependency without asking for routine founder approval. Breadth does not override integrity gates. No phase is complete if it creates a competing source of truth for company identity, permissions, workflow, files, search, audit or AI governance without an explicit architecture decision explaining the exception.
+
+Current frontier: `Gate 0 — Inherited baseline and provenance`.
