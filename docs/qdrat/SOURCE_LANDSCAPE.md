@@ -8,6 +8,8 @@ The founder subsequently added `https://github.com/block/buzz` under standing so
 
 `block/buzz` is Apache-2.0 at the currently researched `main` state and is especially relevant for human/agent principal symmetry, event/audit patterns, agent-first CLI surfaces, collaboration/workflow integration and project memory. Qdrat should adapt these patterns behind Qdrat contracts rather than automatically adopting Nostr as its canonical protocol.
 
+The founder later added `chaitanyagiri/munder-difflin`, `jaredrhod/fullstack-agent`, `opensandbox-group/OpenSandbox`, `OpenWhispr/openwhispr` and `Starmel/OpenSuperWhisper`, and re-confirmed `langflow-ai/openrag`, all under standing source authorization. These additions materially strengthen Qdrat's multi-agent orchestration, secure execution sandbox and local/private voice/transcription design space; see `SOURCE_EXPANSION.md` and `DONOR_REGISTRY.md` for intake posture.
+
 ## Intake rules
 
 - `DIRECT_DONOR`: permissive source may be copied selectively after file-level provenance/security review.

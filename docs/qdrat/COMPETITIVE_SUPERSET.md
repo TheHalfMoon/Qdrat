@@ -261,6 +261,36 @@ Buzz and Zulip are particularly valuable references here.
 
 A shared account/contact/customer model can connect sales, implementation, support, projects, invoices, contracts, usage, product feedback and renewal work. Qdrat does not need to build Salesforce immediately to create this advantage; Data Fabric can link an external CRM first, then native Sales/CRM can replace it later where valuable.
 
+## Private voice and governed execution advantage
+
+Qdrat should exceed cloud-first work/support suites by making voice and agent execution first-class **private platform capabilities** rather than external add-ons.
+
+### Local Voice Plane
+- dictate into any Qdrat field or composer;
+- issue voice commands to permission-scoped agents;
+- record/transcribe meetings with explicit consent indicators and retention policy;
+- local multilingual ASR with downloadable/offline model packs;
+- optional diarization and speaker recognition under administrator policy;
+- convert transcripts into linked notes, decisions, tasks, cases and knowledge with provenance;
+- redact or classify sensitive transcript segments before downstream AI use;
+- support cloud ASR only as an explicit customer-selected provider profile.
+
+Primary authorized source studies: `OpenWhispr/openwhispr` and `Starmel/OpenSuperWhisper`.
+
+### Governed Agent Execution Plane
+- code, browser, GUI, file and tool execution must run in an explicit sandbox boundary when risk requires it;
+- per-run CPU/memory/time/disk limits;
+- deny-by-default or policy-scoped network egress;
+- credential brokering without exposing raw secrets to agent workloads where possible;
+- strong-isolation profiles for sensitive workloads;
+- artifact capture, command/file traces and correlation to Qdrat audit events;
+- human approval and kill/circuit-breaker controls;
+- portable sandbox contract so Docker, Kubernetes, gVisor/Kata/Firecracker-class substrates can evolve independently.
+
+Primary authorized source study: `opensandbox-group/OpenSandbox`. Multi-agent supervisor/mailbox/memory/autonomy patterns should also be evaluated from `chaitanyagiri/munder-difflin`, while `jaredrhod/fullstack-agent` contributes memory/voice/interaction/self-repair patterns and `langflow-ai/openrag` remains an authorized retrieval/orchestration source.
+
+This is a Qdrat advantage over SaaS tools that require company content or agent actions to transit vendor-controlled execution infrastructure.
+
 ## Agent-native Company OS
 
 The strongest long-term differentiator should be that agents are **governed operational principals**.

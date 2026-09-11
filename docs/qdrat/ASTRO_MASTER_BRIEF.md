@@ -139,6 +139,13 @@ Flow manages durable processes. Rules manages deterministic decisions. Both are 
 
 AI is not a chatbot bolted onto screens. Qdrat AI is a local-first model/tool/agent runtime with permission-aware context, typed tools, model registry, prompt/version registry, evaluation suites, approvals, traces, and source lineage.
 
+Qdrat AI must also define two explicit subplanes:
+
+- **Agent Execution Plane** — substrate-independent secure sandboxes for code/browser/GUI/file/tool execution, with network egress policy, credential brokering, resource/time budgets, artifact capture, trace correlation, approval gates and circuit breakers. OpenSandbox is a leading implementation candidate, not a mandatory permanent dependency.
+- **Voice Plane** — local-first dictation, transcription, meeting capture, diarization where enabled, voice commands, transcript-to-knowledge ingestion, retention/redaction policy and offline model packs. OpenWhispr/OpenSuperWhisper are primary donor/reference candidates.
+
+Multi-agent orchestration must use Qdrat principals and policy: supervisor/dispatcher, per-agent identities, scoped memory/mailboxes, task ledger, delegation, autonomy levels, approval queues and loop/cost controls. Munder Difflin is a strong pattern source.
+
 ### 6. One UX
 
 A user should experience one product even if optional services run behind it. The UX centers on role-based Home, `My Work`, global search, command palette, common object pages, common timeline/comments, inbox/notifications, and `Ask Qdrat`.
@@ -359,6 +366,10 @@ Key source roles already identified include:
 - GoRules Zen/JDM: deterministic rule execution and visual decision modeling;
 - Apache Superset + Nao + Umami + PostHog patterns: analytics, metrics, evaluation, events;
 - AnythingLLM + Onyx + OpenRAG: local/enterprise agent, connector, retrieval, and orchestration patterns;
+- `chaitanyagiri/munder-difflin`: multi-agent supervisor, provider abstraction, terminal-agent lifecycle, mailboxes, durable task ledger, memory, approval queue and circuit-breaker patterns;
+- `opensandbox-group/OpenSandbox`: secure execution plane for coding/GUI/tool agents with SDK/MCP contracts, runtime isolation, network policy and credential injection;
+- `OpenWhispr/openwhispr` + `Starmel/OpenSuperWhisper`: local/private voice, dictation, transcription, meeting capture and native voice UX patterns;
+- `jaredrhod/fullstack-agent`: persistent memory + voice + visual interaction + conversational installer/self-repair patterns; treat public AGPL posture and founder grant provenance explicitly;
 - Cal.diy/Rallly: scheduling;
 - Gotenberg + Stirling PDF + Paperless patterns + Kroki: document/PDF/records/diagram capabilities;
 - Infisical: credentials/secrets platform patterns;

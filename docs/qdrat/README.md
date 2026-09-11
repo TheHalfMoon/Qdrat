@@ -71,7 +71,7 @@ Authorized administrators can define custom business objects, fields, relationsh
 Durable processes are separated from deterministic decisions. Workflows handle tasks, approvals, timers, SLAs and integrations; rules remain versioned, testable, simulatable and explainable.
 
 ### Governed local AI
-`Ask Qdrat` is the common entry point to specialized agents. The AI runtime uses local models by default, permission-aware context, SQL/full-text/vector/graph retrieval, typed tools, approval gates, evaluation suites and immutable traces.
+`Ask Qdrat` is the common entry point to specialized agents. The AI runtime uses local models by default, permission-aware context, SQL/full-text/vector/graph retrieval, typed tools, approval gates, evaluation suites and immutable traces. A governed Agent Execution Plane isolates code/browser/GUI/tool execution, while a local-first Voice Plane provides dictation, transcription, meeting capture and voice commands without requiring customer data to leave controlled infrastructure.
 
 ### One UX
 Role-based Home, `My Work`, global search, command palette, common object pages, common notifications/inbox and Ask Qdrat make the platform feel like one product even when advanced capabilities run as local sidecars.

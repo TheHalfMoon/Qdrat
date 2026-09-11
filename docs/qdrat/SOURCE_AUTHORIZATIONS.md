@@ -42,7 +42,7 @@ When importing code, record at minimum: source repository, exact commit/tag, sou
 | 12 | https://github.com/papercups-io/papercups | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified donor candidate |
 | 13 | https://github.com/knadh/listmonk | FOUNDER_STANDING_AUTHORIZATION — full source | Reference/isolated service candidate |
 | 14 | https://github.com/yuzutech/kroki | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified dependency candidate |
-| 15 | https://github.com/langflow-ai/openrag | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified dependency/reference candidate |
+| 15 | https://github.com/langflow-ai/openrag | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified dependency/reference candidate; authorization re-confirmed 2026-09-11 |
 | 16 | https://github.com/documenso/documenso | FOUNDER_STANDING_AUTHORIZATION — full source | Reference/isolated service candidate |
 | 17 | https://github.com/postgis/postgis | FOUNDER_STANDING_AUTHORIZATION — full source | Dependency candidate |
 | 18 | https://github.com/HumanSignal/label-studio | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified dependency/reference candidate |
@@ -90,6 +90,11 @@ When importing code, record at minimum: source repository, exact commit/tag, sou
 | 60 | https://github.com/Geta | FOUNDER_STANDING_AUTHORIZATION — organization source | No primary Qdrat donor selected yet |
 | 61 | https://github.com/uvdesk | FOUNDER_STANDING_AUTHORIZATION — organization source | Resolved primarily to uvdesk/community-skeleton and related bundles |
 | 62 | https://github.com/block/buzz | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified donor/reference; Apache-2.0; human/agent principal, signed-event, collaboration, workflow and audit patterns |
+| 63 | https://github.com/chaitanyagiri/munder-difflin | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified donor/reference; observed MIT; multi-agent orchestration, memory, mailbox, approvals and local/BYO-model patterns |
+| 64 | https://github.com/jaredrhod/fullstack-agent | FOUNDER_STANDING_AUTHORIZATION — full source | Selective donor/reference; public repo AGPL-3.0-or-later; memory, voice, visual/embodied interaction and guided self-repair patterns |
+| 65 | https://github.com/opensandbox-group/OpenSandbox | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified dependency/donor candidate; Apache-2.0; secure agent execution, MCP/SDK, network policy, credential vault and strong isolation |
+| 66 | https://github.com/OpenWhispr/openwhispr | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified donor/reference; MIT; local/private dictation, transcription, meetings, voice assistant and MCP patterns |
+| 67 | https://github.com/Starmel/OpenSuperWhisper | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified donor/reference; MIT; local Whisper/Parakeet transcription, hotkeys and macOS voice UX patterns |
 
 ## Future additions
 

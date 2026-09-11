@@ -155,7 +155,7 @@ For every non-reference intake, record target Qdrat boundary, exact source versi
 
 For sources in `SOURCE_AUTHORIZATIONS.md`, preserve the standing founder-authorization provenance. For sources in `SOURCE_EXPANSION.md`, record them as discovered public sources and base intake on the exact observed public license/path. Never collapse these provenance classes.
 
-The donor map must explicitly evaluate `block/buzz`, Chatwoot, LiveHelperChat, Kanboard, OpenProject, GLPI, NetBox, Backstage, Temporal, Flowable, Apache Camel, Debezium, Activepieces, Zulip, Keycloak, Frappe Framework, OpenFGA, OPA, OpenTelemetry Collector, Prometheus and other verified candidates in `SOURCE_EXPANSION.md`; none is automatically selected merely because it appears there.
+The donor map must explicitly evaluate `block/buzz`, `chaitanyagiri/munder-difflin`, `jaredrhod/fullstack-agent`, `opensandbox-group/OpenSandbox`, `OpenWhispr/openwhispr`, `Starmel/OpenSuperWhisper`, `langflow-ai/openrag`, Chatwoot, LiveHelperChat, Kanboard, OpenProject, GLPI, NetBox, Backstage, Temporal, Flowable, Apache Camel, Debezium, Activepieces, Zulip, Keycloak, Frappe Framework, OpenFGA, OPA, OpenTelemetry Collector, Prometheus and other verified candidates in `SOURCE_EXPANSION.md`; none is automatically selected merely because it appears there.
 
 ## Required planning artifacts
 
@@ -171,7 +171,7 @@ Create a planning directory and produce these repository-ready artifacts:
 - `docs/qdrat/plan/06_DATA_CONNECTOR_PLAN.md` — Data Fabric/connector SDK/Bridge/certification plan.
 - `docs/qdrat/plan/07_MIGRATION_PLAN.md` — Horilla-to-Qdrat strangler migration and reconciliation strategy.
 - `docs/qdrat/plan/08_UX_IMPLEMENTATION_PLAN.md` — shell/design system/views/object pages/RTL/accessibility migration.
-- `docs/qdrat/plan/09_AI_IMPLEMENTATION_PLAN.md` — model/tool/retrieval/evals/traces/risk/approval rollout.
+- `docs/qdrat/plan/09_AI_IMPLEMENTATION_PLAN.md` — model/tool/retrieval/evals/traces/risk/approval rollout, including multi-agent supervisor/task-ledger/memory semantics, an Agent Execution Plane (sandbox/network/credential/resource policy), and a local-first Voice Plane (dictation/transcription/meetings/voice commands).
 - `docs/qdrat/plan/10_SECURITY_PRIVACY_PLAN.md` — threat/privacy/egress/credentials/audit/supply-chain/AI security.
 - `docs/qdrat/plan/11_TEST_STRATEGY.md` — unit through offline/upgrade/connector/AI evaluation coverage.
 - `docs/qdrat/plan/12_RELEASE_STRATEGY.md` — deployment profiles, artifacts, offline bundles, upgrades, rollback, support evidence.

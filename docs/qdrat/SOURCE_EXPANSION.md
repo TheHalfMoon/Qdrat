@@ -34,6 +34,31 @@ No whole repository becomes Qdrat architecture merely because its code is availa
 5. **Zero-noise defaults are valuable.** Qdrat Home/My Work should prioritize actionable items rather than recreate notification overload.
 6. **Do not inherit Nostr automatically.** Qdrat already has a PostgreSQL/domain-event direction; Buzz's protocol is a pattern candidate, not a mandated substrate.
 
+## Founder-supplied additions — agent runtime, sandbox and private voice
+
+The founder subsequently supplied the following sources under the same standing authorization. They must be evaluated as a coherent extension of Qdrat AI/Trust rather than as unrelated utilities.
+
+| Source | Authority | Observed public license posture | Qdrat value | Initial posture |
+|---|---|---|---|---|
+| `chaitanyagiri/munder-difflin` | `FOUNDER_STANDING_AUTHORIZATION` | MIT in current README | Multi-agent supervisor, local terminal-agent processes, shared memory, mailboxes, task ledger, approvals, circuit breakers, BYO provider/local model | `ADAPT_PATTERN` + selective `COPY_COMPONENT` after exact-path qualification |
+| `jaredrhod/fullstack-agent` | `FOUNDER_STANDING_AUTHORIZATION` | AGPL-3.0-or-later in current README; founder separately states copy permission | Persistent memory, voice, visual presence, optional embodied input, conversational installer and self-repair UX | `ADAPT_PATTERN`; selective copy only with exact provenance/grant evidence recorded |
+| `opensandbox-group/OpenSandbox` | `FOUNDER_STANDING_AUTHORIZATION` | Apache-2.0 | General-purpose agent sandbox, SDK/CLI/MCP, Docker/Kubernetes runtimes, egress policy, credential vault, gVisor/Kata/Firecracker isolation | Strong `DEPENDENCY`/`RUN_AS_SERVICE` candidate for Qdrat Agent Execution Plane |
+| `OpenWhispr/openwhispr` | `FOUNDER_STANDING_AUTHORIZATION` | MIT | Cross-platform local dictation, Whisper/Parakeet-class ASR, meeting transcription/diarization, notes, local/cloud model routing, enterprise controls, MCP/API | `ADAPT_PATTERN` + selective `COPY_COMPONENT` for Qdrat Voice Plane |
+| `Starmel/OpenSuperWhisper` | `FOUNDER_STANDING_AUTHORIZATION` | MIT | Lightweight native macOS transcription, hotkey/hold-to-record UX, local Whisper/Parakeet execution | `ADAPT_PATTERN` + selective native-client donor study |
+| `langflow-ai/openrag` | Existing `FOUNDER_STANDING_AUTHORIZATION`, re-confirmed | Apache-2.0 in existing qualification | RAG ingestion/orchestration and retrieval pipeline patterns | Existing `DEPENDENCY`/`REFERENCE` candidate; authorization re-confirmed |
+
+### Qdrat Agent Execution Plane requirements derived from these sources
+
+Agents that can execute code, browse, manipulate files, call tools or operate external systems must run through a governed execution boundary. The plan should define sandbox lifecycle, image/runtime profiles, CPU/memory/time budgets, filesystem mounts, network ingress/egress policy, secret injection without secret disclosure, provenance, artifact capture, trace correlation, approval gates, kill/circuit-breaker behavior and local/offline operation. OpenSandbox is the leading evaluated substrate candidate; Qdrat contracts must remain substrate-independent.
+
+### Qdrat Voice Plane requirements derived from these sources
+
+Voice is a first-class local interaction mode, not a cloud-only convenience. Plan for push-to-talk and hands-free modes, dictation into Qdrat fields, multilingual transcription, meeting capture, diarization, optional voice fingerprinting where appropriate, transcript-to-knowledge ingestion, voice commands to agents, local ASR/model packs, explicit recording consent indicators, retention controls, redaction, searchable provenance and complete offline operation. OpenWhispr and OpenSuperWhisper are donor/reference candidates; the Qdrat Voice contract must remain cross-platform and model-agnostic.
+
+### Multi-agent orchestration requirements derived from these sources
+
+Munder Difflin reinforces the need for a supervisor/dispatcher pattern, per-agent identities, durable task ledger, agent mailbox/event routing, shared-but-governed memory, provider abstraction, autonomy levels, approval queues, loop/cost circuit breakers and live observability. Qdrat should implement these semantics through its own principal, Flow, audit and policy contracts rather than copying a desktop-office metaphor as the canonical UX.
+
 ## Discovered public sources — Work, project and portfolio management
 
 | Source | Status / observed license | Gap covered | Initial Qdrat posture |

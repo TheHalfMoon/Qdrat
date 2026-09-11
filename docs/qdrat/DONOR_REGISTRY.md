@@ -46,6 +46,11 @@ Reciprocal/restricted source code is not copied into Qdrat core unless the proje
 | `ggml-org/llama.cpp` | DEPENDENCY candidate | MIT | Local/edge inference runtime option. |
 | `temporalio/temporal` | DEPENDENCY candidate | MIT | Optional durable orchestration only after native Qdrat Flow proves insufficient. |
 | `block/buzz` | DIRECT_DONOR/REFERENCE candidate | Apache-2.0 + founder standing authorization | Human/agent principal symmetry, event/audit patterns, agent-first CLI, workflow/collaboration/project-memory concepts; do not adopt Nostr automatically. |
+| `chaitanyagiri/munder-difflin` | DIRECT_DONOR/REFERENCE candidate | MIT observed + founder standing authorization | Multi-agent supervisor, mailbox/task-ledger, persistent memory, autonomy/approval and BYO model/CLI patterns. |
+| `jaredrhod/fullstack-agent` | SELECTIVE_DONOR/REFERENCE candidate | Public AGPL-3.0-or-later + founder standing authorization | Memory/voice/visual interaction and conversational self-repair patterns; copied paths require exact provenance and grant/license handling. |
+| `opensandbox-group/OpenSandbox` | DEPENDENCY/RUN_AS_SERVICE candidate | Apache-2.0 + founder standing authorization | Leading candidate for governed agent sandbox execution, network policy, credential injection and strong isolation. |
+| `OpenWhispr/openwhispr` | DIRECT_DONOR/REFERENCE candidate | MIT + founder standing authorization | Cross-platform local voice/dictation/meeting transcription, local ASR and MCP/API patterns. |
+| `Starmel/OpenSuperWhisper` | DIRECT_DONOR/REFERENCE candidate | MIT + founder standing authorization | Native macOS hotkey transcription and local Whisper/Parakeet UX/runtime patterns. |
 | `chatwoot/chatwoot` | SELECTIVE_DONOR candidate | MIT core + separately licensed enterprise directory | Omnichannel/shared-inbox/conversation/widget patterns from qualified core paths. |
 | `LiveHelperChat/livehelperchat` | DIRECT_DONOR/REFERENCE candidate | Apache-2.0 | Real-time support, messaging, voice/video/screenshare and channel adapter patterns. |
 | `netbox-community/netbox` | DIRECT_DONOR/REFERENCE candidate | Apache-2.0 | Typed infrastructure source-of-truth, topology, plugin/API and reconciliation patterns for Qdrat Ops/Digital Twin. |
