@@ -4,7 +4,7 @@ This directory is the canonical product, architecture, source-intake, authorizat
 
 ## Product definition
 
-Qdrat is a private, local-first Company Operating System for the AI era. `Qdrat People` is the first complete suite and the initial market entry. The long-term platform unifies people, work, service, knowledge, data, operations, trust, and eventually finance on one company model, one identity and permission system, one workflow/rules layer, one search/knowledge plane, one audit trail, and one governed AI runtime.
+Qdrat is a private, local-first Company Operating System for the AI era. `Qdrat People` is the first complete suite and the initial market entry. The long-term goal is that essentially everything a company needs can be operated through one Qdrat experience while the customer remains free to choose its own databases, servers, storage, models and existing systems. The platform unifies people, work, service, knowledge, data, operations, trust, sales/CRM, finance, procurement and future industry capabilities on one company model, one identity and permission system, one workflow/rules layer, one integration/data fabric, one search/knowledge plane, one audit trail, and one governed AI runtime.
 
 Qdrat is intentionally not a bundle of copied applications. External projects are sources of capabilities, implementation patterns, components, and isolated services. Qdrat owns the product model, contracts, UX, governance, and integration boundaries.
 
@@ -15,6 +15,9 @@ Qdrat is intentionally not a bundle of copied applications. External projects ar
 | `MASTER_PLAN.md` | Product thesis, complete People/HCM scope, differentiators and Saudi-first direction |
 | `COMPANY_OS_STRATEGY.md` | Company OS product hierarchy, unification moat, Studio, Graph, Flow/Rules and suite boundaries |
 | `CAPABILITY_ARCHITECTURE.md` | Detailed platform capability architecture and subsystem boundaries |
+| `DATA_FABRIC.md` | Bring-your-own database/server connector model, source authority, mapping, lineage and Qdrat Bridge |
+| `ASTRO_MASTER_BRIEF.md` | Canonical planning handoff and required plan outputs for Astro |
+| `ASTRO_PROMPT.md` | Ready-to-run Astro planning directive and required repository artifacts |
 | `ARCHITECTURE.md` | Local-first deployment, canonical domain model, APIs/events, AI, security and service-splitting rules |
 | `UX_NORTH_STAR.md` | Unified product shell, role-based home, My Work, search, command palette, object pages and Ask Qdrat |
 | `EXECUTION_ROADMAP.md` | Dependency-ordered Gates 0–13 and exit conditions |

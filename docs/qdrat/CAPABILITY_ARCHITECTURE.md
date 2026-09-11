@@ -254,24 +254,42 @@ All suites are modules on the kernel, not independent products with duplicated i
 - `data`: custom objects/tables/forms/surveys/analytics.
 - `ops`: assets/facilities/devices/events/field operations.
 - `trust`: identity/access/compliance/credentials.
-- `finance`: later accounting/purchasing/expenses/budgeting.
+- `sales`: later CRM/accounts/leads/opportunities/customer lifecycle/revenue operations.
+- `finance`: later accounting/purchasing/expenses/budgeting/AP/AR/payments/financial reporting.
+- `procurement`: later sourcing/vendor/contract/purchase workflows, potentially beginning as shared Ops/Finance capability.
+- `industry packs`: governed combinations of Studio schemas, rules, workflows, reports, connectors and selected native modules rather than repository forks.
 
-## Layer 9 — Integration fabric
+## Layer 9 — Integration and Data Fabric
 
-All integrations use versioned adapters, never vendor-specific logic scattered through domain code.
+All integrations use versioned adapters, never vendor-specific logic scattered through domain code. `DATA_FABRIC.md` defines the canonical source-authority and connector model.
 
-Supported patterns:
-- REST/OpenAPI;
-- webhooks with signing/replay protection;
-- scheduled imports/exports;
-- email ingestion;
-- file/SFTP drops for legacy systems;
-- database read adapters where unavoidable;
-- SCIM/OIDC/SAML;
+The platform supports explicit `NATIVE`, `LINKED_READ`, `SYNCED`, `MATERIALIZED`, and `WRITE_THROUGH` modes so external systems can remain authoritative where appropriate.
+
+Core fabric components:
+- first-class `DataSource` registry;
+- connector manifest/SDK and conformance tests;
+- schema/resource discovery;
+- canonical mapping and versioned semantic mappings;
+- sync/CDC checkpoints and reconciliation;
+- lineage and freshness metadata;
+- connector health and schema-drift states;
+- read/write scopes and execution budgets;
+- optional `qdrat-bridge` runner for remote or segmented networks.
+
+Supported patterns and families include:
+- PostgreSQL, MySQL/MariaDB, Microsoft SQL Server, and certified enterprise SQL adapters;
+- document/NoSQL stores such as MongoDB-class systems;
+- REST/OpenAPI, GraphQL, SOAP where legacy demand requires it, and private HTTP/RPC adapters;
+- signed webhooks and event subscriptions;
+- scheduled imports/exports and CDC where qualified;
+- local/network files, S3-compatible storage, and SFTP;
+- Kafka/Redpanda-class streams and future queue adapters;
+- email/calendar ingestion;
+- SCIM/OIDC/SAML/LDAP/Active Directory boundaries;
 - MCP for explicitly approved AI tools;
-- event subscriptions.
+- customer-built private connectors through the same SDK.
 
-Connector secrets are encrypted and isolated from ordinary application data.
+Connector secrets are encrypted and isolated from ordinary application data. Reads are preferred over writes; write-through requires explicit scope, idempotency, conflict, audit, and compensation semantics. Qdrat must never require all connected data to be copied into its own database.
 
 ## Layer 10 — Runtime and operations
 

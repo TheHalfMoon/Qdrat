@@ -2,7 +2,7 @@
 
 ## Product thesis
 
-Qdrat is a private, local-first Company Operating System for the AI era. `Qdrat People` is the first complete suite and the first product-quality proof of the shared platform. The long-term platform must combine people, work, service, knowledge, data, operations and trust capabilities through one coherent object model, identity/permission system, workflow/rules engine, audit trail, search/knowledge plane and governed AI runtime.
+Qdrat is a private, local-first Company Operating System for the AI era. The long-term goal is that a company can choose Qdrat as its primary operating layer for essentially everything it needs, without surrendering control of its infrastructure or data. `Qdrat People` is the first complete suite and the first product-quality proof of the shared platform. The platform must ultimately combine people, work, service, knowledge, data, operations, trust, sales/CRM, finance, procurement and industry-specific capabilities through one coherent object model, identity/permission system, workflow/rules engine, audit trail, search/knowledge plane, integration/data fabric and governed AI runtime.
 
 Qdrat People must combine the breadth of a modern HRIS/HCM suite with a position-and-skills-centric workforce model, durable workflow automation, explainable local AI agents, and enterprise-grade privacy controls. Cloud connectivity is optional and disabled by default.
 
@@ -14,18 +14,20 @@ See `COMPANY_OS_STRATEGY.md`, `CAPABILITY_ARCHITECTURE.md`, `SOURCE_LANDSCAPE.md
 
 1. Local-first and deployable without public cloud dependencies.
 2. No telemetry, model calls, or data egress unless an administrator explicitly enables them.
-3. PostgreSQL is the production system of record; SQLite remains development-only where useful.
-4. Human authorization remains mandatory for high-impact employment decisions.
-5. Every AI answer that relies on company knowledge should provide inspectable provenance.
-6. Every AI action is permission-scoped, dry-runnable, reviewable, and auditable.
-7. Effective-dated data and point-in-time history are first-class concepts.
-8. Job, position, worker, person, legal entity, and organizational unit are separate canonical objects.
-9. Arabic and English, including first-class RTL UX, are product requirements rather than translation afterthoughts.
-10. Start as a modular monolith. Split services only where isolation, scale, runtime or deployment boundaries justify it.
-11. Core regulated objects remain strongly typed; customer extensions use governed metadata rather than unrestricted EAV.
-12. A capability may not create a parallel identity, permission, workflow, audit, file or AI-governance system without an explicit ADR.
-13. Donor code is imported only behind Qdrat-owned contracts with exact provenance and license boundaries.
-14. Qdrat People reaches product excellence before additional suites are allowed to dilute execution focus.
+3. Infrastructure freedom is a product requirement: customers choose where Qdrat, databases, models, files and supporting services run.
+4. Existing customer systems do not need to be replaced or fully replicated. Qdrat must support governed linked, synchronized, materialized and write-through integration modes.
+5. PostgreSQL is Qdrat's authoritative production system of record for Qdrat-native data; external systems may remain authoritative for mapped domains. SQLite remains development-only where useful.
+6. Human authorization remains mandatory for high-impact employment decisions.
+7. Every AI answer that relies on company knowledge should provide inspectable provenance.
+8. Every AI action is permission-scoped, dry-runnable, reviewable, and auditable.
+9. Effective-dated data and point-in-time history are first-class concepts.
+10. Job, position, worker, person, legal entity, and organizational unit are separate canonical objects.
+11. Arabic and English, including first-class RTL UX, are product requirements rather than translation afterthoughts.
+12. Start as a modular monolith. Split services only where isolation, scale, runtime or deployment boundaries justify it.
+13. Core regulated objects remain strongly typed; customer extensions use governed metadata rather than unrestricted EAV.
+14. A capability may not create a parallel identity, permission, workflow, audit, file or AI-governance system without an explicit ADR.
+15. Donor code is imported only behind Qdrat-owned contracts with exact provenance and license boundaries.
+16. Qdrat People reaches product excellence before additional suites are allowed to dilute execution focus.
 
 ## Qdrat Platform surfaces
 
@@ -43,6 +45,10 @@ Permission-aware documents, policies, wiki/pages, records, OCR/parsing, full-tex
 
 ### Qdrat Data
 Custom data, operational dashboards, metrics, reports, cohorts, surveys, event analytics, advanced BI and natural-language analytics under the same permission model.
+
+
+### Qdrat Data Fabric
+Qdrat connects to customer-owned databases, servers, object stores, files, event streams, identity systems, APIs, models, and private services through a governed connector architecture. Every source declares whether Qdrat owns the record, reads it in place, synchronizes a projection, materializes an analytical/search view, or is allowed to write through. A source registry, connector SDK, schema mapping, lineage, health/conflict handling, and optional `qdrat-bridge` make infrastructure choice a customer decision rather than a Qdrat constraint. See `DATA_FABRIC.md`.
 
 ### Qdrat AI
 A local-first model/tool/agent runtime shared by every suite. Agents are governed views over platform capabilities, not separate chatbots with duplicate permissions or memory.
@@ -88,6 +94,17 @@ Operational dashboards, custom reports, metric definitions, cohorts, funnels, he
 ### Compliance and Governance
 Policy management, acknowledgements, records retention, legal holds, privacy requests, data minimization, audit evidence, configurable country packs, compliance calendars, risk registers, AI governance, export controls, and segregation of duties.
 
+## Later native company suites
+
+Qdrat should connect to existing specialist systems before attempting to replace all of them. After the shared kernel and Qdrat People are proven, native expansion can include:
+
+- `Qdrat Sales / CRM`: accounts, contacts, leads, opportunities, activities, proposals, customer lifecycle and revenue operations.
+- `Qdrat Finance`: expenses, purchasing, budgets, AP/AR, invoices, payments, accounting, payroll-to-GL and financial reporting.
+- `Qdrat Procurement`: requests, approvals, sourcing, vendors, qualifications, contracts, renewals and supplier evidence.
+- Industry packs built through Studio schemas, workflows, rules, reports, integrations and selected native modules rather than unrelated forks.
+
+The sequencing rule is **connect first, understand and govern second, automate third, replace only where native Qdrat capability is materially better**.
+
 ## Qdrat AI plane
 
 Qdrat AI is local by default and is a capability framework, not a single chatbot.
@@ -115,4 +132,4 @@ The first country pack should support Saudi employment structures and configurab
 
 ## Definition of "best"
 
-The product is not considered best because it has the longest feature list. It should measurably reduce administrative work, integration friction and SaaS fragmentation; support trustworthy decisions; provide faster employee and manager self-service; shorten recruiting/onboarding cycles; reduce payroll/compliance errors; expose skills and workforce gaps; survive disconnected deployments; let customers extend the platform safely; and make every sensitive action explainable and auditable.
+The product is not considered best because it has the longest feature list. It is best when a company can operate through one coherent Qdrat experience while retaining freedom over databases, servers, storage, models and existing applications. Qdrat should measurably reduce administrative work, integration friction and SaaS fragmentation; support trustworthy decisions; survive disconnected deployments; let customers connect before migrating, extend the platform safely, progressively replace specialist tools where valuable, and make every sensitive action explainable and auditable.

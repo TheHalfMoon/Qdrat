@@ -51,7 +51,7 @@ Exit condition: Qdrat can reproduce, test, explain and update its inherited base
 
 Exit condition: Qdrat has a privacy-first platform kernel independent of legacy screen structure.
 
-## Gate 2 — Object Platform and Qdrat Studio
+## Gate 2 — Object Platform, Qdrat Studio and Data Fabric v1
 
 - Define object type, field, relationship, view, action and lifecycle metadata contracts.
 - Keep regulated/core objects relational and strongly typed; add typed custom fields safely.
@@ -60,8 +60,13 @@ Exit condition: Qdrat has a privacy-first platform kernel independent of legacy 
 - Generate versioned APIs and events for Studio-created objects.
 - Add plugin/module manifests and stable UI/backend extension points.
 - Add formula/derived field framework with deterministic execution and dependency tracking.
+- Introduce the first-class `DataSource` registry and source-authority modes.
+- Define connector manifest/SDK v1 with conformance tests, secret references, scopes, health, budgets and provenance metadata.
+- Ship initial read-oriented connectors for Qdrat's own PostgreSQL boundary plus representative external SQL/API/file sources; exact certified set follows repository/runtime qualification.
+- Define schema mapping, lineage, freshness, sync/checkpoint and schema-drift contracts before broad connector expansion.
+- Specify `qdrat-bridge` as the controlled runner for remote/segmented networks, without making it mandatory for single-site installs.
 
-Exit condition: customers can extend Qdrat without source forks or parallel databases.
+Exit condition: customers can extend Qdrat without source forks or parallel databases, and Qdrat can connect to external company data through one governed adapter contract without forcing migration.
 
 ## Gate 3 — Company Graph and canonical People model
 
