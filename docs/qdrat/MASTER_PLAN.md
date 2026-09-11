@@ -1,10 +1,14 @@
-# Qdrat People — Master Product Plan
+# Qdrat — Master Product Plan
 
 ## Product thesis
 
-Qdrat People is a private, local-first People Operating System for the AI era. It must combine the breadth of a modern HRIS/HCM suite with a position-and-skills-centric workforce model, durable workflow automation, explainable local AI agents, and enterprise-grade privacy controls. Cloud connectivity is optional and disabled by default.
+Qdrat is a private, local-first Company Operating System for the AI era. `Qdrat People` is the first complete suite and the first product-quality proof of the shared platform. The long-term platform must combine people, work, service, knowledge, data, operations and trust capabilities through one coherent object model, identity/permission system, workflow/rules engine, audit trail, search/knowledge plane and governed AI runtime.
 
-Qdrat People is not a reskin of Horilla. Horilla is the functional bootstrap and upstream source base; Qdrat becomes a distinct product through a new canonical data model, permission model, workflow layer, AI plane, design system, country/compliance packs, and integration architecture.
+Qdrat People must combine the breadth of a modern HRIS/HCM suite with a position-and-skills-centric workforce model, durable workflow automation, explainable local AI agents, and enterprise-grade privacy controls. Cloud connectivity is optional and disabled by default.
+
+Qdrat is not a reskin of Horilla and must not become a pile of copied applications. Horilla is the functional HR bootstrap and upstream source base. Qdrat becomes a distinct platform through a canonical company/people model, Qdrat Studio, permission model, workflow/rules layer, AI plane, design system, country/compliance packs, extension SDK and integration architecture.
+
+See `COMPANY_OS_STRATEGY.md`, `CAPABILITY_ARCHITECTURE.md`, `SOURCE_LANDSCAPE.md` and `EXECUTION_ROADMAP.md` for the broader company-OS design and donor qualification.
 
 ## Non-negotiable principles
 
@@ -17,9 +21,33 @@ Qdrat People is not a reskin of Horilla. Horilla is the functional bootstrap and
 7. Effective-dated data and point-in-time history are first-class concepts.
 8. Job, position, worker, person, legal entity, and organizational unit are separate canonical objects.
 9. Arabic and English, including first-class RTL UX, are product requirements rather than translation afterthoughts.
-10. Start as a modular monolith. Split services only where isolation, scale, or deployment boundaries justify it.
+10. Start as a modular monolith. Split services only where isolation, scale, runtime or deployment boundaries justify it.
+11. Core regulated objects remain strongly typed; customer extensions use governed metadata rather than unrestricted EAV.
+12. A capability may not create a parallel identity, permission, workflow, audit, file or AI-governance system without an explicit ADR.
+13. Donor code is imported only behind Qdrat-owned contracts with exact provenance and license boundaries.
+14. Qdrat People reaches product excellence before additional suites are allowed to dilute execution focus.
 
-## Product surfaces
+## Qdrat Platform surfaces
+
+### Qdrat Studio
+Custom objects, typed fields, relationships, formulas, forms, tables, kanban, calendars, timelines, graph views, permissions, workflows, reports, dashboards and extension manifests. Studio lets customers model business processes without source forks while core regulated objects remain relational and strongly typed.
+
+### Qdrat Flow and Rules
+Durable workflows coordinate triggers, approvals, human tasks, timers, SLAs, integrations and agent-assisted steps. Deterministic decision rules are versioned, tested and simulated separately from workflow orchestration.
+
+### Qdrat Graph
+Typed relationship projections connect people, positions, teams, skills, projects, documents, assets, policies, access, customers and other business objects. Edges carry provenance (`SYSTEM`, `EXTRACTED`, `INFERRED`) so graph-assisted AI remains inspectable.
+
+### Qdrat Knowledge
+Permission-aware documents, policies, wiki/pages, records, OCR/parsing, full-text search, semantic retrieval, graph traversal, citations, retention and legal holds.
+
+### Qdrat Data
+Custom data, operational dashboards, metrics, reports, cohorts, surveys, event analytics, advanced BI and natural-language analytics under the same permission model.
+
+### Qdrat AI
+A local-first model/tool/agent runtime shared by every suite. Agents are governed views over platform capabilities, not separate chatbots with duplicate permissions or memory.
+
+## Qdrat People product surfaces
 
 ### People Core
 Employee and worker records, legal entities, organizational units, positions, jobs, contracts, lifecycle changes, documents, dependents, emergency contacts, custom fields, employee and manager self-service, org charts, directories, announcements, and acknowledgements.
@@ -52,7 +80,7 @@ Pulse surveys, eNPS, wellbeing, recognition, kudos, communities, employee voice,
 HR helpdesk, cases, confidential cases, grievances, whistleblowing, investigations, knowledge base, SLAs, escalations, templates, service catalog, and evidence packs.
 
 ### Assets, Identity, and Access Lifecycle
-Asset inventory, device assignment, software/access requests, lifecycle triggers from HR changes, LDAP/Active Directory/Keycloak connectors, SCIM, SSO, joiner-mover-leaver workflows, entitlement review, and access recertification.
+Asset inventory, device assignment, software/access requests, lifecycle triggers from HR changes, LDAP/Active Directory/identity-provider connectors, SCIM, SSO, joiner-mover-leaver workflows, entitlement review, and access recertification.
 
 ### Analytics and People Intelligence
 Operational dashboards, custom reports, metric definitions, cohorts, funnels, headcount/turnover, compensation, recruiting, performance, learning, time, payroll, workforce-planning analytics, natural-language analytics, and privacy-preserving aggregate insights.
@@ -72,11 +100,14 @@ Qdrat AI is local by default and is a capability framework, not a single chatbot
 - Compliance Agent: rule checks, deadlines, evidence collection, policy drift, and audit preparation.
 - People Analytics Agent: permission-aware natural-language analytics with aggregate/privacy controls.
 - Career Coach: skill-gap analysis, career-path exploration, mentorship, and learning recommendations.
-- Builder Agent: creates forms, reports, automations, policies, and workflow drafts from natural language; changes require preview/diff/approval before activation.
+- Service Agent: case triage, knowledge-grounded drafts, SLA awareness and approved service actions.
+- Builder Agent: creates forms, objects, reports, automations, policies, rules and workflow drafts from natural language; changes require preview/diff/approval before activation.
 
 ## Differentiators
 
-Qdrat wins by combining capabilities normally split across HRIS, talent, workforce planning, IT lifecycle, service delivery, and AI platforms while keeping customer data under customer control. The product should provide a local AI control plane, position-centric workforce digital twin, skills graph, permission-aware RAG, country packs, programmable workflows, time-travel data, and inspectable automation evidence in one system.
+Qdrat wins by combining capabilities normally split across HRIS, talent, workforce planning, low-code/internal tools, IT lifecycle, service delivery, knowledge, analytics and AI platforms while keeping customer data under customer control.
+
+The defensible moat is not feature count alone. It is the unified company graph, local AI control plane, position-centric workforce digital twin, skills graph, permission-aware retrieval, Qdrat Studio, versioned Flow/Rules, country packs, time-travel data and inspectable automation evidence in one system.
 
 ## Saudi Arabia first-class pack
 
@@ -84,4 +115,4 @@ The first country pack should support Saudi employment structures and configurab
 
 ## Definition of "best"
 
-The product is not considered best because it has the longest feature list. It should measurably reduce HR administrative effort, support trustworthy decisions, provide faster employee self-service, shorten recruiting/onboarding cycles, reduce payroll/compliance errors, expose skills and workforce gaps, survive disconnected deployments, and make every sensitive action explainable and auditable.
+The product is not considered best because it has the longest feature list. It should measurably reduce administrative work, integration friction and SaaS fragmentation; support trustworthy decisions; provide faster employee and manager self-service; shorten recruiting/onboarding cycles; reduce payroll/compliance errors; expose skills and workforce gaps; survive disconnected deployments; let customers extend the platform safely; and make every sensitive action explainable and auditable.
