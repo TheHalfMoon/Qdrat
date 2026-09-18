@@ -16,6 +16,7 @@ Qdrat is intentionally not a bundle of copied applications. External projects ar
 | `COMPANY_OS_STRATEGY.md` | Company OS product hierarchy, unification moat, Studio, Graph, Flow/Rules and suite boundaries |
 | `CAPABILITY_ARCHITECTURE.md` | Detailed platform capability architecture and subsystem boundaries |
 | `DATA_FABRIC.md` | Bring-your-own database/server connector model, source authority, mapping, lineage and Qdrat Bridge |
+| `AUTOMATION_FABRIC.md` | Shared typed execution substrate for Flow, Rules, connectors, skills, enrichment, provider waterfalls, signals, approvals and app surfaces |
 | `ASTRO_MASTER_BRIEF.md` | Canonical planning handoff and required plan outputs for Astro |
 | `ASTRO_PROMPT.md` | Ready-to-run Astro planning directive and required repository artifacts |
 | `ARCHITECTURE.md` | Local-first deployment, canonical domain model, APIs/events, AI, security and service-splitting rules |
