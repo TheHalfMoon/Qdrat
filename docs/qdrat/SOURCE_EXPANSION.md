@@ -59,6 +59,25 @@ Voice is a first-class local interaction mode, not a cloud-only convenience. Pla
 
 Munder Difflin reinforces the need for a supervisor/dispatcher pattern, per-agent identities, durable task ledger, agent mailbox/event routing, shared-but-governed memory, provider abstraction, autonomy levels, approval queues, loop/cost circuit breakers and live observability. Qdrat should implement these semantics through its own principal, Flow, audit and policy contracts rather than copying a desktop-office metaphor as the canonical UX.
 
+
+## Founder-supplied additions — automation, enrichment, skills and context
+
+On 2026-09-18 the founder added the following sources under standing authorization. These sources primarily strengthen Qdrat Automation Fabric, Flow, Studio, Data, Sales/CRM and governed AI.
+
+| Source | Public posture observed during intake | Qdrat value | Initial posture |
+|---|---|---|---|
+| `BraaMohammed/bricks` | Public repo; no root LICENSE observed during intake; separate founder source grant recorded | Local enrichment, autonomous web research, Puppeteer/browser execution, AI/provider waterfalls, formula columns and dual-agent review | `ADAPT_PATTERN` + selective `COPY_COMPONENT` only with exact grant/path provenance |
+| `clay.com` | Commercial product/source; founder states source permission; no public source repository resolved from supplied URL | Benchmark for table-centric enrichment, 200+ provider waterfall model, Claygent research, signals, CRM enrichment, sequencer and GTM workflows | `REFERENCE_ONLY` until exact authorized source package/repo is identified; then qualify paths |
+| `n8n-io/n8n` | Sustainable Use License plus enterprise paths in current public repo | Large connector ecosystem, visual workflow UX, custom code, AI agents, HITL and production workflow operations | `ADAPT_PATTERN`; selective copy only under recorded founder grant and path-level evidence |
+| `activepieces/activepieces` | MIT Community Edition outside commercial enterprise paths | Type-safe Pieces framework, community connector ecosystem, MCP exposure, versioned flows, approvals and network-gapped self-hosting | Strong `COPY_COMPONENT`/`ADAPT_PATTERN` candidate from qualified CE paths |
+| `refly-ai/refly` | ReflyAI license based on Apache-2.0 with additional commercial conditions; separate founder grant recorded | Versioned reusable agent skills, SOP-to-skill compiler, intervenable runtime, API/MCP export and skill registry | `ADAPT_PATTERN`; selective donor with exact grant/path evidence |
+| `Rheosoph/flow-like` | BSL 1.1 public posture; separate founder grant recorded | Typed FlowScript + canvas over one model, Rust execution, run evidence, capability declarations, App/Event model and gVisor execution | `ADAPT_PATTERN`; selective donor with exact grant/path evidence |
+| `livecontext-ai/livecontext-ce` | AGPL-3.0 public posture; separate founder grant recorded | Chat-to-workflow generation, agents + workflows + mini-apps + tables, scoped budgets, audit and offline integration catalog | `ADAPT_PATTERN`; selective donor with exact grant/path evidence |
+| `raghav3600/Altclay` / `openclay.io` | Open-source project resolved from supplied OpenClay site; exact repo license file not observed on current default branch during intake | Browser-local spreadsheet enrichment, BYO provider keys, stateless API, live web research and privacy-first UX | `ADAPT_PATTERN` + selective donor after exact-path qualification |
+| `eigent-ai/eigent` | Apache-2.0; resolved from founder-provided Eigent Clay-alternative reference | Local multi-agent Cowork/workforce, MCP and skills, browser/terminal tools, scheduled automation, local models and model-agnostic runtime | Strong `ADAPT_PATTERN`/`COPY_COMPONENT` candidate |
+
+See `AUTOMATION_FABRIC.md` for the canonical synthesis. These products should not become separate internal clones. Their useful capabilities should converge behind Qdrat-owned Action, Connector, Skill, Run, Signal, Waterfall, Approval and policy contracts.
+
 ## Discovered public sources — Work, project and portfolio management
 
 | Source | Status / observed license | Gap covered | Initial Qdrat posture |
