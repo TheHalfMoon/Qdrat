@@ -64,6 +64,16 @@ Reciprocal/restricted source code is not copied into Qdrat core unless the proje
 | `prometheus/prometheus` | DEPENDENCY/REFERENCE candidate | Apache-2.0 | Optional local metrics/alerting integration profile. |
 | `docling-project/docling` | DEPENDENCY candidate | MIT | Local document parsing/extraction. |
 
+| `BraaMohammed/bricks` | SELECTIVE_DONOR/REFERENCE candidate | Founder standing authorization; no root public LICENSE observed at intake | Local enrichment, browser research/automation, formula columns, provider failover and dual-agent review; require explicit grant/path provenance. |
+| `n8n-io/n8n` | SELECTIVE_DONOR/REFERENCE candidate | Sustainable Use + enterprise boundaries; founder standing authorization | Workflow UX, execution/observability, AI workflow and integration ecosystem patterns; do not treat public license as permissive. |
+| `activepieces/activepieces` | DIRECT/SELECTIVE_DONOR candidate | MIT Community Edition outside enterprise paths + founder standing authorization | Type-safe connector Pieces, MCP exposure, HITL, versioned flows and self-hosting patterns. |
+| `refly-ai/refly` | SELECTIVE_DONOR/REFERENCE candidate | Public ReflyAI license with additional conditions + founder standing authorization | Governed/versioned skills, intervenable runtime, SOP compilation, API/MCP export. |
+| `Rheosoph/flow-like` | SELECTIVE_DONOR/REFERENCE candidate | BSL 1.1 public posture + founder standing authorization | Typed FlowScript/canvas, Rust runtime, run evidence, capability declarations, local/remote execution. |
+| `livecontext-ai/livecontext-ce` | SELECTIVE_DONOR/REFERENCE candidate | AGPL-3.0 public posture + founder standing authorization | Chat-to-workflow, scoped agent budgets, workflow/app/table convergence and integration catalog. |
+| `raghav3600/Altclay` | SELECTIVE_DONOR/REFERENCE candidate | Founder standing authorization; exact public path/license qualification pending | Privacy-first browser-local enrichment, BYO keys, stateless API, web research. |
+| `eigent-ai/eigent` | DIRECT_DONOR/REFERENCE candidate | Apache-2.0 + founder standing authorization | Local multi-agent workforce, MCP/skills, browser/terminal tools, scheduled automation and model portability. |
+| `clay.com` | REFERENCE / AUTHORIZED-SOURCE-PENDING-RESOLUTION | Founder states source-code permission; supplied URL is commercial product site, not a resolved repository | Benchmark provider waterfalls, table UX, signals, Claygent research, sequencing and data-marketplace ergonomics; record exact source package before code intake. |
+
 ## Reference-only examples under current policy
 
 Frappe HRMS, OrangeHRM, Odoo, ZITADEL, Huly, EspoCRM, Listmonk, Documenso, Plane, Paperless-ngx, Mautic, HumHub, Outline, BigCapital, Pretix, Mattermost, Snipe-IT, AppFlowy, Element and other reciprocal/restricted/mixed-license projects in `SOURCE_LANDSCAPE.md` remain architecture/domain/UX references or explicitly isolated-service candidates until a narrower review changes their status.
