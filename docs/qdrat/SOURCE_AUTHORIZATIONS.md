@@ -10,7 +10,7 @@ The Qdrat founder has explicitly stated that Qdrat has permission to copy, use, 
 
 The founder has further directed that this permission is standing authorization and must not be repeatedly questioned or re-requested during ordinary project execution.
 
-Authorization source: founder statements in the project conversation on 2026-09-11.
+Authorization source: founder statements in the project conversation on 2026-09-11, with additional source authorization recorded on 2026-09-18.
 
 Authorization status: `FOUNDER_STANDING_AUTHORIZATION`.
 
@@ -95,6 +95,16 @@ When importing code, record at minimum: source repository, exact commit/tag, sou
 | 65 | https://github.com/opensandbox-group/OpenSandbox | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified dependency/donor candidate; Apache-2.0; secure agent execution, MCP/SDK, network policy, credential vault and strong isolation |
 | 66 | https://github.com/OpenWhispr/openwhispr | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified donor/reference; MIT; local/private dictation, transcription, meetings, voice assistant and MCP patterns |
 | 67 | https://github.com/Starmel/OpenSuperWhisper | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified donor/reference; MIT; local Whisper/Parakeet transcription, hotkeys and macOS voice UX patterns |
+
+| 68 | https://github.com/BraaMohammed/bricks | FOUNDER_STANDING_AUTHORIZATION — full source | Selective donor/reference; local-first enrichment, web research, browser automation, provider waterfalls and outreach workflow patterns; public repo currently has no root LICENSE file, so preserve founder-grant evidence and exact path provenance |
+| 69 | https://www.clay.com | FOUNDER_STANDING_AUTHORIZATION — source access asserted by founder | Commercial capability/source reference for enrichment, provider waterfalls, Claygent-style research, signals, sequencing and GTM orchestration; exact source package/repository must be recorded before any code intake |
+| 70 | https://github.com/n8n-io/n8n | FOUNDER_STANDING_AUTHORIZATION — full source | Selective donor/reference; visual automation, connector/node ecosystem, AI workflows, human approval and observability; public repo uses Sustainable Use / enterprise boundaries, so preserve founder-grant evidence and exact path provenance |
+| 71 | https://github.com/activepieces/activepieces | FOUNDER_STANDING_AUTHORIZATION — full source | Strong selective donor; MIT Community Edition outside enterprise paths; type-safe Pieces/MCP connector framework, human-in-loop and self-hosted automation |
+| 72 | https://github.com/refly-ai/refly | FOUNDER_STANDING_AUTHORIZATION — full source | Selective donor/reference; versioned agent skills, intervenable runtime, SOP-to-skill, MCP/API export and skill registry; public license carries additional commercial restrictions, so preserve founder-grant evidence |
+| 73 | https://github.com/Rheosoph/flow-like | FOUNDER_STANDING_AUTHORIZATION — full source | Selective donor/reference; typed FlowScript + live canvas, local/remote execution, run evidence, capability declarations, Apps/Events and sandboxed execution; public BSL 1.1 posture |
+| 74 | https://github.com/livecontext-ai/livecontext-ce | FOUNDER_STANDING_AUTHORIZATION — full source | Selective donor/reference; chat-to-workflow + agent + app + tables, scoped agent budgets, approvals, integration catalog and self-hosted runtime; public AGPL-3.0 posture |
+| 75 | https://github.com/raghav3600/Altclay | FOUNDER_STANDING_AUTHORIZATION — full source; resolved from https://openclay.io | Selective donor/reference for browser-local spreadsheet enrichment, BYO model keys, stateless enrichment API, live web research and zero-account/privacy-first UX; exact path/license qualification required |
+| 76 | https://github.com/eigent-ai/eigent | FOUNDER_STANDING_AUTHORIZATION — full source; resolved from founder-provided Eigent Clay-alternative reference | Qualified donor/reference; Apache-2.0; local multi-agent workforce, MCP/skills, browser/terminal toolkits, recurring automation and model-agnostic local deployment |
 
 ## Future additions
 
