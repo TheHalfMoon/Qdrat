@@ -1,6 +1,6 @@
 # Qdrat Source Landscape
 
-Verified against the listed public GitHub repositories on 2026-09-11. This document is an engineering intake register, not legal advice. Repository-level licenses can hide directory-level exceptions; file-level provenance remains mandatory before copying code.
+Initially verified against the listed public GitHub repositories on 2026-09-11; source expansion was re-verified for the newly added automation/enrichment sources on 2026-09-18. This document is an engineering intake register, not legal advice. Repository-level licenses can hide directory-level exceptions; file-level provenance remains mandatory before copying code.
 
 ## Expansion note — 2026-09-11
 
@@ -9,6 +9,12 @@ The founder subsequently added `https://github.com/block/buzz` under standing so
 `block/buzz` is Apache-2.0 at the currently researched `main` state and is especially relevant for human/agent principal symmetry, event/audit patterns, agent-first CLI surfaces, collaboration/workflow integration and project memory. Qdrat should adapt these patterns behind Qdrat contracts rather than automatically adopting Nostr as its canonical protocol.
 
 The founder later added `chaitanyagiri/munder-difflin`, `jaredrhod/fullstack-agent`, `opensandbox-group/OpenSandbox`, `OpenWhispr/openwhispr` and `Starmel/OpenSuperWhisper`, and re-confirmed `langflow-ai/openrag`, all under standing source authorization. These additions materially strengthen Qdrat's multi-agent orchestration, secure execution sandbox and local/private voice/transcription design space; see `SOURCE_EXPANSION.md` and `DONOR_REGISTRY.md` for intake posture.
+
+## Expansion note — 2026-09-18
+
+The founder added Bricks, Clay, n8n, Activepieces, Refly, Flow-Like, LiveContext, OpenClay and the Eigent Clay-alternative reference under standing authorization. OpenClay's supplied site resolves to `raghav3600/Altclay`; the Eigent reference resolves to the official `eigent-ai/eigent` repository. `clay.com` is a commercial/source reference with founder-stated source permission, but the supplied public URL does not identify an authorized source-code repository, so exact source-package provenance remains required before code intake.
+
+These additions establish `AUTOMATION_FABRIC.md` as a new canonical architecture document. They strengthen typed workflow execution, connector ecosystems, agent skills, human-in-loop execution, data enrichment, provider waterfalls, signals, browser/web research, mini-app surfaces and local multi-agent automation. Qdrat must synthesize these capabilities behind shared contracts rather than embed separate n8n/Clay-style products.
 
 ## Intake rules
 
