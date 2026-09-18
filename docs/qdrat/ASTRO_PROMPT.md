@@ -54,7 +54,8 @@ Read every document below before finalizing the plan:
 5. `docs/qdrat/COMPANY_OS_STRATEGY.md`
 6. `docs/qdrat/CAPABILITY_ARCHITECTURE.md`
 7. `docs/qdrat/DATA_FABRIC.md`
-8. `docs/qdrat/ARCHITECTURE.md`
+8. `docs/qdrat/AUTOMATION_FABRIC.md`
+9. `docs/qdrat/ARCHITECTURE.md`
 9. `docs/qdrat/UX_NORTH_STAR.md`
 10. `docs/qdrat/EXECUTION_ROADMAP.md`
 11. `docs/qdrat/COMPETITIVE_SUPERSET.md`
@@ -155,7 +156,7 @@ For every non-reference intake, record target Qdrat boundary, exact source versi
 
 For sources in `SOURCE_AUTHORIZATIONS.md`, preserve the standing founder-authorization provenance. For sources in `SOURCE_EXPANSION.md`, record them as discovered public sources and base intake on the exact observed public license/path. Never collapse these provenance classes.
 
-The donor map must explicitly evaluate `block/buzz`, `chaitanyagiri/munder-difflin`, `jaredrhod/fullstack-agent`, `opensandbox-group/OpenSandbox`, `OpenWhispr/openwhispr`, `Starmel/OpenSuperWhisper`, `langflow-ai/openrag`, Chatwoot, LiveHelperChat, Kanboard, OpenProject, GLPI, NetBox, Backstage, Temporal, Flowable, Apache Camel, Debezium, Activepieces, Zulip, Keycloak, Frappe Framework, OpenFGA, OPA, OpenTelemetry Collector, Prometheus and other verified candidates in `SOURCE_EXPANSION.md`; none is automatically selected merely because it appears there.
+The donor map must explicitly evaluate `BraaMohammed/bricks`, `clay.com`, `n8n-io/n8n`, `activepieces/activepieces`, `refly-ai/refly`, `Rheosoph/flow-like`, `livecontext-ai/livecontext-ce`, `raghav3600/Altclay` (OpenClay), `eigent-ai/eigent`, `block/buzz`, `chaitanyagiri/munder-difflin`, `jaredrhod/fullstack-agent`, `opensandbox-group/OpenSandbox`, `OpenWhispr/openwhispr`, `Starmel/OpenSuperWhisper`, `langflow-ai/openrag`, Chatwoot, LiveHelperChat, Kanboard, OpenProject, GLPI, NetBox, Backstage, Temporal, Flowable, Apache Camel, Debezium, Activepieces, Zulip, Keycloak, Frappe Framework, OpenFGA, OPA, OpenTelemetry Collector, Prometheus and other verified candidates in `SOURCE_EXPANSION.md`; none is automatically selected merely because it appears there.
 
 ## Required planning artifacts
 
@@ -178,7 +179,9 @@ Create a planning directory and produce these repository-ready artifacts:
 - `docs/qdrat/plan/13_RISK_REGISTER.md` — technical/product/operational/compliance/source risks and mitigations.
 - `docs/qdrat/plan/14_PHASE_NON_GOALS.md` — explicit non-goals per phase to control scope.
 - `docs/qdrat/plan/15_MASTER_EXECUTION_PLAN.md` — final integrated plan and recommended execution frontier.
-- `docs/qdrat/plan/16_COMPETITIVE_PARITY_AND_SUPERSET.md` — competitor-by-competitor job map for Jira/JSM, Zendesk-class support, ServiceNow-class ITSM/ESM, collaboration and knowledge; mark `PARITY_REQUIRED`, `QDRAT_ADVANTAGE`, `CONNECT_FIRST`, or `INTENTIONAL_NON_GOAL`, with evidence and phase.
+- `docs/qdrat/plan/16_COMPETITIVE_PARITY_AND_SUPERSET.md` — competitor-by-competitor job map for Jira/JSM, Zendesk-class support, ServiceNow-class ITSM/ESM, collaboration, knowledge, workflow automation and Clay-class enrichment; mark `PARITY_REQUIRED`, `QDRAT_ADVANTAGE`, `CONNECT_FIRST`, or `INTENTIONAL_NON_GOAL`, with evidence and phase.
+- `docs/qdrat/plan/17_AUTOMATION_FABRIC_PLAN.md` — typed Action/Connector/Skill/Run/Signal/Waterfall contracts, visual/text authoring, durable execution, HITL, app surfaces, connector ecosystem and local execution.
+- `docs/qdrat/plan/18_ENRICHMENT_RESEARCH_PLAN.md` — object/table enrichment, provider waterfalls, web/browser research, provenance, confidence, budgets, signals, data-use/consent/suppression controls and CRM/Data Fabric synchronization.
 - `docs/qdrat/plan/EXECUTION_GRAPH.yaml` — machine-readable units, dependencies, gates, acceptance evidence, and status vocabulary.
 
 ## Work-unit quality bar
