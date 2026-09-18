@@ -56,17 +56,17 @@ Read every document below before finalizing the plan:
 7. `docs/qdrat/DATA_FABRIC.md`
 8. `docs/qdrat/AUTOMATION_FABRIC.md`
 9. `docs/qdrat/ARCHITECTURE.md`
-9. `docs/qdrat/UX_NORTH_STAR.md`
-10. `docs/qdrat/EXECUTION_ROADMAP.md`
-11. `docs/qdrat/COMPETITIVE_SUPERSET.md`
-12. `docs/qdrat/SOURCE_AUTHORIZATIONS.md`
-13. `docs/qdrat/SOURCE_LANDSCAPE.md`
-14. `docs/qdrat/SOURCE_EXPANSION.md`
-15. `docs/qdrat/DONOR_REGISTRY.md`
-16. `docs/qdrat/REFERENCE_SOURCES.md`
-17. `docs/qdrat/FEATURE_BENCHMARK.md`
-18. `docs/qdrat/UPSTREAM.md`
-19. `docs/qdrat/BASELINE_STATUS.md`
+10. `docs/qdrat/UX_NORTH_STAR.md`
+11. `docs/qdrat/EXECUTION_ROADMAP.md`
+12. `docs/qdrat/COMPETITIVE_SUPERSET.md`
+13. `docs/qdrat/SOURCE_AUTHORIZATIONS.md`
+14. `docs/qdrat/SOURCE_LANDSCAPE.md`
+15. `docs/qdrat/SOURCE_EXPANSION.md`
+16. `docs/qdrat/DONOR_REGISTRY.md`
+17. `docs/qdrat/REFERENCE_SOURCES.md`
+18. `docs/qdrat/FEATURE_BENCHMARK.md`
+19. `docs/qdrat/UPSTREAM.md`
+20. `docs/qdrat/BASELINE_STATUS.md`
 
 Also inspect the actual inherited codebase, not only the planning documents.
 
