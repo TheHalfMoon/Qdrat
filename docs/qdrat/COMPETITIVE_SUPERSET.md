@@ -291,6 +291,35 @@ Primary authorized source study: `opensandbox-group/OpenSandbox`. Multi-agent su
 
 This is a Qdrat advantage over SaaS tools that require company content or agent actions to transit vendor-controlled execution infrastructure.
 
+
+## Better than Zapier / Make / n8n / Clay-class automation
+
+Qdrat should not compete by counting nodes. It should remove the boundary between automation and the company model.
+
+Target capabilities:
+
+- visual typed flows plus code/DSL escape hatches;
+- schedules, webhooks, events, forms, chat and data-change triggers;
+- retries, branches, loops, waits, subflows and compensation;
+- human approvals and editable proposed changes;
+- reusable versioned skills/actions;
+- first-class MCP/tool exposure where appropriate;
+- connector SDK and private connectors;
+- one execution/run ledger with provenance and cost;
+- provider waterfalls and confidence thresholds;
+- table/object enrichment with deterministic and AI columns;
+- web/browser research under explicit policy;
+- signals/watches that trigger reusable plays;
+- agent steps with real principal/scopes/budgets;
+- mini-app/form/dashboard surfaces generated around workflows;
+- local/offline execution profiles.
+
+Clay's current benchmark includes provider waterfalls, AI web research, scheduled/real-time enrichment, signals, CRM enrichment and sequencing. Qdrat should generalize these capabilities beyond GTM: the same enrichment and signal substrate must work for vendors, candidates, contracts, assets, incidents, research and arbitrary Studio objects.
+
+The competitive advantage is that Qdrat automation already understands the same people, customers, services, permissions, policies and audit model as the rest of the Company OS. A workflow does not need a third-party automation service merely to reconnect Qdrat to itself.
+
+See `AUTOMATION_FABRIC.md`.
+
 ## Agent-native Company OS
 
 The strongest long-term differentiator should be that agents are **governed operational principals**.
