@@ -350,6 +350,17 @@ A user should have:
 
 Admin complexity may be deep, but ordinary workflows should be simpler than the specialist products Qdrat replaces.
 
+
+## Automation Fabric
+
+Qdrat needs one shared automation substrate across every suite. Study `AUTOMATION_FABRIC.md` and challenge/improve it.
+
+The design must unify deterministic workflow steps, connectors, versioned agent skills, human approvals, enrichment recipes, provider waterfalls, signals, run evidence and small operational app surfaces. Do not embed independent n8n/Clay-style engines inside CRM, Service, People or Studio.
+
+New founder-authorized studies include Bricks, Clay, n8n, Activepieces, Refly, Flow-Like, LiveContext, OpenClay and Eigent. Extract the strongest patterns while preserving Qdrat-owned semantics and local/privacy invariants.
+
+A core design question for Astro is how `Flow`, `Rules`, `Studio`, `Data Fabric`, `AI` and the new Automation Fabric divide responsibility without duplicating runtimes or authoring models. Resolve this before Muse implementation.
+
 ## Donor/source strategy
 
 The founder has granted standing authorization for the supplied source landscape. Astro must not ask the founder to reconfirm ordinary source-use permission.
