@@ -1,0 +1,127 @@
+{
+  "base_revision": "b4531988f4a32143407c5aa2de4d7090d33e4930",
+  "context_plan_digest": "sha256:814e805dacdf6a792fddd8145622c29c2dc1e5c9e897db33e24ad98a0b36a390",
+  "spec_revision_digest": "sha256:6a3477bd61eda3f9253a03af0b2b688f8ddb3a3546bbc05e6b66abfb51581bcc",
+  "specgrain_source_sha": "5de7d6499bb0a9e3a191fc0934399cf099d1980a",
+  "workpacket": {
+    "acceptance": [
+      "Clean no-cache build",
+      "compose config",
+      "logs bind image digest",
+      "manage.py check",
+      "repeated bootstrap has no migration race"
+    ],
+    "assumptions": [
+      "Docker on the development host can reach the registry and the package index for the build; the install proof itself is hash-verified.",
+      "The accepted head's frozen lock still describes requirements.txt; the lock is frozen and this grain must not change it.",
+      "The image is built and run on linux/amd64, the only platform G0-01 qualified."
+    ],
+    "authorized_change_surface": [
+      "Dockerfile",
+      "docker-compose.prod.yml",
+      "docker-compose.yml",
+      "docker/"
+    ],
+    "context_plan_digest": "sha256:814e805dacdf6a792fddd8145622c29c2dc1e5c9e897db33e24ad98a0b36a390",
+    "context_sources": [
+      {
+        "provenance": "repo:docker-compose.yml",
+        "revision": "git:b4531988f4a32143407c5aa2de4d7090d33e4930",
+        "selection_reason": "Development stack whose image references and bootstrap order this grain pins.",
+        "size_bytes": 3922,
+        "source_id": "compose-dev",
+        "token_cost": 980
+      },
+      {
+        "provenance": "repo:docker-compose.prod.yml",
+        "revision": "git:b4531988f4a32143407c5aa2de4d7090d33e4930",
+        "selection_reason": "Production overlay; carries the other half of the image references.",
+        "size_bytes": 2577,
+        "source_id": "compose-prod",
+        "token_cost": 644
+      },
+      {
+        "provenance": "repo:Dockerfile",
+        "revision": "git:b4531988f4a32143407c5aa2de4d7090d33e4930",
+        "selection_reason": "The image build this grain must make reproducible.",
+        "size_bytes": 5158,
+        "source_id": "dockerfile",
+        "token_cost": 1289
+      },
+      {
+        "provenance": "repo:docker/entrypoint.sh",
+        "revision": "git:b4531988f4a32143407c5aa2de4d7090d33e4930",
+        "selection_reason": "Release tasks (migrate, collectstatic) and their ordering under container start.",
+        "size_bytes": 3847,
+        "source_id": "entrypoint",
+        "token_cost": 961
+      },
+      {
+        "provenance": "repo:docs/qdrat/plan/39_GATE_PLAN.md",
+        "revision": "git:b4531988f4a32143407c5aa2de4d7090d33e4930",
+        "selection_reason": "The G0 exit this grain contributes to, including the CI obligation.",
+        "size_bytes": 13113,
+        "source_id": "gate-plan",
+        "token_cost": 3278
+      },
+      {
+        "provenance": "repo:requirements/locks/linux-amd64-py312.txt",
+        "revision": "git:b4531988f4a32143407c5aa2de4d7090d33e4930",
+        "selection_reason": "The frozen artifact set this image must install from instead of requirements.txt.",
+        "size_bytes": 15740,
+        "source_id": "lock",
+        "token_cost": 3935
+      },
+      {
+        "provenance": "repo:docs/qdrat/plan/35_SUPPLY_CHAIN_PROVENANCE_PLAN.md",
+        "revision": "git:b4531988f4a32143407c5aa2de4d7090d33e4930",
+        "selection_reason": "Normative provenance obligations for image digests and OS package inventory.",
+        "size_bytes": 2516,
+        "source_id": "supply-chain-plan",
+        "token_cost": 629
+      }
+    ],
+    "decisions": [
+      "Install the frozen lock into the image with --require-hashes; the direct spaCy artifact is expressed as name @ url#sha256 taken from the artifact inventory.",
+      "Pin every image reference (Dockerfile stages, postgres, redis, nginx) to a resolved manifest digest.",
+      "Predecessor: SG-000001 at ca5ceb361798ff8ba78a8ac86c47de0bc440058e, accepted head b4531988f4a32143407c5aa2de4d7090d33e4930, receipts sealed at 2d4abc05c4a80e5d9b7a629bac52ed021d8279bb.",
+      "Record the OS package inventory of the built image inside the image and in evidence.",
+      "Serialise the release tasks so two containers starting together cannot run migrations concurrently."
+    ],
+    "dependencies": [
+      "SG-000001"
+    ],
+    "method": "quick",
+    "minimality_evidence": [
+      "Existing entrypoint structure, compose service graph and healthchecks are preserved; only digests, the install source and the release-task serialisation change.",
+      "No new runtime dependency, service or component is added to the stack.",
+      "The base image digest chosen for the Dockerfile is the same digest G0-01 resolved and froze against."
+    ],
+    "outcome": "Build from G0-01 artifacts, pin image digests, record OS package inventory and run empty-database migrations",
+    "packet_digest": "sha256:77d8f54ff0825f8af49cd6d99b8b327b39459b3a24ad18380d5d77ac85fdfa17",
+    "packet_version": 1,
+    "required_evidence": [
+      "accepted-head",
+      "contract-tests",
+      "diffcipline-proof",
+      "independent-review",
+      "recovery-proof",
+      "scope-and-base"
+    ],
+    "risk": {
+      "level": "medium",
+      "recovery": "Before effects: revert bounded code/config change and retain old owner. After schema/data/effects: use the recorded expand-contract reverse/forward repair or verified restore, pause outbound dispatch and reconcile remote outcomes. Never infer rollback from Git alone."
+    },
+    "scope_in": [
+      "Build from G0-01 artifacts, pin image digests, record OS package inventory and run empty-database migrations",
+      "Only supporting migrations, fixtures, tests, documentation and UI needed for this bounded objective."
+    ],
+    "scope_out": [
+      "Changing accepted architecture without a reconciled ADR",
+      "Implementing successor tasks or unrelated suites",
+      "Unrelated dependency upgrades, formatting or legacy rewrites"
+    ],
+    "spec_id": "SG-000002",
+    "spec_revision": "sha256:6a3477bd61eda3f9253a03af0b2b688f8ddb3a3546bbc05e6b66abfb51581bcc"
+  }
+}

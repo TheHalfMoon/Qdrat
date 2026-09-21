@@ -1,0 +1,42 @@
+version = 1
+
+# Task-specific Diffcipline policy for G0-02 / SG-000002: prove a clean image
+# and a PostgreSQL bootstrap from the G0-01 frozen artifacts.
+#
+# Immutable base: a5834978ea87c14f658adc5f9061526055894012 (the acceptance
+# branch, which carries the G0-01 accepted head b4531988f and its receipts).
+# Risk: R2 - the change crosses the image build, the local deployment stack and
+# the container entrypoint, and it changes what the image installs.
+# Recovery: revert this bounded commit. No database, service or production state
+# is touched by the change itself; the compose volumes the proofs create are
+# local to the development host and are removed by the proof script.
+
+[policy]
+max_changed_files = 40
+max_added_lines = 20000
+dependency_manifest_changes = "review"
+lockfile_changes = "review"
+untracked_files = "review"
+# One `key = [...]` per line: Diffcipline's policy parser fails closed otherwise.
+expected_files = [".diffcipline.toml", ".diffcipline/tasks/G0-02.toml", "Dockerfile", "docker/**", "docker-compose.yml", "docker-compose.prod.yml", "evidence/**"]
+# The frozen artifacts, the input requirements and the sealed plan are the
+# predecessor's qualified state: this grain consumes them and must not edit
+# them. The application tree and the workflows stay out of scope too - the CI
+# gap G0-01 recorded is a successor task, not a licence to edit pipelines here.
+forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "requirements/locks/**", "requirements/artifacts/**", "requirements/tests/**", "requirements/tools/**", "docs/qdrat/plan/**"]
+
+[verification]
+# These run on the host and are the deterministic half of the task's acceptance:
+#   * the plan validator and its negative tests, unchanged from the predecessor;
+#   * the frozen-lock contract suite, so this change cannot quietly break the
+#     artifacts it consumes;
+#   * the generator tests for the image requirements file, including every
+#     refusal path;
+#   * the static image contract: every FROM and every compose image reference is
+#     digest-pinned, the pins match docker/image-digests.json, and the Dockerfile
+#     installs the lock rather than requirements.txt.
+# The Docker-dependent half (clean no-cache build, compose config, manage.py
+# check, repeated and concurrent bootstrap, digest binding) is executed and
+# recorded under evidence/g0-02/ because Diffcipline's commands run wherever the
+# gate runs, and the gate host is not assumed to have a container runtime.
+r2_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py", "python -m unittest discover -s requirements/tests -p test_*.py", "python -m unittest discover -s docker/tests -p test_*.py"]

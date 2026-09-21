@@ -1,0 +1,87 @@
+{
+  "schema": "diffcipline.proof/v1",
+  "schema_version": "1.0",
+  "policy": {
+    "mode": "enterprise",
+    "sources": [
+      ".diffcipline/tasks/G0-02.toml",
+      ".diffcipline.toml"
+    ]
+  },
+  "verdict": "PASS",
+  "base": "a5834978ea87c14f658adc5f9061526055894012",
+  "changed_files": 31,
+  "added_lines": 5926,
+  "deleted_lines": 47,
+  "files": [
+    ".diffcipline.toml",
+    ".diffcipline/tasks/G0-02.toml",
+    "Dockerfile",
+    "docker-compose.yml",
+    "docker/README.md",
+    "docker/entrypoint.sh",
+    "docker/image-digests.json",
+    "docker/lock-requirements.py",
+    "docker/release_tasks.py",
+    "docker/tests/test_deployment_contract.py",
+    "docker/tests/test_lock_requirements.py",
+    "evidence/g0-02/README.md",
+    "evidence/g0-02/bootstrap-1-intermediate.log",
+    "evidence/g0-02/bootstrap-2-repeat.log",
+    "evidence/g0-02/bootstrap-proof.json",
+    "evidence/g0-02/build-no-cache-full.log",
+    "evidence/g0-02/build-no-cache.log",
+    "evidence/g0-02/compose-config-dev.log",
+    "evidence/g0-02/compose-config-prod.log",
+    "evidence/g0-02/manage-check.log",
+    "evidence/g0-02/os-packages.txt",
+    "evidence/g0-02/race-after-serialisation-1.log",
+    "evidence/g0-02/race-after-serialisation-2.log",
+    "evidence/g0-02/race-after-serialisation-3.log",
+    "evidence/g0-02/race-before-serialisation-1.log",
+    "evidence/g0-02/race-before-serialisation-2.log",
+    "evidence/g0-02/refinement.json",
+    "evidence/g0-02/specgrain-readiness.json",
+    "evidence/g0-02/tools/refine_sg_000002.py",
+    "evidence/g0-02/workpacket.json",
+    "evidence/jev/G0-02/review-routing.json"
+  ],
+  "reasons": [],
+  "risk": "R2",
+  "expected_files": [
+    ".diffcipline.toml",
+    ".diffcipline/tasks/G0-02.toml",
+    "Dockerfile",
+    "docker/**",
+    "docker-compose.yml",
+    "docker-compose.prod.yml",
+    "evidence/**"
+  ],
+  "forbidden_surfaces": [
+    ".github/workflows/**",
+    "horilla/**",
+    "base/**",
+    "requirements.txt",
+    "requirements/locks/**",
+    "requirements/artifacts/**",
+    "requirements/tests/**",
+    "requirements/tools/**",
+    "docs/qdrat/plan/**"
+  ],
+  "scope_violations": [],
+  "verification": [
+    {"command": "python docs/qdrat/plan/validate_plan.py", "state": "PASS"},
+    {"command": "python docs/qdrat/plan/test_validate_plan.py", "state": "PASS"},
+    {"command": "python -m unittest discover -s requirements/tests -p test_*.py", "state": "PASS"},
+    {"command": "python -m unittest discover -s docker/tests -p test_*.py", "state": "PASS"}
+  ],
+  "tool": {
+    "binary": "C:/Users/Shehr/bin/diffcipline.exe",
+    "sha256": "5fee721d3837ab86f2c36003d02ca67ebac793ff8dadcdb3b7eea074690e57a8",
+    "executed_at_utc": "2026-09-21T20:50:00Z",
+    "head": "3a4e9d2be7d39e4af8bb92cd8b7d9e332d2f1f1a",
+    "environment": "branch working copy, Windows, host interpreter for the verification commands",
+    "worktree_clean_before_run": true,
+    "evidence_only_descendant": false
+  }
+}

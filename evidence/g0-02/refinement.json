@@ -1,0 +1,131 @@
+{
+  "acceptance_preserved": [
+    "Clean no-cache build",
+    "compose config",
+    "manage.py check",
+    "repeated bootstrap has no migration race",
+    "logs bind image digest"
+  ],
+  "acceptance_unchanged_from_frozen": true,
+  "children": [],
+  "frozen_revision_digest": "sha256:7a79e92ce9c9caaf94a193ca6208470bb6027e9289fc09e1671347b061b6accb",
+  "parent": "SG-000001",
+  "predecessor": {
+    "acceptance_receipt_commit": "2d4abc05c4a80e5d9b7a629bac52ed021d8279bb",
+    "accepted_head": "b4531988f4a32143407c5aa2de4d7090d33e4930",
+    "implementation_revision": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+    "parent_revision_digest": "sha256:74cfc1f1663a61d86ba9a3ff8ba6152a118b791a3e5a6116da80d67ae7690fa7"
+  },
+  "refined_node": {
+    "acceptance": [
+      "Clean no-cache build",
+      "compose config",
+      "manage.py check",
+      "repeated bootstrap has no migration race",
+      "logs bind image digest"
+    ],
+    "change_surface": [
+      "Dockerfile",
+      "docker/",
+      "docker-compose.yml",
+      "docker-compose.prod.yml"
+    ],
+    "children": [],
+    "context": {
+      "budget_tokens": 20000,
+      "estimated_tokens": 13000
+    },
+    "dependencies": [
+      "SG-000001"
+    ],
+    "evidence": {
+      "required": [
+        "scope-and-base",
+        "contract-tests",
+        "recovery-proof",
+        "diffcipline-proof",
+        "independent-review",
+        "accepted-head"
+      ]
+    },
+    "id": "SG-000002",
+    "labels": [
+      "G0",
+      "R2"
+    ],
+    "metadata": {
+      "contracts": [
+        "C10"
+      ],
+      "execution_refinement": {
+        "decisions_resolved": [
+          {
+            "frozen_decision": "Execution packet must bind current implementation paths, exact commands and predecessor evidence at the frontier; accepted architecture may not be changed implicitly.",
+            "resolution": "Paths bound at the accepted head: Dockerfile, docker/, docker-compose.yml, docker-compose.prod.yml plus the repository-level Diffcipline policy that currently forbids the Dockerfile; commands bound in evidence/g0-02/workpacket.json; predecessor evidence bound by the acceptance receipt commit named above."
+          },
+          {
+            "decision": "The image installs from requirements/locks/linux-amd64-py312.txt, generated for linux/amd64 CPython 3.12, rather than from requirements.txt.",
+            "reason": "G0-01 froze that target for exactly this base image family and explicitly deferred wiring it into the build to this grain."
+          },
+          {
+            "decision": "The direct-URL spaCy model stays a single direct artifact: the build composes it into a generated requirements file as name @ url#sha256, taken from the artifact inventory rather than repeated in the Dockerfile.",
+            "reason": "One source of truth for the URL and hash; pip verifies it under --require-hashes."
+          }
+        ],
+        "predecessor": {
+          "acceptance_receipt_commit": "2d4abc05c4a80e5d9b7a629bac52ed021d8279bb",
+          "accepted_head": "b4531988f4a32143407c5aa2de4d7090d33e4930",
+          "grain": "SG-000001",
+          "implementation_revision": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e"
+        },
+        "scope_note": "The task's change surface ('Dockerfile', 'docker/', 'docker-compose.yml', 'docker-compose.prod.yml') is preserved. Two bounded additions are required to make that surface provable and are recorded rather than assumed: the repository-level Diffcipline policy must stop forbidding the Dockerfile in an explicit reviewed commit, and the task publishes its own bounded policy."
+      },
+      "readiness": {
+        "minimality": {
+          "choice": "reuse-existing",
+          "rationale": "The image, both compose files and the entrypoint already exist and are qualified by the inherited baseline. This grain changes what the build installs (the frozen lock from SG-000001 instead of requirements.txt) and pins the images it names; it introduces no new service, no new dependency and no new runtime component."
+        },
+        "safety": {
+          "requirements": [
+            "The build installs only hash-verified artifacts from the frozen inventory; no index-resolved or unhashed package reaches the image.",
+            "No secret, credential or production personal data is written into an image layer, a compose file or an evidence record; compose interpolation secrets are supplied through a temporary env file outside the repository.",
+            "Every image reference in the Dockerfile and both compose files is pinned to a resolved manifest digest, so a rebuild cannot silently pick up a different base or service image."
+          ],
+          "status": "requirements-defined"
+        },
+        "unresolved_decisions": [],
+        "version": 1
+      },
+      "task_id": "G0-02",
+      "task_record": "tasks/tasks.json"
+    },
+    "method": "quick",
+    "outcome": "Build from G0-01 artifacts, pin image digests, record OS package inventory and run empty-database migrations",
+    "parent_id": null,
+    "rationale": "The verified inherited baseline does not establish this target contract; prove clean image and postgresql bootstrap must be demonstrated before dependent work.",
+    "risk": {
+      "level": "medium",
+      "recovery": "Before effects: revert bounded code/config change and retain old owner. After schema/data/effects: use the recorded expand-contract reverse/forward repair or verified restore, pause outbound dispatch and reconcile remote outcomes. Never infer rollback from Git alone."
+    },
+    "schema_version": 1,
+    "scope_in": [
+      "Build from G0-01 artifacts, pin image digests, record OS package inventory and run empty-database migrations",
+      "Only supporting migrations, fixtures, tests, documentation and UI needed for this bounded objective."
+    ],
+    "scope_out": [
+      "Implementing successor tasks or unrelated suites",
+      "Unrelated dependency upgrades, formatting or legacy rewrites",
+      "Changing accepted architecture without a reconciled ADR"
+    ],
+    "state": "REFINING",
+    "title": "Prove clean image and PostgreSQL bootstrap"
+  },
+  "refined_revision_digest": "sha256:6a3477bd61eda3f9253a03af0b2b688f8ddb3a3546bbc05e6b66abfb51581bcc",
+  "schema": "qdrat.specgrain-refinement/v1",
+  "scope_in_unchanged_from_frozen": true,
+  "spec_id": "SG-000002",
+  "split_rationale": "The grain stays one leaf: it is a single vertical slice over one deployment surface, and its five acceptance criteria are proved by one build, one compose validation, one migration run on an empty database, a repeated bootstrap and a digest binding. Nothing in it can be proved independently of the others.",
+  "state_after": "REFINING",
+  "state_before": "SHAPED",
+  "task_id": "G0-02"
+}

@@ -1,0 +1,42 @@
+{
+  "candidate_revision_digest": "sha256:6a3477bd61eda3f9253a03af0b2b688f8ddb3a3546bbc05e6b66abfb51581bcc",
+  "context_budget": {
+    "fits": true,
+    "issues": [],
+    "omitted_optional_ids": [
+      "inventory"
+    ],
+    "plan_digest": "sha256:814e805dacdf6a792fddd8145622c29c2dc1e5c9e897db33e24ad98a0b36a390",
+    "required_bytes": 46873,
+    "required_ids": [
+      "compose-dev",
+      "compose-prod",
+      "dockerfile",
+      "entrypoint",
+      "gate-plan",
+      "lock",
+      "supply-chain-plan"
+    ],
+    "required_source_count": 7,
+    "required_tokens": 11716,
+    "selected_bytes": 46873,
+    "selected_ids": [
+      "compose-dev",
+      "compose-prod",
+      "dockerfile",
+      "entrypoint",
+      "gate-plan",
+      "lock",
+      "supply-chain-plan"
+    ],
+    "selected_source_count": 7,
+    "selected_tokens": 11716
+  },
+  "forest_size": 96,
+  "implementation_verified": false,
+  "is_ready": true,
+  "issues": [],
+  "note": "Grain readiness is a specification state: it says the grain is bounded and executable, not that it passed.",
+  "schema": "qdrat.grain-readiness/v1",
+  "spec_id": "SG-000002"
+}

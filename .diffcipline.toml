@@ -47,7 +47,17 @@ dependency_manifest_changes = "review"
 lockfile_changes = "review"
 untracked_files = "review"
 expected_files = []
-forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile", "docs/qdrat/plan/**"]
+# `Dockerfile` was removed from this list by G0-02 / SG-000002, deliberately and
+# in the open. The list is a repository-level guard, so a task policy cannot
+# un-forbid a surface: the entry has to come out here, in a reviewed commit, or
+# the image build can never be changed by an authorised task. G0-02 is that
+# task - its declared change surface is the Dockerfile, docker/ and both compose
+# files, and its own packet (.diffcipline/tasks/G0-02.toml) bounds what it may
+# touch, forbids requirements.txt, the frozen lock and inventory, the sealed
+# plan, the application tree and the workflows, and carries the checks.
+# `requirements.txt` stays forbidden here: this change installs the frozen lock
+# instead of editing the input requirements.
+forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "docs/qdrat/plan/**"]
 
 [verification]
 r1_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py"]

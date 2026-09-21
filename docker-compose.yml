@@ -7,7 +7,15 @@
 
 services:
   web:
-    build: .
+    build:
+      context: .
+      # Build identity baked into the image and logged at startup so a captured
+      # log can be tied to the image digest it came from. Left unset it is
+      # "unknown"; release builds set all three.
+      args:
+        VERSION: ${QDRAT_VERSION:-dev}
+        VCS_REF: ${QDRAT_VCS_REF:-unknown}
+        BUILD_DATE: ${QDRAT_BUILD_DATE:-unknown}
     ports:
       - "8000:8000"
     volumes:
@@ -41,7 +49,12 @@ services:
   # replica: the jobs are not idempotent, so a second copy means a second
   # payslip run and a second backup. Scaling `web` is safe; scaling this is not.
   scheduler:
-    build: .
+    build:
+      context: .
+      args:
+        VERSION: ${QDRAT_VERSION:-dev}
+        VCS_REF: ${QDRAT_VCS_REF:-unknown}
+        BUILD_DATE: ${QDRAT_BUILD_DATE:-unknown}
     command: python manage.py run_scheduler
     volumes:
       - .:/app
@@ -74,7 +87,10 @@ services:
     restart: unless-stopped
 
   db:
-    image: postgres:16-alpine
+    # Digest-pinned: `postgres:16-alpine` is rebuilt upstream, so the same
+    # compose file would otherwise start a different database server on a
+    # different day with nothing in the record saying so.
+    image: postgres:16-alpine@sha256:721873c34ceb9f8d8fc265984940dc982404c105f19ad51be9fdc5970a6080ea
     environment:
       POSTGRES_DB: horilla_db
       POSTGRES_USER: horilla_user
@@ -88,7 +104,8 @@ services:
       retries: 5
 
   redis:
-    image: redis:7-alpine
+    # Digest-pinned; see docker/image-digests.json for the resolved reference.
+    image: redis:7-alpine@sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499
     command: redis-server --appendonly yes --requirepass horilla_pass
     volumes:
       - redis_data:/data
@@ -99,7 +116,8 @@ services:
       retries: 5
 
   nginx:
-    image: nginx:alpine
+    # Digest-pinned; see docker/image-digests.json for the resolved reference.
+    image: nginx:alpine@sha256:62ff2089abf5a9ed33bd232895bef5e22f7bb4b200675cec49a5ebc48e3d4ac8
     ports:
       - "80:80"
     volumes:

@@ -1,0 +1,58 @@
+ Image qdrat-web Building 
+#1 [internal] load local bake definitions
+#1 DONE 0.0s
+#2 [internal] load build definition from Dockerfile
+#2 DONE 0.0s
+#3 [internal] load metadata for docker.io/library/python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9
+#3 DONE 0.1s
+#4 [internal] load .dockerignore
+#4 DONE 0.0s
+#5 [builder 1/7] FROM docker.io/library/python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9
+#6 [internal] load build context
+#6 DONE 0.9s
+#7 [production  2/11] RUN apt-get update     && apt-get install -y --no-install-recommends         libpq5         libjpeg62-turbo         zlib1g         libcairo2         libpango-1.0-0         libgdk-pixbuf-xlib-2.0-0         libxml2         libxslt1.1         libffi8         curl         netcat-openbsd         gettext     && rm -rf /var/lib/apt/lists/*     && apt-get clean
+#8 [builder 2/7] RUN apt-get update     && apt-get install -y --no-install-recommends         build-essential         libpq-dev         libjpeg-dev         zlib1g-dev         libcairo2-dev         libpango1.0-dev         libgdk-pixbuf-xlib-2.0-dev         libxml2-dev         libxslt1-dev         libffi-dev         pkg-config         gcc         g++     && rm -rf /var/lib/apt/lists/*
+#7 [production  2/11] RUN apt-get update     && apt-get install -y --no-install-recommends         libpq5         libjpeg62-turbo         zlib1g         libcairo2         libpango-1.0-0         libgdk-pixbuf-xlib-2.0-0         libxml2         libxslt1.1         libffi8         curl         netcat-openbsd         gettext     && rm -rf /var/lib/apt/lists/*     && apt-get clean
+#8 [builder 2/7] RUN apt-get update     && apt-get install -y --no-install-recommends         build-essential         libpq-dev         libjpeg-dev         zlib1g-dev         libcairo2-dev         libpango1.0-dev         libgdk-pixbuf-xlib-2.0-dev         libxml2-dev         libxslt1-dev         libffi-dev         pkg-config         gcc         g++     && rm -rf /var/lib/apt/lists/*
+#7 [production  2/11] RUN apt-get update     && apt-get install -y --no-install-recommends         libpq5         libjpeg62-turbo         zlib1g         libcairo2         libpango-1.0-0         libgdk-pixbuf-xlib-2.0-0         libxml2         libxslt1.1         libffi8         curl         netcat-openbsd         gettext     && rm -rf /var/lib/apt/lists/*     && apt-get clean
+#8 [builder 2/7] RUN apt-get update     && apt-get install -y --no-install-recommends         build-essential         libpq-dev         libjpeg-dev         zlib1g-dev         libcairo2-dev         libpango1.0-dev         libgdk-pixbuf-xlib-2.0-dev         libxml2-dev         libxslt1-dev         libffi-dev         pkg-config         gcc         g++     && rm -rf /var/lib/apt/lists/*
+#7 [production  2/11] RUN apt-get update     && apt-get install -y --no-install-recommends         libpq5         libjpeg62-turbo         zlib1g         libcairo2         libpango-1.0-0         libgdk-pixbuf-xlib-2.0-0         libxml2         libxslt1.1         libffi8         curl         netcat-openbsd         gettext     && rm -rf /var/lib/apt/lists/*     && apt-get clean
+#7 DONE 30.4s
+#8 [builder 2/7] RUN apt-get update     && apt-get install -y --no-install-recommends         build-essential         libpq-dev         libjpeg-dev         zlib1g-dev         libcairo2-dev         libpango1.0-dev         libgdk-pixbuf-xlib-2.0-dev         libxml2-dev         libxslt1-dev         libffi-dev         pkg-config         gcc         g++     && rm -rf /var/lib/apt/lists/*
+#9 [production  3/11] RUN /usr/local/bin/python -m pip install --no-cache-dir --upgrade         "setuptools>=78.1.1" "msgpack>=1.2.1"
+#9 4.919 Successfully installed msgpack-1.2.2 setuptools-84.0.0
+#9 DONE 5.9s
+#8 [builder 2/7] RUN apt-get update     && apt-get install -y --no-install-recommends         build-essential         libpq-dev         libjpeg-dev         zlib1g-dev         libcairo2-dev         libpango1.0-dev         libgdk-pixbuf-xlib-2.0-dev         libxml2-dev         libxslt1-dev         libffi-dev         pkg-config         gcc         g++     && rm -rf /var/lib/apt/lists/*
+#10 [production  4/11] RUN useradd --create-home --uid 1000 appuser
+#10 DONE 0.3s
+#8 [builder 2/7] RUN apt-get update     && apt-get install -y --no-install-recommends         build-essential         libpq-dev         libjpeg-dev         zlib1g-dev         libcairo2-dev         libpango1.0-dev         libgdk-pixbuf-xlib-2.0-dev         libxml2-dev         libxslt1-dev         libffi-dev         pkg-config         gcc         g++     && rm -rf /var/lib/apt/lists/*
+#8 DONE 59.7s
+#11 [builder 3/7] RUN python -m venv /opt/venv
+#11 DONE 5.2s
+#12 [builder 4/7] COPY requirements/locks/linux-amd64-py312.txt requirements/locks/
+#12 DONE 0.1s
+#13 [builder 5/7] COPY requirements/artifacts/linux-amd64-py312.json requirements/artifacts/
+#13 DONE 0.0s
+#14 [builder 6/7] COPY docker/lock-requirements.py docker/
+#14 DONE 0.0s
+#15 [builder 7/7] RUN python docker/lock-requirements.py         --lock requirements/locks/linux-amd64-py312.txt         --artifacts requirements/artifacts/linux-amd64-py312.json         --out /tmp/requirements.lock.txt     && python -m pip install --no-cache-dir --require-hashes         -r /tmp/requirements.lock.txt     && rm -f /tmp/requirements.lock.txt
+#15 103.0 Successfully installed APScheduler-3.11.3 Django-5.2.17 Jinja2-3.1.6 MarkupSafe-3.0.3 PyJWT-2.13.0 PyYAML-6.0.3 Pygments-2.21.0 RapidFuzz-3.14.6 aiohappyeyeballs-2.7.1 aiohttp-3.14.3 aiosignal-1.4.0 annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 arabic-reshaper-3.0.1 asgiref-3.12.1 asn1crypto-1.5.1 attrs-26.1.0 beautifulsoup4-4.15.0 bleach-6.4.0 blis-1.3.3 catalogue-2.0.10 certifi-2026.7.22 cffi-2.1.1 chardet-7.6.0 charset-normalizer-3.5.1 click-8.5.0 cloudpathlib-0.25.0 confection-1.3.3 coverage-7.16.1 cryptography-50.0.1 cssselect2-0.10.1 cymem-2.0.13 diff-match-patch-20241021 django-apscheduler-0.7.0 django-auditlog-3.4.1 django-axes-8.3.1 django-cors-headers-4.9.0 django-environ-0.14.0 django-filter-26.1 django-import-export-4.4.1 django-ipware-7.0.1 django-mathfilters-1.0.0 django-model-utils-5.0.0 django-redis-5.4.0 django-simple-history-3.13.0 django-storages-1.14.6 django-widget-tweaks-1.5.1 djangorestframework-3.17.2 djangorestframework_simplejwt-5.5.1 drf-yasg-1.21.15 en_core_web_sm-3.8.0 et_xmlfile-2.0.0 frozenlist-1.8.0 future-1.0.0 geographiclib-2.1 geopy-2.5.0 google-api-core-2.38.0 google-api-python-client-2.200.0 google-auth-2.58.0 google-auth-httplib2-0.4.2 google-auth-oauthlib-1.4.1 google-cloud-core-2.7.0 google-cloud-storage-3.0.0 google-crc32c-1.8.0 google-resumable-media-2.10.2 googleapis-common-protos-1.75.3 gunicorn-23.0.0 h11-0.16.0 html5lib-1.1 httpcore-1.0.9 httplib2-0.32.0 httpx-0.28.1 idna-3.20 inflection-0.5.1 lxml-6.1.3 markdown-it-py-4.2.0 mdurl-0.1.2 msgpack-1.2.2 multidict-6.9.0 murmurhash-1.0.15 numpy-2.5.3 oauthlib-3.3.1 openpyxl-3.1.5 opentelemetry-api-1.44.0 oscrypto-1.3.0 packaging-26.3 pandas-3.0.6 pdfkit-1.0.0 phonenumbers-9.0.37 pillow-12.3.0 preshed-3.0.13 propcache-0.5.4 proto-plus-1.28.4 protobuf-7.36.2 psycopg2-binary-2.9.13 pyHanko-0.37.0 pyasn1-0.6.4 pyasn1_modules-0.4.2 pycountry-24.6.1 pycparser-3.0 pydantic-2.13.5 pydantic_core-2.46.5 pyhanko-certvalidator-0.32.1 pymupdf-1.28.2 pyparsing-3.3.3 pypdf-6.19.0 python-bidi-0.6.11 python-dateutil-2.9.0.post0 python-ipware-3.0.0 pytz-2026.3.post1 pyzk-0.9 redis-8.1.0 reportlab-4.0.9 requests-2.34.2 requests-oauthlib-2.0.0 rich-15.0.0 sentry-sdk-2.20.0 setuptools-84.0.0 shellingham-1.5.4 six-1.17.0 smart_open-8.0.1 soupsieve-2.9.2 spacy-3.8.16 spacy-legacy-3.0.12 spacy-loggers-1.0.5 sqlparse-0.6.0 srsly-2.5.3 svglib-1.5.1 swapper-1.5.0 tablib-3.10.0 thinc-8.3.13 tinycss2-1.5.1 tqdm-4.70.1 typer-0.27.2 typing-inspection-0.4.4 typing_extensions-4.16.0 tzlocal-5.4.4 uritemplate-4.2.0 uritools-6.1.3 urllib3-2.8.0 wasabi-1.1.3 weasel-1.0.0 webencodings-0.6.1 whitenoise-6.9.0 wrapt-2.4.1 xhtml2pdf-0.2.17 xlsxwriter-3.2.9 yarl-1.25.1
+#15 DONE 106.5s
+#16 [production  5/11] COPY --from=builder --chown=appuser:appuser /opt/venv /opt/venv
+#16 DONE 13.3s
+#17 [production  6/11] WORKDIR /app
+#17 DONE 0.3s
+#18 [production  7/11] COPY --chown=appuser:appuser . .
+#18 DONE 6.5s
+#19 [production  8/11] RUN find . -name '*.po' -execdir sh -c 'msgfmt "$1" -o "${1%.po}.mo"' _ {} ;
+#19 DONE 1.4s
+#20 [production  9/11] COPY --chown=appuser:appuser docker/entrypoint.sh /entrypoint.sh
+#20 DONE 0.0s
+#21 [production 10/11] RUN chmod +x /entrypoint.sh
+#21 DONE 0.3s
+#22 [production 11/11] RUN mkdir -p staticfiles media     && chown appuser:appuser staticfiles media
+#22 DONE 0.3s
+#23 exporting manifest list sha256:facdac25e17569e3d0b3deab59ba0dd83306b56eba783b8ee7d80332c03edd12 0.0s done
+#23 DONE 56.3s
+#24 DONE 0.1s
+ Image qdrat-web Built 

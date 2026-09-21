@@ -1,0 +1,183 @@
+name: qdrat
+services:
+  db:
+    environment:
+      POSTGRES_DB: horilla_db
+      POSTGRES_PASSWORD: fake-db-password
+      POSTGRES_USER: horilla_user
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U horilla_user -d horilla_db
+      timeout: 5s
+      interval: 5s
+      retries: 5
+    image: postgres:16-alpine@sha256:721873c34ceb9f8d8fc265984940dc982404c105f19ad51be9fdc5970a6080ea
+    networks:
+      default: null
+    volumes:
+      - type: volume
+        source: postgres_data
+        target: /var/lib/postgresql/data
+        volume: {}
+  nginx:
+    depends_on:
+      web:
+        condition: service_healthy
+        required: true
+    image: nginx:alpine@sha256:62ff2089abf5a9ed33bd232895bef5e22f7bb4b200675cec49a5ebc48e3d4ac8
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "80"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: staticfiles
+        target: /static
+        read_only: true
+        volume: {}
+      - type: bind
+        source: C:\Users\Shehr\OneDrive\Documents\ChatGPT\Qdrat\docker\nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+        bind: {}
+  redis:
+    command:
+      - redis-server
+      - --appendonly
+      - 'yes'
+      - --requirepass
+      - fake-redis-password
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - -a
+        - fake-redis-password
+        - ping
+      timeout: 5s
+      interval: 5s
+      retries: 5
+    image: redis:7-alpine@sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499
+    networks:
+      default: null
+    volumes:
+      - type: volume
+        source: redis_data
+        target: /data
+        volume: {}
+  scheduler:
+    build:
+      context: C:\Users\Shehr\OneDrive\Documents\ChatGPT\Qdrat
+      dockerfile: Dockerfile
+      args:
+        BUILD_DATE: unknown
+        VCS_REF: unknown
+        VERSION: dev
+    command:
+      - python
+      - manage.py
+      - run_scheduler
+    depends_on:
+      db:
+        condition: service_healthy
+        required: true
+      redis:
+        condition: service_healthy
+        required: true
+    deploy:
+      replicas: 1
+    environment:
+      ALLOWED_HOSTS: localhost,127.0.0.1
+      CSRF_TRUSTED_ORIGINS: http://localhost:8000
+      DATABASE_URL: postgres://horilla_user:fake-db-password@db:5432/horilla_db
+      DB_HOST: db
+      DB_INIT_PASSWORD: fake-db-init-password
+      DEBUG: "0"
+      HORILLA_ENV: production
+      HORILLA_SKIP_RELEASE_TASKS: "1"
+      POSTGRES_PASSWORD: fake-db-password
+      REDIS_PASSWORD: fake-redis-password
+      REDIS_URL: redis://:fake-redis-password@redis:6379/0
+      SECRET_KEY: fake-secret-for-compose-validation-only-not-a-real-key
+    healthcheck:
+      disable: true
+    networks:
+      default: null
+    restart: unless-stopped
+    volumes:
+      - type: volume
+        source: media
+        target: /app/media
+        volume: {}
+  web:
+    build:
+      context: C:\Users\Shehr\OneDrive\Documents\ChatGPT\Qdrat
+      dockerfile: Dockerfile
+      args:
+        BUILD_DATE: unknown
+        VCS_REF: unknown
+        VERSION: dev
+    depends_on:
+      db:
+        condition: service_healthy
+        required: true
+      redis:
+        condition: service_healthy
+        required: true
+    environment:
+      ALLOWED_HOSTS: localhost,127.0.0.1
+      CSRF_TRUSTED_ORIGINS: http://localhost:8000
+      DATABASE_URL: postgres://horilla_user:fake-db-password@db:5432/horilla_db
+      DB_HOST: db
+      DB_INIT_PASSWORD: fake-db-init-password
+      DEBUG: "0"
+      GUNICORN_LOG_LEVEL: info
+      GUNICORN_WORKERS: ""
+      HORILLA_ENV: production
+      POSTGRES_PASSWORD: fake-db-password
+      REDIS_PASSWORD: fake-redis-password
+      REDIS_URL: redis://:fake-redis-password@redis:6379/0
+      SECRET_KEY: fake-secret-for-compose-validation-only-not-a-real-key
+      SECURE_SSL_REDIRECT: "0"
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://localhost:8000/health/
+      timeout: 30s
+      interval: 30s
+      retries: 3
+      start_period: 1m0s
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8000
+        published: "8000"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: staticfiles
+        target: /app/staticfiles
+        volume: {}
+      - type: volume
+        source: media
+        target: /app/media
+        volume: {}
+networks:
+  default:
+    name: qdrat_default
+volumes:
+  media:
+    name: qdrat_media
+  postgres_data:
+    name: qdrat_postgres_data
+  redis_data:
+    name: qdrat_redis_data
+  staticfiles:
+    name: qdrat_staticfiles
