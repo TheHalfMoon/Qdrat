@@ -1,0 +1,46 @@
+{
+  "schema": "qdrat.plan-transport-seal/v1",
+  "plan_version": "1.0.0",
+  "repository": "TheHalfMoon/Qdrat",
+  "planning_branch": "codex/qdrat-canonical-plan",
+  "plan_content_head": "88a0a456d513677ef82303cab2a5c93a5eb9a9e1",
+  "plan_content_tree": "b1cb544261cb1e2fb648c19f5983e128ee402ac2",
+  "foundation_base": "933f9c1070c151876c1e198d6141413f33e4b6d3",
+  "main_import_base": "e2d288940aab52af881786678b2fc86dfa5c272a",
+  "sealed_at": "2026-09-21T04:24:35.586739+00:00",
+  "content_manifest_sha256": "103b0caaf777839ddb96bd4984bbaefb33a736a6615ba41868ce2e109f57ddbb",
+  "root_policy_sha256": "42783fce9b3c7933e1b75c2c7f6638b4bbb1f8ecb44742362c0606cfe649a2b1",
+  "proofs": {
+    "diffcipline-initial-size-failure.json": "2e173fa7e9c371cdee4b2ae6fd57389bbc70150ec3108653da4c801e5623e56a",
+    "diffcipline-proof.json": "5efe969708c5556ef2dc50ae5a89d9193518fb378a30847a2163c07dab17d2ef",
+    "diffcipline.log": "ed69ef1768987c01fac6f0841ff2ae9920f9e0ba5555234aa3f9de8d4313b9d6",
+    "plan-validation.json": "07ed0510c3429b982285708a9ab8c5926c5c4a9d6147e6f6c397d974c5ef66cc",
+    "planning-checks.json": "644bce0da697e28100e2bb6a48010aa48498f55fca7c5ffb132a2d614ca6d207",
+    "structure-and-specgrain.log": "8d932a70575f9320e4fcfadaf5e220309cf6825e7fc238d41c72efed6abe4a82",
+    "validator-negative-tests.log": "2b9325b58718353423193b2be2ab94241bff52ed1566b297673eca3026de6c1b",
+    "whitespace.log": "db5561a34107ec12bceed724a833e48c6bb671e2aaf041c056979c77f6a8e5ec"
+  },
+  "allowed_seal_delta": [
+    "docs/qdrat/plan/evidence/transport-seal.json",
+    "docs/qdrat/plan/evidence/verification/**",
+    "docs/qdrat/plan/43_MUSE_EXECUTION_HANDOFF.md"
+  ],
+  "handoff_delta_constraint": "Only exact content-head receipt added; architecture, task scope and ordering unchanged.",
+  "containing_commit_binding": "Final PR body and Astro report bind the seal-containing commit; self-reference is intentionally avoided.",
+  "current_gate": "G0",
+  "first_task": "G0-01",
+  "implementation_tasks_verified": 0,
+  "counts": {
+    "founder_repositories": 36,
+    "private_founder_repositories": 7,
+    "authorized_external_sources": 76,
+    "new_sources": 36,
+    "competitor_families": 9,
+    "specnodes": 96,
+    "task_definitions": 96,
+    "initial_readiness_candidates": 1,
+    "gates": 13
+  },
+  "known_material_planning_blockers": [],
+  "founder_decisions_required": []
+}

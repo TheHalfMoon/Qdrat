@@ -4,6 +4,8 @@ Repository: **TheHalfMoon/Qdrat** (`https://github.com/TheHalfMoon/Qdrat.git`). 
 
 ## Exact head and live truth
 
+Frozen plan content head: **88a0a456d513677ef82303cab2a5c93a5eb9a9e1**. Its exact tree is **b1cb544261cb1e2fb648c19f5983e128ee402ac2**. The seal-only descendant adds this receipt and verification artifacts; it changes no task/architecture content. Start from the latest accepted compatible descendant after verifying this binding.
+
 The final transport seal in `evidence/transport-seal.json` records the immutable **plan content head** and tree. Read that exact SHA, verify it exists and that the current planning branch is either that commit or a seal-only descendant. A seal cannot embed the hash of its own containing commit without a hash cycle: the subsequent seal commit contains only evidence/transport-seal.json and the handoff's exact-head receipt. The final PR description and Astro report record that containing commit's exact SHA. Never confuse the content head, seal head, foundation base and default main.
 
 Reverify remote main, foundation branch, plan branch and both PR states before work. If upstream has moved, compare changed contracts and implementation paths; preserve existing changes, create a bounded reconciliation and invalidate affected packets. Do not reset or force-push another author's work. The recorded content head remains the immutable architecture snapshot, while execution starts from the latest accepted compatible head. A material divergence blocks only affected tasks until reconciled.
