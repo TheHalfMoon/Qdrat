@@ -75,6 +75,21 @@ in a fresh session and raised six more findings, three of them substantive:
 Round 2's coverage stayed at 20 of 26 files; the same lock file and contract test
 suite remain excluded from first-class review by OCR's default rules.
 
+Round 3 reviewed the round-2 response as an incremental range
+(`8f630e2...HEAD`) and raised two more findings, one of them critical and both
+correct:
+
+| # | Severity | Finding | Disposition |
+| --- | --- | --- | --- |
+| 1 | critical | `"/$run_dir/"` always contains `//` because `run_dir` starts with `/`, so the canonical-path guard rejected every absolute path - including the one the pipeline uses | fixed: only a trailing slash is appended, so `/` still becomes `//` while `/work/run-a` stays canonical. `run-dir-guard-matrix.log` records the corrected behaviour across all seven bypass forms plus one accepted path |
+| 2 | low | `read_sha256_listing` percent-decoded filesystem names, double-decoding a wheel whose name legitimately contains a `%` sequence | fixed: the listing holds filesystem names, so only the `./` prefix is stripped |
+
+The critical finding is worth stating plainly: the guard that review round 2 asked
+for was written in a way that broke every valid invocation, and the deterministic
+gates did not catch it because acquisition had already run before the guard was
+strengthened. It was found by re-reviewing the response rather than by trusting
+it, which is the argument for reviewing the fix and not only the fix request.
+
 The review also recorded a coverage limitation that is worth carrying forward:
 OCR's default rules excluded `requirements/locks/linux-amd64-py312.txt` and
 `requirements/tests/test_lock_contract.py` from first-class review, which are the

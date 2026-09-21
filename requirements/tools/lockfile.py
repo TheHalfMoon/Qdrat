@@ -133,8 +133,10 @@ def read_sha256_listing(path: Path) -> dict[str, str]:
         fields = line.split(None, 1)
         if len(fields) != 2 or not re.fullmatch(r"[0-9a-f]{64}", fields[0]):
             raise ToolError(f"{path}:{number} is not a sha256sum line: {raw!r}")
-        name = fields[1].strip().lstrip("*")
-        name = Path(unquote(name)).name
+        # These are filesystem names produced by sha256sum, not URLs, so they are
+        # deliberately not percent-decoded: decoding a literal '%' sequence would
+        # turn a real name into a different one and break the comparison.
+        name = Path(fields[1].strip().lstrip("*")).name
         if not name or name in {".", ".."}:
             raise ToolError(f"{path}:{number} does not name a file: {raw!r}")
         if name in listing:

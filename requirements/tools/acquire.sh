@@ -29,8 +29,11 @@ case "$run_dir" in
     /*) ;;
     *) echo "acquire: run_dir must be an absolute path, got '$run_dir'" >&2; exit 2 ;;
 esac
-case "/$run_dir/" in
-    *//* | */./* | */../* | */. | */..)
+# Only a trailing slash is appended: prefixing one as well would make every
+# absolute path contain "//" and reject all valid input. With "/" appended, the
+# root case "/" becomes "//" and is still caught.
+case "${run_dir}/" in
+    *//* | */./* | */../*)
         echo "acquire: run_dir must be a canonical path without '.' or '..', got '$run_dir'" >&2
         exit 2
         ;;
