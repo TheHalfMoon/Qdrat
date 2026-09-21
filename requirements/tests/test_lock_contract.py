@@ -151,12 +151,12 @@ class FrozenArtifactTests(unittest.TestCase):
     def test_input_is_bound_by_hash(self):
         requirements = REPO_ROOT / "requirements.txt"
         self.assertEqual(
-            self.artifacts["input"]["sha256"], sha256_bytes(requirements.read_bytes())
+            self.artifacts["input"]["sha256"], lockfile.sha256_text_file(requirements)
         )
 
     def test_lock_file_hash_matches_the_inventory(self):
         self.assertEqual(
-            self.artifacts["lock"]["sha256"], sha256_bytes(self.lock_path.read_bytes())
+            self.artifacts["lock"]["sha256"], lockfile.sha256_text_file(self.lock_path)
         )
 
     def test_only_the_single_qualified_target_is_declared(self):
@@ -360,6 +360,10 @@ class InstalledInventoryTests(unittest.TestCase):
                     "schema": lockfile.ARTIFACTS_SCHEMA,
                     "target": LOCK_NAME,
                     "supported_targets": [LOCK_NAME],
+                    "lock": {
+                        "path": lock.name,
+                        "sha256": lockfile.sha256_text_file(lock),
+                    },
                     "distributions": [
                         {"name": "demo", "version": "1.0", "sha256": "a" * 64},
                         {"name": "other", "version": "2.0", "sha256": "b" * 64},
@@ -444,6 +448,10 @@ class BuildBootstrapTests(unittest.TestCase):
                     "schema": lockfile.ARTIFACTS_SCHEMA,
                     "target": LOCK_NAME,
                     "supported_targets": [LOCK_NAME],
+                    "lock": {
+                        "path": lock.name,
+                        "sha256": lockfile.sha256_text_file(lock),
+                    },
                     "bootstrap": [
                         {
                             "name": "wheel",
@@ -539,6 +547,10 @@ class PathSafetyTests(unittest.TestCase):
                     "schema": lockfile.ARTIFACTS_SCHEMA,
                     "target": LOCK_NAME,
                     "supported_targets": [LOCK_NAME],
+                    "lock": {
+                        "path": lock.name,
+                        "sha256": lockfile.sha256_text_file(lock),
+                    },
                     "distributions": [
                         {"name": "demo", "version": "1.0", "filename": "../outside.whl",
                          "sha256": "a" * 64}
@@ -587,6 +599,10 @@ class CommittedListingTests(unittest.TestCase):
                     "schema": lockfile.ARTIFACTS_SCHEMA,
                     "target": LOCK_NAME,
                     "supported_targets": [LOCK_NAME],
+                    "lock": {
+                        "path": lock.name,
+                        "sha256": lockfile.sha256_text_file(lock),
+                    },
                     "distributions": [
                         {
                             "name": "demo",
@@ -686,6 +702,94 @@ class CommittedListingTests(unittest.TestCase):
         self.assertEqual(code, 3)
         self.assertIn("duplicate distribution", message)
         self.assertFalse((project.root / "lock.txt").exists())
+
+
+class CheckoutIndependenceTests(unittest.TestCase):
+    """A frozen digest must describe the artifact in the repository.
+
+    The first frozen lock recorded the sha256 of the file as it sat on the
+    Windows machine that generated it - CRLF - while the committed object was
+    LF, because `.gitattributes` pins `*.txt text eol=lf`. Every check that
+    re-derived the digest from a fresh checkout therefore failed, and the two
+    representations differ only in line endings that git normalises anyway.
+    These tests pin the corrected contract.
+    """
+
+    def _resolution(self, project, entries):
+        wheelhouse, report = project.wheelhouse(entries)
+        out = project.root / "resolution.json"
+        code, message = run_cli(
+            [
+                "resolve",
+                "--wheelhouse",
+                str(wheelhouse),
+                "--report",
+                str(report),
+                "--out",
+                str(out),
+            ]
+        )
+        self.assertEqual(code, 0, message)
+        return out
+
+    def test_text_digest_ignores_the_line_separator_convention(self):
+        project = TempProject(self)
+        body = ("demo==1.0 --hash=sha256:" + "a" * 64).encode()
+        lf = project.root / "lock-lf.txt"
+        lf.write_bytes(body + b"\n")
+        crlf = project.root / "lock-crlf.txt"
+        crlf.write_bytes(body + b"\r\n")
+        self.assertNotEqual(sha256_bytes(lf.read_bytes()), sha256_bytes(crlf.read_bytes()))
+        self.assertEqual(
+            lockfile.sha256_text_file(lf), lockfile.sha256_text_file(crlf)
+        )
+
+    def test_build_writes_lf_and_records_the_canonical_digest(self):
+        project = TempProject(self)
+        entries = [("Demo", "1.0", "demo-1.0-py3-none-any.whl", b"demo")]
+        first = self._resolution(project, entries)
+        second = self._resolution(project, entries)
+        code, message = run_cli(build_argv(project.root, first, second))
+        self.assertEqual(code, 0, message)
+        lock_path = project.root / "lock.txt"
+        self.assertNotIn(b"\r", lock_path.read_bytes())
+        artifacts = json.loads(
+            (project.root / "artifacts.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            artifacts["lock"]["sha256"], lockfile.sha256_text_file(lock_path)
+        )
+        self.assertEqual(artifacts["lock"]["sha256"], sha256_bytes(lock_path.read_bytes()))
+
+    def test_verify_refuses_a_lock_that_no_longer_matches_its_record(self):
+        lock, artifacts, root = InstalledInventoryTests._fixture(self)
+        installed = root / "installed.json"
+        installed.write_text(
+            json.dumps(
+                [{"name": "demo", "version": "1.0"}, {"name": "other", "version": "2.0"}]
+            ),
+            encoding="utf-8",
+        )
+        drifted = json.loads(artifacts.read_text(encoding="utf-8"))
+        drifted["lock"]["sha256"] = "f" * 64
+        artifacts.write_text(json.dumps(drifted), encoding="utf-8")
+        code, message = InstalledInventoryTests._verify(self, lock, artifacts, installed)
+        self.assertEqual(code, 3)
+        self.assertIn("does not match the digest recorded in the inventory", message)
+
+    def test_verify_refuses_an_inventory_without_a_lock_digest(self):
+        lock, artifacts, root = InstalledInventoryTests._fixture(self)
+        installed = root / "installed.json"
+        installed.write_text(
+            json.dumps([{"name": "demo", "version": "1.0"}, {"name": "other", "version": "2.0"}]),
+            encoding="utf-8",
+        )
+        without_record = json.loads(artifacts.read_text(encoding="utf-8"))
+        without_record.pop("lock")
+        artifacts.write_text(json.dumps(without_record), encoding="utf-8")
+        code, message = InstalledInventoryTests._verify(self, lock, artifacts, installed)
+        self.assertEqual(code, 3)
+        self.assertIn("must record the frozen lock digest", message)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,77 @@
+{
+  "schema": "qdrat.artifact-defect-repair/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "finding_id": "RV-07",
+  "recorded_at_utc": "2026-09-21T18:55:00Z",
+  "severity": "high",
+  "state": "REPAIRED_FORWARD",
+  "summary": "The digest the frozen lock records for itself was computed over the generating Windows working copy (CRLF) instead of the committed artifact (LF), so the G0-01 contract suite fails from any fresh checkout of the accepted revision.",
+  "discovery": {
+    "how": "The founder-conditional acceptance reverification requires the predecessor evidence to reproduce from the repository, not from a working tree. Every deterministic check was therefore re-run in a detached worktree created at the accepted revision.",
+    "worktree": "git worktree add --detach <temporary-directory> ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+    "observed_head": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+    "observed_tree": "0dcc5fc5d851a37bcbbc4644b99608dd73e5db51",
+    "worktree_clean": true
+  },
+  "reproduction": {
+    "command": "python -m unittest discover -s requirements/tests -p \"test_*.py\" -v",
+    "environment": "clean checkout of the accepted revision, CPython 3.12.14, Windows",
+    "observed": "Ran 29 tests; FAILED (failures=1). test_lock_contract.FrozenArtifactTests.test_lock_file_hash_matches_the_inventory raised AssertionError: 'e951f4c14695579b7a1b3ce1ba9188c857decab4f8ffbeff8a7db5ba3580c000' != '6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b'",
+    "same_suite_in_the_generating_working_copy": "Ran 29 tests; OK. The two runs differ only in the line endings of the checked-out lock file, which is why the defect survived G0-01: the freeze and the suite ran in the same working tree that produced the record."
+  },
+  "evidence_of_the_mechanism": {
+    "committed_lock_object": "LF, 166 lines, sha256 6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b (identical bytes in the sealed worktree and in the committed blob)",
+    "generating_working_copy": "CRLF, 166 lines, sha256 e951f4c14695579b7a1b3ce1ba9188c857decab4f8ffbeff8a7db5ba3580c000, which is exactly the value recorded in requirements/artifacts/linux-amd64-py312.json before this repair",
+    "root_cause": "requirements/tools/lockfile.py wrote generated text with Path.write_text, which translates \\n to the host line separator, and hashed text artifacts with sha256_file over the raw bytes. .gitattributes pins *.txt text eol=lf, so the object store held LF while the generating host held CRLF: the recorded digest described a machine, not the artifact.",
+    "second_instance_of_the_same_class": "evidence/g0-01/README.md records requirements/artifacts/linux-amd64-py312.json as sha256 ffef04fc92a67198de0715397d8a6a3f76e5433070db0613dbb7d04703bb502d. The committed blob hashes to 8c116f56d8f3e53b1edc56d499578f840bad58852cff9d7981950425613d7b72; ffef04fc is that blob with CRLF line endings. No test covers it, so it was never caught.",
+    "same_class_records_in_the_sealed_reverification": "evidence/g0-01/reverification.json repeats e951f4c1 and ffef04fc in its sealed-artifact-digests check. Both are preserved as recorded history rather than rewritten; this file supersedes them."
+  },
+  "blast_radius": {
+    "invalidated": [
+      "The G0-01 contract-tests receipt, to the extent it claimed the 29-test suite reproduces from the repository: it reproduces only in the working tree that generated the record.",
+      "requirements/artifacts/linux-amd64-py312.json lock.sha256, which bound the CRLF bytes."
+    ],
+    "not_invalidated": [
+      "The two isolated resolutions and their agreement: neither resolution record contains the lock digest, and both resolution files are unchanged.",
+      "The offline install proof, pip check and the 149/149 artifact hashes: every artifact hash in the inventory is a wheel or sdist byte hash and is unchanged.",
+      "The lock's own content: all 149 pinned, hashed requirement lines are byte-identical after this repair.",
+      "The independent review of the lockfile.py guard logic in rounds 2-4: those findings are about authorisation and path handling, which this repair does not touch. The review still has to be re-run for this delta, and that is recorded in evidence/g0-01/execution-acceptance-reverification.json."
+    ]
+  },
+  "repair": {
+    "files": [
+      "requirements/tools/lockfile.py",
+      "requirements/tests/test_lock_contract.py",
+      "requirements/artifacts/linux-amd64-py312.json"
+    ],
+    "tooling": [
+      "canonical_text_bytes()/sha256_text_file(): a generated text artifact is hashed with CRLF normalised to LF, so the digest describes the bytes git stores on every platform.",
+      "write_text_lf(): generated text artifacts (the lock and every inventory written by write_json) are written with LF on every platform, removing the source of the divergence.",
+      "build now hashes the input requirements file and the lock with sha256_text_file instead of sha256_file.",
+      "verify now reconciles the recorded lock digest against the lock it is given. The gate that runs on every change previously compared the lock's contents to the inventory but never the lock's bytes to their record, which is why only a unit test stood between this defect and the gate."
+    ],
+    "record_correction": {
+      "path": "requirements/artifacts/linux-amd64-py312.json",
+      "field": "lock.sha256",
+      "before": "e951f4c14695579b7a1b3ce1ba9188c857decab4f8ffbeff8a7db5ba3580c000",
+      "after": "6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b"
+    },
+    "tests": [
+      "test_text_digest_ignores_the_line_separator_convention: proves the two byte sequences differ and canonicalise to the same digest.",
+      "test_build_writes_lf_and_records_the_canonical_digest: drives the real build command and asserts the emitted lock contains no CR byte and that the recorded digest equals both the canonical and the raw digest of that file (they coincide once the writer is platform-independent).",
+      "test_verify_refuses_a_lock_that_no_longer_matches_its_record and test_verify_refuses_an_inventory_without_a_lock_digest: prove the new gate comparison refuses drift in both directions."
+    ]
+  },
+  "verification_after_repair": {
+    "lock_contract_suite": "Ran 33 tests; OK (29 pre-existing plus 4 regression tests) in the repair working copy; the clean-checkout run at the repair commit is recorded in evidence/g0-01/execution-acceptance-reverification.json.",
+    "lock_reconciliation": "lockfile.py verify ... --sha256-listing evidence/g0-01/wheelhouse-a.sha256 reports status PASS with lock_digest 6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b, distributions 149, installed 150, verified_listing_entries 149.",
+    "plan_validator": "docs/qdrat/plan/validate_plan.py with the pinned SpecGrain checkout still reports PASS; this repair touches no plan file.",
+    "lock_content_unchanged": "requirements/locks/linux-amd64-py312.txt is byte-identical before and after this repair."
+  },
+  "residual_risks": [
+    "The sealed G0-01 evidence still contains the two superseded digests quoted above. They are preserved deliberately: rewriting a sealed record would hide that the defect existed and how it was found.",
+    "Canonical text hashing treats LF and CRLF as the same artifact. That is the repository's own convention (.gitattributes pinning eol=lf) and the content itself is still bound byte for byte; only the line separator is not.",
+    "Any other evidence record that quotes a digest of a tool-generated text artifact computed before this repair carries the same staleness. The acceptance reverification lists the ones that exist today."
+  ]
+}
