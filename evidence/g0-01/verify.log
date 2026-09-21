@@ -1,0 +1,1 @@
+{"target": "linux-amd64-py312", "distributions": 149, "installed": 150, "excluded_tool_distributions": ["pip"], "status": "PASS"}

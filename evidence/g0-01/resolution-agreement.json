@@ -1,0 +1,55 @@
+{
+  "schema": "qdrat.resolution-agreement/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "target": "linux-amd64-py312",
+  "resolutions": [
+    {
+      "id": "A",
+      "container": "qdrat-g0-01-a",
+      "resolution_sha256": "c85f76b77aa03c232e1dbcd94b1cb4e567a71ddd38530720b4003a3d0f607b73",
+      "pip_report_sha256": "3f93341035cdfd2d4c41270662a3e760ead211060a5556d396802be7ad9e438b",
+      "wheelhouse_listing_sha256": "c7146fbcf29f64f115e683e044e63be912b564e3ce05ed0b76cf10dc7c32e51d"
+    },
+    {
+      "id": "B",
+      "container": "qdrat-g0-01-b",
+      "resolution_sha256": "c85f76b77aa03c232e1dbcd94b1cb4e567a71ddd38530720b4003a3d0f607b73",
+      "pip_report_sha256": "3f93341035cdfd2d4c41270662a3e760ead211060a5556d396802be7ad9e438b",
+      "wheelhouse_listing_sha256": "c7146fbcf29f64f115e683e044e63be912b564e3ce05ed0b76cf10dc7c32e51d"
+    }
+  ],
+  "agreement": {
+    "identical": true,
+    "basis": "Two independent single-use containers, each with --no-cache-dir, produced byte-identical normalized resolutions, byte-identical pip resolution reports and byte-identical artifact byte-hash listings.",
+    "normalization_command": "python requirements/tools/lockfile.py resolve --wheelhouse <run>/wheelhouse --report <run>/report.json --out <run>/resolution.json",
+    "comparison_command": "Get-FileHash -Algorithm SHA256 evidence/g0-01/resolution-a.json,evidence/g0-01/resolution-b.json"
+  },
+  "counts": {
+    "distributions": 149,
+    "wheels": 147,
+    "sdists": 2,
+    "direct_url": 1
+  },
+  "sdist_only_distributions": [
+    {
+      "name": "pyzk",
+      "version": "0.9",
+      "filename": "pyzk-0.9.tar.gz",
+      "sha256": "9dcf0d40e0473c752d04d0af389fdd71ce85a0a9609bb8aca562be9171248170"
+    },
+    {
+      "name": "svglib",
+      "version": "1.5.1",
+      "filename": "svglib-1.5.1.tar.gz",
+      "sha256": "3ae765d3a9409ee60c0fb4d24c2deb6a80617aa927054f5bcd7fc98f0695e587"
+    }
+  ],
+  "direct_url_distribution": {
+    "name": "en_core_web_sm",
+    "version": "3.8.0",
+    "url": "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
+    "filename": "en_core_web_sm-3.8.0-py3-none-any.whl",
+    "sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85"
+  }
+}

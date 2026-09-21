@@ -1,0 +1,52 @@
+{
+  "schema": "qdrat.jev-decision/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "checkpoint": "E - review triage",
+  "decision_type": "choice",
+  "question": "What review routing does this dependency-freeze change require after its own deterministic evidence and Diffcipline proof?",
+  "allowed_values": [
+    "auto_continue",
+    "independent_review",
+    "specialist_review",
+    "other"
+  ],
+  "selected_value": "independent_review",
+  "confidence": 0.98,
+  "probabilities": {
+    "auto_continue": 0.0,
+    "independent_review": 0.99,
+    "specialist_review": 0.01,
+    "other": 0.0
+  },
+  "input_evidence": {
+    "declared_risk": "R2 (docs/qdrat/plan/EXECUTION_GRAPH.yaml tasks[G0-01].risk)",
+    "behavior_change": "none; requirements.txt, Dockerfile, docker/ and all application code unchanged",
+    "evidence_produced": "evidence/g0-01/contract-tests.log, install.log, pip-check.log, verify.log, resolution-agreement.json",
+    "downstream_fanout": "the frozen lock is consumed by the later image-build task"
+  },
+  "timestamp_utc": "2026-09-21T16:25:24Z",
+  "tool": {
+    "cli": "jev 0.3.2",
+    "model": "jev-1.13.0",
+    "provider": "typesafe"
+  },
+  "resulting_deterministic_action": "Independent exact-revision review is required before G0-01 can be accepted. Jev did not downgrade the canonical R2 obligation and did not itself serve as the reviewer.",
+  "raw_response": {
+    "model": "jev-1.13.0",
+    "id": null,
+    "provider": "typesafe",
+    "answer": {
+      "type": "choice",
+      "choice": "independent_review",
+      "confidence": 0.98,
+      "probabilities": {
+        "specialist_review": 0.01,
+        "other": 0.0,
+        "independent_review": 0.99,
+        "auto_continue": 0.0
+      }
+    },
+    "usage": {"input_tokens": 612, "output_tokens": 54}
+  }
+}

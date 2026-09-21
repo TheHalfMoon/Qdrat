@@ -1,0 +1,102 @@
+{
+  "specgrain_source_sha": "5de7d6499bb0a9e3a191fc0934399cf099d1980a",
+  "spec_revision_digest": "sha256:74cfc1f1663a61d86ba9a3ff8ba6152a118b791a3e5a6116da80d67ae7690fa7",
+  "context_plan_digest": "sha256:aa3fed9e58c21179adb7e49896482e3c3f9d78a47da6c484fec16d24556aa099",
+  "workpacket": {
+    "acceptance": [
+      "Two isolated resolutions agree",
+      "offline wheel installation succeeds with --require-hashes",
+      "pip check passes",
+      "unsupported platforms are explicitly rejected"
+    ],
+    "assumptions": [
+      "The Dockerfile base python:3.12-slim is the platform this lock is qualified for; no other platform is claimed."
+    ],
+    "authorized_change_surface": [
+      "Dockerfile",
+      "docker/",
+      "requirements.txt",
+      "requirements/"
+    ],
+    "context_plan_digest": "sha256:aa3fed9e58c21179adb7e49896482e3c3f9d78a47da6c484fec16d24556aa099",
+    "context_sources": [
+      {
+        "provenance": "repo:docs/qdrat/plan/CONTRACTS.md",
+        "revision": "git:144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+        "selection_reason": "C10 pack/release/migration contract governing the release manifest.",
+        "size_bytes": 10804,
+        "source_id": "contracts-c10",
+        "token_cost": 2675
+      },
+      {
+        "provenance": "repo:Dockerfile",
+        "revision": "git:144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+        "selection_reason": "Binds the python:3.12-slim base family the resolver image must match.",
+        "size_bytes": 5158,
+        "source_id": "dockerfile-base",
+        "token_cost": 1255
+      },
+      {
+        "provenance": "repo:requirements.txt",
+        "revision": "git:144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+        "selection_reason": "Unchanged application dependency intent that this lock must preserve.",
+        "size_bytes": 6220,
+        "source_id": "requirements-input",
+        "token_cost": 1555
+      },
+      {
+        "provenance": "repo:docs/qdrat/plan/35_SUPPLY_CHAIN_PROVENANCE_PLAN.md",
+        "revision": "git:144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+        "selection_reason": "Normative provenance and artifact-hash obligations for frozen dependencies.",
+        "size_bytes": 2516,
+        "source_id": "supply-chain-plan",
+        "token_cost": 624
+      },
+      {
+        "provenance": "repo:docs/qdrat/plan/32_TEST_STRATEGY.md",
+        "revision": "git:144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+        "selection_reason": "Determines which assertions count as contract evidence for this task.",
+        "size_bytes": 2544,
+        "source_id": "test-strategy",
+        "token_cost": 632
+      }
+    ],
+    "decisions": [
+      "Resolver is the pinned interpreter pip 25.0.1 inside python@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9; no second resolver was added.",
+      "en_core_web_sm stays a direct-URL wheel in requirements.txt; the lock installs it by name from the recorded artifact hash.",
+      "pyzk==0.9 and svglib==1.5.1 have no upstream wheel, so they stay hash-bound sdists and are built offline with the pinned wheel==0.47.0 backend."
+    ],
+    "dependencies": [],
+    "method": "quick",
+    "minimality_evidence": [
+      "Added no runtime dependency to requirements.txt; the lock only restates the existing resolution.",
+      "Reused the pinned interpreter and its pip instead of introducing pip-tools or a second resolver."
+    ],
+    "outcome": "Generate a complete transitive hash lock and wheel manifest without changing application behavior; bind the direct spaCy model artifact and installer/bootstrap versions",
+    "packet_version": 1,
+    "required_evidence": [
+      "accepted-head",
+      "contract-tests",
+      "diffcipline-proof",
+      "independent-review",
+      "recovery-proof",
+      "scope-and-base"
+    ],
+    "risk": {
+      "level": "medium",
+      "recovery": "Discard generated candidate locks/wheelhouse; preserve unchanged input requirements and base image. No database or production effect occurs. If a tracked lock was published, revert only that bounded artifact commit and its build reference."
+    },
+    "scope_in": [
+      "Generate a complete transitive hash lock and wheel manifest without changing application behavior; bind the direct spaCy model artifact and installer/bootstrap versions",
+      "Only supporting migrations, fixtures, tests, documentation and UI needed for this bounded objective."
+    ],
+    "scope_out": [
+      "Changing accepted architecture without a reconciled ADR",
+      "Implementing successor tasks or unrelated suites",
+      "Unrelated dependency upgrades, formatting or legacy rewrites"
+    ],
+    "spec_id": "SG-000001",
+    "spec_revision": "sha256:74cfc1f1663a61d86ba9a3ff8ba6152a118b791a3e5a6116da80d67ae7690fa7",
+    "packet_digest": "sha256:11e8eae1838105007e7c6266735e2d39250142ca7692026dc53bd35770eb207d"
+  }
+}

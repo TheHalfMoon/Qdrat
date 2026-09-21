@@ -1,0 +1,60 @@
+{
+  "schema": "qdrat.jev-decision/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "checkpoint": "B - scope drift",
+  "decision_type": "choice",
+  "question": "Do the actual changed paths stay inside the scope declared for task G0-01, with no change to application behavior?",
+  "allowed_values": [
+    "in_scope",
+    "possible_scope_drift",
+    "clear_scope_violation",
+    "other"
+  ],
+  "selected_value": "in_scope",
+  "confidence": 0.99,
+  "probabilities": {
+    "in_scope": 1.0,
+    "possible_scope_drift": 0.0,
+    "clear_scope_violation": 0.0,
+    "other": 0.0
+  },
+  "input_evidence": {
+    "declared_scope": "docs/qdrat/plan/tasks/tasks.json tasks[G0-01].scope",
+    "declared_paths": "evidence/g0-01/workpacket.json workpacket.authorized_change_surface",
+    "actual_changed_paths": "git diff --name-only 144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+    "not_changed": [
+      "requirements.txt",
+      "Dockerfile",
+      "docker/**",
+      "horilla/**",
+      ".github/workflows/**",
+      "base/**",
+      "docs/qdrat/plan/**"
+    ]
+  },
+  "timestamp_utc": "2026-09-21T16:25:24Z",
+  "tool": {
+    "cli": "jev 0.3.2",
+    "model": "jev-1.13.0",
+    "provider": "typesafe"
+  },
+  "resulting_deterministic_action": "No manual scope re-inspection required; Diffcipline remains the authoritative scope verdict for this change.",
+  "raw_response": {
+    "model": "jev-1.13.0",
+    "id": null,
+    "provider": "typesafe",
+    "answer": {
+      "type": "choice",
+      "choice": "in_scope",
+      "confidence": 0.99,
+      "probabilities": {
+        "clear_scope_violation": 0.0,
+        "in_scope": 1.0,
+        "possible_scope_drift": 0.0,
+        "other": 0.0
+      }
+    },
+    "usage": {"input_tokens": 700, "output_tokens": 54}
+  }
+}

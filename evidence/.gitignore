@@ -1,0 +1,5 @@
+# The repository root ignores *.log because local runs leave transient logs
+# everywhere. Task evidence is the opposite case: the raw command log is the
+# primary receipt for what actually executed, so it is re-included here rather
+# than transcribed into prose.
+!*.log

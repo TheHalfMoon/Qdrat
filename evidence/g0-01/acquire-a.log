@@ -1,0 +1,1139 @@
+Collecting en_core_web_sm@ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl (from -r /work/input/requirements.txt (line 140))
+  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 5.2 MB/s eta 0:00:00
+Collecting Django~=5.2.17 (from -r /work/input/requirements.txt (line 28))
+  Downloading django-5.2.17-py3-none-any.whl.metadata (4.1 kB)
+Collecting django-environ==0.14.0 (from -r /work/input/requirements.txt (line 29))
+  Downloading django_environ-0.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting psycopg2-binary<3,>=2.9.9 (from -r /work/input/requirements.txt (line 30))
+  Downloading psycopg2_binary-2.9.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting django-apscheduler==0.7.0 (from -r /work/input/requirements.txt (line 33))
+  Downloading django_apscheduler-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting django-auditlog==3.4.1 (from -r /work/input/requirements.txt (line 34))
+  Downloading django_auditlog-3.4.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting django-cors-headers==4.9.0 (from -r /work/input/requirements.txt (line 35))
+  Downloading django_cors_headers-4.9.0-py3-none-any.whl.metadata (16 kB)
+Collecting django-filter==26.1 (from -r /work/input/requirements.txt (line 36))
+  Downloading django_filter-26.1-py3-none-any.whl.metadata (5.2 kB)
+Collecting django-import-export==4.4.1 (from -r /work/input/requirements.txt (line 37))
+  Downloading django_import_export-4.4.1-py3-none-any.whl.metadata (12 kB)
+Collecting django-mathfilters==1.0.0 (from -r /work/input/requirements.txt (line 38))
+  Downloading django_mathfilters-1.0.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting django-model-utils==5.0.0 (from -r /work/input/requirements.txt (line 39))
+  Downloading django_model_utils-5.0.0-py3-none-any.whl.metadata (22 kB)
+Collecting django-redis==5.4.0 (from -r /work/input/requirements.txt (line 40))
+  Downloading django_redis-5.4.0-py3-none-any.whl.metadata (32 kB)
+Collecting django-simple-history==3.13.0 (from -r /work/input/requirements.txt (line 41))
+  Downloading django_simple_history-3.13.0-py3-none-any.whl.metadata (27 kB)
+Collecting django-storages==1.14.6 (from -r /work/input/requirements.txt (line 42))
+  Downloading django_storages-1.14.6-py3-none-any.whl.metadata (4.7 kB)
+Collecting django-widget-tweaks==1.5.1 (from -r /work/input/requirements.txt (line 43))
+  Downloading django_widget_tweaks-1.5.1-py3-none-any.whl.metadata (16 kB)
+Collecting djangorestframework==3.17.2 (from -r /work/input/requirements.txt (line 53))
+  Downloading djangorestframework-3.17.2-py3-none-any.whl.metadata (7.9 kB)
+Collecting djangorestframework-simplejwt==5.5.1 (from -r /work/input/requirements.txt (line 56))
+  Downloading djangorestframework_simplejwt-5.5.1-py3-none-any.whl.metadata (4.6 kB)
+Collecting PyJWT==2.13.0 (from -r /work/input/requirements.txt (line 62))
+  Downloading pyjwt-2.13.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting drf-yasg==1.21.15 (from -r /work/input/requirements.txt (line 63))
+  Downloading drf_yasg-1.21.15-py3-none-any.whl.metadata (17 kB)
+Collecting numpy<3,>=1.26 (from -r /work/input/requirements.txt (line 66))
+  Downloading numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting openpyxl==3.1.5 (from -r /work/input/requirements.txt (line 67))
+  Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting pandas<4,>=2.1 (from -r /work/input/requirements.txt (line 68))
+  Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+Collecting XlsxWriter==3.2.9 (from -r /work/input/requirements.txt (line 69))
+  Downloading xlsxwriter-3.2.9-py3-none-any.whl.metadata (2.7 kB)
+Collecting pdfkit==1.0.0 (from -r /work/input/requirements.txt (line 75))
+  Downloading pdfkit-1.0.0-py3-none-any.whl.metadata (9.3 kB)
+Collecting PyMuPDF<2,>=1.28.2 (from -r /work/input/requirements.txt (line 76))
+  Downloading pymupdf-1.28.2-cp310-abi3-manylinux_2_28_x86_64.whl.metadata (26 kB)
+Collecting reportlab==4.0.9 (from -r /work/input/requirements.txt (line 77))
+  Downloading reportlab-4.0.9-py3-none-any.whl.metadata (1.4 kB)
+Collecting xhtml2pdf==0.2.17 (from -r /work/input/requirements.txt (line 78))
+  Downloading xhtml2pdf-0.2.17-py3-none-any.whl.metadata (22 kB)
+Collecting beautifulsoup4==4.15.0 (from -r /work/input/requirements.txt (line 81))
+  Downloading beautifulsoup4-4.15.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting requests==2.34.2 (from -r /work/input/requirements.txt (line 82))
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting requests-oauthlib==2.0.0 (from -r /work/input/requirements.txt (line 83))
+  Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl.metadata (11 kB)
+Collecting google-api-python-client==2.200.0 (from -r /work/input/requirements.txt (line 86))
+  Downloading google_api_python_client-2.200.0-py3-none-any.whl.metadata (6.8 kB)
+Collecting google-auth-oauthlib==1.4.1 (from -r /work/input/requirements.txt (line 87))
+  Downloading google_auth_oauthlib-1.4.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting google-cloud-storage==3.0.0 (from -r /work/input/requirements.txt (line 88))
+  Downloading google_cloud_storage-3.0.0-py2.py3-none-any.whl.metadata (12 kB)
+Collecting geopy==2.5.0 (from -r /work/input/requirements.txt (line 91))
+  Downloading geopy-2.5.0-py3-none-any.whl.metadata (7.1 kB)
+Collecting pyzk==0.9 (from -r /work/input/requirements.txt (line 96))
+  Downloading pyzk-0.9.tar.gz (19 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting pillow<13,>=12.3.0 (from -r /work/input/requirements.txt (line 99))
+  Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting cryptography<51,>=50.0.0 (from -r /work/input/requirements.txt (line 104))
+  Downloading cryptography-50.0.1-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+Collecting django-axes==8.3.1 (from django-axes[ipware]==8.3.1->-r /work/input/requirements.txt (line 106))
+  Downloading django_axes-8.3.1-py3-none-any.whl.metadata (41 kB)
+Collecting sentry-sdk==2.20.0 (from sentry-sdk[django]==2.20.0->-r /work/input/requirements.txt (line 108))
+  Downloading sentry_sdk-2.20.0-py2.py3-none-any.whl.metadata (10 kB)
+Collecting swapper==1.5.0 (from -r /work/input/requirements.txt (line 111))
+  Downloading swapper-1.5.0-py2.py3-none-any.whl.metadata (15 kB)
+Collecting whitenoise==6.9.0 (from -r /work/input/requirements.txt (line 114))
+  Downloading whitenoise-6.9.0-py3-none-any.whl.metadata (3.6 kB)
+Collecting APScheduler==3.11.3 (from -r /work/input/requirements.txt (line 117))
+  Downloading apscheduler-3.11.3-py3-none-any.whl.metadata (6.5 kB)
+Collecting python-dateutil==2.9.0.post0 (from -r /work/input/requirements.txt (line 120))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz==2026.3.post1 (from -r /work/input/requirements.txt (line 121))
+  Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting arabic-reshaper==3.0.1 (from -r /work/input/requirements.txt (line 124))
+  Downloading arabic_reshaper-3.0.1-py3-none-any.whl.metadata (13 kB)
+Collecting click==8.5.0 (from -r /work/input/requirements.txt (line 125))
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting phonenumbers==9.0.37 (from -r /work/input/requirements.txt (line 126))
+  Downloading phonenumbers-9.0.37-py2.py3-none-any.whl.metadata (10 kB)
+Collecting pycountry==24.6.1 (from -r /work/input/requirements.txt (line 127))
+  Downloading pycountry-24.6.1-py3-none-any.whl.metadata (12 kB)
+Collecting python-bidi<0.7,>=0.6.11 (from -r /work/input/requirements.txt (line 128))
+  Downloading python_bidi-0.6.11-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.3 kB)
+Collecting rapidfuzz<4,>=3.9 (from -r /work/input/requirements.txt (line 129))
+  Downloading rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (12 kB)
+Collecting spacy<3.9,>=3.8.16 (from -r /work/input/requirements.txt (line 133))
+  Downloading spacy-3.8.16-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (28 kB)
+Collecting bleach==6.4.0 (from -r /work/input/requirements.txt (line 145))
+  Downloading bleach-6.4.0-py3-none-any.whl.metadata (32 kB)
+Collecting tinycss2==1.5.1 (from -r /work/input/requirements.txt (line 151))
+  Downloading tinycss2-1.5.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting gunicorn==23.0.0 (from -r /work/input/requirements.txt (line 152))
+  Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting packaging==26.3 (from -r /work/input/requirements.txt (line 153))
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting msgpack<2,>=1.2.2 (from -r /work/input/requirements.txt (line 160))
+  Downloading msgpack-1.2.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+Collecting setuptools==84.0.0 (from -r /work/input/requirements.txt (line 165))
+  Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting coverage>=7.0 (from -r /work/input/requirements.txt (line 168))
+  Downloading coverage-7.16.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (8.2 kB)
+Collecting asgiref>=3.6 (from django-cors-headers==4.9.0->-r /work/input/requirements.txt (line 35))
+  Downloading asgiref-3.12.1-py3-none-any.whl.metadata (9.4 kB)
+Collecting diff-match-patch==20241021 (from django-import-export==4.4.1->-r /work/input/requirements.txt (line 37))
+  Downloading diff_match_patch-20241021-py3-none-any.whl.metadata (5.5 kB)
+Collecting tablib>=3.7.0 (from django-import-export==4.4.1->-r /work/input/requirements.txt (line 37))
+  Downloading tablib-3.10.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting redis!=4.0.0,!=4.0.1,>=3 (from django-redis==5.4.0->-r /work/input/requirements.txt (line 40))
+  Downloading redis-8.1.0-py3-none-any.whl.metadata (16 kB)
+Collecting inflection>=0.3.1 (from drf-yasg==1.21.15->-r /work/input/requirements.txt (line 63))
+  Downloading inflection-0.5.1-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting pyyaml>=5.1 (from drf-yasg==1.21.15->-r /work/input/requirements.txt (line 63))
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting uritemplate>=3.0.0 (from drf-yasg==1.21.15->-r /work/input/requirements.txt (line 63))
+  Downloading uritemplate-4.2.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting et-xmlfile (from openpyxl==3.1.5->-r /work/input/requirements.txt (line 67))
+  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting chardet (from reportlab==4.0.9->-r /work/input/requirements.txt (line 77))
+  Downloading chardet-7.6.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.6 kB)
+Collecting html5lib>=1.1 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading html5lib-1.1-py2.py3-none-any.whl.metadata (16 kB)
+Collecting pyHanko>=0.12.1 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading pyhanko-0.37.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting pyhanko-certvalidator>=0.19.5 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading pyhanko_certvalidator-0.32.1-py3-none-any.whl.metadata (5.0 kB)
+Collecting pypdf>=3.1.0 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading pypdf-6.19.0-py3-none-any.whl.metadata (7.5 kB)
+Collecting svglib>=1.2.1 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading svglib-2.2.0-py3-none-any.whl.metadata (14 kB)
+Collecting soupsieve>=1.6.1 (from beautifulsoup4==4.15.0->-r /work/input/requirements.txt (line 81))
+  Downloading soupsieve-2.9.2-py3-none-any.whl.metadata (4.6 kB)
+Collecting typing-extensions>=4.0.0 (from beautifulsoup4==4.15.0->-r /work/input/requirements.txt (line 81))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting charset_normalizer<4,>=2 (from requests==2.34.2->-r /work/input/requirements.txt (line 82))
+  Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (45 kB)
+Collecting idna<4,>=2.5 (from requests==2.34.2->-r /work/input/requirements.txt (line 82))
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting urllib3<3,>=1.26 (from requests==2.34.2->-r /work/input/requirements.txt (line 82))
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting certifi>=2023.5.7 (from requests==2.34.2->-r /work/input/requirements.txt (line 82))
+  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Collecting oauthlib>=3.0.0 (from requests-oauthlib==2.0.0->-r /work/input/requirements.txt (line 83))
+  Downloading oauthlib-3.3.1-py3-none-any.whl.metadata (7.9 kB)
+Collecting httplib2<1.0.0,>=0.19.0 (from google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading httplib2-0.32.0-py3-none-any.whl.metadata (2.2 kB)
+Collecting google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0 (from google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading google_auth-2.58.0-py3-none-any.whl.metadata (6.0 kB)
+Collecting google-auth-httplib2<1.0.0,>=0.2.0 (from google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading google_auth_httplib2-0.4.2-py3-none-any.whl.metadata (3.0 kB)
+Collecting google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5 (from google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading google_api_core-2.38.0-py3-none-any.whl.metadata (3.2 kB)
+Collecting google-cloud-core<3.0dev,>=2.3.0 (from google-cloud-storage==3.0.0->-r /work/input/requirements.txt (line 88))
+  Downloading google_cloud_core-2.7.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting google-resumable-media>=2.7.2 (from google-cloud-storage==3.0.0->-r /work/input/requirements.txt (line 88))
+  Downloading google_resumable_media-2.10.2-py3-none-any.whl.metadata (2.2 kB)
+Collecting google-crc32c<2.0dev,>=1.0 (from google-cloud-storage==3.0.0->-r /work/input/requirements.txt (line 88))
+  Downloading google_crc32c-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (1.7 kB)
+Collecting geographiclib<3,>=1.52 (from geopy==2.5.0->-r /work/input/requirements.txt (line 91))
+  Downloading geographiclib-2.1-py3-none-any.whl.metadata (1.6 kB)
+Collecting future (from pyzk==0.9->-r /work/input/requirements.txt (line 96))
+  Downloading future-1.0.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting tzlocal>=3.0 (from APScheduler==3.11.3->-r /work/input/requirements.txt (line 117))
+  Downloading tzlocal-5.4.4-py3-none-any.whl.metadata (7.7 kB)
+Collecting six>=1.5 (from python-dateutil==2.9.0.post0->-r /work/input/requirements.txt (line 120))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting webencodings (from bleach==6.4.0->-r /work/input/requirements.txt (line 145))
+  Downloading webencodings-0.6.1-py3-none-any.whl.metadata (3.4 kB)
+Collecting django-ipware>=3 (from django-axes[ipware]==8.3.1->-r /work/input/requirements.txt (line 106))
+  Downloading django_ipware-7.0.1-py2.py3-none-any.whl.metadata (9.1 kB)
+Collecting sqlparse>=0.3.1 (from Django~=5.2.17->-r /work/input/requirements.txt (line 28))
+  Downloading sqlparse-0.6.0-py3-none-any.whl.metadata (6.0 kB)
+Collecting cffi>=2.0.0 (from cryptography<51,>=50.0.0->-r /work/input/requirements.txt (line 104))
+  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+Collecting spacy-legacy<3.1.0,>=3.0.11 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl.metadata (2.8 kB)
+Collecting spacy-loggers<2.0.0,>=1.0.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading spacy_loggers-1.0.5-py3-none-any.whl.metadata (23 kB)
+Collecting murmurhash<1.1.0,>=0.28.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading murmurhash-1.0.15-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (2.3 kB)
+Collecting cymem<2.1.0,>=2.0.2 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading cymem-2.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (9.7 kB)
+Collecting preshed<3.1.0,>=3.0.2 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading preshed-3.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+Collecting thinc<8.4.0,>=8.3.12 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading thinc-8.3.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (14 kB)
+Collecting wasabi<1.2.0,>=0.9.1 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading wasabi-1.1.3-py3-none-any.whl.metadata (28 kB)
+Collecting srsly<3.0.0,>=2.5.3 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading srsly-2.5.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (19 kB)
+Collecting catalogue<2.1.0,>=2.0.6 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+Collecting weasel<2.0.0,>=1.0.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading weasel-1.0.0-py3-none-any.whl.metadata (4.6 kB)
+Collecting confection<2.0.0,>=1.3.2 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading confection-1.3.3-py3-none-any.whl.metadata (19 kB)
+Collecting typer<1.0.0,>=0.3.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading typer-0.27.2-py3-none-any.whl.metadata (16 kB)
+Collecting tqdm<5.0.0,>=4.38.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting pydantic<3.0.0,>=2.0.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+Collecting jinja2 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography<51,>=50.0.0->-r /work/input/requirements.txt (line 104))
+  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting python-ipware>=2.0.3 (from django-ipware>=3->django-axes[ipware]==8.3.1->-r /work/input/requirements.txt (line 106))
+  Downloading python_ipware-3.0.0-py3-none-any.whl.metadata (15 kB)
+Collecting googleapis-common-protos<2.0.0,>=1.69.2 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading googleapis_common_protos-1.75.3-py3-none-any.whl.metadata (8.5 kB)
+Collecting protobuf<8.0.0,>=6.33.5 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting proto-plus<2.0.0,>=1.26.1 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading proto_plus-1.28.4-py3-none-any.whl.metadata (2.2 kB)
+Collecting opentelemetry-api<2.0.0,>=1.44.0 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading opentelemetry_api-1.44.0-py3-none-any.whl.metadata (1.4 kB)
+Collecting pyasn1-modules>=0.2.1 (from google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyparsing<4,>=3.1 (from httplib2<1.0.0,>=0.19.0->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting annotated-types>=0.6.0 (from pydantic<3.0.0,>=2.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.46.5 (from pydantic<3.0.0,>=2.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting typing-inspection>=0.4.2 (from pydantic<3.0.0,>=2.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting asn1crypto>=1.5.1 (from pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading asn1crypto-1.5.1-py2.py3-none-any.whl.metadata (13 kB)
+Collecting aiohttp<3.15,>=3.9 (from pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading aiohttp-3.14.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+Collecting lxml>=5.4.0 (from pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting oscrypto>=1.1.0 (from pyhanko-certvalidator>=0.19.5->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading oscrypto-1.3.0-py2.py3-none-any.whl.metadata (15 kB)
+Collecting uritools>=3.0.1 (from pyhanko-certvalidator>=0.19.5->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading uritools-6.1.3-py3-none-any.whl.metadata (5.1 kB)
+Collecting cssselect2>=0.2.0 (from svglib>=1.2.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading cssselect2-0.10.1-py3-none-any.whl.metadata (2.9 kB)
+INFO: pip is looking at multiple versions of svglib to determine which version is compatible with other requirements. This could take a while.
+Collecting svglib>=1.2.1 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading svglib-2.1.0-py3-none-any.whl.metadata (14 kB)
+  Downloading svglib-2.0.2-py3-none-any.whl.metadata (13 kB)
+  Downloading svglib-1.6.0-py3-none-any.whl.metadata (11 kB)
+  Downloading svglib-1.5.1.tar.gz (913 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 913.9/913.9 kB 7.6 MB/s eta 0:00:00
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting blis<1.4.0,>=1.3.0 (from thinc<8.4.0,>=8.3.12->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading blis-1.3.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (7.5 kB)
+Collecting shellingham>=1.3.0 (from typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting cloudpathlib>=0.7.0 (from weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading cloudpathlib-0.25.0-py3-none-any.whl.metadata (16 kB)
+Collecting smart-open>=5.2.1 (from weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading smart_open-8.0.1-py3-none-any.whl.metadata (24 kB)
+Collecting httpx>=0.24.0 (from weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting attrs>=17.3.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading multidict-6.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting propcache>=0.2.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+Collecting anyio (from httpx>=0.24.0->weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore==1.* (from httpx>=0.24.0->weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx>=0.24.0->weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading pyasn1-0.6.4-py3-none-any.whl.metadata (8.4 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting wrapt (from smart-open>=5.2.1->weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading wrapt-2.4.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (7.4 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading django_environ-0.14.0-py3-none-any.whl (20 kB)
+Downloading django_apscheduler-0.7.0-py3-none-any.whl (24 kB)
+Downloading django_auditlog-3.4.1-py3-none-any.whl (49 kB)
+Downloading django_cors_headers-4.9.0-py3-none-any.whl (12 kB)
+Downloading django_filter-26.1-py3-none-any.whl (94 kB)
+Downloading django_import_export-4.4.1-py3-none-any.whl (157 kB)
+Downloading django_mathfilters-1.0.0-py3-none-any.whl (5.9 kB)
+Downloading django_model_utils-5.0.0-py3-none-any.whl (42 kB)
+Downloading django_redis-5.4.0-py3-none-any.whl (31 kB)
+Downloading django_simple_history-3.13.0-py3-none-any.whl (82 kB)
+Downloading django_storages-1.14.6-py3-none-any.whl (33 kB)
+Downloading django_widget_tweaks-1.5.1-py3-none-any.whl (9.6 kB)
+Downloading djangorestframework-3.17.2-py3-none-any.whl (899 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 899.1/899.1 kB 14.5 MB/s eta 0:00:00
+Downloading djangorestframework_simplejwt-5.5.1-py3-none-any.whl (107 kB)
+Downloading pyjwt-2.13.0-py3-none-any.whl (31 kB)
+Downloading drf_yasg-1.21.15-py3-none-any.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 8.2 MB/s eta 0:00:00
+Downloading openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+Downloading xlsxwriter-3.2.9-py3-none-any.whl (175 kB)
+Downloading pdfkit-1.0.0-py3-none-any.whl (12 kB)
+Downloading reportlab-4.0.9-py3-none-any.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 8.4 MB/s eta 0:00:00
+Downloading xhtml2pdf-0.2.17-py3-none-any.whl (125 kB)
+Downloading beautifulsoup4-4.15.0-py3-none-any.whl (109 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl (24 kB)
+Downloading google_api_python_client-2.200.0-py3-none-any.whl (16.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 4.5 MB/s eta 0:00:00
+Downloading google_auth_oauthlib-1.4.1-py3-none-any.whl (19 kB)
+Downloading google_cloud_storage-3.0.0-py2.py3-none-any.whl (173 kB)
+Downloading geopy-2.5.0-py3-none-any.whl (114 kB)
+Downloading django_axes-8.3.1-py3-none-any.whl (74 kB)
+Downloading sentry_sdk-2.20.0-py2.py3-none-any.whl (322 kB)
+Downloading swapper-1.5.0-py2.py3-none-any.whl (7.3 kB)
+Downloading whitenoise-6.9.0-py3-none-any.whl (20 kB)
+Downloading apscheduler-3.11.3-py3-none-any.whl (66 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+Downloading arabic_reshaper-3.0.1-py3-none-any.whl (20 kB)
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading phonenumbers-9.0.37-py2.py3-none-any.whl (2.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 MB 8.0 MB/s eta 0:00:00
+Downloading pycountry-24.6.1-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 7.1 MB/s eta 0:00:00
+Downloading bleach-6.4.0-py3-none-any.whl (165 kB)
+Downloading tinycss2-1.5.1-py3-none-any.whl (28 kB)
+Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 12.4 MB/s eta 0:00:00
+Downloading diff_match_patch-20241021-py3-none-any.whl (43 kB)
+Downloading django-5.2.17-py3-none-any.whl (8.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 7.1 MB/s eta 0:00:00
+Downloading psycopg2_binary-2.9.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 4.5 MB/s eta 0:00:00
+Downloading numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 4.5 MB/s eta 0:00:00
+Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 4.1 MB/s eta 0:00:00
+Downloading pymupdf-1.28.2-cp310-abi3-manylinux_2_28_x86_64.whl (25.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 25.8/25.8 MB 4.6 MB/s eta 0:00:00
+Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 5.1 MB/s eta 0:00:00
+Downloading cryptography-50.0.1-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 6.8 MB/s eta 0:00:00
+Downloading python_bidi-0.6.11-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (296 kB)
+Downloading rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 3.8 MB/s eta 0:00:00
+Downloading spacy-3.8.16-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (35.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.5/35.5 MB 6.1 MB/s eta 0:00:00
+Downloading msgpack-1.2.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (420 kB)
+Downloading coverage-7.16.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (258 kB)
+Downloading asgiref-3.12.1-py3-none-any.whl (25 kB)
+Downloading catalogue-2.0.10-py3-none-any.whl (17 kB)
+Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (248 kB)
+Downloading confection-1.3.3-py3-none-any.whl (35 kB)
+Downloading cymem-2.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (260 kB)
+Downloading django_ipware-7.0.1-py2.py3-none-any.whl (6.4 kB)
+Downloading geographiclib-2.1-py3-none-any.whl (40 kB)
+Downloading google_api_core-2.38.0-py3-none-any.whl (187 kB)
+Downloading google_auth-2.58.0-py3-none-any.whl (262 kB)
+Downloading google_auth_httplib2-0.4.2-py3-none-any.whl (9.5 kB)
+Downloading google_cloud_core-2.7.0-py3-none-any.whl (31 kB)
+Downloading google_crc32c-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (33 kB)
+Downloading google_resumable_media-2.10.2-py3-none-any.whl (81 kB)
+Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
+Downloading httplib2-0.32.0-py3-none-any.whl (93 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading inflection-0.5.1-py2.py3-none-any.whl (9.5 kB)
+Downloading murmurhash-1.0.15-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (134 kB)
+Downloading oauthlib-3.3.1-py3-none-any.whl (160 kB)
+Downloading preshed-3.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (868 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 869.0/869.0 kB 11.0 MB/s eta 0:00:00
+Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+Downloading pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 6.8 MB/s eta 0:00:00
+Downloading pyhanko-0.37.0-py3-none-any.whl (477 kB)
+Downloading pyhanko_certvalidator-0.32.1-py3-none-any.whl (115 kB)
+Downloading pypdf-6.19.0-py3-none-any.whl (395 kB)
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 16.3 MB/s eta 0:00:00
+Downloading redis-8.1.0-py3-none-any.whl (560 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 560.6/560.6 kB 9.1 MB/s eta 0:00:00
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading soupsieve-2.9.2-py3-none-any.whl (37 kB)
+Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl (29 kB)
+Downloading spacy_loggers-1.0.5-py3-none-any.whl (22 kB)
+Downloading sqlparse-0.6.0-py3-none-any.whl (50 kB)
+Downloading srsly-2.5.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 12.6 MB/s eta 0:00:00
+Downloading tablib-3.10.0-py3-none-any.whl (50 kB)
+Downloading thinc-8.3.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 9.7 MB/s eta 0:00:00
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading typer-0.27.2-py3-none-any.whl (123 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading tzlocal-5.4.4-py3-none-any.whl (18 kB)
+Downloading uritemplate-4.2.0-py3-none-any.whl (11 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading wasabi-1.1.3-py3-none-any.whl (27 kB)
+Downloading weasel-1.0.0-py3-none-any.whl (50 kB)
+Downloading webencodings-0.6.1-py3-none-any.whl (8.7 kB)
+Downloading chardet-7.6.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 10.1 MB/s eta 0:00:00
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Downloading future-1.0.0-py3-none-any.whl (491 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading aiohttp-3.14.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 9.0 MB/s eta 0:00:00
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading asn1crypto-1.5.1-py2.py3-none-any.whl (105 kB)
+Downloading blis-1.3.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (11.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.4/11.4 MB 8.1 MB/s eta 0:00:00
+Downloading cloudpathlib-0.25.0-py3-none-any.whl (66 kB)
+Downloading cssselect2-0.10.1-py3-none-any.whl (15 kB)
+Downloading googleapis_common_protos-1.75.3-py3-none-any.whl (306 kB)
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 5.3 MB/s eta 0:00:00
+Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading opentelemetry_api-1.44.0-py3-none-any.whl (60 kB)
+Downloading oscrypto-1.3.0-py2.py3-none-any.whl (194 kB)
+Downloading proto_plus-1.28.4-py3-none-any.whl (50 kB)
+Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Downloading python_ipware-3.0.0-py3-none-any.whl (10 kB)
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading smart_open-8.0.1-py3-none-any.whl (73 kB)
+Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Downloading uritools-6.1.3-py3-none-any.whl (11 kB)
+Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Downloading multidict-6.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (317 kB)
+Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
+Downloading pyasn1-0.6.4-py3-none-any.whl (84 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 6.8 MB/s eta 0:00:00
+Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading wrapt-2.4.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (236 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Saved /work/run-a/wheelhouse/django_environ-0.14.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django_apscheduler-0.7.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django_auditlog-3.4.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django_cors_headers-4.9.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django_filter-26.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django_import_export-4.4.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django_mathfilters-1.0.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django_model_utils-5.0.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django_redis-5.4.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django_simple_history-3.13.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django_storages-1.14.6-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django_widget_tweaks-1.5.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/djangorestframework-3.17.2-py3-none-any.whl
+Saved /work/run-a/wheelhouse/djangorestframework_simplejwt-5.5.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/pyjwt-2.13.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/drf_yasg-1.21.15-py3-none-any.whl
+Saved /work/run-a/wheelhouse/openpyxl-3.1.5-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/xlsxwriter-3.2.9-py3-none-any.whl
+Saved /work/run-a/wheelhouse/pdfkit-1.0.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/reportlab-4.0.9-py3-none-any.whl
+Saved /work/run-a/wheelhouse/xhtml2pdf-0.2.17-py3-none-any.whl
+Saved /work/run-a/wheelhouse/beautifulsoup4-4.15.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/requests-2.34.2-py3-none-any.whl
+Saved /work/run-a/wheelhouse/requests_oauthlib-2.0.0-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/google_api_python_client-2.200.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/google_auth_oauthlib-1.4.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/google_cloud_storage-3.0.0-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/geopy-2.5.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/pyzk-0.9.tar.gz
+Saved /work/run-a/wheelhouse/django_axes-8.3.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/sentry_sdk-2.20.0-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/swapper-1.5.0-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/whitenoise-6.9.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/apscheduler-3.11.3-py3-none-any.whl
+Saved /work/run-a/wheelhouse/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/pytz-2026.3.post1-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/arabic_reshaper-3.0.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/click-8.5.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/phonenumbers-9.0.37-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/pycountry-24.6.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/bleach-6.4.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/tinycss2-1.5.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/gunicorn-23.0.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/packaging-26.3-py3-none-any.whl
+Saved /work/run-a/wheelhouse/setuptools-84.0.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/diff_match_patch-20241021-py3-none-any.whl
+Saved /work/run-a/wheelhouse/django-5.2.17-py3-none-any.whl
+Saved /work/run-a/wheelhouse/psycopg2_binary-2.9.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved /work/run-a/wheelhouse/numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/pymupdf-1.28.2-cp310-abi3-manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/cryptography-50.0.1-cp311-abi3-manylinux_2_34_x86_64.whl
+Saved /work/run-a/wheelhouse/python_bidi-0.6.11-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Saved /work/run-a/wheelhouse/rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/spacy-3.8.16-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/en_core_web_sm-3.8.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/msgpack-1.2.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/coverage-7.16.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
+Saved /work/run-a/wheelhouse/asgiref-3.12.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/catalogue-2.0.10-py3-none-any.whl
+Saved /work/run-a/wheelhouse/certifi-2026.7.22-py3-none-any.whl
+Saved /work/run-a/wheelhouse/cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved /work/run-a/wheelhouse/charset_normalizer-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/confection-1.3.3-py3-none-any.whl
+Saved /work/run-a/wheelhouse/cymem-2.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved /work/run-a/wheelhouse/django_ipware-7.0.1-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/geographiclib-2.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/google_api_core-2.38.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/google_auth-2.58.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/google_auth_httplib2-0.4.2-py3-none-any.whl
+Saved /work/run-a/wheelhouse/google_cloud_core-2.7.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/google_crc32c-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl
+Saved /work/run-a/wheelhouse/google_resumable_media-2.10.2-py3-none-any.whl
+Saved /work/run-a/wheelhouse/html5lib-1.1-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/httplib2-0.32.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/idna-3.20-py3-none-any.whl
+Saved /work/run-a/wheelhouse/inflection-0.5.1-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/murmurhash-1.0.15-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl
+Saved /work/run-a/wheelhouse/oauthlib-3.3.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/preshed-3.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved /work/run-a/wheelhouse/pydantic-2.13.5-py3-none-any.whl
+Saved /work/run-a/wheelhouse/pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Saved /work/run-a/wheelhouse/pyhanko-0.37.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/pyhanko_certvalidator-0.32.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/pypdf-6.19.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/redis-8.1.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/six-1.17.0-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/soupsieve-2.9.2-py3-none-any.whl
+Saved /work/run-a/wheelhouse/spacy_legacy-3.0.12-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/spacy_loggers-1.0.5-py3-none-any.whl
+Saved /work/run-a/wheelhouse/sqlparse-0.6.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/srsly-2.5.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved /work/run-a/wheelhouse/svglib-1.5.1.tar.gz
+Saved /work/run-a/wheelhouse/tablib-3.10.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/thinc-8.3.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved /work/run-a/wheelhouse/tqdm-4.70.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/typer-0.27.2-py3-none-any.whl
+Saved /work/run-a/wheelhouse/typing_extensions-4.16.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/tzlocal-5.4.4-py3-none-any.whl
+Saved /work/run-a/wheelhouse/uritemplate-4.2.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/urllib3-2.8.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/wasabi-1.1.3-py3-none-any.whl
+Saved /work/run-a/wheelhouse/weasel-1.0.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/webencodings-0.6.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/chardet-7.6.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/et_xmlfile-2.0.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/future-1.0.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/jinja2-3.1.6-py3-none-any.whl
+Saved /work/run-a/wheelhouse/aiohttp-3.14.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/annotated_doc-0.0.5-py3-none-any.whl
+Saved /work/run-a/wheelhouse/annotated_types-0.8.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/asn1crypto-1.5.1-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/blis-1.3.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved /work/run-a/wheelhouse/cloudpathlib-0.25.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/cssselect2-0.10.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/googleapis_common_protos-1.75.3-py3-none-any.whl
+Saved /work/run-a/wheelhouse/httpx-0.28.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/httpcore-1.0.9-py3-none-any.whl
+Saved /work/run-a/wheelhouse/lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/opentelemetry_api-1.44.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/oscrypto-1.3.0-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/proto_plus-1.28.4-py3-none-any.whl
+Saved /work/run-a/wheelhouse/protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl
+Saved /work/run-a/wheelhouse/pyasn1_modules-0.4.2-py3-none-any.whl
+Saved /work/run-a/wheelhouse/pyparsing-3.3.3-py3-none-any.whl
+Saved /work/run-a/wheelhouse/python_ipware-3.0.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/rich-15.0.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/shellingham-1.5.4-py2.py3-none-any.whl
+Saved /work/run-a/wheelhouse/smart_open-8.0.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/typing_inspection-0.4.4-py3-none-any.whl
+Saved /work/run-a/wheelhouse/uritools-6.1.3-py3-none-any.whl
+Saved /work/run-a/wheelhouse/pycparser-3.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/aiohappyeyeballs-2.7.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/aiosignal-1.4.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/attrs-26.1.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
+Saved /work/run-a/wheelhouse/markdown_it_py-4.2.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/multidict-6.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/pyasn1-0.6.4-py3-none-any.whl
+Saved /work/run-a/wheelhouse/pygments-2.21.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved /work/run-a/wheelhouse/anyio-4.15.1-py3-none-any.whl
+Saved /work/run-a/wheelhouse/wrapt-2.4.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
+Saved /work/run-a/wheelhouse/h11-0.16.0-py3-none-any.whl
+Saved /work/run-a/wheelhouse/mdurl-0.1.2-py3-none-any.whl
+Successfully downloaded django-environ django-apscheduler django-auditlog django-cors-headers django-filter django-import-export django-mathfilters django-model-utils django-redis django-simple-history django-storages django-widget-tweaks djangorestframework djangorestframework-simplejwt PyJWT drf-yasg openpyxl XlsxWriter pdfkit reportlab xhtml2pdf beautifulsoup4 requests requests-oauthlib google-api-python-client google-auth-oauthlib google-cloud-storage geopy pyzk django-axes sentry-sdk swapper whitenoise APScheduler python-dateutil pytz arabic-reshaper click phonenumbers pycountry bleach tinycss2 gunicorn packaging setuptools diff-match-patch Django psycopg2-binary numpy pandas PyMuPDF pillow cryptography python-bidi rapidfuzz spacy en_core_web_sm msgpack coverage asgiref catalogue certifi cffi charset_normalizer confection cymem django-ipware geographiclib google-api-core google-auth google-auth-httplib2 google-cloud-core google-crc32c google-resumable-media html5lib httplib2 idna inflection murmurhash oauthlib preshed pydantic pydantic-core pyHanko pyhanko-certvalidator pypdf pyyaml redis six soupsieve spacy-legacy spacy-loggers sqlparse srsly svglib tablib thinc tqdm typer typing-extensions tzlocal uritemplate urllib3 wasabi weasel webencodings chardet et-xmlfile future jinja2 aiohttp annotated-doc annotated-types asn1crypto blis cloudpathlib cssselect2 googleapis-common-protos httpx httpcore lxml MarkupSafe opentelemetry-api oscrypto proto-plus protobuf pyasn1-modules pyparsing python-ipware rich shellingham smart-open typing-inspection uritools pycparser aiohappyeyeballs aiosignal attrs frozenlist markdown-it-py multidict propcache pyasn1 pygments yarl anyio wrapt h11 mdurl
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+Collecting en_core_web_sm@ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl (from -r /work/input/requirements.txt (line 140))
+  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 7.8 MB/s eta 0:00:00
+Collecting Django~=5.2.17 (from -r /work/input/requirements.txt (line 28))
+  Downloading django-5.2.17-py3-none-any.whl.metadata (4.1 kB)
+Collecting django-environ==0.14.0 (from -r /work/input/requirements.txt (line 29))
+  Downloading django_environ-0.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting psycopg2-binary<3,>=2.9.9 (from -r /work/input/requirements.txt (line 30))
+  Downloading psycopg2_binary-2.9.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting django-apscheduler==0.7.0 (from -r /work/input/requirements.txt (line 33))
+  Downloading django_apscheduler-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting django-auditlog==3.4.1 (from -r /work/input/requirements.txt (line 34))
+  Downloading django_auditlog-3.4.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting django-cors-headers==4.9.0 (from -r /work/input/requirements.txt (line 35))
+  Downloading django_cors_headers-4.9.0-py3-none-any.whl.metadata (16 kB)
+Collecting django-filter==26.1 (from -r /work/input/requirements.txt (line 36))
+  Downloading django_filter-26.1-py3-none-any.whl.metadata (5.2 kB)
+Collecting django-import-export==4.4.1 (from -r /work/input/requirements.txt (line 37))
+  Downloading django_import_export-4.4.1-py3-none-any.whl.metadata (12 kB)
+Collecting django-mathfilters==1.0.0 (from -r /work/input/requirements.txt (line 38))
+  Downloading django_mathfilters-1.0.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting django-model-utils==5.0.0 (from -r /work/input/requirements.txt (line 39))
+  Downloading django_model_utils-5.0.0-py3-none-any.whl.metadata (22 kB)
+Collecting django-redis==5.4.0 (from -r /work/input/requirements.txt (line 40))
+  Downloading django_redis-5.4.0-py3-none-any.whl.metadata (32 kB)
+Collecting django-simple-history==3.13.0 (from -r /work/input/requirements.txt (line 41))
+  Downloading django_simple_history-3.13.0-py3-none-any.whl.metadata (27 kB)
+Collecting django-storages==1.14.6 (from -r /work/input/requirements.txt (line 42))
+  Downloading django_storages-1.14.6-py3-none-any.whl.metadata (4.7 kB)
+Collecting django-widget-tweaks==1.5.1 (from -r /work/input/requirements.txt (line 43))
+  Downloading django_widget_tweaks-1.5.1-py3-none-any.whl.metadata (16 kB)
+Collecting djangorestframework==3.17.2 (from -r /work/input/requirements.txt (line 53))
+  Downloading djangorestframework-3.17.2-py3-none-any.whl.metadata (7.9 kB)
+Collecting djangorestframework-simplejwt==5.5.1 (from -r /work/input/requirements.txt (line 56))
+  Downloading djangorestframework_simplejwt-5.5.1-py3-none-any.whl.metadata (4.6 kB)
+Collecting PyJWT==2.13.0 (from -r /work/input/requirements.txt (line 62))
+  Downloading pyjwt-2.13.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting drf-yasg==1.21.15 (from -r /work/input/requirements.txt (line 63))
+  Downloading drf_yasg-1.21.15-py3-none-any.whl.metadata (17 kB)
+Collecting numpy<3,>=1.26 (from -r /work/input/requirements.txt (line 66))
+  Downloading numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting openpyxl==3.1.5 (from -r /work/input/requirements.txt (line 67))
+  Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting pandas<4,>=2.1 (from -r /work/input/requirements.txt (line 68))
+  Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+Collecting XlsxWriter==3.2.9 (from -r /work/input/requirements.txt (line 69))
+  Downloading xlsxwriter-3.2.9-py3-none-any.whl.metadata (2.7 kB)
+Collecting pdfkit==1.0.0 (from -r /work/input/requirements.txt (line 75))
+  Downloading pdfkit-1.0.0-py3-none-any.whl.metadata (9.3 kB)
+Collecting PyMuPDF<2,>=1.28.2 (from -r /work/input/requirements.txt (line 76))
+  Downloading pymupdf-1.28.2-cp310-abi3-manylinux_2_28_x86_64.whl.metadata (26 kB)
+Collecting reportlab==4.0.9 (from -r /work/input/requirements.txt (line 77))
+  Downloading reportlab-4.0.9-py3-none-any.whl.metadata (1.4 kB)
+Collecting xhtml2pdf==0.2.17 (from -r /work/input/requirements.txt (line 78))
+  Downloading xhtml2pdf-0.2.17-py3-none-any.whl.metadata (22 kB)
+Collecting beautifulsoup4==4.15.0 (from -r /work/input/requirements.txt (line 81))
+  Downloading beautifulsoup4-4.15.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting requests==2.34.2 (from -r /work/input/requirements.txt (line 82))
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting requests-oauthlib==2.0.0 (from -r /work/input/requirements.txt (line 83))
+  Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl.metadata (11 kB)
+Collecting google-api-python-client==2.200.0 (from -r /work/input/requirements.txt (line 86))
+  Downloading google_api_python_client-2.200.0-py3-none-any.whl.metadata (6.8 kB)
+Collecting google-auth-oauthlib==1.4.1 (from -r /work/input/requirements.txt (line 87))
+  Downloading google_auth_oauthlib-1.4.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting google-cloud-storage==3.0.0 (from -r /work/input/requirements.txt (line 88))
+  Downloading google_cloud_storage-3.0.0-py2.py3-none-any.whl.metadata (12 kB)
+Collecting geopy==2.5.0 (from -r /work/input/requirements.txt (line 91))
+  Downloading geopy-2.5.0-py3-none-any.whl.metadata (7.1 kB)
+Collecting pyzk==0.9 (from -r /work/input/requirements.txt (line 96))
+  Downloading pyzk-0.9.tar.gz (19 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting pillow<13,>=12.3.0 (from -r /work/input/requirements.txt (line 99))
+  Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting cryptography<51,>=50.0.0 (from -r /work/input/requirements.txt (line 104))
+  Downloading cryptography-50.0.1-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+Collecting django-axes==8.3.1 (from django-axes[ipware]==8.3.1->-r /work/input/requirements.txt (line 106))
+  Downloading django_axes-8.3.1-py3-none-any.whl.metadata (41 kB)
+Collecting sentry-sdk==2.20.0 (from sentry-sdk[django]==2.20.0->-r /work/input/requirements.txt (line 108))
+  Downloading sentry_sdk-2.20.0-py2.py3-none-any.whl.metadata (10 kB)
+Collecting swapper==1.5.0 (from -r /work/input/requirements.txt (line 111))
+  Downloading swapper-1.5.0-py2.py3-none-any.whl.metadata (15 kB)
+Collecting whitenoise==6.9.0 (from -r /work/input/requirements.txt (line 114))
+  Downloading whitenoise-6.9.0-py3-none-any.whl.metadata (3.6 kB)
+Collecting APScheduler==3.11.3 (from -r /work/input/requirements.txt (line 117))
+  Downloading apscheduler-3.11.3-py3-none-any.whl.metadata (6.5 kB)
+Collecting python-dateutil==2.9.0.post0 (from -r /work/input/requirements.txt (line 120))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz==2026.3.post1 (from -r /work/input/requirements.txt (line 121))
+  Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting arabic-reshaper==3.0.1 (from -r /work/input/requirements.txt (line 124))
+  Downloading arabic_reshaper-3.0.1-py3-none-any.whl.metadata (13 kB)
+Collecting click==8.5.0 (from -r /work/input/requirements.txt (line 125))
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting phonenumbers==9.0.37 (from -r /work/input/requirements.txt (line 126))
+  Downloading phonenumbers-9.0.37-py2.py3-none-any.whl.metadata (10 kB)
+Collecting pycountry==24.6.1 (from -r /work/input/requirements.txt (line 127))
+  Downloading pycountry-24.6.1-py3-none-any.whl.metadata (12 kB)
+Collecting python-bidi<0.7,>=0.6.11 (from -r /work/input/requirements.txt (line 128))
+  Downloading python_bidi-0.6.11-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.3 kB)
+Collecting rapidfuzz<4,>=3.9 (from -r /work/input/requirements.txt (line 129))
+  Downloading rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (12 kB)
+Collecting spacy<3.9,>=3.8.16 (from -r /work/input/requirements.txt (line 133))
+  Downloading spacy-3.8.16-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (28 kB)
+Collecting bleach==6.4.0 (from -r /work/input/requirements.txt (line 145))
+  Downloading bleach-6.4.0-py3-none-any.whl.metadata (32 kB)
+Collecting tinycss2==1.5.1 (from -r /work/input/requirements.txt (line 151))
+  Downloading tinycss2-1.5.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting gunicorn==23.0.0 (from -r /work/input/requirements.txt (line 152))
+  Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting packaging==26.3 (from -r /work/input/requirements.txt (line 153))
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting msgpack<2,>=1.2.2 (from -r /work/input/requirements.txt (line 160))
+  Downloading msgpack-1.2.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+Collecting setuptools==84.0.0 (from -r /work/input/requirements.txt (line 165))
+  Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting coverage>=7.0 (from -r /work/input/requirements.txt (line 168))
+  Downloading coverage-7.16.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (8.2 kB)
+Collecting asgiref>=3.6 (from django-cors-headers==4.9.0->-r /work/input/requirements.txt (line 35))
+  Downloading asgiref-3.12.1-py3-none-any.whl.metadata (9.4 kB)
+Collecting diff-match-patch==20241021 (from django-import-export==4.4.1->-r /work/input/requirements.txt (line 37))
+  Downloading diff_match_patch-20241021-py3-none-any.whl.metadata (5.5 kB)
+Collecting tablib>=3.7.0 (from django-import-export==4.4.1->-r /work/input/requirements.txt (line 37))
+  Downloading tablib-3.10.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting redis!=4.0.0,!=4.0.1,>=3 (from django-redis==5.4.0->-r /work/input/requirements.txt (line 40))
+  Downloading redis-8.1.0-py3-none-any.whl.metadata (16 kB)
+Collecting inflection>=0.3.1 (from drf-yasg==1.21.15->-r /work/input/requirements.txt (line 63))
+  Downloading inflection-0.5.1-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting pyyaml>=5.1 (from drf-yasg==1.21.15->-r /work/input/requirements.txt (line 63))
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting uritemplate>=3.0.0 (from drf-yasg==1.21.15->-r /work/input/requirements.txt (line 63))
+  Downloading uritemplate-4.2.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting et-xmlfile (from openpyxl==3.1.5->-r /work/input/requirements.txt (line 67))
+  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting chardet (from reportlab==4.0.9->-r /work/input/requirements.txt (line 77))
+  Downloading chardet-7.6.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.6 kB)
+Collecting html5lib>=1.1 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading html5lib-1.1-py2.py3-none-any.whl.metadata (16 kB)
+Collecting pyHanko>=0.12.1 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading pyhanko-0.37.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting pyhanko-certvalidator>=0.19.5 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading pyhanko_certvalidator-0.32.1-py3-none-any.whl.metadata (5.0 kB)
+Collecting pypdf>=3.1.0 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading pypdf-6.19.0-py3-none-any.whl.metadata (7.5 kB)
+Collecting svglib>=1.2.1 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading svglib-2.2.0-py3-none-any.whl.metadata (14 kB)
+Collecting soupsieve>=1.6.1 (from beautifulsoup4==4.15.0->-r /work/input/requirements.txt (line 81))
+  Downloading soupsieve-2.9.2-py3-none-any.whl.metadata (4.6 kB)
+Collecting typing-extensions>=4.0.0 (from beautifulsoup4==4.15.0->-r /work/input/requirements.txt (line 81))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting charset_normalizer<4,>=2 (from requests==2.34.2->-r /work/input/requirements.txt (line 82))
+  Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (45 kB)
+Collecting idna<4,>=2.5 (from requests==2.34.2->-r /work/input/requirements.txt (line 82))
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting urllib3<3,>=1.26 (from requests==2.34.2->-r /work/input/requirements.txt (line 82))
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting certifi>=2023.5.7 (from requests==2.34.2->-r /work/input/requirements.txt (line 82))
+  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Collecting oauthlib>=3.0.0 (from requests-oauthlib==2.0.0->-r /work/input/requirements.txt (line 83))
+  Downloading oauthlib-3.3.1-py3-none-any.whl.metadata (7.9 kB)
+Collecting httplib2<1.0.0,>=0.19.0 (from google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading httplib2-0.32.0-py3-none-any.whl.metadata (2.2 kB)
+Collecting google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0 (from google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading google_auth-2.58.0-py3-none-any.whl.metadata (6.0 kB)
+Collecting google-auth-httplib2<1.0.0,>=0.2.0 (from google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading google_auth_httplib2-0.4.2-py3-none-any.whl.metadata (3.0 kB)
+Collecting google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5 (from google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading google_api_core-2.38.0-py3-none-any.whl.metadata (3.2 kB)
+Collecting google-cloud-core<3.0dev,>=2.3.0 (from google-cloud-storage==3.0.0->-r /work/input/requirements.txt (line 88))
+  Downloading google_cloud_core-2.7.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting google-resumable-media>=2.7.2 (from google-cloud-storage==3.0.0->-r /work/input/requirements.txt (line 88))
+  Downloading google_resumable_media-2.10.2-py3-none-any.whl.metadata (2.2 kB)
+Collecting google-crc32c<2.0dev,>=1.0 (from google-cloud-storage==3.0.0->-r /work/input/requirements.txt (line 88))
+  Downloading google_crc32c-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (1.7 kB)
+Collecting geographiclib<3,>=1.52 (from geopy==2.5.0->-r /work/input/requirements.txt (line 91))
+  Downloading geographiclib-2.1-py3-none-any.whl.metadata (1.6 kB)
+Collecting future (from pyzk==0.9->-r /work/input/requirements.txt (line 96))
+  Downloading future-1.0.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting tzlocal>=3.0 (from APScheduler==3.11.3->-r /work/input/requirements.txt (line 117))
+  Downloading tzlocal-5.4.4-py3-none-any.whl.metadata (7.7 kB)
+Collecting six>=1.5 (from python-dateutil==2.9.0.post0->-r /work/input/requirements.txt (line 120))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting webencodings (from bleach==6.4.0->-r /work/input/requirements.txt (line 145))
+  Downloading webencodings-0.6.1-py3-none-any.whl.metadata (3.4 kB)
+Collecting django-ipware>=3 (from django-axes[ipware]==8.3.1->-r /work/input/requirements.txt (line 106))
+  Downloading django_ipware-7.0.1-py2.py3-none-any.whl.metadata (9.1 kB)
+Collecting sqlparse>=0.3.1 (from Django~=5.2.17->-r /work/input/requirements.txt (line 28))
+  Downloading sqlparse-0.6.0-py3-none-any.whl.metadata (6.0 kB)
+Collecting cffi>=2.0.0 (from cryptography<51,>=50.0.0->-r /work/input/requirements.txt (line 104))
+  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+Collecting spacy-legacy<3.1.0,>=3.0.11 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl.metadata (2.8 kB)
+Collecting spacy-loggers<2.0.0,>=1.0.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading spacy_loggers-1.0.5-py3-none-any.whl.metadata (23 kB)
+Collecting murmurhash<1.1.0,>=0.28.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading murmurhash-1.0.15-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (2.3 kB)
+Collecting cymem<2.1.0,>=2.0.2 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading cymem-2.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (9.7 kB)
+Collecting preshed<3.1.0,>=3.0.2 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading preshed-3.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+Collecting thinc<8.4.0,>=8.3.12 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading thinc-8.3.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (14 kB)
+Collecting wasabi<1.2.0,>=0.9.1 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading wasabi-1.1.3-py3-none-any.whl.metadata (28 kB)
+Collecting srsly<3.0.0,>=2.5.3 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading srsly-2.5.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (19 kB)
+Collecting catalogue<2.1.0,>=2.0.6 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+Collecting weasel<2.0.0,>=1.0.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading weasel-1.0.0-py3-none-any.whl.metadata (4.6 kB)
+Collecting confection<2.0.0,>=1.3.2 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading confection-1.3.3-py3-none-any.whl.metadata (19 kB)
+Collecting typer<1.0.0,>=0.3.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading typer-0.27.2-py3-none-any.whl.metadata (16 kB)
+Collecting tqdm<5.0.0,>=4.38.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting pydantic<3.0.0,>=2.0.0 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+Collecting jinja2 (from spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography<51,>=50.0.0->-r /work/input/requirements.txt (line 104))
+  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting python-ipware>=2.0.3 (from django-ipware>=3->django-axes[ipware]==8.3.1->-r /work/input/requirements.txt (line 106))
+  Downloading python_ipware-3.0.0-py3-none-any.whl.metadata (15 kB)
+Collecting googleapis-common-protos<2.0.0,>=1.69.2 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading googleapis_common_protos-1.75.3-py3-none-any.whl.metadata (8.5 kB)
+Collecting protobuf<8.0.0,>=6.33.5 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting proto-plus<2.0.0,>=1.26.1 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading proto_plus-1.28.4-py3-none-any.whl.metadata (2.2 kB)
+Collecting opentelemetry-api<2.0.0,>=1.44.0 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading opentelemetry_api-1.44.0-py3-none-any.whl.metadata (1.4 kB)
+Collecting pyasn1-modules>=0.2.1 (from google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyparsing<4,>=3.1 (from httplib2<1.0.0,>=0.19.0->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting annotated-types>=0.6.0 (from pydantic<3.0.0,>=2.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.46.5 (from pydantic<3.0.0,>=2.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting typing-inspection>=0.4.2 (from pydantic<3.0.0,>=2.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting asn1crypto>=1.5.1 (from pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading asn1crypto-1.5.1-py2.py3-none-any.whl.metadata (13 kB)
+Collecting aiohttp<3.15,>=3.9 (from pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading aiohttp-3.14.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+Collecting lxml>=5.4.0 (from pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting oscrypto>=1.1.0 (from pyhanko-certvalidator>=0.19.5->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading oscrypto-1.3.0-py2.py3-none-any.whl.metadata (15 kB)
+Collecting uritools>=3.0.1 (from pyhanko-certvalidator>=0.19.5->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading uritools-6.1.3-py3-none-any.whl.metadata (5.1 kB)
+Collecting cssselect2>=0.2.0 (from svglib>=1.2.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading cssselect2-0.10.1-py3-none-any.whl.metadata (2.9 kB)
+INFO: pip is looking at multiple versions of svglib to determine which version is compatible with other requirements. This could take a while.
+Collecting svglib>=1.2.1 (from xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading svglib-2.1.0-py3-none-any.whl.metadata (14 kB)
+  Downloading svglib-2.0.2-py3-none-any.whl.metadata (13 kB)
+  Downloading svglib-1.6.0-py3-none-any.whl.metadata (11 kB)
+  Downloading svglib-1.5.1.tar.gz (913 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 913.9/913.9 kB 4.3 MB/s eta 0:00:00
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting blis<1.4.0,>=1.3.0 (from thinc<8.4.0,>=8.3.12->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading blis-1.3.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (7.5 kB)
+Collecting shellingham>=1.3.0 (from typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting cloudpathlib>=0.7.0 (from weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading cloudpathlib-0.25.0-py3-none-any.whl.metadata (16 kB)
+Collecting smart-open>=5.2.1 (from weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading smart_open-8.0.1-py3-none-any.whl.metadata (24 kB)
+Collecting httpx>=0.24.0 (from weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting attrs>=17.3.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading multidict-6.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting propcache>=0.2.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /work/input/requirements.txt (line 78))
+  Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+Collecting anyio (from httpx>=0.24.0->weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore==1.* (from httpx>=0.24.0->weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx>=0.24.0->weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0->google-api-python-client==2.200.0->-r /work/input/requirements.txt (line 86))
+  Downloading pyasn1-0.6.4-py3-none-any.whl.metadata (8.4 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting wrapt (from smart-open>=5.2.1->weasel<2.0.0,>=1.0.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading wrapt-2.4.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (7.4 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /work/input/requirements.txt (line 133))
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading django_environ-0.14.0-py3-none-any.whl (20 kB)
+Downloading django_apscheduler-0.7.0-py3-none-any.whl (24 kB)
+Downloading django_auditlog-3.4.1-py3-none-any.whl (49 kB)
+Downloading django_cors_headers-4.9.0-py3-none-any.whl (12 kB)
+Downloading django_filter-26.1-py3-none-any.whl (94 kB)
+Downloading django_import_export-4.4.1-py3-none-any.whl (157 kB)
+Downloading django_mathfilters-1.0.0-py3-none-any.whl (5.9 kB)
+Downloading django_model_utils-5.0.0-py3-none-any.whl (42 kB)
+Downloading django_redis-5.4.0-py3-none-any.whl (31 kB)
+Downloading django_simple_history-3.13.0-py3-none-any.whl (82 kB)
+Downloading django_storages-1.14.6-py3-none-any.whl (33 kB)
+Downloading django_widget_tweaks-1.5.1-py3-none-any.whl (9.6 kB)
+Downloading djangorestframework-3.17.2-py3-none-any.whl (899 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 899.1/899.1 kB 11.4 MB/s eta 0:00:00
+Downloading djangorestframework_simplejwt-5.5.1-py3-none-any.whl (107 kB)
+Downloading pyjwt-2.13.0-py3-none-any.whl (31 kB)
+Downloading drf_yasg-1.21.15-py3-none-any.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 6.1 MB/s eta 0:00:00
+Downloading openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+Downloading xlsxwriter-3.2.9-py3-none-any.whl (175 kB)
+Downloading pdfkit-1.0.0-py3-none-any.whl (12 kB)
+Downloading reportlab-4.0.9-py3-none-any.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 7.7 MB/s eta 0:00:00
+Downloading xhtml2pdf-0.2.17-py3-none-any.whl (125 kB)
+Downloading beautifulsoup4-4.15.0-py3-none-any.whl (109 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl (24 kB)
+Downloading google_api_python_client-2.200.0-py3-none-any.whl (16.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 8.2 MB/s eta 0:00:00
+Downloading google_auth_oauthlib-1.4.1-py3-none-any.whl (19 kB)
+Downloading google_cloud_storage-3.0.0-py2.py3-none-any.whl (173 kB)
+Downloading geopy-2.5.0-py3-none-any.whl (114 kB)
+Downloading django_axes-8.3.1-py3-none-any.whl (74 kB)
+Downloading sentry_sdk-2.20.0-py2.py3-none-any.whl (322 kB)
+Downloading swapper-1.5.0-py2.py3-none-any.whl (7.3 kB)
+Downloading whitenoise-6.9.0-py3-none-any.whl (20 kB)
+Downloading apscheduler-3.11.3-py3-none-any.whl (66 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+Downloading arabic_reshaper-3.0.1-py3-none-any.whl (20 kB)
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading phonenumbers-9.0.37-py2.py3-none-any.whl (2.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 MB 9.0 MB/s eta 0:00:00
+Downloading pycountry-24.6.1-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 5.3 MB/s eta 0:00:00
+Downloading bleach-6.4.0-py3-none-any.whl (165 kB)
+Downloading tinycss2-1.5.1-py3-none-any.whl (28 kB)
+Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 7.1 MB/s eta 0:00:00
+Downloading diff_match_patch-20241021-py3-none-any.whl (43 kB)
+Downloading django-5.2.17-py3-none-any.whl (8.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 6.7 MB/s eta 0:00:00
+Downloading psycopg2_binary-2.9.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 11.3 MB/s eta 0:00:00
+Downloading numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 5.7 MB/s eta 0:00:00
+Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 6.4 MB/s eta 0:00:00
+Downloading pymupdf-1.28.2-cp310-abi3-manylinux_2_28_x86_64.whl (25.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 25.8/25.8 MB 5.8 MB/s eta 0:00:00
+Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 4.6 MB/s eta 0:00:00
+Downloading cryptography-50.0.1-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 5.5 MB/s eta 0:00:00
+Downloading python_bidi-0.6.11-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (296 kB)
+Downloading rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 4.2 MB/s eta 0:00:00
+Downloading spacy-3.8.16-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (35.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.5/35.5 MB 4.5 MB/s eta 0:00:00
+Downloading msgpack-1.2.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (420 kB)
+Downloading coverage-7.16.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (258 kB)
+Downloading asgiref-3.12.1-py3-none-any.whl (25 kB)
+Downloading catalogue-2.0.10-py3-none-any.whl (17 kB)
+Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (248 kB)
+Downloading confection-1.3.3-py3-none-any.whl (35 kB)
+Downloading cymem-2.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (260 kB)
+Downloading django_ipware-7.0.1-py2.py3-none-any.whl (6.4 kB)
+Downloading geographiclib-2.1-py3-none-any.whl (40 kB)
+Downloading google_api_core-2.38.0-py3-none-any.whl (187 kB)
+Downloading google_auth-2.58.0-py3-none-any.whl (262 kB)
+Downloading google_auth_httplib2-0.4.2-py3-none-any.whl (9.5 kB)
+Downloading google_cloud_core-2.7.0-py3-none-any.whl (31 kB)
+Downloading google_crc32c-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (33 kB)
+Downloading google_resumable_media-2.10.2-py3-none-any.whl (81 kB)
+Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
+Downloading httplib2-0.32.0-py3-none-any.whl (93 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading inflection-0.5.1-py2.py3-none-any.whl (9.5 kB)
+Downloading murmurhash-1.0.15-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (134 kB)
+Downloading oauthlib-3.3.1-py3-none-any.whl (160 kB)
+Downloading preshed-3.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (868 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 869.0/869.0 kB 3.9 MB/s eta 0:00:00
+Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+Downloading pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 4.1 MB/s eta 0:00:00
+Downloading pyhanko-0.37.0-py3-none-any.whl (477 kB)
+Downloading pyhanko_certvalidator-0.32.1-py3-none-any.whl (115 kB)
+Downloading pypdf-6.19.0-py3-none-any.whl (395 kB)
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 6.5 MB/s eta 0:00:00
+Downloading redis-8.1.0-py3-none-any.whl (560 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 560.6/560.6 kB 4.5 MB/s eta 0:00:00
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading soupsieve-2.9.2-py3-none-any.whl (37 kB)
+Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl (29 kB)
+Downloading spacy_loggers-1.0.5-py3-none-any.whl (22 kB)
+Downloading sqlparse-0.6.0-py3-none-any.whl (50 kB)
+Downloading srsly-2.5.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 7.9 MB/s eta 0:00:00
+Downloading tablib-3.10.0-py3-none-any.whl (50 kB)
+Downloading thinc-8.3.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 4.7 MB/s eta 0:00:00
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading typer-0.27.2-py3-none-any.whl (123 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading tzlocal-5.4.4-py3-none-any.whl (18 kB)
+Downloading uritemplate-4.2.0-py3-none-any.whl (11 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading wasabi-1.1.3-py3-none-any.whl (27 kB)
+Downloading weasel-1.0.0-py3-none-any.whl (50 kB)
+Downloading webencodings-0.6.1-py3-none-any.whl (8.7 kB)
+Downloading chardet-7.6.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 6.2 MB/s eta 0:00:00
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Downloading future-1.0.0-py3-none-any.whl (491 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading aiohttp-3.14.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 8.1 MB/s eta 0:00:00
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading asn1crypto-1.5.1-py2.py3-none-any.whl (105 kB)
+Downloading blis-1.3.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (11.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.4/11.4 MB 8.8 MB/s eta 0:00:00
+Downloading cloudpathlib-0.25.0-py3-none-any.whl (66 kB)
+Downloading cssselect2-0.10.1-py3-none-any.whl (15 kB)
+Downloading googleapis_common_protos-1.75.3-py3-none-any.whl (306 kB)
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 2.2 MB/s eta 0:00:00
+Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading opentelemetry_api-1.44.0-py3-none-any.whl (60 kB)
+Downloading oscrypto-1.3.0-py2.py3-none-any.whl (194 kB)
+Downloading proto_plus-1.28.4-py3-none-any.whl (50 kB)
+Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Downloading python_ipware-3.0.0-py3-none-any.whl (10 kB)
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading smart_open-8.0.1-py3-none-any.whl (73 kB)
+Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Downloading uritools-6.1.3-py3-none-any.whl (11 kB)
+Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Downloading multidict-6.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (317 kB)
+Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
+Downloading pyasn1-0.6.4-py3-none-any.whl (84 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 18.9 MB/s eta 0:00:00
+Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading wrapt-2.4.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (236 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Would install APScheduler-3.11.3 Django-5.2.17 Jinja2-3.1.6 MarkupSafe-3.0.3 PyJWT-2.13.0 PyYAML-6.0.3 Pygments-2.21.0 RapidFuzz-3.14.6 aiohappyeyeballs-2.7.1 aiohttp-3.14.3 aiosignal-1.4.0 annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 arabic-reshaper-3.0.1 asgiref-3.12.1 asn1crypto-1.5.1 attrs-26.1.0 beautifulsoup4-4.15.0 bleach-6.4.0 blis-1.3.3 catalogue-2.0.10 certifi-2026.7.22 cffi-2.1.1 chardet-7.6.0 charset-normalizer-3.5.1 click-8.5.0 cloudpathlib-0.25.0 confection-1.3.3 coverage-7.16.1 cryptography-50.0.1 cssselect2-0.10.1 cymem-2.0.13 diff-match-patch-20241021 django-apscheduler-0.7.0 django-auditlog-3.4.1 django-axes-8.3.1 django-cors-headers-4.9.0 django-environ-0.14.0 django-filter-26.1 django-import-export-4.4.1 django-ipware-7.0.1 django-mathfilters-1.0.0 django-model-utils-5.0.0 django-redis-5.4.0 django-simple-history-3.13.0 django-storages-1.14.6 django-widget-tweaks-1.5.1 djangorestframework-3.17.2 djangorestframework_simplejwt-5.5.1 drf-yasg-1.21.15 en_core_web_sm-3.8.0 et_xmlfile-2.0.0 frozenlist-1.8.0 future-1.0.0 geographiclib-2.1 geopy-2.5.0 google-api-core-2.38.0 google-api-python-client-2.200.0 google-auth-2.58.0 google-auth-httplib2-0.4.2 google-auth-oauthlib-1.4.1 google-cloud-core-2.7.0 google-cloud-storage-3.0.0 google-crc32c-1.8.0 google-resumable-media-2.10.2 googleapis-common-protos-1.75.3 gunicorn-23.0.0 h11-0.16.0 html5lib-1.1 httpcore-1.0.9 httplib2-0.32.0 httpx-0.28.1 idna-3.20 inflection-0.5.1 lxml-6.1.3 markdown-it-py-4.2.0 mdurl-0.1.2 msgpack-1.2.2 multidict-6.9.0 murmurhash-1.0.15 numpy-2.5.3 oauthlib-3.3.1 openpyxl-3.1.5 opentelemetry-api-1.44.0 oscrypto-1.3.0 packaging-26.3 pandas-3.0.6 pdfkit-1.0.0 phonenumbers-9.0.37 pillow-12.3.0 preshed-3.0.13 propcache-0.5.4 proto-plus-1.28.4 protobuf-7.36.2 psycopg2-binary-2.9.13 pyHanko-0.37.0 pyasn1-0.6.4 pyasn1_modules-0.4.2 pycountry-24.6.1 pycparser-3.0 pydantic-2.13.5 pydantic_core-2.46.5 pyhanko-certvalidator-0.32.1 pymupdf-1.28.2 pyparsing-3.3.3 pypdf-6.19.0 python-bidi-0.6.11 python-dateutil-2.9.0.post0 python-ipware-3.0.0 pytz-2026.3.post1 pyzk-0.9 redis-8.1.0 reportlab-4.0.9 requests-2.34.2 requests-oauthlib-2.0.0 rich-15.0.0 sentry-sdk-2.20.0 setuptools-84.0.0 shellingham-1.5.4 six-1.17.0 smart_open-8.0.1 soupsieve-2.9.2 spacy-3.8.16 spacy-legacy-3.0.12 spacy-loggers-1.0.5 sqlparse-0.6.0 srsly-2.5.3 svglib-1.5.1 swapper-1.5.0 tablib-3.10.0 thinc-8.3.13 tinycss2-1.5.1 tqdm-4.70.1 typer-0.27.2 typing-inspection-0.4.4 typing_extensions-4.16.0 tzlocal-5.4.4 uritemplate-4.2.0 uritools-6.1.3 urllib3-2.8.0 wasabi-1.1.3 weasel-1.0.0 webencodings-0.6.1 whitenoise-6.9.0 wrapt-2.4.1 xhtml2pdf-0.2.17 xlsxwriter-3.2.9 yarl-1.25.1
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip

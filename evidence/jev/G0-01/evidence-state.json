@@ -1,0 +1,55 @@
+{
+  "schema": "qdrat.jev-decision/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "checkpoint": "C - evidence completeness",
+  "decision_type": "choice",
+  "question": "Is the evidence produced so far for task G0-01 complete and internally consistent with its acceptance criteria?",
+  "allowed_values": ["complete", "incomplete", "contradictory", "other"],
+  "selected_value": "incomplete",
+  "confidence": 0.99,
+  "probabilities": {
+    "complete": 0.0,
+    "incomplete": 1.0,
+    "contradictory": 0.0,
+    "other": 0.0
+  },
+  "input_evidence": {
+    "required_evidence": "docs/qdrat/plan/tasks/tasks.json tasks[G0-01].evidence_required",
+    "produced_now": [
+      "scope-and-base",
+      "contract-tests",
+      "recovery-proof"
+    ],
+    "produced_before_this_checkpoint": "evidence/g0-01/ (18 files)",
+    "not_produced_yet": [
+      "diffcipline-proof",
+      "independent-review",
+      "accepted-head"
+    ]
+  },
+  "timestamp_utc": "2026-09-21T16:25:24Z",
+  "tool": {
+    "cli": "jev 0.3.2",
+    "model": "jev-1.13.0",
+    "provider": "typesafe"
+  },
+  "resulting_deterministic_action": "Confirms the deterministic ordering already recorded in the task record: G0-01 may not advance to VERIFIED until diffcipline-proof, independent-review and accepted-head exist. The task is not closed on the strength of this decision.",
+  "raw_response": {
+    "model": "jev-1.13.0",
+    "id": null,
+    "provider": "typesafe",
+    "answer": {
+      "type": "choice",
+      "choice": "incomplete",
+      "confidence": 0.99,
+      "probabilities": {
+        "complete": 0.0,
+        "other": 0.0,
+        "contradictory": 0.0,
+        "incomplete": 1.0
+      }
+    },
+    "usage": {"input_tokens": 1111, "output_tokens": 52}
+  }
+}
