@@ -1,0 +1,69 @@
+{
+  "schema": "diffcipline.proof/v1",
+  "schema_version": "1.0",
+  "policy": {
+    "mode": "enterprise",
+    "sources": [
+      ".diffcipline/tasks/G0-01-accepted-head.toml",
+      ".diffcipline.toml"
+    ]
+  },
+  "verdict": "PASS",
+  "base": "e6b4e339fc38e5ff4584ca04b38cf02a0c1dbe2b",
+  "changed_files": 8,
+  "added_lines": 498,
+  "deleted_lines": 3,
+  "files": [
+    ".diffcipline/tasks/G0-01-accepted-head.toml",
+    "evidence/g0-01/README.md",
+    "evidence/g0-01/accepted-head-diffcipline.json",
+    "evidence/g0-01/accepted-head-diffcipline.log",
+    "evidence/g0-01/accepted-head.json",
+    "evidence/g0-01/execution-acceptance-reverification.json",
+    "evidence/g0-01/founder-execution-acceptance.json",
+    "evidence/jev/G0-01/execution-predecessor-acceptance.json"
+  ],
+  "reasons": [],
+  "risk": "R1",
+  "expected_files": [
+    ".diffcipline/tasks/G0-01-accepted-head.toml",
+    "evidence/**"
+  ],
+  "forbidden_surfaces": [
+    ".github/workflows/**",
+    "horilla/**",
+    "base/**",
+    "requirements.txt",
+    "Dockerfile",
+    "requirements/**",
+    "docs/qdrat/plan/**"
+  ],
+  "scope_violations": [],
+  "verification": [
+    {
+      "command": "python docs/qdrat/plan/validate_plan.py",
+      "state": "PASS"
+    },
+    {
+      "command": "python docs/qdrat/plan/test_validate_plan.py",
+      "state": "PASS"
+    },
+    {
+      "command": "python -m unittest discover -s requirements/tests -p test_*.py",
+      "state": "PASS"
+    },
+    {
+      "command": "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip",
+      "state": "PASS"
+    }
+  ],
+  "tool": {
+    "binary": "C:/Users/Shehr/bin/diffcipline.exe",
+    "sha256": "5fee721d3837ab86f2c36003d02ca67ebac793ff8dadcdb3b7eea074690e57a8",
+    "executed_at_utc": "2026-09-21T19:26:00Z",
+    "head": "2d4abc05c4a80e5d9b7a629bac52ed021d8279bb",
+    "environment": "acceptance branch working copy, Windows, host interpreter for the verification commands",
+    "worktree_clean_before_run": true,
+    "evidence_only_descendant": false
+  }
+}
