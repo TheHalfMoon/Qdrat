@@ -1,0 +1,2 @@
+{"schema": "qdrat.plan-validation/v1", "status": "PASS", "product_tests": "NOT_RUN", "tasks": 96, "nodes": 96, "gates": 13, "specgrain": {"status": "NOT_RUN"}}
+{"target": "linux-amd64-py312", "distributions": 149, "installed": 150, "excluded_tool_distributions": ["pip"], "verified_artifacts": 0, "status": "PASS"}
