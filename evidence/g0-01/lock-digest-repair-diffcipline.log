@@ -1,0 +1,13 @@
+{"schema": "qdrat.plan-validation/v1", "status": "PASS", "product_tests": "NOT_RUN", "tasks": 96, "nodes": 96, "gates": 13, "specgrain": {"status": "NOT_RUN"}}
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 2.124s
+
+OK
+.................................
+----------------------------------------------------------------------
+Ran 33 tests in 0.868s
+
+OK
+{"target": "linux-amd64-py312", "distributions": 149, "installed": 150, "excluded_tool_distributions": ["pip"], "verified_artifacts": 0, "verified_bootstrap_artifacts": 0, "verified_listing_entries": 149, "lock_digest": "6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b", "status": "PASS"}
+{"schema":"diffcipline.proof/v1","schema_version":"1.0","policy":{"mode":"enterprise","sources":[".diffcipline/tasks/G0-01-lock-digest-repair.toml",".diffcipline.toml"]},"verdict":"PASS","base":"ca5ceb361798ff8ba78a8ac86c47de0bc440058e","changed_files":5,"added_lines":268,"deleted_lines":10,"files":[".diffcipline/tasks/G0-01-lock-digest-repair.toml","evidence/g0-01/lock-digest-repair.json","requirements/artifacts/linux-amd64-py312.json","requirements/tests/test_lock_contract.py","requirements/tools/lockfile.py"],"reasons":[],"risk":"R2","expected_files":[".diffcipline/tasks/G0-01-lock-digest-repair.toml","requirements/tools/lockfile.py","requirements/tests/test_lock_contract.py","requirements/artifacts/linux-amd64-py312.json","evidence/**"],"forbidden_surfaces":[".github/workflows/**","horilla/**","base/**","requirements.txt","Dockerfile","requirements/locks/**","docs/qdrat/plan/**"],"scope_violations":[],"verification":[{"command":"python docs/qdrat/plan/validate_plan.py","state":"PASS"},{"command":"python docs/qdrat/plan/test_validate_plan.py","state":"PASS"},{"command":"python -m unittest discover -s requirements/tests -p test_*.py","state":"PASS"},{"command":"python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip","state":"PASS"}]}

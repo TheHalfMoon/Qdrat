@@ -1,0 +1,796 @@
+"""Contract tests for the frozen Linux amd64 CPython 3.12 dependency artifacts.
+
+These tests are deterministic and offline: they exercise the emitted lock and
+artifact inventory, and prove the two behaviours the G0-01 acceptance calls for
+explicitly - that two isolated resolutions must agree before anything is frozen,
+and that an unsupported platform is rejected rather than served a lock.
+
+Run from the repository root:
+
+    python -m unittest discover -s requirements/tests -p "test_*.py"
+"""
+
+from __future__ import annotations
+
+import hashlib
+import importlib.util
+import io
+import json
+import tempfile
+import unittest
+from contextlib import redirect_stderr, redirect_stdout
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+TOOL_PATH = REPO_ROOT / "requirements" / "tools" / "lockfile.py"
+LOCK_NAME = "linux-amd64-py312"
+
+
+def load_tool():
+    spec = importlib.util.spec_from_file_location("qdrat_lockfile", TOOL_PATH)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+lockfile = load_tool()
+
+
+def sha256_bytes(payload: bytes) -> str:
+    return hashlib.sha256(payload).hexdigest()
+
+
+def write_artifact(directory: Path, filename: str, payload: bytes = b"artifact") -> str:
+    path = directory / filename
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(payload)
+    return sha256_bytes(payload)
+
+
+def report_entry(name: str, version: str, filename: str, digest: str, url: str) -> dict:
+    return {
+        "download_info": {"url": url, "archive_info": {"hashes": {"sha256": digest}}},
+        "is_direct": False,
+        "metadata": {"name": name, "version": version},
+        "requested": False,
+    }
+
+
+class TempProject:
+    """Minimal synthetic builder used to isolate each deterministic refusal."""
+
+    def __init__(self, test: unittest.TestCase) -> None:
+        self._tmp = tempfile.TemporaryDirectory()
+        test.addCleanup(self._tmp.cleanup)
+        self.root = Path(self._tmp.name)
+
+    def wheelhouse(self, entries):
+        """Create wheelhouse files plus the matching pip resolution report."""
+        wheelhouse = self.root / "wheelhouse"
+        wheelhouse.mkdir(parents=True, exist_ok=True)
+        report = []
+        for name, version, filename, payload in entries:
+            digest = write_artifact(wheelhouse, filename, payload)
+            url = f"https://files.pythonhosted.org/packages/{filename}"
+            report.append(report_entry(name, version, filename, digest, url))
+        report_path = self.root / "report.json"
+        report_path.write_text(json.dumps({"install": report}), encoding="utf-8")
+        return wheelhouse, report_path
+
+
+def run_cli(argv):
+    stderr = io.StringIO()
+    with redirect_stderr(stderr), redirect_stdout(io.StringIO()):
+        code = lockfile.main(argv)
+    return code, stderr.getvalue()
+
+
+def build_argv(root, resolution_a, resolution_b):
+    return [
+        "build",
+        "--resolution-a",
+        str(resolution_a),
+        "--resolution-b",
+        str(resolution_b),
+        "--input",
+        str(REPO_ROOT / "requirements.txt"),
+        "--input-label",
+        "requirements.txt",
+        "--lock-out",
+        str(root / "lock.txt"),
+        "--lock-label",
+        "requirements/locks/linux-amd64-py312.txt",
+        "--artifacts-out",
+        str(root / "artifacts.json"),
+        "--artifacts-label",
+        "requirements/artifacts/linux-amd64-py312.json",
+        "--wheelhouse-label",
+        "wheelhouse",
+        "--resolver-version",
+        "25.0.1",
+        "--builder-image",
+        "python@sha256:" + "0" * 64,
+    ]
+
+
+class FrozenArtifactTests(unittest.TestCase):
+    """Assertions about the lock that is actually committed."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lock_path = REPO_ROOT / "requirements" / "locks" / f"{LOCK_NAME}.txt"
+        cls.artifacts_path = REPO_ROOT / "requirements" / "artifacts" / f"{LOCK_NAME}.json"
+        if not cls.lock_path.is_file() or not cls.artifacts_path.is_file():
+            raise unittest.SkipTest("frozen artifacts are not present")
+        cls.artifacts = json.loads(cls.artifacts_path.read_text(encoding="utf-8"))
+        cls.lock = lockfile.parse_lock(cls.lock_path)
+
+    def test_every_requirement_is_pinned_and_hashed(self):
+        self.assertTrue(self.lock)
+        for name, (version, hashes) in self.lock.items():
+            self.assertTrue(version, name)
+            self.assertTrue(hashes, name)
+            for digest in hashes:
+                self.assertRegex(digest, r"^[0-9a-f]{64}$")
+
+    def test_lock_matches_artifact_inventory_exactly(self):
+        inventory = {
+            item["normalized_name"]: (item["version"], [item["sha256"]])
+            for item in self.artifacts["distributions"]
+        }
+        self.assertEqual(self.lock, inventory)
+
+    def test_inventory_binds_source_url_hash_and_license(self):
+        for item in self.artifacts["distributions"]:
+            self.assertTrue(item["url"], item["name"])
+            self.assertRegex(item["sha256"], r"^[0-9a-f]{64}$")
+            self.assertIn(item["kind"], {"wheel", "sdist"})
+            self.assertEqual(item["license"]["source"], "installed-distribution-metadata")
+
+    def test_input_is_bound_by_hash(self):
+        requirements = REPO_ROOT / "requirements.txt"
+        self.assertEqual(
+            self.artifacts["input"]["sha256"], lockfile.sha256_text_file(requirements)
+        )
+
+    def test_lock_file_hash_matches_the_inventory(self):
+        self.assertEqual(
+            self.artifacts["lock"]["sha256"], lockfile.sha256_text_file(self.lock_path)
+        )
+
+    def test_only_the_single_qualified_target_is_declared(self):
+        self.assertEqual(self.artifacts["target"], LOCK_NAME)
+        self.assertEqual(self.artifacts["supported_targets"], [LOCK_NAME])
+
+    def test_direct_spacy_model_wheel_is_bound_by_url_and_hash(self):
+        direct = [item for item in self.artifacts["distributions"] if item["direct"]]
+        self.assertEqual([item["name"] for item in direct], ["en_core_web_sm"])
+        self.assertTrue(direct[0]["url"].startswith("https://github.com/explosion/"))
+        self.assertEqual(direct[0]["kind"], "wheel")
+
+
+class UnsupportedTargetTests(unittest.TestCase):
+    """The lock must refuse unsupported platforms instead of degrading."""
+
+    def test_verify_rejects_every_unsupported_target(self):
+        for target in (
+            "windows-amd64-py312",
+            "linux-arm64-py312",
+            "linux-amd64-py311",
+            "darwin-arm64-py312",
+        ):
+            code, message = run_cli(
+                [
+                    "verify",
+                    "--target",
+                    target,
+                    "--lock",
+                    "unused",
+                    "--artifacts",
+                    "unused",
+                    "--installed",
+                    "unused",
+                ]
+            )
+            self.assertEqual(code, 3, target)
+            self.assertIn("unsupported target", message)
+
+    def test_build_rejects_an_unsupported_target(self):
+        argv = build_argv(Path("."), "a", "b")
+        argv[argv.index("build") + 1 : argv.index("build") + 1] = [
+            "--target",
+            "windows-amd64-py312",
+        ]
+        code, message = run_cli(argv)
+        self.assertEqual(code, 3)
+        self.assertIn("unsupported target", message)
+
+
+class ResolutionAgreementTests(unittest.TestCase):
+    """Two isolated resolutions must agree before a lock may exist."""
+
+    def _resolve(self, entries):
+        project = TempProject(self)
+        wheelhouse, report = project.wheelhouse(entries)
+        out = project.root / "resolution.json"
+        code, message = run_cli(
+            [
+                "resolve",
+                "--wheelhouse",
+                str(wheelhouse),
+                "--report",
+                str(report),
+                "--out",
+                str(out),
+            ]
+        )
+        self.assertEqual(code, 0, message)
+        return json.loads(out.read_text(encoding="utf-8"))
+
+    def test_identical_resolutions_agree(self):
+        entries = [("Demo", "1.0", "demo-1.0-py3-none-any.whl", b"demo")]
+        self.assertEqual(
+            self._resolve(entries)["distributions"],
+            self._resolve(entries)["distributions"],
+        )
+
+    def test_digest_drift_between_resolutions_is_refused(self):
+        first = self._resolve([("Demo", "1.0", "demo-1.0-py3-none-any.whl", b"demo")])
+        second = self._resolve([("Demo", "1.0", "demo-1.0-py3-none-any.whl", b"other")])
+        project = TempProject(self)
+        (project.root / "a.json").write_text(json.dumps(first), encoding="utf-8")
+        (project.root / "b.json").write_text(json.dumps(second), encoding="utf-8")
+        code, message = run_cli(
+            build_argv(project.root, project.root / "a.json", project.root / "b.json")
+        )
+        self.assertEqual(code, 3)
+        self.assertIn("disagree", message)
+        self.assertFalse((project.root / "lock.txt").exists())
+
+
+class IncompleteEvidenceTests(unittest.TestCase):
+    """A partial or unaccounted artifact set must never become a lock."""
+
+    def test_artifact_without_a_resolution_entry_is_refused(self):
+        project = TempProject(self)
+        wheelhouse, report = project.wheelhouse(
+            [("Demo", "1.0", "demo-1.0-py3-none-any.whl", b"demo")]
+        )
+        write_artifact(wheelhouse, "stray-9.9-py3-none-any.whl", b"stray")
+        code, message = run_cli(
+            [
+                "resolve",
+                "--wheelhouse",
+                str(wheelhouse),
+                "--report",
+                str(report),
+                "--out",
+                str(project.root / "out.json"),
+            ]
+        )
+        self.assertEqual(code, 3)
+        self.assertIn("not accounted for", message)
+
+    def test_empty_wheelhouse_is_refused(self):
+        project = TempProject(self)
+        wheelhouse = project.root / "wheelhouse"
+        wheelhouse.mkdir(parents=True)
+        report = project.root / "report.json"
+        report.write_text(json.dumps({"install": []}), encoding="utf-8")
+        code, message = run_cli(
+            [
+                "resolve",
+                "--wheelhouse",
+                str(wheelhouse),
+                "--report",
+                str(report),
+                "--out",
+                str(project.root / "out.json"),
+            ]
+        )
+        self.assertEqual(code, 3)
+        self.assertIn("no resolved distributions", message)
+
+    def test_resolution_without_a_local_artifact_is_refused(self):
+        project = TempProject(self)
+        wheelhouse = project.root / "wheelhouse"
+        wheelhouse.mkdir(parents=True)
+        write_artifact(wheelhouse, "something-1.0-py3-none-any.whl", b"x")
+        report = project.root / "report.json"
+        report.write_text(
+            json.dumps(
+                {
+                    "install": [
+                        report_entry(
+                            "Demo",
+                            "1.0",
+                            "demo-1.0-py3-none-any.whl",
+                            "0" * 64,
+                            "https://files.pythonhosted.org/packages/demo-1.0-py3-none-any.whl",
+                        )
+                    ]
+                }
+            ),
+            encoding="utf-8",
+        )
+        code, message = run_cli(
+            [
+                "resolve",
+                "--wheelhouse",
+                str(wheelhouse),
+                "--report",
+                str(report),
+                "--out",
+                str(project.root / "out.json"),
+            ]
+        )
+        self.assertEqual(code, 3)
+        self.assertIn("does not contain the artifact", message)
+
+    def test_unpinned_lock_line_is_refused(self):
+        project = TempProject(self)
+        lock = project.root / "lock.txt"
+        lock.write_text("demo>=1.0\n", encoding="utf-8")
+        with self.assertRaises(lockfile.ToolError):
+            lockfile.parse_lock(lock)
+
+    def test_missing_lock_file_is_reported_as_a_tool_error(self):
+        project = TempProject(self)
+        with self.assertRaises(lockfile.ToolError) as caught:
+            lockfile.parse_lock(project.root / "absent-lock.txt")
+        self.assertIn("cannot read lock file", str(caught.exception))
+
+
+class InstalledInventoryTests(unittest.TestCase):
+    """The installed distribution set must reconcile with the frozen lock."""
+
+    def _fixture(self):
+        project = TempProject(self)
+        lock = project.root / "lock.txt"
+        lock.write_text(
+            "demo==1.0 --hash=sha256:" + "a" * 64 + "\n"
+            "other==2.0 --hash=sha256:" + "b" * 64 + "\n",
+            encoding="utf-8",
+        )
+        artifacts = project.root / "artifacts.json"
+        artifacts.write_text(
+            json.dumps(
+                {
+                    "schema": lockfile.ARTIFACTS_SCHEMA,
+                    "target": LOCK_NAME,
+                    "supported_targets": [LOCK_NAME],
+                    "lock": {
+                        "path": lock.name,
+                        "sha256": lockfile.sha256_text_file(lock),
+                    },
+                    "distributions": [
+                        {"name": "demo", "version": "1.0", "sha256": "a" * 64},
+                        {"name": "other", "version": "2.0", "sha256": "b" * 64},
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        return lock, artifacts, project.root
+
+    def _installed(self, root, records):
+        path = root / "installed.json"
+        path.write_text(json.dumps(records), encoding="utf-8")
+        return path
+
+    def _verify(self, lock, artifacts, installed):
+        return run_cli(
+            [
+                "verify",
+                "--target",
+                LOCK_NAME,
+                "--lock",
+                str(lock),
+                "--artifacts",
+                str(artifacts),
+                "--installed",
+                str(installed),
+            ]
+        )
+
+    def test_matching_inventory_passes(self):
+        lock, artifacts, root = self._fixture()
+        installed = self._installed(
+            root,
+            [{"name": "Demo", "version": "1.0"}, {"name": "other", "version": "2.0"}],
+        )
+        code, message = self._verify(lock, artifacts, installed)
+        self.assertEqual(code, 0, message)
+
+    def test_missing_extra_and_version_drift_are_refused(self):
+        lock, artifacts, root = self._fixture()
+        installed = self._installed(
+            root,
+            [
+                {"name": "demo", "version": "1.1"},
+                {"name": "surprise", "version": "1.0"},
+            ],
+        )
+        code, message = self._verify(lock, artifacts, installed)
+        self.assertEqual(code, 3)
+        self.assertIn("missing=['other']", message)
+        self.assertIn("unexpected=['surprise']", message)
+        self.assertIn("mismatched=", message)
+
+    def test_installed_entry_without_name_or_version_is_refused(self):
+        lock, artifacts, root = self._fixture()
+        installed = self._installed(root, [{"name": "demo"}, {"version": "2.0"}])
+        code, message = self._verify(lock, artifacts, installed)
+        self.assertEqual(code, 3)
+        self.assertIn("without a name/version string", message)
+
+
+class BuildBootstrapTests(unittest.TestCase):
+    """The build bootstrap must be bound by hash even though pip does not pin it."""
+
+    def _fixture(self):
+        project = TempProject(self)
+        lock = project.root / "lock.txt"
+        lock.write_text(
+            "demo==1.0 --hash=sha256:" + "a" * 64 + "\n",
+            encoding="utf-8",
+        )
+        bootstrap_dir = project.root / "bootstrap"
+        bootstrap_dir.mkdir(parents=True, exist_ok=True)
+        digest = write_artifact(
+            bootstrap_dir, "wheel-0.47.0-py3-none-any.whl", b"bootstrap"
+        )
+        artifacts = project.root / "artifacts.json"
+        artifacts.write_text(
+            json.dumps(
+                {
+                    "schema": lockfile.ARTIFACTS_SCHEMA,
+                    "target": LOCK_NAME,
+                    "supported_targets": [LOCK_NAME],
+                    "lock": {
+                        "path": lock.name,
+                        "sha256": lockfile.sha256_text_file(lock),
+                    },
+                    "bootstrap": [
+                        {
+                            "name": "wheel",
+                            "version": "0.47.0",
+                            "filename": "wheel-0.47.0-py3-none-any.whl",
+                            "sha256": digest,
+                            "purpose": "build backend for sdist-only distributions",
+                        }
+                    ],
+                    "distributions": [
+                        {"name": "demo", "version": "1.0", "sha256": "a" * 64}
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        installed = project.root / "installed.json"
+        installed.write_text(
+            json.dumps([{"name": "demo", "version": "1.0"}]), encoding="utf-8"
+        )
+        return lock, artifacts, installed, bootstrap_dir
+
+    def _verify(self, lock, artifacts, installed, bootstrap_dir):
+        return run_cli(
+            [
+                "verify",
+                "--target",
+                LOCK_NAME,
+                "--lock",
+                str(lock),
+                "--artifacts",
+                str(artifacts),
+                "--installed",
+                str(installed),
+                "--bootstrap-dir",
+                str(bootstrap_dir),
+            ]
+        )
+
+    def test_matching_bootstrap_artifact_passes(self):
+        lock, artifacts, installed, bootstrap = self._fixture()
+        code, message = self._verify(lock, artifacts, installed, bootstrap)
+        self.assertEqual(code, 0, message)
+
+    def test_tampered_bootstrap_artifact_is_refused(self):
+        lock, artifacts, installed, bootstrap = self._fixture()
+        (bootstrap / "wheel-0.47.0-py3-none-any.whl").write_bytes(b"tampered")
+        code, message = self._verify(lock, artifacts, installed, bootstrap)
+        self.assertEqual(code, 3)
+        self.assertIn("does not match the frozen hash", message)
+
+    def test_missing_bootstrap_artifact_is_refused(self):
+        lock, artifacts, installed, bootstrap = self._fixture()
+        (bootstrap / "wheel-0.47.0-py3-none-any.whl").unlink()
+        code, message = self._verify(lock, artifacts, installed, bootstrap)
+        self.assertEqual(code, 3)
+        self.assertIn("declared bootstrap artifact is missing", message)
+
+
+class PathSafetyTests(unittest.TestCase):
+    """Artifact names must never address anything outside their directory."""
+
+    def test_encoded_traversal_collapses_to_one_segment(self):
+        # Decoding before taking the final segment is what makes this safe: the
+        # result is the file name `secret`, never the path `../secret`.
+        self.assertEqual(
+            lockfile.artifact_filename("https://example.invalid/packages/..%2fsecret"),
+            "secret",
+        )
+        self.assertEqual(
+            lockfile.artifact_filename("https://example.invalid/packages/../secret"),
+            "secret",
+        )
+
+    def test_filename_that_is_only_a_parent_reference_is_refused(self):
+        with self.assertRaises(lockfile.ToolError):
+            lockfile.artifact_filename("https://example.invalid/packages/..")
+        with self.assertRaises(lockfile.ToolError):
+            lockfile.artifact_filename("https://example.invalid/")
+
+    def test_wheelhouse_entry_that_escapes_is_refused(self):
+        project = TempProject(self)
+        outside = project.root / "outside.whl"
+        outside.write_bytes(b"outside")
+        wheelhouse = project.root / "wheelhouse"
+        wheelhouse.mkdir(parents=True, exist_ok=True)
+        lock = project.root / "lock.txt"
+        lock.write_text("demo==1.0 --hash=sha256:" + "a" * 64 + "\n", encoding="utf-8")
+        artifacts = project.root / "artifacts.json"
+        artifacts.write_text(
+            json.dumps(
+                {
+                    "schema": lockfile.ARTIFACTS_SCHEMA,
+                    "target": LOCK_NAME,
+                    "supported_targets": [LOCK_NAME],
+                    "lock": {
+                        "path": lock.name,
+                        "sha256": lockfile.sha256_text_file(lock),
+                    },
+                    "distributions": [
+                        {"name": "demo", "version": "1.0", "filename": "../outside.whl",
+                         "sha256": "a" * 64}
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        installed = project.root / "installed.json"
+        installed.write_text(
+            json.dumps([{"name": "demo", "version": "1.0"}]), encoding="utf-8"
+        )
+        code, message = run_cli(
+            [
+                "verify",
+                "--target",
+                LOCK_NAME,
+                "--lock",
+                str(lock),
+                "--artifacts",
+                str(artifacts),
+                "--installed",
+                str(installed),
+                "--wheelhouse",
+                str(wheelhouse),
+            ]
+        )
+        self.assertEqual(code, 3)
+        self.assertIn("escapes", message)
+
+
+class CommittedListingTests(unittest.TestCase):
+    """A committed sha256sum listing must agree with the artifact inventory."""
+
+    def _fixture(self):
+        project = TempProject(self)
+        digest = "c" * 64
+        lock = project.root / "lock.txt"
+        lock.write_text(
+            "demo==1.0 --hash=sha256:" + digest + "\n", encoding="utf-8"
+        )
+        artifacts = project.root / "artifacts.json"
+        artifacts.write_text(
+            json.dumps(
+                {
+                    "schema": lockfile.ARTIFACTS_SCHEMA,
+                    "target": LOCK_NAME,
+                    "supported_targets": [LOCK_NAME],
+                    "lock": {
+                        "path": lock.name,
+                        "sha256": lockfile.sha256_text_file(lock),
+                    },
+                    "distributions": [
+                        {
+                            "name": "demo",
+                            "version": "1.0",
+                            "filename": "demo-1.0-py3-none-any.whl",
+                            "sha256": digest,
+                        }
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        installed = project.root / "installed.json"
+        installed.write_text(
+            json.dumps([{"name": "demo", "version": "1.0"}]), encoding="utf-8"
+        )
+        return project.root, lock, artifacts, installed
+
+    def _verify(self, root, lock, artifacts, installed, listing):
+        return run_cli(
+            [
+                "verify",
+                "--target",
+                LOCK_NAME,
+                "--lock",
+                str(lock),
+                "--artifacts",
+                str(artifacts),
+                "--installed",
+                str(installed),
+                "--sha256-listing",
+                str(listing),
+            ]
+        )
+
+    def test_matching_listing_passes(self):
+        root, lock, artifacts, installed = self._fixture()
+        listing = root / "wheelhouse.sha256"
+        listing.write_text(
+            "c" * 64 + "  ./demo-1.0-py3-none-any.whl\n", encoding="utf-8"
+        )
+        code, message = self._verify(root, lock, artifacts, installed, listing)
+        self.assertEqual(code, 0, message)
+
+    def test_drifted_listing_is_refused(self):
+        root, lock, artifacts, installed = self._fixture()
+        listing = root / "wheelhouse.sha256"
+        listing.write_text(
+            "d" * 64 + "  ./demo-1.0-py3-none-any.whl\n", encoding="utf-8"
+        )
+        code, message = self._verify(root, lock, artifacts, installed, listing)
+        self.assertEqual(code, 3)
+        self.assertIn("disagrees with the artifact inventory", message)
+
+    def test_malformed_listing_line_is_refused(self):
+        root, lock, artifacts, installed = self._fixture()
+        listing = root / "wheelhouse.sha256"
+        listing.write_text("not-a-sha256  ./demo.whl\n", encoding="utf-8")
+        code, message = self._verify(root, lock, artifacts, installed, listing)
+        self.assertEqual(code, 3)
+        self.assertIn("is not a sha256sum line", message)
+
+    def test_duplicate_resolution_names_are_refused_before_rendering(self):
+        project = TempProject(self)
+        payload = {
+            "schema": lockfile.RESOLUTION_SCHEMA,
+            "target": LOCK_NAME,
+            "python_version": "3.12",
+            "distributions": [
+                {
+                    "name": "demo",
+                    "normalized_name": "demo",
+                    "version": "1.0",
+                    "kind": "wheel",
+                    "filename": "demo-1.0-py3-none-any.whl",
+                    "sha256": "a" * 64,
+                    "url": "https://example.invalid/demo-1.0-py3-none-any.whl",
+                    "direct": False,
+                },
+                {
+                    "name": "Demo",
+                    "normalized_name": "demo",
+                    "version": "1.0",
+                    "kind": "wheel",
+                    "filename": "demo-1.0-py3-none-any.whl",
+                    "sha256": "a" * 64,
+                    "url": "https://example.invalid/demo-1.0-py3-none-any.whl",
+                    "direct": False,
+                },
+            ],
+        }
+        source = project.root / "resolution.json"
+        source.write_text(json.dumps(payload), encoding="utf-8")
+        code, message = run_cli(
+            build_argv(project.root, source, source)
+        )
+        self.assertEqual(code, 3)
+        self.assertIn("duplicate distribution", message)
+        self.assertFalse((project.root / "lock.txt").exists())
+
+
+class CheckoutIndependenceTests(unittest.TestCase):
+    """A frozen digest must describe the artifact in the repository.
+
+    The first frozen lock recorded the sha256 of the file as it sat on the
+    Windows machine that generated it - CRLF - while the committed object was
+    LF, because `.gitattributes` pins `*.txt text eol=lf`. Every check that
+    re-derived the digest from a fresh checkout therefore failed, and the two
+    representations differ only in line endings that git normalises anyway.
+    These tests pin the corrected contract.
+    """
+
+    def _resolution(self, project, entries):
+        wheelhouse, report = project.wheelhouse(entries)
+        out = project.root / "resolution.json"
+        code, message = run_cli(
+            [
+                "resolve",
+                "--wheelhouse",
+                str(wheelhouse),
+                "--report",
+                str(report),
+                "--out",
+                str(out),
+            ]
+        )
+        self.assertEqual(code, 0, message)
+        return out
+
+    def test_text_digest_ignores_the_line_separator_convention(self):
+        project = TempProject(self)
+        body = ("demo==1.0 --hash=sha256:" + "a" * 64).encode()
+        lf = project.root / "lock-lf.txt"
+        lf.write_bytes(body + b"\n")
+        crlf = project.root / "lock-crlf.txt"
+        crlf.write_bytes(body + b"\r\n")
+        self.assertNotEqual(sha256_bytes(lf.read_bytes()), sha256_bytes(crlf.read_bytes()))
+        self.assertEqual(
+            lockfile.sha256_text_file(lf), lockfile.sha256_text_file(crlf)
+        )
+
+    def test_build_writes_lf_and_records_the_canonical_digest(self):
+        project = TempProject(self)
+        entries = [("Demo", "1.0", "demo-1.0-py3-none-any.whl", b"demo")]
+        first = self._resolution(project, entries)
+        second = self._resolution(project, entries)
+        code, message = run_cli(build_argv(project.root, first, second))
+        self.assertEqual(code, 0, message)
+        lock_path = project.root / "lock.txt"
+        self.assertNotIn(b"\r", lock_path.read_bytes())
+        artifacts = json.loads(
+            (project.root / "artifacts.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            artifacts["lock"]["sha256"], lockfile.sha256_text_file(lock_path)
+        )
+        self.assertEqual(artifacts["lock"]["sha256"], sha256_bytes(lock_path.read_bytes()))
+
+    def test_verify_refuses_a_lock_that_no_longer_matches_its_record(self):
+        lock, artifacts, root = InstalledInventoryTests._fixture(self)
+        installed = root / "installed.json"
+        installed.write_text(
+            json.dumps(
+                [{"name": "demo", "version": "1.0"}, {"name": "other", "version": "2.0"}]
+            ),
+            encoding="utf-8",
+        )
+        drifted = json.loads(artifacts.read_text(encoding="utf-8"))
+        drifted["lock"]["sha256"] = "f" * 64
+        artifacts.write_text(json.dumps(drifted), encoding="utf-8")
+        code, message = InstalledInventoryTests._verify(self, lock, artifacts, installed)
+        self.assertEqual(code, 3)
+        self.assertIn("does not match the digest recorded in the inventory", message)
+
+    def test_verify_refuses_an_inventory_without_a_lock_digest(self):
+        lock, artifacts, root = InstalledInventoryTests._fixture(self)
+        installed = root / "installed.json"
+        installed.write_text(
+            json.dumps([{"name": "demo", "version": "1.0"}, {"name": "other", "version": "2.0"}]),
+            encoding="utf-8",
+        )
+        without_record = json.loads(artifacts.read_text(encoding="utf-8"))
+        without_record.pop("lock")
+        artifacts.write_text(json.dumps(without_record), encoding="utf-8")
+        code, message = InstalledInventoryTests._verify(self, lock, artifacts, installed)
+        self.assertEqual(code, 3)
+        self.assertIn("must record the frozen lock digest", message)
+
+
+if __name__ == "__main__":
+    unittest.main()

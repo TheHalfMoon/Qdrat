@@ -1,0 +1,41 @@
+{
+  "schema": "qdrat.execution-environment/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "recorded_at_utc": "2026-09-21",
+  "host": {
+    "shell": "Windows PowerShell",
+    "docker_client": "29.7.2",
+    "docker_server": "29.7.2",
+    "docker_server_os": "linux",
+    "docker_server_arch": "amd64"
+  },
+  "builder_image": {
+    "pinned_reference": "python@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+    "tag_used_at_acquisition": "python:3.12-slim",
+    "tag_used_note": "Same base image family as the application Dockerfile (FROM python:3.12-slim); the digest, not the tag, is the binding.",
+    "platform": "linux/amd64",
+    "libc": "glibc 2.41",
+    "interpreter": "CPython 3.12.14 (main, Sep 19 2026) [GCC 14.2.0]",
+    "openssl": "OpenSSL 3.5.7 9 Jun 2026",
+    "resolver": "pip 25.0.1 (/usr/local/lib/python3.12/site-packages/pip)"
+  },
+  "bootstrap": {
+    "wheel": {
+      "version": "0.47.0",
+      "filename": "wheel-0.47.0-py3-none-any.whl",
+      "sha256": "212281cab4dff978f6cedd499cd893e1f620791ca6ff7107cf270781e587eced",
+      "reason": "Offline build backend for the two sdist-only distributions (pyzk, svglib). setuptools is already an application requirement and is therefore locked rather than bootstrapped."
+    }
+  },
+  "network_policy": {
+    "acquisition": "network enabled; single-purpose container; nothing installed on the host interpreter and no global package mutation",
+    "installation_proof": "docker run --network none"
+  },
+  "inputs": {
+    "requirements": {
+      "path": "requirements.txt",
+      "sha256": "fa2212c675ff7754bafe3af1bc14677f6fd9ffe50183800d51ebdc100459bbea"
+    }
+  }
+}

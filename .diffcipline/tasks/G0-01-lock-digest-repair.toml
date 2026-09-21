@@ -1,0 +1,34 @@
+version = 1
+
+# Task-specific Diffcipline policy for the bounded G0-01 defect repair found by
+# the acceptance reverification: the frozen lock's recorded digest described the
+# generating Windows working tree (CRLF) instead of the committed artifact (LF),
+# so the G0-01 contract suite failed from any fresh checkout.
+#
+# Immutable base: ca5ceb361798ff8ba78a8ac86c47de0bc440058e (the sealed G0-01
+# head that PR #3 carries and that the founder accepted as the execution
+# predecessor).
+# Risk: R2. The change touches the deterministic tooling that emits the frozen
+# dependency artifacts, the contract suite that gates it, and the recorded lock
+# digest inside the artifact inventory. It cannot change a resolved version, a
+# wheel hash or any application behaviour; the lock file itself must not change.
+# Recovery: revert this bounded commit. The lock content and every wheel hash are
+# untouched by it, so a revert restores exactly the previous (unreproducible)
+# record and invalidates nothing that was not already invalid.
+
+[policy]
+max_changed_files = 12
+max_added_lines = 2000
+dependency_manifest_changes = "review"
+lockfile_changes = "review"
+untracked_files = "review"
+# Diffcipline's policy parser reads one `key = [...]` per line; every array below
+# must stay on a single line.
+expected_files = [".diffcipline/tasks/G0-01-lock-digest-repair.toml", "requirements/tools/lockfile.py", "requirements/tests/test_lock_contract.py", "requirements/artifacts/linux-amd64-py312.json", "evidence/**"]
+forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile", "requirements/locks/**", "docs/qdrat/plan/**"]
+
+[verification]
+# The lock contract suite is the check that failed; `lockfile.py verify` now also
+# reconciles the recorded lock digest itself, so this class of defect is caught by
+# the gate that runs on every change rather than only by the unit test.
+r2_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py", "python -m unittest discover -s requirements/tests -p test_*.py", "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip"]

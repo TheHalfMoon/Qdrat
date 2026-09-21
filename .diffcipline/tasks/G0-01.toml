@@ -1,0 +1,60 @@
+version = 1
+
+# Task-specific Diffcipline policy for G0-01 / SG-000001.
+#
+# Bounded change: freeze one dependency target (linux amd64 / CPython 3.12) for
+# the unchanged inputs in requirements.txt, plus the deterministic tooling that
+# produces and verifies those artifacts.
+#
+# Immutable base: 144935cd6bb64d3448ec3927fa7d1569bee93ca0
+# Risk: R2 per docs/qdrat/plan/EXECUTION_GRAPH.yaml.
+# Recovery: discard the frozen artifacts and revert this bounded commit. No
+# database, service, or production state is touched, and requirements.txt, the
+# Dockerfile and all application code are unchanged.
+
+[policy]
+# 40 -> 48 and the two repair packet files below.
+#
+# The sealed packet described the original freeze change only: 40 files, all
+# under requirements/** and evidence/**. Re-running the gate from a clean
+# checkout then showed that the frozen lock's recorded digest described the
+# generating Windows working tree rather than the committed artifact, and the
+# contract suite failed. That reproduction and the FAIL verdict the unchanged
+# 40-file bound produced over the cumulative range are preserved in
+# evidence/g0-01/lock-digest-repair.json and
+# evidence/g0-01/execution-acceptance-reverification.json.
+#
+# The bounded repair was developed, reviewed and proved under its own packet
+# (.diffcipline/tasks/G0-01-lock-digest-repair.toml plus the evidence seal
+# packet). Reconciling this one is the step chapter 41 calls for when an
+# accepted task legitimately requires broader scope: the original failure stays
+# recorded, the bound that caused it is widened on the record rather than in
+# silence, and the cumulative range to the repaired head then evaluates PASS
+# with all four verification commands green. The bound is 48 for the 46 files
+# that range contains, so a later addition still trips it instead of sliding
+# under a bound chosen to fit today's diff.
+max_changed_files = 48
+max_added_lines = 40000
+dependency_manifest_changes = "review"
+lockfile_changes = "review"
+untracked_files = "review"
+# Diffcipline's policy parser reads one `key = [...]` per line; every array below
+# must stay on a single line. Reformatting it across lines makes the policy fail
+# closed with "expected_files must be an array".
+expected_files = [".diffcipline.toml", ".diffcipline/tasks/G0-01.toml", ".diffcipline/tasks/G0-01-lock-digest-repair.toml", ".diffcipline/tasks/G0-01-lock-digest-repair-evidence.toml", "requirements/**", "evidence/**"]
+forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile", "docs/qdrat/plan/**"]
+
+[verification]
+# The verify command reconciles three independent records: the lock, the artifact
+# inventory, and the sha256sum listing produced over the real artifacts during
+# acquisition. Without the listing the gate would only compare documents to each
+# other and a consistently altered hash in both documents would pass. The
+# bootstrap wheel is not committed, so its own hash binding happens at proof time
+# in prove-offline.sh, not here.
+#
+# The unittest pattern stays unquoted on purpose. Diffcipline runs verification
+# through `cmd /C` on Windows, which does not glob, and a quoted pattern reaches
+# Python literally: quoting it made unittest discover nothing at all and turned
+# this gate into a FAIL (preserved in
+# evidence/g0-01/diffcipline-attempt-3-quoted-pattern.log).
+r2_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py", "python -m unittest discover -s requirements/tests -p test_*.py", "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip"]
