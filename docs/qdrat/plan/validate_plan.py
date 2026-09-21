@@ -48,9 +48,9 @@ def content_manifest():
         if (not path.is_file() or '__pycache__' in path.parts or
                 rel.startswith('evidence/verification/') or rel == 'evidence/transport-seal.json'):
             continue
-        files[rel] = hashlib.sha256(path.read_bytes()).hexdigest()
+        files[rel] = hashlib.sha256(path.read_bytes().replace(b'\r\n', b'\n')).hexdigest()
     digest = hashlib.sha256(json.dumps(files,sort_keys=True,separators=(',', ':')).encode()).hexdigest()
-    return {'sha256': digest, 'files': files,
+    return {'sha256': digest, 'files': files, 'text_canonicalization': 'UTF-8 bytes with CRLF normalized to LF; binary assets are not included',
             'excluded': ['evidence/verification/**', 'evidence/transport-seal.json', '**/__pycache__/**']}
 
 def validate(specgrain_source=None):
