@@ -1,6 +1,6 @@
 {
   "schema": "qdrat.planning-checks/v1",
-  "observed_at": "2026-09-21T04:22:24.667044+00:00",
+  "observed_at": "2026-09-21T04:27:50.382502+00:00",
   "checks": [
     {
       "name": "structure-and-specgrain",
@@ -12,8 +12,8 @@
         "--output",
         "<TEMP_TOOL_ROOT>\\plan-validation-final.json"
       ],
-      "started_at": "2026-09-21T04:22:24.904495+00:00",
-      "finished_at": "2026-09-21T04:22:25.542996+00:00",
+      "started_at": "2026-09-21T04:27:50.593656+00:00",
+      "finished_at": "2026-09-21T04:27:51.407199+00:00",
       "exit_code": 0,
       "status": "PASS",
       "raw_log_sha256": "24bf4748f0815fac2624c00cf80201e9b52d883853255b7ac5992803c7d22d4e",
@@ -26,13 +26,13 @@
         "<BUNDLED_PYTHON>\\python.exe",
         "docs\\qdrat\\plan\\test_validate_plan.py"
       ],
-      "started_at": "2026-09-21T04:22:25.542996+00:00",
-      "finished_at": "2026-09-21T04:22:27.715464+00:00",
+      "started_at": "2026-09-21T04:27:51.407199+00:00",
+      "finished_at": "2026-09-21T04:27:53.559073+00:00",
       "exit_code": 0,
       "status": "PASS",
-      "raw_log_sha256": "1581aff8881afd99603f4c2127289c8c3d11a0c41166829ec6d08b7dcb3b6779",
+      "raw_log_sha256": "cc5482cbd69a51c417cda09088dddaf5929584766b2538bbab43796e875460ec",
       "log_file": "validator-negative-tests.log",
-      "log_sha256": "1581aff8881afd99603f4c2127289c8c3d11a0c41166829ec6d08b7dcb3b6779"
+      "log_sha256": "cc5482cbd69a51c417cda09088dddaf5929584766b2538bbab43796e875460ec"
     },
     {
       "name": "whitespace",
@@ -42,8 +42,8 @@
         "--cached",
         "--check"
       ],
-      "started_at": "2026-09-21T04:22:27.715464+00:00",
-      "finished_at": "2026-09-21T04:22:27.829382+00:00",
+      "started_at": "2026-09-21T04:27:53.559073+00:00",
+      "finished_at": "2026-09-21T04:27:53.679892+00:00",
       "exit_code": 0,
       "status": "PASS",
       "raw_log_sha256": "7c2fd4fc1281f5deb9e1c38eaa84e9d294f233b8c283d835735bc8615a5dbf43",
@@ -64,21 +64,21 @@
         "--run",
         "--json"
       ],
-      "started_at": "2026-09-21T04:22:27.829382+00:00",
-      "finished_at": "2026-09-21T04:22:30.969495+00:00",
+      "started_at": "2026-09-21T04:27:53.679892+00:00",
+      "finished_at": "2026-09-21T04:27:56.720324+00:00",
       "exit_code": 0,
       "status": "PASS",
       "verdict": "PASS",
-      "changed_files": 65,
+      "changed_files": 72,
       "reasons": [],
-      "raw_log_sha256": "7c7abaf3f4e983526be2480288b3e9c08f7b2601badbad2be9abcc4d885fe84d",
+      "raw_log_sha256": "1f2d28d8890af46d027b4403bf7c5a33b577877c0215f8677781160bc5c21144",
       "log_file": "diffcipline.log",
-      "log_sha256": "7c7abaf3f4e983526be2480288b3e9c08f7b2601badbad2be9abcc4d885fe84d"
+      "log_sha256": "1f2d28d8890af46d027b4403bf7c5a33b577877c0215f8677781160bc5c21144"
     }
   ],
   "product_runtime_tests": "NOT_RUN",
-  "head": "88a0a456d513677ef82303cab2a5c93a5eb9a9e1",
-  "tree": "b1cb544261cb1e2fb648c19f5983e128ee402ac2",
+  "head": "cadb843ab6e521e6566a8f544ac358292cc5c55e",
+  "tree": "f4f5c6addd7e9ad9d1ec8c14e726aaea74bd43f0",
   "root_policy_sha256": "42783fce9b3c7933e1b75c2c7f6638b4bbb1f8ecb44742362c0606cfe649a2b1",
   "host": {
     "system": "Windows",
