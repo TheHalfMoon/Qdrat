@@ -31,4 +31,10 @@ forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirem
 # other and a consistently altered hash in both documents would pass. The
 # bootstrap wheel is not committed, so its own hash binding happens at proof time
 # in prove-offline.sh, not here.
-r2_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py", "python -m unittest discover -s requirements/tests -p \"test_*.py\"", "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip"]
+#
+# The unittest pattern stays unquoted on purpose. Diffcipline runs verification
+# through `cmd /C` on Windows, which does not glob, and a quoted pattern reaches
+# Python literally: quoting it made unittest discover nothing at all and turned
+# this gate into a FAIL (preserved in
+# evidence/g0-01/diffcipline-attempt-3-quoted-pattern.log).
+r2_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py", "python -m unittest discover -s requirements/tests -p test_*.py", "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip"]
