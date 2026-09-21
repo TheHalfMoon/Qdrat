@@ -189,6 +189,34 @@ class ReleaseTaskTests(unittest.TestCase):
         with self.assertRaises(release_tasks.ReleaseTaskError):
             release_tasks.lock_timeout_seconds()
 
+    def test_running_as_a_script_puts_the_project_root_on_the_path(self):
+        """`python docker/release_tasks.py` must still be able to `import horilla`.
+
+        Executed from `docker/` in a fresh interpreter, because that is exactly
+        how the entrypoint runs it and how the first concurrent-bootstrap probe
+        failed with ModuleNotFoundError before this was fixed.
+        """
+        import subprocess
+        import sys
+
+        script = (
+            "import sys;"
+            f"sys.path.insert(0, {str(RELEASE_TASKS.parent)!r});"
+            "import importlib.util;"
+            f"spec = importlib.util.spec_from_file_location('release_tasks', {str(RELEASE_TASKS)!r});"
+            "module = importlib.util.module_from_spec(spec);"
+            "spec.loader.exec_module(module);"
+            f"print({str(REPO_ROOT)!r} in sys.path)"
+        )
+        result = subprocess.run(
+            [sys.executable, "-c", script],
+            cwd=str(RELEASE_TASKS.parent),
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        self.assertEqual(result.stdout.strip(), "True")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -38,6 +38,17 @@ import argparse
 import os
 import sys
 import time
+from pathlib import Path
+
+# Running `python docker/release_tasks.py` puts `docker/` on sys.path, not the
+# project root, so `import horilla` fails even though the project sits one level
+# up - manage.py never hits this because it lives at the root. The first
+# concurrent-bootstrap probe caught exactly that:
+# ModuleNotFoundError: No module named 'horilla'. Bind the root explicitly
+# instead of relying on the caller's working directory.
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 # "QDRAT" as ASCII, chosen once and asserted by a test so a change is deliberate.
 DEFAULT_LOCK_KEY = 0x5144524154
