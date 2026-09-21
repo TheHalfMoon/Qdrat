@@ -1,0 +1,110 @@
+{
+  "schema": "diffcipline.proof/v1",
+  "schema_version": "1.0",
+  "policy": {
+    "mode": "enterprise",
+    "sources": [
+      ".diffcipline/tasks/G0-01.toml",
+      ".diffcipline.toml"
+    ]
+  },
+  "verdict": "PASS",
+  "base": "144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+  "changed_files": 46,
+  "added_lines": 13001,
+  "deleted_lines": 4,
+  "files": [
+    ".diffcipline.toml",
+    ".diffcipline/tasks/G0-01-lock-digest-repair-evidence.toml",
+    ".diffcipline/tasks/G0-01-lock-digest-repair.toml",
+    ".diffcipline/tasks/G0-01.toml",
+    "evidence/.gitignore",
+    "evidence/g0-01/README.md",
+    "evidence/g0-01/acquire-a.log",
+    "evidence/g0-01/acquire-b.log",
+    "evidence/g0-01/contract-tests.log",
+    "evidence/g0-01/diffcipline-attempt-1.log",
+    "evidence/g0-01/diffcipline-attempt-2-review.log",
+    "evidence/g0-01/diffcipline-attempt-3-quoted-pattern.log",
+    "evidence/g0-01/diffcipline-attempt-3-quoted-pattern.out",
+    "evidence/g0-01/diffcipline-run.log",
+    "evidence/g0-01/diffcipline.json",
+    "evidence/g0-01/environment.json",
+    "evidence/g0-01/independent-review.json",
+    "evidence/g0-01/install.log",
+    "evidence/g0-01/installed.json",
+    "evidence/g0-01/licenses.json",
+    "evidence/g0-01/lock-digest-repair-diffcipline.json",
+    "evidence/g0-01/lock-digest-repair-diffcipline.log",
+    "evidence/g0-01/lock-digest-repair-verification.json",
+    "evidence/g0-01/lock-digest-repair.json",
+    "evidence/g0-01/pip-check.log",
+    "evidence/g0-01/reconciliation.md",
+    "evidence/g0-01/resolution-a.json",
+    "evidence/g0-01/resolution-agreement.json",
+    "evidence/g0-01/resolution-b.json",
+    "evidence/g0-01/run-dir-guard-matrix.log",
+    "evidence/g0-01/specgrain-check.log",
+    "evidence/g0-01/specgrain-readiness.json",
+    "evidence/g0-01/verify.log",
+    "evidence/g0-01/wheelhouse-a.sha256",
+    "evidence/g0-01/wheelhouse-b.sha256",
+    "evidence/g0-01/workpacket.json",
+    "evidence/jev/G0-01/evidence-state.json",
+    "evidence/jev/G0-01/review-routing.json",
+    "evidence/jev/G0-01/scope-drift.json",
+    "requirements/README.md",
+    "requirements/artifacts/linux-amd64-py312.json",
+    "requirements/locks/linux-amd64-py312.txt",
+    "requirements/tests/test_lock_contract.py",
+    "requirements/tools/acquire.sh",
+    "requirements/tools/lockfile.py",
+    "requirements/tools/prove-offline.sh"
+  ],
+  "reasons": [],
+  "risk": "R2",
+  "expected_files": [
+    ".diffcipline.toml",
+    ".diffcipline/tasks/G0-01.toml",
+    ".diffcipline/tasks/G0-01-lock-digest-repair.toml",
+    ".diffcipline/tasks/G0-01-lock-digest-repair-evidence.toml",
+    "requirements/**",
+    "evidence/**"
+  ],
+  "forbidden_surfaces": [
+    ".github/workflows/**",
+    "horilla/**",
+    "base/**",
+    "requirements.txt",
+    "Dockerfile",
+    "docs/qdrat/plan/**"
+  ],
+  "scope_violations": [],
+  "verification": [
+    {
+      "command": "python docs/qdrat/plan/validate_plan.py",
+      "state": "PASS"
+    },
+    {
+      "command": "python docs/qdrat/plan/test_validate_plan.py",
+      "state": "PASS"
+    },
+    {
+      "command": "python -m unittest discover -s requirements/tests -p test_*.py",
+      "state": "PASS"
+    },
+    {
+      "command": "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip",
+      "state": "PASS"
+    }
+  ],
+  "tool": {
+    "binary": "C:/Users/Shehr/bin/diffcipline.exe",
+    "sha256": "5fee721d3837ab86f2c36003d02ca67ebac793ff8dadcdb3b7eea074690e57a8",
+    "executed_at_utc": "2026-09-21T19:19:00Z",
+    "head": "b4531988f4a32143407c5aa2de4d7090d33e4930",
+    "environment": "clean detached worktree at the accepted head, Windows, host interpreter for the verification commands",
+    "worktree_clean_before_run": true,
+    "evidence_only_descendant": false
+  }
+}

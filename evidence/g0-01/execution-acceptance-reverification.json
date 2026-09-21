@@ -1,0 +1,140 @@
+{
+  "schema": "qdrat.task-reverification/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "purpose": "Evaluate the condition the founder attached to the execution acceptance of ca5ceb361798ff8ba78a8ac86c47de0bc440058e, and establish the exact revision at which that condition holds.",
+  "reverified_at_utc": "2026-09-21T19:20:00Z",
+  "repository": {
+    "remote": "https://github.com/TheHalfMoon/Qdrat.git",
+    "default_branch": "main",
+    "default_branch_head": "e2d288940aab52af881786678b2fc86dfa5c272a"
+  },
+  "live_state": {
+    "refs": {
+      "refs/heads/codex/qdrat-canonical-plan": "144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+      "refs/pull/2/head": "144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+      "refs/heads/codex/g0-01-acceptance-state": "7a9eee467df29ad3eed90cbe494fda8f13e9a25d",
+      "refs/heads/codex/g0-01-lock-digest-repair": "b4531988f4a32143407c5aa2de4d7090d33e4930",
+      "refs/heads/codex/g0-01-freeze-linux-amd64-py312-lock": "b4531988f4a32143407c5aa2de4d7090d33e4930",
+      "refs/pull/3/head": "b4531988f4a32143407c5aa2de4d7090d33e4930"
+    },
+    "pull_requests": {
+      "1": "OPEN, foundation/qdrat-people-blueprint, unmerged",
+      "2": "OPEN, draft, head 144935cd6bb64d3448ec3927fa7d1569bee93ca0, base foundation/qdrat-people-blueprint, unmerged, unchanged",
+      "3": "OPEN, non-draft, base codex/qdrat-canonical-plan, mergeable MERGEABLE, mergeStateStatus CLEAN, mergedAt null, reviewDecision empty, zero approvals",
+      "4": "OPEN, head codex/g0-01-acceptance-state, unmerged"
+    },
+    "branch_protection": "none observed on the branches involved",
+    "named_revision_object": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e exists locally and on the remote; tree 0dcc5fc5d851a37bcbbc4644b99608dd73e5db51; no commit later than it existed on the G0-01 implementation branch before this reverification"
+  },
+  "condition_evaluation": {
+    "condition": "Live re-verification confirms that the named revision still matches the independently verified G0-01 implementation and that no later material change invalidated its evidence.",
+    "revision_and_tree_match": "CONFIRMED",
+    "no_later_change": "CONFIRMED (at the time of reverification the branch tip was the named revision)",
+    "evidence_reproduces_from_the_repository": "NOT CONFIRMED. Two checks that had only ever been run in the working tree that generated the artifacts fail from a clean checkout of the named revision.",
+    "finding": "RV-07 - the frozen lock's recorded digest described the generating Windows working tree (CRLF) instead of the committed artifact (LF).",
+    "consequence": "The founder's condition was not satisfied at the named revision as stated, so acceptance is recorded against the repaired revision b4531988f, with the authorization itself and its condition preserved verbatim in evidence/g0-01/founder-execution-acceptance.json."
+  },
+  "checks_at_the_named_revision_ca5ceb3": [
+    {
+      "id": "plan-validator-with-pinned-specgrain",
+      "environment": "clean detached worktree of ca5ceb3, CPython 3.12.14",
+      "result": "PASS",
+      "observed": "status PASS; tasks 96; nodes 96; gates 13; specgrain status PASS at source_sha 5de7d6499bb0a9e3a191fc0934399cf099d1980a; candidate SG-000001; is_ready true; implementation_verified false"
+    },
+    {
+      "id": "plan-validator-negative-tests",
+      "result": "PASS",
+      "observed": "Ran 7 tests; OK"
+    },
+    {
+      "id": "lock-contract-suite",
+      "result": "FAIL",
+      "observed": "Ran 29 tests; FAILED (failures=1). test_lock_file_hash_matches_the_inventory: AssertionError: 'e951f4c14695579b7a1b3ce1ba9188c857decab4f8ffbeff8a7db5ba3580c000' != '6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b'",
+      "note": "The same suite passes in the generating working copy, which is why G0-01 recorded 'Ran 29 tests; OK'."
+    },
+    {
+      "id": "lock-reconciliation",
+      "result": "PASS",
+      "observed": "distributions 149; installed 150; verified_listing_entries 149; status PASS. The tool at this revision did not compare the lock to its recorded digest, which is why the gate could not see RV-07."
+    },
+    {
+      "id": "sealed-artifact-digests",
+      "result": "MISMATCH_EXPLAINED",
+      "observed": "requirements/locks/linux-amd64-py312.txt: committed blob 6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b versus recorded e951f4c14695579b7a1b3ce1ba9188c857decab4f8ffbeff8a7db5ba3580c000. requirements/artifacts/linux-amd64-py312.json: committed blob 8c116f56d8f3e53b1edc56d499578f840bad58852cff9d7981950425613d7b72 versus the digest recorded in evidence/g0-01/README.md ffef04fc92a67198de0715397d8a6a3f76e5433070db0613dbb7d04703bb502d. Both recorded values are the CRLF images of the committed bytes."
+    },
+    {
+      "id": "diffcipline-r2-gate-over-the-whole-change",
+      "command": "diffcipline check --base 144935cd6bb64d3448ec3927fa7d1569bee93ca0 --risk R2 --enterprise-policy .diffcipline/tasks/G0-01.toml --run --json",
+      "result": "FAIL",
+      "observed": "verdict FAIL; exit 2; reasons [\"verification failed: python -m unittest discover -s requirements/tests -p test_*.py\"]; the other three verification commands PASS",
+      "note": "This is the gate consequence of RV-07: at the named revision the G0-01 gate itself is not reproducible from the repository."
+    }
+  ],
+  "checks_at_the_accepted_head_b4531988f": [
+    {
+      "id": "plan-validator-with-pinned-specgrain",
+      "environment": "clean detached worktree of b4531988f, CPython 3.12.14, pinned SpecGrain checkout clean at 5de7d6499bb0a9e3a191fc0934399cf099d1980a",
+      "result": "PASS",
+      "observed": "status PASS; tasks 96; nodes 96; gates 13; specgrain status PASS; candidate SG-000001; revision_digest sha256:74cfc1f1663a61d86ba9a3ff8ba6152a118b791a3e5a6116da80d67ae7690fa7; is_ready true; implementation_verified false"
+    },
+    {
+      "id": "plan-validator-negative-tests",
+      "result": "PASS",
+      "observed": "Ran 7 tests; OK"
+    },
+    {
+      "id": "lock-contract-suite",
+      "result": "PASS",
+      "observed": "Ran 33 tests; OK"
+    },
+    {
+      "id": "lock-reconciliation",
+      "result": "PASS",
+      "observed": "distributions 149; installed 150; verified_listing_entries 149; lock_digest 6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b; status PASS"
+    },
+    {
+      "id": "diffcipline-r2-gate-over-the-whole-change",
+      "command": "diffcipline check --base 144935cd6bb64d3448ec3927fa7d1569bee93ca0 --risk R2 --enterprise-policy .diffcipline/tasks/G0-01.toml --run --json",
+      "result": "PASS",
+      "observed": "verdict PASS; exit 0; changed_files 46; added_lines 13001; deleted_lines 4; scope_violations empty; all four verification commands PASS",
+      "record": "evidence/g0-01/accepted-head-diffcipline.json"
+    },
+    {
+      "id": "preserved-negative-evidence-from-the-reconciliation-step",
+      "result": "RECORDED",
+      "observed": "The same cumulative command run against the unchanged 40-file bound returned FAIL with reasons [\"changed files 46 exceed maximum 40\", \"enterprise expected-files contract rejected: .diffcipline/tasks/G0-01-lock-digest-repair.toml\", \"... -repair-evidence.toml\"] while all four verification commands already passed. That verdict is a policy bound, not a check failure, and it is kept rather than deleted; the bound was then widened on the record by b4531988f, whose own commit message and the packet comment state why."
+    }
+  ],
+  "independent_review": {
+    "status": "REVIEW_UNAVAILABLE_FOR_THE_REPAIR_DELTA",
+    "tool": {
+      "binary": "C:/Users/Shehr/AppData/Local/Temp/qdrat-tools/bin/opencodereview-windows-amd64.exe",
+      "version": "open-code-review v1.12.8 (5c7b383) windows/amd64",
+      "sha256": "150812b67201e5a5fffc4acdd05a468b0737a10606ae109f0ba08541c1bc4a18"
+    },
+    "deterministic_preview": {
+      "command": "ocr review -c 7641e407ef936e7312aa20e891a54fe9088793bb --preview",
+      "result": "COMMAND_SUCCEEDED",
+      "observed": "5 files changed, +268 -10. Will review (4): .diffcipline/tasks/G0-01-lock-digest-repair.toml, evidence/g0-01/lock-digest-repair.json, requirements/artifacts/linux-amd64-py312.json, requirements/tools/lockfile.py. Excluded from review (1): requirements/tests/test_lock_contract.py (default_path)."
+    },
+    "review_attempt": {
+      "command": "ocr review -c 7641e407ef936e7312aa20e891a54fe9088793bb --format json --audience agent",
+      "result": "FAILED",
+      "observed": "Error: resolve LLM endpoint: no valid LLM endpoint configured; one of OCR_LLM_URL/OCR_LLM_TOKEN/OCR_LLM_MODEL, ~/.opencodereview/config.json, or ANTHROPIC_BASE_URL/ANTHROPIC_AUTH_TOKEN/ANTHROPIC_MODEL must be set (exit 1)"
+    },
+    "credential_probe": "The environment's only model credential is TYPESAFE_API_KEY. https://api.typesafe.ai/v1/models returns HTTP 200 listing only the Jev decision models jev-latest and jev-preview, which answer typed questions rather than reviewing a diff, so it cannot serve as the review model. No other provider credential is present, and the tool's delegation mode only emits preview and rule data; it does not accept findings back.",
+    "consequence": "The repair delta and therefore the accepted head carry no independent review. Under chapter 41 that is ABSTAIN/UNAVAILABLE, which is not approval: G0-01's completion state stays unverified for this delta. The obligation is named as the first carried-forward item in evidence/g0-01/accepted-head.json."
+  },
+  "ci": {
+    "status": "NOT_RUN",
+    "observed": "No workflow validates this branch. .github/workflows/codeql.yml, docker-ci.yml, docker-publish.yml, quality.yml and unit-tests.yml all trigger on branches dev/v2.0 and 2.0 only; PR #3's checks show third-party review bots only, one skipping and one reporting that reviews are disabled for this base branch."
+  },
+  "jev": {
+    "records": [
+      "evidence/jev/G0-01/execution-predecessor-acceptance.json (classification of the founder authorization, confidence 1.00)"
+    ],
+    "note": "Jev classified the authorization text. Every fact above - hashes, test counts, gate verdicts, refs, PR states - was produced by deterministic tools, not by Jev."
+  },
+  "result": "The founder's authorization is recorded as granted, and its condition is recorded as having required a bounded repair before it held. The accepted head is b4531988f4a32143407c5aa2de4d7090d33e4930, where the cumulative G0-01 gate passes over the whole change. G0-01 is not merged, not released, not independently reviewed for the repair delta, and G0 remains open."
+}

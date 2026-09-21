@@ -1,0 +1,13 @@
+{"schema": "qdrat.plan-validation/v1", "status": "PASS", "product_tests": "NOT_RUN", "tasks": 96, "nodes": 96, "gates": 13, "specgrain": {"status": "NOT_RUN"}}
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 2.800s
+
+OK
+.................................
+----------------------------------------------------------------------
+Ran 33 tests in 0.666s
+
+OK
+{"target": "linux-amd64-py312", "distributions": 149, "installed": 150, "excluded_tool_distributions": ["pip"], "verified_artifacts": 0, "verified_bootstrap_artifacts": 0, "verified_listing_entries": 149, "lock_digest": "6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b", "status": "PASS"}
+{"schema":"diffcipline.proof/v1","schema_version":"1.0","policy":{"mode":"enterprise","sources":[".diffcipline/tasks/G0-01.toml",".diffcipline.toml"]},"verdict":"PASS","base":"144935cd6bb64d3448ec3927fa7d1569bee93ca0","changed_files":46,"added_lines":13001,"deleted_lines":4,"reasons":[],"risk":"R2","scope_violations":[],"verification":[{"command":"python docs/qdrat/plan/validate_plan.py","state":"PASS"},{"command":"python docs/qdrat/plan/test_validate_plan.py","state":"PASS"},{"command":"python -m unittest discover -s requirements/tests -p test_*.py","state":"PASS"},{"command":"python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip","state":"PASS"}]}

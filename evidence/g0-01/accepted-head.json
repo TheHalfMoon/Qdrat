@@ -1,0 +1,58 @@
+{
+  "schema": "qdrat.accepted-head/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "evidence_item": "accepted-head",
+  "recorded_at_utc": "2026-09-21T19:20:00Z",
+  "state": "PRODUCED",
+  "accepted_execution_predecessor": {
+    "revision": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+    "tree": "0dcc5fc5d851a37bcbbc4644b99608dd73e5db51",
+    "accepted_by": "repository owner (founder), explicit authorization recorded in evidence/g0-01/founder-execution-acceptance.json",
+    "kind": "FOUNDER_ACCEPTED_EXECUTION_PREDECESSOR",
+    "note": "This is the revision the founder named. It remains immutable and is still the revision a review of the G0-01 implementation binds to."
+  },
+  "accepted_head": {
+    "revision": "b4531988f4a32143407c5aa2de4d7090d33e4930",
+    "tree": "09e37f21c4372b059efa455076fe22ea0777a4c7",
+    "branch": "codex/g0-01-freeze-linux-amd64-py312-lock",
+    "pull_request": 3,
+    "why_this_revision": "The founder's authorization is conditional on live re-verification confirming that the predecessor's evidence still holds. Re-verification found that it did not: from a clean checkout the G0-01 contract suite failed and the R2 gate returned FAIL at ca5ceb3, because the frozen lock's recorded digest described the generating Windows working tree rather than the committed artifact. Three bounded, separately proved commits on the same branch repair that (7641e407e), seal its evidence (ce64ac64b) and reconcile the sealed packet bound that the cumulative range exceeded (b4531988f). At b4531988f the cumulative G0-01 gate evaluates PASS over the whole change.",
+    "cumulative_gate": {
+      "command": "diffcipline check --base 144935cd6bb64d3448ec3927fa7d1569bee93ca0 --risk R2 --enterprise-policy .diffcipline/tasks/G0-01.toml --run --json",
+      "verdict": "PASS",
+      "changed_files": 46,
+      "added_lines": 13001,
+      "deleted_lines": 4,
+      "scope_violations": [],
+      "verification_commands": 4,
+      "verification_state": "PASS",
+      "record": "evidence/g0-01/accepted-head-diffcipline.json"
+    }
+  },
+  "required_evidence_status": {
+    "scope-and-base": "PRESENT",
+    "contract-tests": "PRESENT and now reproducible from a clean checkout of the accepted head: 33 tests, OK. The 29-test run at ca5ceb3 failed from a clean checkout and that failure is preserved in evidence/g0-01/lock-digest-repair.json.",
+    "recovery-proof": "PRESENT (evidence/g0-01/README.md, section 'Recovery proof').",
+    "diffcipline-proof": "PRESENT. The sealed record (evidence/g0-01/diffcipline.json) binds the pre-seal head and is preserved; the cumulative exact-range proof at the accepted head is evidence/g0-01/accepted-head-diffcipline.json (verdict PASS).",
+    "independent-review": "NOT PRODUCED FOR THIS DELTA. The last completed independent review is Alibaba Open Code Review v1.12.8 bound to 7f06517855572720867d13bbd113612894109b46 (thirteen findings, none open). The repair delta ca5ceb3..b4531988f has no independent review: the tool is present and its deterministic preview runs, but no LLM endpoint credential exists in this environment. See evidence/g0-01/execution-acceptance-reverification.json.",
+    "accepted-head": "THIS RECORD."
+  },
+  "unlocks": {
+    "task": "G0-02 / SG-000002",
+    "basis": "The founder's authorization names this successor and removes the previous BLOCKED_PENDING_OWNER_ACCEPTANCE boundary; the deterministic predecessor gate now passes at the accepted head. G0-02 may therefore be developed as stacked work.",
+    "carried_forward_obligations": [
+      "Independent review of ca5ceb3..b4531988f is still required before the repaired revision can be called independently verified. It needs an LLM endpoint credential for Open Code Review or an equivalent reviewer.",
+      "No CI validates this branch; the inherited workflows trigger only on dev/v2.0 and 2.0."
+    ]
+  },
+  "not_claimed": [
+    "MERGED",
+    "RELEASED",
+    "G0 gate closure",
+    "VERIFIED task completion",
+    "branch-protection satisfaction",
+    "CI pass",
+    "production readiness"
+  ]
+}

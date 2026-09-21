@@ -1,0 +1,44 @@
+{
+  "schema": "qdrat.founder-acceptance/v1",
+  "authorization_kind": "FOUNDER_ACCEPTED_EXECUTION_PREDECESSOR",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "recorded_at_utc": "2026-09-21T19:12:00Z",
+  "named_revision": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+  "named_revision_tree": "0dcc5fc5d851a37bcbbc4644b99608dd73e5db51",
+  "named_successor": "G0-02 / SG-000002",
+  "granted": [
+    "The revision above is accepted as the execution predecessor for G0-02 / SG-000002.",
+    "G0-02 and its descendants may be developed as stacked work even while PR #3 remains open and unmerged.",
+    "The previous BLOCKED_PENDING_OWNER_ACCEPTANCE execution boundary is removed for that successor."
+  ],
+  "condition_attached_by_the_authorization": "Live re-verification must confirm that this exact revision still matches the independently verified G0-01 implementation and that no later material change invalidated its evidence.",
+  "condition_evaluation": {
+    "result": "NOT_SATISFIED_AS_STATED_THEN_REPAIRED",
+    "reason": "Live re-verification confirmed the revision and its tree, and confirmed that no later commit exists on the G0-01 implementation branch, but it also reproduced the G0-01 contract suite from a clean checkout for the first time and found it failing: test_lock_file_hash_matches_the_inventory expected e951f4c1... and observed 6e50df34..., because the recorded lock digest described the generating Windows working tree (CRLF) rather than the committed artifact (LF). The evidence was therefore not reproducible from the repository at the named revision.",
+    "repair": "The bounded forward repair recorded in evidence/g0-01/lock-digest-repair.json was executed and sealed as ce64ac64b43c553d4b5dcb4525d2598beed62726 on the same branch, and it is reviewed under the same Diffcipline policy family. Acceptance is recorded against that repaired revision, as evidence/g0-01/accepted-head.json states.",
+    "conditional_framing": "This is recorded as the founder's authorization being honoured rather than ignored: the authorization's own stated condition is what required the repair, and the acceptance receipt is bound to a revision that satisfies it."
+  },
+  "explicitly_not_granted": [
+    "No claim that PR #3 is merged. It is still OPEN with mergedAt null.",
+    "No claim that GitHub branch protection was satisfied; the repository has no protection rules on these branches.",
+    "No conversion of missing CI into a pass. The Qdrat workflows still trigger only on dev/v2.0 and 2.0, so no workflow validates this branch.",
+    "No waiver of exact-revision evidence requirements, SpecGrain, Diffcipline, review or gate requirements.",
+    "No claim of release, of G0 gate closure, or of production readiness."
+  ],
+  "distinctions_preserved": {
+    "accepted_execution_predecessor": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e, accepted by the founder for execution dependency purposes.",
+    "accepted_head_for_evidence": "ce64ac64b43c553d4b5dcb4525d2598beed62726, the repaired revision that satisfies the authorization's condition and carries the G0-01 receipts.",
+    "merged_pull_request": "NONE. PR #3 and PR #4 are open and unmerged.",
+    "released_code": "NONE.",
+    "gate_closure": "NONE. G0 remains OPEN; evidence/gates/G0.json does not exist."
+  },
+  "source": "Explicit founder authorization delivered in the Qdrat task conversation, quoted verbatim in evidence/jev/G0-01/execution-predecessor-acceptance.json and classified there by Jev as explicit_execution_predecessor_acceptance with confidence 1.00.",
+  "supporting_records": [
+    "evidence/g0-01/execution-acceptance-reverification.json",
+    "evidence/g0-01/lock-digest-repair.json",
+    "evidence/g0-01/lock-digest-repair-verification.json",
+    "evidence/g0-01/lock-digest-repair-diffcipline.json",
+    "evidence/jev/G0-01/execution-predecessor-acceptance.json"
+  ]
+}
