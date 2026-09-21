@@ -1,0 +1,89 @@
+{
+  "schema": "qdrat.planning-checks/v1",
+  "observed_at": "2026-09-21T04:27:50.382502+00:00",
+  "checks": [
+    {
+      "name": "structure-and-specgrain",
+      "command": [
+        "<BUNDLED_PYTHON>\\python.exe",
+        "docs\\qdrat\\plan\\validate_plan.py",
+        "--specgrain-source",
+        "<TEMP_TOOL_ROOT>\\SpecGrain",
+        "--output",
+        "<TEMP_TOOL_ROOT>\\plan-validation-final.json"
+      ],
+      "started_at": "2026-09-21T04:27:50.593656+00:00",
+      "finished_at": "2026-09-21T04:27:51.407199+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "raw_log_sha256": "24bf4748f0815fac2624c00cf80201e9b52d883853255b7ac5992803c7d22d4e",
+      "log_file": "structure-and-specgrain.log",
+      "log_sha256": "3e3cc699986bbe444a7596c1435475ebb0e3e5524af2b0c79b395bc458641a75"
+    },
+    {
+      "name": "validator-negative-tests",
+      "command": [
+        "<BUNDLED_PYTHON>\\python.exe",
+        "docs\\qdrat\\plan\\test_validate_plan.py"
+      ],
+      "started_at": "2026-09-21T04:27:51.407199+00:00",
+      "finished_at": "2026-09-21T04:27:53.559073+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "raw_log_sha256": "cc5482cbd69a51c417cda09088dddaf5929584766b2538bbab43796e875460ec",
+      "log_file": "validator-negative-tests.log",
+      "log_sha256": "cc5482cbd69a51c417cda09088dddaf5929584766b2538bbab43796e875460ec"
+    },
+    {
+      "name": "whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "started_at": "2026-09-21T04:27:53.559073+00:00",
+      "finished_at": "2026-09-21T04:27:53.679892+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "raw_log_sha256": "7c2fd4fc1281f5deb9e1c38eaa84e9d294f233b8c283d835735bc8615a5dbf43",
+      "log_file": "whitespace.log",
+      "log_sha256": "d320100451b9d620c6be95f35d2926b617059d0efd0116eea343998d383c7ca4"
+    },
+    {
+      "name": "diffcipline",
+      "command": [
+        "<TEMP_TOOL_ROOT>\\diffcipline.exe",
+        "check",
+        "--base",
+        "933f9c1070c151876c1e198d6141413f33e4b6d3",
+        "--risk",
+        "R1",
+        "--enterprise-policy",
+        "docs\\qdrat\\plan\\plan-policy.toml",
+        "--run",
+        "--json"
+      ],
+      "started_at": "2026-09-21T04:27:53.679892+00:00",
+      "finished_at": "2026-09-21T04:27:56.720324+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "verdict": "PASS",
+      "changed_files": 72,
+      "reasons": [],
+      "raw_log_sha256": "1f2d28d8890af46d027b4403bf7c5a33b577877c0215f8677781160bc5c21144",
+      "log_file": "diffcipline.log",
+      "log_sha256": "1f2d28d8890af46d027b4403bf7c5a33b577877c0215f8677781160bc5c21144"
+    }
+  ],
+  "product_runtime_tests": "NOT_RUN",
+  "head": "cadb843ab6e521e6566a8f544ac358292cc5c55e",
+  "tree": "f4f5c6addd7e9ad9d1ec8c14e726aaea74bd43f0",
+  "root_policy_sha256": "42783fce9b3c7933e1b75c2c7f6638b4bbb1f8ecb44742362c0606cfe649a2b1",
+  "host": {
+    "system": "Windows",
+    "python": "3.12.14",
+    "architecture": "AMD64"
+  },
+  "command_path_redaction": "Host-specific tool roots are replaced by role placeholders; arguments, outcomes and original log digests retained."
+}

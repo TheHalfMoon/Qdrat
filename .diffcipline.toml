@@ -1,0 +1,15 @@
+version = 1
+
+# Canonical-plan change policy only. Implementation tasks must publish a bounded
+# task-specific policy and required R2/R3 checks before editing product code.
+[policy]
+max_changed_files = 80
+max_added_lines = 45000
+dependency_manifest_changes = "review"
+lockfile_changes = "review"
+untracked_files = "review"
+expected_files = ["docs/qdrat/plan/**", ".diffcipline.toml"]
+forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile"]
+
+[verification]
+r1_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py"]

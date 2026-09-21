@@ -1,0 +1,854 @@
+{
+  "observed_at": "2026-09-20",
+  "authority": "DISCOVERED_PUBLIC_SOURCE, not the private founder grant",
+  "sources": [
+    {
+      "repository": "frappe/erpnext",
+      "head": "db6e0891099ab27f571b7b9697ba90f6573430f5",
+      "branch": "develop",
+      "archived": false,
+      "description": "Free and Open Source Enterprise Resource Planning (ERP)",
+      "observed_license": "GPL-3.0",
+      "license_paths": [
+        {
+          "path": "license.txt",
+          "blob": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7"
+        }
+      ],
+      "manifest_paths": [
+        "package.json",
+        "pyproject.toml"
+      ],
+      "readme_blob": "bb7a8bc2c33033e506dc5c15469aaacfe31ceee5",
+      "evidence_url": "https://github.com/frappe/erpnext/tree/db6e0891099ab27f571b7b9697ba90f6573430f5",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Immutable ledger/reversal and procurement semantics; connect financial authority first, no second ERP."
+    },
+    {
+      "repository": "twentyhq/twenty",
+      "head": "84b446a29ae79fc24b9407638a85bb1920f555d0",
+      "branch": "main",
+      "archived": false,
+      "description": "The open alternative to Salesforce, designed for AI.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "085e0c6baf78a26688991d3f9a96a68a658c2662"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "e6137b5c569cc4a71163f3499f7e90a912540dd8",
+      "evidence_url": "https://github.com/twentyhq/twenty/tree/84b446a29ae79fc24b9407638a85bb1920f555d0",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Flexible CRM objects and activity UX; shared Person/Organization and Qdrat policy replace separate CRM authority."
+    },
+    {
+      "repository": "dbos-inc/dbos-transact-py",
+      "head": "a041d4d5d1e69a3b5ce1b044c6ec2033850e7c59",
+      "branch": "main",
+      "archived": false,
+      "description": "Database-Backed Durable Python Workflows",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "fbfc96becbfce6026378db95a29dc68a6bfb3979"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "0673b0f91d427905e684b436d8edac0b100e66f1",
+      "evidence_url": "https://github.com/dbos-inc/dbos-transact-py/tree/a041d4d5d1e69a3b5ce1b044c6ec2033850e7c59",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "PostgreSQL durable-workflow recovery; study persistence invariants, do not add another scheduler."
+    },
+    {
+      "repository": "restatedev/restate",
+      "head": "d5425f5bfae4024f4d26bab447bc8e6c6db08bfa",
+      "branch": "main",
+      "archived": false,
+      "description": "Restate is the platform for building resilient applications that tolerate all infrastructure faults w/o the need for a PhD.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "82a68338267bbde13cf9b0a04682778284ef3f35"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml"
+      ],
+      "readme_blob": "6ef156693eb3452f01e17d4e4e69d9b4fcfa22bb",
+      "evidence_url": "https://github.com/restatedev/restate/tree/d5425f5bfae4024f4d26bab447bc8e6c6db08bfa",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Durable execution/service journal alternative if measured needs exceed current journal; extra server is not baseline."
+    },
+    {
+      "repository": "windmill-labs/windmill",
+      "head": "6186a0645d3f3e92e06b666a6b5774b8af2b488f",
+      "branch": "main",
+      "archived": false,
+      "description": "Open-source developer platform to power your entire infra and turn scripts into webhooks, workflows and UIs. Fastest workflow engine (13x vs Airflow). Open-source alternative to Retool and Temporal.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "aea6c58c6f3c72e718a118d94e8970e5ae1dbe01"
+        },
+        {
+          "path": "LICENSE-AGPL",
+          "blob": "0ad25db4bd1d86c452db3f9602ccdbe172438f52"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "blob": "b271f17a843cd615e7803289abeb6ae25fc7d523"
+        },
+        {
+          "path": "NOTICE",
+          "blob": "f97115143157dbfdafa12f36c03cb5f348526fa8"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "87fc66f39911394440913ce01901fe8dccc00f89",
+      "evidence_url": "https://github.com/windmill-labs/windmill/tree/6186a0645d3f3e92e06b666a6b5774b8af2b488f",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Typed internal-tool actions and isolated jobs; no second app/identity engine."
+    },
+    {
+      "repository": "dlt-hub/dlt",
+      "head": "3ec3cfcaa6312bf2136f6750494d7cc3075ebf37",
+      "branch": "devel",
+      "archived": false,
+      "description": "data load tool (dlt) is an open source Python library that makes data loading easy 🛠️ ",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE.txt",
+          "blob": "e386e8c8b30d45577906c70e37d1e896a1af197c"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "84e22acc4613c21cb3e526b2e3a955c293b92b2e",
+      "evidence_url": "https://github.com/dlt-hub/dlt/tree/3ec3cfcaa6312bf2136f6750494d7cc3075ebf37",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Incremental extraction/schema evolution; Qdrat owns cursors, ACL, mapping and secrets."
+    },
+    {
+      "repository": "meltano/meltano",
+      "head": "f91d2e4f0d93065d7ca50ff775124382f4db2d0e",
+      "branch": "main",
+      "archived": false,
+      "description": "Meltano: the declarative code-first data integration engine that powers your wildest data and ML-powered product ideas. Say goodbye to writing, maintaining, and scaling your own API integrations.",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "a50e441e62b629fe80c47f1f37d80c0e2bc25e59"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "b5a7f2920958773dec044600e10bee671f3178d5",
+      "evidence_url": "https://github.com/meltano/meltano/tree/f91d2e4f0d93065d7ca50ff775124382f4db2d0e",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Connector ecosystem; adapter qualification before adding Python/CLI orchestration stack."
+    },
+    {
+      "repository": "cube-js/cube",
+      "head": "d5fed3d9d72aa94be1862e74da05232f07b14fbe",
+      "branch": "master",
+      "archived": false,
+      "description": "📊 Cube Core is open-source semantic layer for AI, BI and embedded analytics",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "718f8b0d72c7d0ac45d3922ddf30566853a41971"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "71e92746eeb43c7880fa856d243281e48bad664a",
+      "evidence_url": "https://github.com/cube-js/cube/tree/d5fed3d9d72aa94be1862e74da05232f07b14fbe",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Versioned semantic measures, dimensions and access context; no separate mandatory semantic service."
+    },
+    {
+      "repository": "tobymao/sqlglot",
+      "head": "8b6ff9386ddf4f6f8e3120a21f1991a384e60abd",
+      "branch": "main",
+      "archived": false,
+      "description": "Python SQL Parser and Transpiler",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "aa0703d7fc80b4b0a7a9a115de50467013c7c219"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "5a7adc6f1b77d02b132445ffd46f2a115f65dd6f",
+      "evidence_url": "https://github.com/tobymao/sqlglot/tree/8b6ff9386ddf4f6f8e3120a21f1991a384e60abd",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Candidate SQL dialect parser; parsing is not authorization or sandboxing."
+    },
+    {
+      "repository": "duckdb/duckdb",
+      "head": "bdd42afc245c278198fa94cddec7087e77acf7c0",
+      "branch": "v2.0-cyanoptera",
+      "archived": false,
+      "description": "DuckDB is an analytical in-process SQL database management system",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "2719c9a23d2a37c1dfb7402e79f03bd615701e53"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "62a575f9e8e82d1bbbba89ce140b3803af28fdbe",
+      "evidence_url": "https://github.com/duckdb/duckdb/tree/bdd42afc245c278198fa94cddec7087e77acf7c0",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Optional bounded local analytical snapshot engine; canonical writes stay PostgreSQL."
+    },
+    {
+      "repository": "OpenLineage/OpenLineage",
+      "head": "e248b98e3146ff4437df76fcb07c83913d41f727",
+      "branch": "main",
+      "archived": false,
+      "description": "An Open Standard for lineage metadata collection",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+        },
+        {
+          "path": "LICENSE.insert.txt",
+          "blob": "1fe8d252ad22d64fde0724a0b9c1999184dd72d0"
+        },
+        {
+          "path": "NOTICE.txt",
+          "blob": "31c500ccda2ab696cf39b80edef4dc15564fe642"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "8044cfcc257de4b38b6fd1c239a2d508607b080e",
+      "evidence_url": "https://github.com/OpenLineage/OpenLineage/tree/e248b98e3146ff4437df76fcb07c83913d41f727",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Lineage facets and event vocabulary; adapt into shared evidence envelope."
+    },
+    {
+      "repository": "pgvector/pgvector",
+      "head": "efa08fda9ec485d80292d0487a77939c087dedcc",
+      "branch": "master",
+      "archived": false,
+      "description": "Open-source vector similarity search for Postgres",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "fc5f177fa5d9c0d20a949f4b4faa028999977008"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "bcb7edaf91d2bb005675d378bb0ed495cc279c82",
+      "evidence_url": "https://github.com/pgvector/pgvector/tree/efa08fda9ec485d80292d0487a77939c087dedcc",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "First optional vector candidate after FTS benchmark; DB extension version/recall/ACL qualification required."
+    },
+    {
+      "repository": "ggml-org/whisper.cpp",
+      "head": "5670d5c0bbcb148feabef84400a07cfca9aa3b30",
+      "branch": "master",
+      "archived": false,
+      "description": "Port of OpenAI's Whisper model in C/C++",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "e7dca554bcb802f98408383a864404e3aa4eacca"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "a037e9545f38b247fdf613524422a8f3c9e09412",
+      "evidence_url": "https://github.com/ggml-org/whisper.cpp/tree/5670d5c0bbcb148feabef84400a07cfca9aa3b30",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Local ASR candidate for CPU/desktop; separate model rights, Arabic quality and memory benchmarks."
+    },
+    {
+      "repository": "SYSTRAN/faster-whisper",
+      "head": "ed9a06cd89a93e47838f564998a6c09b655d7f43",
+      "branch": "master",
+      "archived": false,
+      "description": "Faster Whisper transcription with CTranslate2",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "2d92330dc294fea86caf785fa626d22917850141"
+        }
+      ],
+      "manifest_paths": [
+        "requirements.txt"
+      ],
+      "readme_blob": "72dfdc5e8044aa574a1cf3420f1d7dd93b044f69",
+      "evidence_url": "https://github.com/SYSTRAN/faster-whisper/tree/ed9a06cd89a93e47838f564998a6c09b655d7f43",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Alternative local ASR throughput candidate; GPU/runtime burden must earn inclusion."
+    },
+    {
+      "repository": "k2-fsa/sherpa-onnx",
+      "head": "1d04ac4d666430e911f526d9ae55a26a859159cd",
+      "branch": "master",
+      "archived": false,
+      "description": "Speech-to-text, text-to-speech, speaker diarization, speech enhancement, source separation, and VAD using next-gen Kaldi with onnxruntime without Internet connection. Support embedded systems, Android, iOS, HarmonyOS, Raspberry Pi, RISC-V, RK NPU, Axera NPU, Ascend NPU, x86_64 servers, websocket server/client, support 12 programming languages",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+        }
+      ],
+      "manifest_paths": [
+        "pom.xml"
+      ],
+      "readme_blob": "30b416c046fc5bd3662377fc557829383868a2fa",
+      "evidence_url": "https://github.com/k2-fsa/sherpa-onnx/tree/1d04ac4d666430e911f526d9ae55a26a859159cd",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Offline streaming ASR/diarization candidate; choose via rights-cleared bilingual evaluation."
+    },
+    {
+      "repository": "ocrmypdf/OCRmyPDF",
+      "head": "64d999aea85a672b51d83747f0b567907d7b38bd",
+      "branch": "main",
+      "archived": false,
+      "description": "OCRmyPDF adds an OCR text layer to scanned PDF files, allowing them to be searched",
+      "observed_license": "MPL-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "a612ad9813b006ce81d1ee438dd784da99a54007"
+        },
+        {
+          "path": "LICENSES",
+          "blob": "bed0a2eab7c9ae9fe358e2742c876fe84d96916e"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "e617c965fd08d56041a2d72a4454a72405e13100",
+      "evidence_url": "https://github.com/ocrmypdf/OCRmyPDF/tree/64d999aea85a672b51d83747f0b567907d7b38bd",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Isolated local OCR pipeline candidate; PDF parser/toolchain and resource limits required."
+    },
+    {
+      "repository": "tesseract-ocr/tesseract",
+      "head": "8ae68101439b3f7df123499a784e8896c805179d",
+      "branch": "main",
+      "archived": false,
+      "description": "Tesseract Open Source OCR Engine (main repository)",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "9102a110ce666f906218e24d44764e910c6d2be7",
+      "evidence_url": "https://github.com/tesseract-ocr/tesseract/tree/8ae68101439b3f7df123499a784e8896c805179d",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Offline Arabic/English OCR candidate; preserve original and measure extraction quality."
+    },
+    {
+      "repository": "yjs/yjs",
+      "head": "96c96e1fcb1ef6ce866d5264b3f97f7f77b11f64",
+      "branch": "main",
+      "archived": false,
+      "description": "Shared data types for building collaborative software",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "f55e8b4846a2796967970bc4ad02d3e6abda3bac"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "7f02ae7a4336ab81678618c5040d411f3e5caba5",
+      "evidence_url": "https://github.com/yjs/yjs/tree/96c96e1fcb1ef6ce866d5264b3f97f7f77b11f64",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Collaborative document CRDT candidate; authorization, deletion and reconnect invariants remain server-owned."
+    },
+    {
+      "repository": "ueberdosis/tiptap",
+      "head": "8623fbe8478132aa0af7c8448a18b9a6ad080d8c",
+      "branch": "main",
+      "archived": false,
+      "description": "The headless rich text editor framework for web artisans.",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE.md",
+          "blob": "4b28a553b563cc04587a3768c11755512ad42638"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "d8d2d26dae94e98f1f1c77197bbd602da96dbfba",
+      "evidence_url": "https://github.com/ueberdosis/tiptap/tree/8623fbe8478132aa0af7c8448a18b9a6ad080d8c",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Schema-based editor candidate; qualify extension license paths and offline assets before dependency."
+    },
+    {
+      "repository": "tauri-apps/tauri",
+      "head": "f45ec0dcf83c139c8fdde5e61923a0e82836f756",
+      "branch": "dev",
+      "archived": false,
+      "description": "Build smaller, faster, and more secure desktop and mobile applications with a web frontend.",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE-APACHE-2.0",
+          "blob": "f433b1a53f5b830a205fd2df78e2b34974656c7b"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "blob": "b08530d59433b3060f4fad8751ac2610c0b0aff3"
+        },
+        {
+          "path": "LICENSE.spdx",
+          "blob": "4080281f12fc44a831babb7bb4f531aeb070078b"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "package.json"
+      ],
+      "readme_blob": "80556b42f74ede3cd1a246f339c4d22e8d4be6ef",
+      "evidence_url": "https://github.com/tauri-apps/tauri/tree/f45ec0dcf83c139c8fdde5e61923a0e82836f756",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Optional desktop shell; signing/update/OS permissions burden deferred until browser gaps measured."
+    },
+    {
+      "repository": "microsoft/playwright",
+      "head": "07f1a6154795f055f341b8972086533e8e48b36f",
+      "branch": "main",
+      "archived": false,
+      "description": "Playwright is a framework for Web Testing and Automation. It allows testing Chromium, Firefox and WebKit with a single API. ",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "df112373eb2e23e459bf93ec412be1764dc5a38b"
+        },
+        {
+          "path": "NOTICE",
+          "blob": "814ec1696f7ad36c1b524fb6adeef14b4b367fec"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "03dfb2c2856e3e6f1a5ad974a94239828bd11550",
+      "evidence_url": "https://github.com/microsoft/playwright/tree/07f1a6154795f055f341b8972086533e8e48b36f",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Browser regression and optional controlled execution candidate; never inherit ambient user sessions."
+    },
+    {
+      "repository": "dequelabs/axe-core",
+      "head": "c54d1aa2decef1657e0430aec7768a3c7c103801",
+      "branch": "develop",
+      "archived": false,
+      "description": "Accessibility engine for automated Web UI testing",
+      "observed_license": "MPL-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "be2cc4dfb609fb6c38f6365ec345bded3350dd63"
+        },
+        {
+          "path": "LICENSE-3RD-PARTY.txt",
+          "blob": "368c293bef3784ecce5c5e958f4ceb7f0b9878ee"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "ccaf694ecbc67b912a48d1a107b92b8e633fe6b1",
+      "evidence_url": "https://github.com/dequelabs/axe-core/tree/c54d1aa2decef1657e0430aec7768a3c7c103801",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Automated accessibility candidate; human keyboard/Arabic review remains required."
+    },
+    {
+      "repository": "unicode-org/cldr",
+      "head": "8c9471b37f0ac7353b5be2de6c22a04f50e9b477",
+      "branch": "main",
+      "archived": false,
+      "description": "The home of the Unicode Common Locale Data Repository",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "b4132054a5d2b95b6f1a4c8b511a211086023e55"
+        }
+      ],
+      "manifest_paths": [
+        "pom.xml"
+      ],
+      "readme_blob": "1e310eb29c7d3dab1c35a0b94dc59a4247c9fbe7",
+      "evidence_url": "https://github.com/unicode-org/cldr/tree/8c9471b37f0ac7353b5be2de6c22a04f50e9b477",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Locale/calendar reference; observed main includes prerelease data, pin a qualified release for shipping."
+    },
+    {
+      "repository": "sigstore/cosign",
+      "head": "0c66ecdff337f647bbcb0259efe61a81e33a76e8",
+      "branch": "main",
+      "archived": false,
+      "description": "Code signing and transparency for containers and binaries",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+        }
+      ],
+      "manifest_paths": [
+        "go.mod"
+      ],
+      "readme_blob": "8f8be034c98da66f3dc970e3cad2e704fa0fe86c",
+      "evidence_url": "https://github.com/sigstore/cosign/tree/0c66ecdff337f647bbcb0259efe61a81e33a76e8",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Signing/verification candidate; offline trust-root flow cannot depend on public OIDC/Rekor at install."
+    },
+    {
+      "repository": "theupdateframework/python-tuf",
+      "head": "cc8a376f5f27e94e1c3927dd148aa85b410e1ddc",
+      "branch": "develop",
+      "archived": false,
+      "description": "Python reference implementation of The Update Framework (TUF)",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "91e18a62b67551a4d427e2eaee0d33dcab94e141"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "blob": "096d0b9e2279c4cda1860dd65cfd547529626e20"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "6cd2c05faebc9bd90394803bd3131d612364dcf7",
+      "evidence_url": "https://github.com/theupdateframework/python-tuf/tree/cc8a376f5f27e94e1c3927dd148aa85b410e1ddc",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Offline update metadata, delegation and expiry/rotation; explicit trusted recovery for disconnected customers."
+    },
+    {
+      "repository": "anchore/syft",
+      "head": "b49f0172f636fca01282eb12a411de6b0e26e633",
+      "branch": "main",
+      "archived": false,
+      "description": "CLI tool and library for generating a Software Bill of Materials from container images and filesystems",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+        }
+      ],
+      "manifest_paths": [
+        "go.mod"
+      ],
+      "readme_blob": "d864e142875ca81737d5c94027bce41b838bead4",
+      "evidence_url": "https://github.com/anchore/syft/tree/b49f0172f636fca01282eb12a411de6b0e26e633",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "SBOM generation candidate; artifact inventory is not vulnerability clearance."
+    },
+    {
+      "repository": "cloudevents/spec",
+      "head": "2ed3806b4ad8fda35813263cfefb2d73098b7655",
+      "branch": "main",
+      "archived": false,
+      "description": "CloudEvents Specification",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "5fcf6f1a0f9f263906e539471b22764db5f1976a"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "a15827baf9de87bdebb353c0790978cb5fabe512",
+      "evidence_url": "https://github.com/cloudevents/spec/tree/2ed3806b4ad8fda35813263cfefb2d73098b7655",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Portable event metadata vocabulary aligned to C03; domain revision and authority remain explicit."
+    },
+    {
+      "repository": "asyncapi/spec",
+      "head": "1dd65fd2c1ed13f06365c1e870c61cdc82d8a981",
+      "branch": "master",
+      "archived": false,
+      "description": "The AsyncAPI specification allows you to create machine-readable definitions of your asynchronous APIs.",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "f49a4e16e68b128803cc2dcea614603632b04eac"
+        },
+        {
+          "path": "NOTICE",
+          "blob": "a1d8c54ffab92856e66865f6ae9eec9811d149fa"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "4e985e6210e46c94950914eb69aa4f85edd2fa67",
+      "evidence_url": "https://github.com/asyncapi/spec/tree/1dd65fd2c1ed13f06365c1e870c61cdc82d8a981",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Event interface documentation; avoid a second runtime transport or queue requirement."
+    },
+    {
+      "repository": "cel-expr/cel-spec",
+      "head": "40a3c9007a9305d1f2638d5f538a4e011732cace",
+      "branch": "master",
+      "archived": false,
+      "description": "Common Expression Language -- specification and binary representation",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+        }
+      ],
+      "manifest_paths": [
+        "go.mod"
+      ],
+      "readme_blob": "f3bcbe4bf5edca10c3428f124964ee0a907bd076",
+      "evidence_url": "https://github.com/cel-expr/cel-spec/tree/40a3c9007a9305d1f2638d5f538a4e011732cace",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Pure bounded expression semantics; deterministic decimal/missing/unknown behavior must pass Qdrat corpus."
+    },
+    {
+      "repository": "openbao/openbao",
+      "head": "dddb7c9577574b82585c5e685548ec3a83a4a322",
+      "branch": "main",
+      "archived": false,
+      "description": "OpenBao is a software solution to manage, store, and distribute sensitive data including secrets, certificates, and keys.",
+      "observed_license": "MPL-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "f4f97ee5853a2b2ba9121ea21589c706edf7a1cc"
+        }
+      ],
+      "manifest_paths": [
+        "go.mod"
+      ],
+      "readme_blob": "787217b1911ae9c69aceeed266690a8cbc28db17",
+      "evidence_url": "https://github.com/openbao/openbao/tree/dddb7c9577574b82585c5e685548ec3a83a4a322",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Customer secret service adapter for larger deployments; encrypted local secret store first."
+    },
+    {
+      "repository": "cedar-policy/cedar",
+      "head": "9502ae02564a23028c732f8c1f2311635394c34f",
+      "branch": "main",
+      "archived": false,
+      "description": "Implementation of the Cedar Policy Language",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "67db8588217f266eb561f75fae738656325deac9"
+        },
+        {
+          "path": "NOTICE",
+          "blob": "9649f99ac1a9978e11d23717b2db6942ca839102"
+        },
+        {
+          "path": "THIRD_PARTY_LICENSES.txt",
+          "blob": "78950a14330d62631d8babdeb4ff701811d270bc"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml"
+      ],
+      "readme_blob": "03dab29416e5455afff2e0b300bd0f5166735af8",
+      "evidence_url": "https://github.com/cedar-policy/cedar/tree/9502ae02564a23028c732f8c1f2311635394c34f",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Typed authorization policy validation; no policy engine swap without identical deny semantics."
+    },
+    {
+      "repository": "authzed/spicedb",
+      "head": "f7620a59fb61d4b523b02d5c98d7f13dc1f19dce",
+      "branch": "main",
+      "archived": false,
+      "description": "Open Source, Google Zanzibar-inspired database for scalably storing and querying fine-grained authorization data",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "fbb39e17702c5533657798e94fa0eeafce7a315b"
+        },
+        {
+          "path": "NOTICE",
+          "blob": "e6cef2833adae325b44d3353292047f0528a60d1"
+        }
+      ],
+      "manifest_paths": [
+        "go.mod"
+      ],
+      "readme_blob": "3253f5789e946faf75e653a4b29e6df2462c0323",
+      "evidence_url": "https://github.com/authzed/spicedb/tree/f7620a59fb61d4b523b02d5c98d7f13dc1f19dce",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Optional ReBAC engine if measured graph policy warrants service cost; Qdrat policy adapter remains authority."
+    },
+    {
+      "repository": "google/gvisor",
+      "head": "26f3455a4cb9a377354c33aeac049080a077c79c",
+      "branch": "master",
+      "archived": false,
+      "description": "Application Kernel for Containers",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "f7a006d10464cfe9724b5d687c0013bf982cc66a"
+        }
+      ],
+      "manifest_paths": [
+        "go.mod"
+      ],
+      "readme_blob": "47713235046cf83bf892a23898b8c924126567a9",
+      "evidence_url": "https://github.com/google/gvisor/tree/26f3455a4cb9a377354c33aeac049080a077c79c",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Optional Linux sandbox isolation candidate; kernel/profile compatibility and limits need qualification."
+    },
+    {
+      "repository": "langfuse/langfuse",
+      "head": "816e69d4e21fdab9c32aa3872e1583aa03050297",
+      "branch": "main",
+      "archived": false,
+      "description": "🪢 Open source agent evals & observability: Trace, evaluate, and improve LLM applications with one open platform.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "cf2d4abed1de0891f5dd4a20490ee5033f011605"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "0acb1846a3d6cd10a7a68eeee773c0741f17d631",
+      "evidence_url": "https://github.com/langfuse/langfuse/tree/816e69d4e21fdab9c32aa3872e1583aa03050297",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Local trace/evaluation review patterns; one evidence plane and no prompt/secret telemetry by default."
+    },
+    {
+      "repository": "stanfordnlp/dspy",
+      "head": "40a6e168914a7b81a78b1a081d93f26de18c8d0d",
+      "branch": "main",
+      "archived": false,
+      "description": "DSPy: The framework for programming—not prompting—language models",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "be3f5c0e3fc7e6b0e7c9dddd9db313ab15bfa62b"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "fe73d8cc8973045e34397b852c6f40670380c363",
+      "evidence_url": "https://github.com/stanfordnlp/dspy/tree/40a6e168914a7b81a78b1a081d93f26de18c8d0d",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Offline prompt/program evaluation reference; optimizers cannot change production policy or model routing."
+    },
+    {
+      "repository": "novuhq/novu",
+      "head": "36c5c0cefa400e8edc6ec8b18ac4574288eabd03",
+      "branch": "next",
+      "archived": false,
+      "description": "The open-source communication infrastructure for agents and products",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "EE-PACKAGES-LICENSE",
+          "blob": "d3a3a362a6af4d29d4d40121d43fce03f4ed3831"
+        },
+        {
+          "path": "LICENSE-ENTERPRISE",
+          "blob": "de2879c1f4cff33d0d4f2521cc60c717ffa7628c"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "blob": "29a1b830e2babe4167c071c99dc9e5160eba93a6"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "cdcbc6c4a750f6bf48a3fc457044ad66ef155e16",
+      "evidence_url": "https://github.com/novuhq/novu/tree/36c5c0cefa400e8edc6ec8b18ac4574288eabd03",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "decision_reason": "Channel notification/preferences patterns; shared Inbox and delivery journal remain canonical."
+    }
+  ]
+}

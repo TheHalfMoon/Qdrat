@@ -1,0 +1,4 @@
+
+STDERR:
+warning: safe.directory '$(find /tmp -maxdepth 1 -type d -name MedScale-main-audit-* | head -1)' not absolute
+warning: unable to access '<USER_HOME>/.config/git/ignore': Permission denied

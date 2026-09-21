@@ -1,0 +1,1872 @@
+{
+  "observed_at": "2026-09-20",
+  "scope": "Connected GitHub repositories accessible through owner, collaborator and organization-member listing; all enumerated branches and default trees, selected source files. Historical branch implementations were not exhaustively reviewed. No donor tests executed.",
+  "repositories": [
+    {
+      "repository": "TheHalfMoon/Ascout",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "5eddf9cd46f64bb2835677572d9aef4a4da99ae7",
+      "branches_seen": 496,
+      "tree_truncated": false,
+      "files_seen": 617,
+      "selected_files": [
+        {
+          "path": "src/quality/admission.ts",
+          "blob_sha": "5421ec760b4b2b7523e2ff8ff2fb8682e5947a8c"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "test_paths": [
+        "tests/agent-integration-admission.contract.test.ts",
+        "tests/agent-receipt.contract.test.ts",
+        "tests/agent-receipt.runtime.test.ts",
+        "tests/assurance-canonical-serialization.test.ts",
+        "tests/assurance-claim-assessment.test.ts",
+        "tests/assurance-coverage-claim.test.ts",
+        "tests/assurance-engine-descriptor.test.ts",
+        "tests/assurance-engine-qualification.test.ts",
+        "tests/assurance-engine-run.test.ts",
+        "tests/assurance-evidence-ref.test.ts",
+        "tests/assurance-finding.test.ts",
+        "tests/assurance-intent.test.ts"
+      ],
+      "open_prs": [
+        {
+          "number": 410,
+          "title": "test(assurance): add UA-P01-T16 contract boundary corpus",
+          "head": "f0aa652e28b1f31cc8e907706758c993972cee6a",
+          "branch": "feat/ua-p01-t16-adversarial-corpus",
+          "base": "5eddf9cd46f64bb2835677572d9aef4a4da99ae7"
+        },
+        {
+          "number": 359,
+          "title": "docs(brand): freeze Ascout identity and UI direction",
+          "head": "8a53e41938c13ef3270903fb5c9402372a6a9201",
+          "branch": "plan/brand-identity-ui",
+          "base": "e23331a46ea04bbcfd4dc4e2b538dbb410125a1a"
+        }
+      ],
+      "readme_blob": "849d49d9f8424ead0e360e86fc799d655787a0c6",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Candidate admission and discriminating verification",
+      "maturity_assessment": "TypeScript implementation sampled",
+      "reuse_decision": "Exact proposal/source-tree gates and accountable admission",
+      "rejected_scope": "Do not import entire evaluation supervisor",
+      "target": "Execution governance"
+    },
+    {
+      "repository": "TheHalfMoon/Balott",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "ed720142ca48105bed8322f3c1b61e7d091f0c82",
+      "branches_seen": 1,
+      "tree_truncated": false,
+      "files_seen": 22,
+      "selected_files": [],
+      "manifest_paths": [],
+      "test_paths": [],
+      "open_prs": [],
+      "readme_blob": "c9de331459eba085fa54a65ed3a2cae128bbcdd7",
+      "classification": "REFERENCE_ONLY",
+      "capability": "Arabic/localized product specifications",
+      "maturity_assessment": "Planning corpus; no relevant engine qualified",
+      "reuse_decision": "Bilingual requirements and bounded game-state design as reference",
+      "rejected_scope": "Card-game runtime and assets",
+      "target": "UX"
+    },
+    {
+      "repository": "TheHalfMoon/Coddev",
+      "visibility": "private",
+      "default_branch": "main",
+      "head": "c0315e72254e476c37c6d4eed92f92313b7097a2",
+      "branches_seen": 1,
+      "tree_truncated": false,
+      "files_seen": 29,
+      "selected_files": [
+        {
+          "path": "verification/signthos-grain-h-result.json",
+          "blob_sha": "a2e6df14418e84967fea9cbbff5c911f41d5f2e1"
+        }
+      ],
+      "manifest_paths": [],
+      "test_paths": [],
+      "open_prs": [],
+      "readme_blob": null,
+      "classification": "ADAPT_PATTERN",
+      "capability": "Signthos qualification receipts",
+      "maturity_assessment": "Private CI evidence repository; receipts not rerun",
+      "reuse_decision": "Machine-readable exact-result evidence",
+      "rejected_scope": "Historical PASS as current Qdrat proof",
+      "target": "CI"
+    },
+    {
+      "repository": "TheHalfMoon/commandF",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "18819c7fdaee618f4aa86c6c3279b1acb70ec9f2",
+      "branches_seen": 105,
+      "tree_truncated": false,
+      "files_seen": 384,
+      "selected_files": [
+        {
+          "path": "crates/commandf-pkg/src/lib.rs",
+          "blob_sha": "51f206d4bf026b5077539f60842c5d285c371891"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "crates/commandf-cli/Cargo.toml",
+        "crates/commandf-pkg/Cargo.toml",
+        "fuzz/Cargo.toml",
+        "tools/af02-verifier/Cargo.toml"
+      ],
+      "test_paths": [
+        "crates/commandf-cli/tests/check_behavior.rs",
+        "crates/commandf-cli/tests/check_exit_contract.rs",
+        "crates/commandf-cli/tests/classify_behavior.rs",
+        "crates/commandf-cli/tests/context_behavior.rs",
+        "crates/commandf-cli/tests/context_determinism_proof.rs",
+        "crates/commandf-cli/tests/exit_behavior.rs",
+        "crates/commandf-cli/tests/fixtures",
+        "crates/commandf-cli/tests/fixtures/cf09",
+        "crates/commandf-cli/tests/fixtures/cf09/fsh-index.json",
+        "crates/commandf-cli/tests/fixtures/cf09/input",
+        "crates/commandf-cli/tests/fixtures/cf09/input/fsh",
+        "crates/commandf-cli/tests/fixtures/cf09/input/fsh/example.fsh"
+      ],
+      "open_prs": [
+        {
+          "number": 94,
+          "title": "chore(deps): bump ureq from 3.4.0 to 3.4.1",
+          "head": "73c8fc4a21f09dac85d5731dcf8c9d46fdcebeba",
+          "branch": "dependabot/cargo/ureq-3.4.1",
+          "base": "18819c7fdaee618f4aa86c6c3279b1acb70ec9f2"
+        },
+        {
+          "number": 93,
+          "title": "chore(deps): bump hl7.fhir.version from 6.10.2 to 6.10.4 in /tools/hl7-oracle",
+          "head": "3c9af0bd14ea9d656ed2b3028a8dc1271b810ff4",
+          "branch": "dependabot/maven/tools/hl7-oracle/hl7.fhir.version-6.10.4",
+          "base": "18819c7fdaee618f4aa86c6c3279b1acb70ec9f2"
+        },
+        {
+          "number": 91,
+          "title": "docs(plan): make commandF V3 execution-ready",
+          "head": "b69ceb8bb7624e4034c4f2cb71eb51161b885605",
+          "branch": "docs/commandf-v3-plan-research",
+          "base": "18819c7fdaee618f4aa86c6c3279b1acb70ec9f2"
+        },
+        {
+          "number": 89,
+          "title": "test(af02): add bounded T031 archive package fuzz target",
+          "head": "7d67460e976281617a1edc8f039295eb279694dd",
+          "branch": "feat/af02-a1-t031-archive-package-fuzz",
+          "base": "18819c7fdaee618f4aa86c6c3279b1acb70ec9f2"
+        },
+        {
+          "number": 83,
+          "title": "docs: qualify Tencent sources and refine future agent plan",
+          "head": "aa4812bdecc6c862343a5ed20e27621c508834f3",
+          "branch": "docs/tencent-source-study-2026-09-08",
+          "base": "83b270893a6ccba7ce911b8d31e186f5c9fb122b"
+        },
+        {
+          "number": 81,
+          "title": "chore(deps): bump flate2 from 1.1.9 to 1.1.10",
+          "head": "f9091df40cfc6fa7ee3e8f8a184d45773f40a238",
+          "branch": "dependabot/cargo/flate2-1.1.10",
+          "base": "84332f148f9eefbc2b4eae209ac967d1ac881d64"
+        },
+        {
+          "number": 79,
+          "title": "chore(deps): bump zizmorcore/zizmor-action from 0.6.2 to 0.6.3",
+          "head": "ce447850e9479f93aaeed3c5395ba73cd9c55869",
+          "branch": "dependabot/github_actions/zizmorcore/zizmor-action-0.6.3",
+          "base": "84332f148f9eefbc2b4eae209ac967d1ac881d64"
+        },
+        {
+          "number": 78,
+          "title": "chore(deps-dev): bump org.apache.maven.plugins:maven-compiler-plugin from 3.15.0 to 3.16.0 in /tools/hl7-oracle",
+          "head": "69e4d432d638b12516851bdd39c608ae09826451",
+          "branch": "dependabot/maven/tools/hl7-oracle/org.apache.maven.plugins-maven-compiler-plugin-3.16.0",
+          "base": "84332f148f9eefbc2b4eae209ac967d1ac881d64"
+        },
+        {
+          "number": 74,
+          "title": "chore(deps): bump actions/setup-java from 5.7.0 to 6.0.0",
+          "head": "87ff52ac6a1e87dd9fca162dfa4bd1c742f0b7d1",
+          "branch": "dependabot/github_actions/actions/setup-java-6.0.0",
+          "base": "94bf4f1a9987f474613e67ddbc182ece8dff5a8d"
+        },
+        {
+          "number": 50,
+          "title": "chore(deps): bump sha2 from 0.10.9 to 0.11.0",
+          "head": "db3d87f0ac865e6032c9f0a8e3f3d9b1b41b917f",
+          "branch": "dependabot/cargo/sha2-0.11.0",
+          "base": "a683dfaba7feb607145400eaa75d771e5df3c608"
+        },
+        {
+          "number": 49,
+          "title": "chore(deps): bump com.fasterxml.jackson.core:jackson-databind from 2.22.1 to 2.22.2 in /tools/hl7-oracle",
+          "head": "0e933d5d4d616de6b21c7cf6a843028238fd890f",
+          "branch": "dependabot/maven/tools/hl7-oracle/com.fasterxml.jackson.core-jackson-databind-2.22.2",
+          "base": "a683dfaba7feb607145400eaa75d771e5df3c608"
+        },
+        {
+          "number": 48,
+          "title": "chore(deps): bump thiserror from 1.0.69 to 2.0.20",
+          "head": "b336ecd0a5ae044259535c995bf9ad4d47a21e0a",
+          "branch": "dependabot/cargo/thiserror-2.0.20",
+          "base": "a683dfaba7feb607145400eaa75d771e5df3c608"
+        },
+        {
+          "number": 47,
+          "title": "chore(deps): bump actions/upload-artifact from 4.6.2 to 7.0.1",
+          "head": "cee236ac3902056f0a4322544de110f04b5a259d",
+          "branch": "dependabot/github_actions/actions/upload-artifact-7.0.1",
+          "base": "a683dfaba7feb607145400eaa75d771e5df3c608"
+        },
+        {
+          "number": 46,
+          "title": "chore(deps): bump actions/checkout from 5.1.0 to 7.0.1",
+          "head": "4a0e89f1170c73d2d3d0d593e52cb3b47d164fd9",
+          "branch": "dependabot/github_actions/actions/checkout-7.0.1",
+          "base": "a683dfaba7feb607145400eaa75d771e5df3c608"
+        },
+        {
+          "number": 42,
+          "title": "fix(pkg): bound local mirror archive reads",
+          "head": "a7dbda4eac62adf8aaff15519ac3876ce4828d74",
+          "branch": "fix/local-mirror-archive-bound",
+          "base": "eeecb0bc03c7040bb18b70bce8b69d618384f783"
+        },
+        {
+          "number": 41,
+          "title": "fix(cache): bind impact and oracle to verified bytes",
+          "head": "a5a62694ec7dd913ab96bc4110fb07c822c55288",
+          "branch": "fix/cache-verified-impact-oracle",
+          "base": "eeecb0bc03c7040bb18b70bce8b69d618384f783"
+        },
+        {
+          "number": 39,
+          "title": "fix(terminology): consume verified cache bytes",
+          "head": "cf8b8e19200662cf7d6067c2d08857c12a1c06b5",
+          "branch": "fix/terminology-verified-cache-bytes",
+          "base": "2b4033e237a5c74f3c45c12fbc7e7bfdc88067b1"
+        },
+        {
+          "number": 11,
+          "title": "feat(corpus): establish public real-IG delta benchmark",
+          "head": "5fe10d9859407272acf6649fc3e868d3eb2fbd12",
+          "branch": "feat/cf-10-real-ig-delta-corpus",
+          "base": "5cb1a4c3445c0ebd86654cfb467a5e008e801c3e"
+        }
+      ],
+      "readme_blob": "0a7b1a038c9884ba402f5c456db1e61ee937c200",
+      "classification": "ADAPT_PATTERN",
+      "capability": "FHIR package resolver/diff graph",
+      "maturity_assessment": "Rust modules sampled; medical-specific",
+      "reuse_decision": "Artifact identity, resolver provenance, compatibility reporting",
+      "rejected_scope": "FHIR semantics as company object model",
+      "target": "Data/source intake"
+    },
+    {
+      "repository": "TheHalfMoon/commandMed",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "ce5dc8f4dda49270e5bb4bebc936ce7514a9b9e9",
+      "branches_seen": 361,
+      "tree_truncated": false,
+      "files_seen": 702,
+      "selected_files": [
+        {
+          "path": "src/commandmed/spec007/research_tournament_asset_evidence.py",
+          "blob_sha": "ae49aae001caf7f52aa46f5570fcdb1d4d3d99fd"
+        }
+      ],
+      "manifest_paths": [],
+      "test_paths": [
+        "tests/__init__.py",
+        "tests/eval_contract",
+        "tests/eval_contract/__init__.py",
+        "tests/eval_contract/test_canonical.py",
+        "tests/eval_contract/test_external_review_reconciliation.py",
+        "tests/eval_contract/test_fail_closed.py",
+        "tests/eval_contract/test_gold_quarantine.py",
+        "tests/eval_contract/test_hard_gates.py",
+        "tests/eval_contract/test_lineage.py",
+        "tests/eval_contract/test_lineage_derived_teacher.py",
+        "tests/eval_contract/test_metrics_v2.py",
+        "tests/eval_contract/test_registry.py"
+      ],
+      "open_prs": [
+        {
+          "number": 316,
+          "title": "docs(e004): correct V2 evidence and request V3 revalidation",
+          "head": "951dc14771796ba452257f24a12b8819f604f490",
+          "branch": "docs/e004-v2-evidence-correction-v3-revalidation",
+          "base": "ce5dc8f4dda49270e5bb4bebc936ce7514a9b9e9"
+        }
+      ],
+      "readme_blob": "932c27c8bfb8c84d0e6981824a5025a4d406d538",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Frozen research asset evidence",
+      "maturity_assessment": "Python offline evidence code sampled",
+      "reuse_decision": "Rights and contamination identity with deterministic benchmark inputs",
+      "rejected_scope": "Clinical/model-performance claims",
+      "target": "AI evaluation"
+    },
+    {
+      "repository": "TheHalfMoon/Delethos",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "5b8f5f28239bbd0b2a366824fd14c1b6c01058b8",
+      "branches_seen": 117,
+      "tree_truncated": false,
+      "files_seen": 152,
+      "selected_files": [
+        {
+          "path": "packages/core/src/evidence.ts",
+          "blob_sha": "270138449659100dd85b614d0523a006b620b00f"
+        }
+      ],
+      "manifest_paths": [
+        "package.json",
+        "packages/adapters/package.json",
+        "packages/core/package.json",
+        "packages/runtime/package.json"
+      ],
+      "test_paths": [
+        "packages/adapters/test/claude.test.ts",
+        "packages/adapters/test/codex.test.ts",
+        "packages/adapters/test/conformance.test.ts",
+        "packages/adapters/test/contract.test.ts",
+        "packages/adapters/test/discovery.test.ts",
+        "packages/adapters/test/fixtures",
+        "packages/adapters/test/fixtures/agent-fixture.ts",
+        "packages/adapters/test/invocation.test.ts",
+        "packages/adapters/test/opencode.test.ts",
+        "packages/adapters/test/pi.test.ts",
+        "packages/core/test/canonical.test.ts",
+        "packages/core/test/evidence.test.ts"
+      ],
+      "open_prs": [
+        {
+          "number": 114,
+          "title": "feat(003): add bounded Pi Gold execution harness",
+          "head": "bf651a13dd67b44fd64270472779b5ae735d5f61",
+          "branch": "feat/003-r190-pi-gold-harness",
+          "base": "5b8f5f28239bbd0b2a366824fd14c1b6c01058b8"
+        }
+      ],
+      "readme_blob": "6fd95306a69ef00113b15f174f35f404b7d1ef58",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Delegation and independent review outcomes",
+      "maturity_assessment": "TypeScript implementation sampled",
+      "reuse_decision": "PASS/ABSTAIN/UNAVAILABLE distinctions",
+      "rejected_scope": "A second agent authority or review engine",
+      "target": "Trust/evidence"
+    },
+    {
+      "repository": "TheHalfMoon/Diffcipline",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "1e6d14f77b95bb132b42276f10d67f1018ab5bb6",
+      "branches_seen": 101,
+      "tree_truncated": false,
+      "files_seen": 207,
+      "selected_files": [],
+      "manifest_paths": [
+        "Cargo.toml",
+        "crates/diffcipline-cli/Cargo.toml"
+      ],
+      "test_paths": [
+        "benchmarks/fixtures/f01-shared-root-cause/repo/tests/test_session.py",
+        "benchmarks/fixtures/f02-stdlib-query/repo/tests/test_query.py",
+        "benchmarks/fixtures/f03-dependency-temptation/repo/tests/test_timestamps.py",
+        "benchmarks/fixtures/f04-refactor-preserve/repo/tests/test_names.py",
+        "benchmarks/fixtures/f05-security-boundary/repo/tests/test_storage.py",
+        "benchmarks/fixtures/f06-already-minimal/repo/tests/test_clamp.py",
+        "crates/diffcipline-cli/tests/cli.rs",
+        "crates/diffcipline-cli/tests/enterprise.rs",
+        "crates/diffcipline-cli/tests/policy_examples.rs",
+        "crates/diffcipline-cli/tests/quickstart.rs"
+      ],
+      "open_prs": [],
+      "readme_blob": "65ad3c47b3b66f445aac615077411681dce8b223",
+      "classification": "DEPENDENCY",
+      "capability": "Bounded change and proof CLI",
+      "maturity_assessment": "Dependency-free Rust CLI at pinned main",
+      "reuse_decision": "Use actual policy/risk/proof semantics",
+      "rejected_scope": "Pretending CLI schedules dependencies or verifies unrun checks",
+      "target": "Planning/CI"
+    },
+    {
+      "repository": "TheHalfMoon/Ecra",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "0e2ff8c687c93e6f158da6984a7a6915339b5f3f",
+      "branches_seen": 10,
+      "tree_truncated": false,
+      "files_seen": 318,
+      "selected_files": [],
+      "manifest_paths": [
+        "Cargo.toml",
+        "crates/ecra-core/Cargo.toml",
+        "crates/ecra-run/Cargo.toml",
+        "crates/ecra-verify/Cargo.toml"
+      ],
+      "test_paths": [
+        "crates/ecra-core/tests/action_digest.rs",
+        "crates/ecra-core/tests/canonicalization.rs",
+        "crates/ecra-core/tests/capability.rs",
+        "crates/ecra-core/tests/contract_fixtures.rs",
+        "crates/ecra-core/tests/identity_scope.rs",
+        "crates/ecra-core/tests/information_evidence.rs",
+        "crates/ecra-core/tests/information_use.rs",
+        "crates/ecra-core/tests/invalid_fixtures.rs",
+        "crates/ecra-core/tests/non_authoritative_metadata.rs",
+        "crates/ecra-core/tests/portability.rs",
+        "crates/ecra-core/tests/properties.rs",
+        "crates/ecra-core/tests/valid_fixtures.rs"
+      ],
+      "open_prs": [
+        {
+          "number": 4,
+          "title": "feat(identity): implement ECR-031 identity trust root",
+          "head": "d50569311133e011e2f1ea0989c886b76c92b131",
+          "branch": "031-identity-trust-root",
+          "base": "f6d8eb6ff6a60aa0ad8a6f52686a62f12cd374b0"
+        },
+        {
+          "number": 3,
+          "title": "docs: make Ecra the local model world gateway",
+          "head": "9dd6402ca6e0e9dc9ce4d935a0855a22314e6bca",
+          "branch": "docs/local-model-world-gateway",
+          "base": "5caf5dc4e7f26d07fabac3333713a44f0af22ea1"
+        }
+      ],
+      "readme_blob": "dc21e3e8b0bd7777c67da3708ae8b5a435621c9d",
+      "classification": "REFERENCE_ONLY",
+      "capability": "Browser trust-domain contracts",
+      "maturity_assessment": "Design/contracts with active planning",
+      "reuse_decision": "Explicit origin/session authority as reference",
+      "rejected_scope": "Ambient browser credential inheritance",
+      "target": "Execution plane"
+    },
+    {
+      "repository": "TheHalfMoon/Fanatir",
+      "visibility": "private",
+      "default_branch": "main",
+      "head": "04e9120c0e9350daff68238e0e49e2c5d7e5c9d9",
+      "branches_seen": 11,
+      "tree_truncated": false,
+      "files_seen": 762,
+      "selected_files": [
+        {
+          "path": "docs/product/v1-engineering-program.md",
+          "blob_sha": "de809242bfea2fe9e2c3fe0c6fa3f7689e7a7ce5"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "_archived/apps-desktop/src-tauri/Cargo.toml",
+        "_archived/apps-desktop/ui/package.json",
+        "_archived/crates/afia-ai/Cargo.toml",
+        "_archived/crates/afia-application/Cargo.toml",
+        "_archived/crates/afia-contracts/Cargo.toml",
+        "_archived/crates/afia-documents/Cargo.toml",
+        "_archived/crates/afia-domain/Cargo.toml",
+        "_archived/crates/afia-plugins/Cargo.toml",
+        "_archived/crates/afia-search/Cargo.toml",
+        "_archived/crates/afia-security/Cargo.toml",
+        "_archived/crates/afia-storage/Cargo.toml",
+        "_archived/crates/afia-tauri/Cargo.toml",
+        "_archived/crates/afia-workspace/Cargo.toml",
+        "_archived/services-ai-python/pyproject.toml",
+        "_archived/services-operations-go/go.mod"
+      ],
+      "test_paths": [
+        "_archived/apps-desktop/ui/src/test/.gitkeep",
+        "_archived/crates/afia-ai/tests/.gitkeep",
+        "_archived/crates/afia-application/tests/.gitkeep",
+        "_archived/crates/afia-contracts/tests/.gitkeep",
+        "_archived/crates/afia-documents/tests/.gitkeep",
+        "_archived/crates/afia-domain/tests/.gitkeep",
+        "_archived/crates/afia-plugins/tests/.gitkeep",
+        "_archived/crates/afia-search/tests/.gitkeep",
+        "_archived/crates/afia-security/tests/.gitkeep",
+        "_archived/crates/afia-storage/tests/.gitkeep",
+        "_archived/crates/afia-tauri/tests/.gitkeep",
+        "_archived/crates/afia-workspace/tests/.gitkeep"
+      ],
+      "open_prs": [
+        {
+          "number": 2,
+          "title": "Update project files",
+          "head": "1c510ba743006b8025f60ce6ae45e15d3bcd45de",
+          "branch": "v0/ai-healthcare-os-ea8b5a0f",
+          "base": "3f3ad384a9f8c0519c9ba991e99f6fae008e85fb"
+        }
+      ],
+      "readme_blob": "676664563664e457358c3ad514171be58819ddac",
+      "classification": "REFERENCE_ONLY",
+      "capability": "Afia-linked engineering blueprint",
+      "maturity_assessment": "Private mixed skeleton; sampled program is placeholder",
+      "reuse_decision": "Reference only for domain separation",
+      "rejected_scope": "Treating draft health architecture as implemented",
+      "target": "Pack architecture"
+    },
+    {
+      "repository": "TheHalfMoon/Flake",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "a85f906fa579f611c4c05f6464f955805cd8fd32",
+      "branches_seen": 71,
+      "tree_truncated": false,
+      "files_seen": 879,
+      "selected_files": [
+        {
+          "path": "src/derived.rs",
+          "blob_sha": "c7a9041512c5d7eb53da98904a6bd9b3a21e0ffc"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "desktop/package.json",
+        "desktop/src-tauri/Cargo.toml"
+      ],
+      "test_paths": [
+        "tests/fixtures",
+        "tests/fixtures/canonical",
+        "tests/fixtures/canonical/malformed_not_sqlite.bin",
+        "tests/fixtures/events",
+        "tests/fixtures/events/current_v2.jsonl",
+        "tests/fixtures/events/history_v1.jsonl",
+        "tests/fixtures/format-compat",
+        "tests/fixtures/format-compat/README.md",
+        "tests/fixtures/format-compat/future-unsupported-note-payload.json",
+        "tests/fixtures/format-compat/unknown-optional-fields-note-payload.json",
+        "tests/fixtures/migration",
+        "tests/fixtures/migration/legacy-crlf-unicode.md"
+      ],
+      "open_prs": [
+        {
+          "number": 115,
+          "title": "docs(t05-04): record real macOS zero-cost direct distribution qualification (PASS)",
+          "head": "dec726ff33f3b4167736c31bed3c7561fb33fd5a",
+          "branch": "docs/t05-04-macos-direct-distribution-pass",
+          "base": "a85f906fa579f611c4c05f6464f955805cd8fd32"
+        },
+        {
+          "number": 40,
+          "title": "docs(plan): deep-converge Tencent source code into Fehrest V2 planning",
+          "head": "e16e521db509e9d0c0023d25ceb689d780d4e0f9",
+          "branch": "docs/v2-tencent-source-plan-convergence",
+          "base": "c87a34d28e5f9319ac52cd1e935007f9a361566b"
+        },
+        {
+          "number": 2,
+          "title": "docs(vision): propose Fehrest V2 Rust-first Spec Kit program",
+          "head": "a99413db9e6540fef967ac9c88549db66fc13c99",
+          "branch": "docs/fehrest-founder-vision-v2",
+          "base": "ca0bfa61de6cf92e5e6758731126e8274404de67"
+        }
+      ],
+      "readme_blob": "edf6858d257a5e563ca1db79eab98f0447be0d62",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Fehrest-derived local work memory",
+      "maturity_assessment": "Rust derived-index code sampled",
+      "reuse_decision": "Rebuildable FTS and non-authoritative locators",
+      "rejected_scope": "Second company memory/authorization store",
+      "target": "Knowledge/memory"
+    },
+    {
+      "repository": "TheHalfMoon/Golam",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "13a379ac478a3abaff7ed1da3db14ff9c1ac2188",
+      "branches_seen": 33,
+      "tree_truncated": false,
+      "files_seen": 489,
+      "selected_files": [],
+      "manifest_paths": [
+        "Cargo.toml",
+        "crates/golam-core/Cargo.toml",
+        "crates/golam-effects/Cargo.toml",
+        "crates/golam-ipc/Cargo.toml",
+        "crates/golam-kernel/Cargo.toml",
+        "crates/golam-ledger/Cargo.toml",
+        "crates/golam/Cargo.toml",
+        "crates/golamd/Cargo.toml"
+      ],
+      "test_paths": [
+        "crates/golam-core/tests/spec004_state_model.rs",
+        "crates/golam-effects/tests/qualification_properties.rs",
+        "crates/golam-ipc/tests/adversarial.rs",
+        "crates/golam-ipc/tests/fuzz_smoke.rs",
+        "crates/golam-kernel/tests/bootstrap_client_authority.rs",
+        "crates/golam-kernel/tests/effect_restart_safety.rs",
+        "crates/golam-kernel/tests/hostile_adapter.rs",
+        "crates/golam-kernel/tests/process_kill_recovery.rs",
+        "crates/golam-kernel/tests/spec003_fuzz_smoke.rs",
+        "crates/golam-kernel/tests/synthetic_reconciliation_boundary.rs",
+        "crates/golam-kernel/tests/taint_authority_context.rs",
+        "crates/golam-kernel/tests/tool_mutation_restart.rs"
+      ],
+      "open_prs": [
+        {
+          "number": 28,
+          "title": "docs: strengthen Golam canonical private Agent OS direction",
+          "head": "4e1ac0214d427a2580ddee08c4b540c9075ec097",
+          "branch": "plan/2026-09-13-golam-canonical-direction-v3",
+          "base": "13a379ac478a3abaff7ed1da3db14ff9c1ac2188"
+        },
+        {
+          "number": 24,
+          "title": "feat(006): implement desktop computer control",
+          "head": "1c586e1d344b1d60801da95829c647e14ff4dcf4",
+          "branch": "impl/006-desktop-computer-control",
+          "base": "13a379ac478a3abaff7ed1da3db14ff9c1ac2188"
+        },
+        {
+          "number": 22,
+          "title": "docs: define Golam Agent Kernel roadmap v2",
+          "head": "53fdf83d5dd850f3ec1e44d4f0b3381fb9db00c6",
+          "branch": "plan/golam-agent-kernel-roadmap-v2",
+          "base": "4bd23b218304663349fb2f703cedd40c7a3038af"
+        },
+        {
+          "number": 18,
+          "title": "review(005): exact final convergence delta",
+          "head": "3dc8c283c232b3a30910bad4bb22c02f3aa84fe6",
+          "branch": "review/005-local-tools-context-memory-final-exact-head",
+          "base": "72cc4c73766994ff4d9d97fa1d73714c8b9e0211"
+        },
+        {
+          "number": 8,
+          "title": "docs: add product spine, golden loop and Core Alpha gate",
+          "head": "8f91db8cc10bff811631328104e48e9b664d9a15",
+          "branch": "plan/product-spine-wave-003",
+          "base": "a935f12adec031bfd47026f801bb3d1e20814c29"
+        },
+        {
+          "number": 7,
+          "title": "docs: add governed memory, retrieval, learning and eval architecture",
+          "head": "a935f12adec031bfd47026f801bb3d1e20814c29",
+          "branch": "plan/source-foundry-wave-002",
+          "base": "7a93194ba1d1129358f0975d846a0e96b9001392"
+        },
+        {
+          "number": 6,
+          "title": "docs: add first-class phone, mobile, voice and channel access plan",
+          "head": "7a93194ba1d1129358f0975d846a0e96b9001392",
+          "branch": "plan/phone-channel-access",
+          "base": "82de7084384009ff3a00522f4e0aef09bf549529"
+        }
+      ],
+      "readme_blob": "571553b40994f09e42be8863a5898e7277ab8c3b",
+      "classification": "REFERENCE_ONLY",
+      "capability": "Agent operating-system concepts",
+      "maturity_assessment": "Rust source/tree; runtime not qualified here",
+      "reuse_decision": "Explicit runtime boundaries as reference",
+      "rejected_scope": "Whole Agent OS inside Qdrat",
+      "target": "AI execution"
+    },
+    {
+      "repository": "TheHalfMoon/Golam-research",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "a9f633e09d49a85829b8236331b9e21f7e612634",
+      "branches_seen": 1,
+      "tree_truncated": false,
+      "files_seen": 2385,
+      "selected_files": [],
+      "manifest_paths": [
+        "package.json",
+        "src/app/package.json"
+      ],
+      "test_paths": [
+        "source/packages/local-exec/tests/common.ts",
+        "tests/backend-mcp-exec-json.test.mjs",
+        "tests/codex-direct-responses.test.mjs",
+        "tests/inference-router-transcript.test.mjs",
+        "tests/publication-bootstrap.test.mjs",
+        "tests/publication-packaging.test.mjs",
+        "tests/reconstructed-updater-guard.test.mjs",
+        "tests/research-archives.test.mjs",
+        "tests/router-settings.test.mjs"
+      ],
+      "open_prs": [],
+      "readme_blob": "e3eff1cab35077ad446da52b336d17878ce64e9f",
+      "classification": "REJECT",
+      "capability": "Reconstructed desktop research",
+      "maturity_assessment": "Unofficial reconstructed binary provenance",
+      "reuse_decision": "No source intake recommendation",
+      "rejected_scope": "Reconstructed binary/dependency chain",
+      "target": "Rejected runtime intake"
+    },
+    {
+      "repository": "TheHalfMoon/HarnessMind",
+      "visibility": "private",
+      "default_branch": "master",
+      "head": "ef628cdf9f97e38822ffaa80c9491636ef508dc0",
+      "branches_seen": 7,
+      "tree_truncated": false,
+      "files_seen": 185,
+      "selected_files": [
+        {
+          "path": "src/harnessmind/core/model.py",
+          "blob_sha": "a513909451d7e5dad3b5c18fc76f3b72b6571cf3"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "test_paths": [
+        ".specify/bugs/hm-ci-001-canonical-branch-ci-trigger-mismatch/test.md",
+        ".specify/bugs/hm-ci-002-macos-mypy-unreachable-platform-branches/test.md",
+        ".specify/bugs/hm-f001-pre-01-unicode-path-comparison/test.md",
+        "tests/__init__.py",
+        "tests/conftest.py",
+        "tests/test_adapters.py",
+        "tests/test_claude_events.py",
+        "tests/test_cli.py",
+        "tests/test_evidence.py",
+        "tests/test_identity.py",
+        "tests/test_model.py",
+        "tests/test_paths.py"
+      ],
+      "open_prs": [
+        {
+          "number": 3,
+          "title": "HM-CI-003: assess GitHub Actions startup failure",
+          "head": "07fe80325b7d9a6b6eb9c4b665b2bd7e95cd65cd",
+          "branch": "bug/hm-ci-003-actions-startup-failure",
+          "base": "ef628cdf9f97e38822ffaa80c9491636ef508dc0"
+        },
+        {
+          "number": 1,
+          "title": "Feature 001: Claude Effective Harness Ledger — task plan (WIP, bounded phases P1–P4)",
+          "head": "140142624a099c7ac50315e8ee3ad11ccb4ea0b5",
+          "branch": "001-claude-effective-harness-ledger",
+          "base": "ef628cdf9f97e38822ffaa80c9491636ef508dc0"
+        }
+      ],
+      "readme_blob": "9b94dbe7329b5c462a4647099fb8d97d7c66fb45",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Read-only harness discovery fidelity",
+      "maturity_assessment": "Private Python model sampled",
+      "reuse_decision": "UNKNOWN cannot silently become truth; partial/inferred fidelity",
+      "rejected_scope": "Advertising discovered config as enforced control",
+      "target": "Connector discovery"
+    },
+    {
+      "repository": "TheHalfMoon/Hikma",
+      "visibility": "private",
+      "default_branch": "main",
+      "head": "db5415e66963e042313f1ecfbef1a72b582c0e3c",
+      "branches_seen": 1,
+      "tree_truncated": false,
+      "files_seen": 1,
+      "selected_files": [],
+      "manifest_paths": [],
+      "test_paths": [],
+      "open_prs": [],
+      "readme_blob": "8b0a2b13926fecd6a7fefcd9cfeab6a0f90e4527",
+      "classification": "REFERENCE_ONLY",
+      "capability": "Named concept repository",
+      "maturity_assessment": "Private README-only default",
+      "reuse_decision": "No reusable implementation established",
+      "rejected_scope": "Inventing capabilities from name",
+      "target": "Reference only"
+    },
+    {
+      "repository": "TheHalfMoon/Himsat",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "8b6c619750646c454fa754671c9eb3d34114b28c",
+      "branches_seen": 214,
+      "tree_truncated": false,
+      "files_seen": 245,
+      "selected_files": [
+        {
+          "path": "crates/himsat-core/src/capture_session.rs",
+          "blob_sha": "96495172b9cdfbda24f41f56ffbbfd7511d03ddf"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "crates/himsat-core/Cargo.toml",
+        "crates/himsat-events/Cargo.toml"
+      ],
+      "test_paths": [
+        "crates/himsat-core/tests/b005d_journal_kill.rs",
+        "crates/himsat-core/tests/b204_recovery_negative.rs",
+        "crates/himsat-core/tests/b205_crypto_adversarial.rs",
+        "crates/himsat-core/tests/b306_plaintext_spill.rs",
+        "crates/himsat-core/tests/b307_copy_verify_publish.rs",
+        "crates/himsat-core/tests/b405_protector_fail_closed.rs"
+      ],
+      "open_prs": [
+        {
+          "number": 199,
+          "title": "feat(007): account 007C sustained tap flow against wall clock",
+          "head": "65aa2d623ab9edb4e7d1b7f7250a825ddb9a2c4d",
+          "branch": "feat/007c-grain3",
+          "base": "8b6c619750646c454fa754671c9eb3d34114b28c"
+        },
+        {
+          "number": 27,
+          "title": "review: final round-3 Specification 004A security assessment",
+          "head": "c69684df26d7c9b5c7416ad2f0ecb8fe8114fbc6",
+          "branch": "review/004a-round3-final-canonical",
+          "base": "6d1bbc9b55690939833917eebd447c361627f48a"
+        },
+        {
+          "number": 25,
+          "title": "review: final independent assessment of Specification 004A canonical design",
+          "head": "ea7ed384f3cadf68e6a3e82f4a3e4372c8727121",
+          "branch": "review/004a-final-canonical",
+          "base": "6d1bbc9b55690939833917eebd447c361627f48a"
+        },
+        {
+          "number": 24,
+          "title": "review: independently assess final Specification 004A design",
+          "head": "3c3847add4c8f56fe418fc02e62ae735e8239058",
+          "branch": "review/004a-round2-final-canonical",
+          "base": "6d1bbc9b55690939833917eebd447c361627f48a"
+        },
+        {
+          "number": 18,
+          "title": "review: independently assess remediated Specification 004 canonical crypto design",
+          "head": "6d1bbc9b55690939833917eebd447c361627f48a",
+          "branch": "review/004a-remediated-canonical-design",
+          "base": "384608c8fc13531c399f3726caa5022eb3612aa2"
+        },
+        {
+          "number": 12,
+          "title": "review: independently assess Specification 004 canonical crypto design",
+          "head": "384608c8fc13531c399f3726caa5022eb3612aa2",
+          "branch": "review/004a-canonical-design",
+          "base": "1f14bbe004962dd164402e6e6c7f9c046cf5b489"
+        }
+      ],
+      "readme_blob": "b3fe24922f82d700a816bec727ee13c8b2e35924",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Capture session lifecycle",
+      "maturity_assessment": "Rust typed core sampled",
+      "reuse_decision": "Capture source/session separation and cancellation",
+      "rejected_scope": "Whole desktop capture product",
+      "target": "Voice"
+    },
+    {
+      "repository": "TheHalfMoon/Inercative",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "e8014ea1feb9cb9c37a05f2399f23b33465490fa",
+      "branches_seen": 7,
+      "tree_truncated": false,
+      "files_seen": 81,
+      "selected_files": [
+        {
+          "path": "docs/canonical/PRODUCT_GRAPH.md",
+          "blob_sha": "0eb9ac39d1f67b583bba3755d2093ef82d8c6ac8"
+        }
+      ],
+      "manifest_paths": [
+        "package.json",
+        "packages/program-tasks/package.json",
+        "packages/protocol/package.json"
+      ],
+      "test_paths": [],
+      "open_prs": [
+        {
+          "number": 6,
+          "title": "plan: harden Ineractive A-to-Z product factory architecture",
+          "head": "dd809be934abca0a62943f811cb54f6e1c75713e",
+          "branch": "research/design-agent-harness-2026-09-20",
+          "base": "e8014ea1feb9cb9c37a05f2399f23b33465490fa"
+        }
+      ],
+      "readme_blob": "16029e95edfeb66dfeb649ced749891f116ae02c",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Ineractive product graph",
+      "maturity_assessment": "Typed design contracts; no production engine proved",
+      "reuse_decision": "Versioned semantic requirements/actions/integration nodes",
+      "rejected_scope": "Second source-of-truth graph database",
+      "target": "Digital Twin/Studio"
+    },
+    {
+      "repository": "TheHalfMoon/kernux",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "ecca499f6ce4a06f596c9ce1f5f2434825c51d94",
+      "branches_seen": 135,
+      "tree_truncated": false,
+      "files_seen": 264,
+      "selected_files": [
+        {
+          "path": "crates/kernux-policy/src/envelope.rs",
+          "blob_sha": "501d64da92f466a9fb38dc21c7d1a52749b74298"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "crates/kernux-contracts/Cargo.toml",
+        "crates/kernux-identity/Cargo.toml",
+        "crates/kernux-policy/Cargo.toml",
+        "crates/kernux-store/Cargo.toml",
+        "crates/kernuxd/Cargo.toml",
+        "package.json",
+        "tools/rust-smoke/Cargo.toml"
+      ],
+      "test_paths": [
+        "crates/kernux-contracts/tests/adversarial.rs",
+        "crates/kernux-contracts/tests/compatibility.rs",
+        "crates/kernux-contracts/tests/fixtures.rs",
+        "crates/kernux-identity/tests/core.rs",
+        "crates/kernuxd/tests/auth.rs",
+        "crates/kernuxd/tests/lifecycle.rs",
+        "crates/kernuxd/tests/transport_unix.rs",
+        "crates/kernuxd/tests/transport_windows.rs"
+      ],
+      "open_prs": [
+        {
+          "number": 140,
+          "title": "feat: add kernuxd pre-side-effect authorization gate",
+          "head": "cffb8b9d52dd80e0d98cae986cb808dda0ca8328",
+          "branch": "codex/p02-s05-t01-kernuxd-authorization",
+          "base": "ecca499f6ce4a06f596c9ce1f5f2434825c51d94"
+        }
+      ],
+      "readme_blob": "0749bfedf8b97da902a3f5527c81498fba517612",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Authority envelopes and policy",
+      "maturity_assessment": "Rust policy source sampled",
+      "reuse_decision": "Bound subject/action/resource/revision/constraints/provenance",
+      "rejected_scope": "Whole daemon OS or blanket sandbox claims",
+      "target": "Trust/Execution"
+    },
+    {
+      "repository": "TheHalfMoon/Kodac",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "406b335277f2df1e3dedf24cdb45847dff919d44",
+      "branches_seen": 679,
+      "tree_truncated": false,
+      "files_seen": 1260,
+      "selected_files": [
+        {
+          "path": "packages/kodac-runtime/src/evidence/receipt.ts",
+          "blob_sha": "214403398751c9d22bf695786c7fd7c6fd7e35e1"
+        }
+      ],
+      "manifest_paths": [
+        "nexusmcp/omni-bridge/package.json",
+        "packages/kodac-runtime/package.json",
+        "pyproject.toml"
+      ],
+      "test_paths": [
+        "nexusmcp/omni-bridge/tests/unit",
+        "nexusmcp/omni-bridge/tests/unit/audit.test.ts",
+        "nexusmcp/omni-bridge/tests/unit/auth.test.ts",
+        "nexusmcp/omni-bridge/tests/unit/fhir.test.ts",
+        "nexusmcp/omni-bridge/tests/unit/rate-limit.test.ts",
+        "packages/kodac-runtime/test/agent-loop.test.ts",
+        "packages/kodac-runtime/test/ask-cli.test.ts",
+        "packages/kodac-runtime/test/bin.test.ts",
+        "packages/kodac-runtime/test/context-connector-contracts.test.ts",
+        "packages/kodac-runtime/test/context-connector-indexer-state-machine.test.ts",
+        "packages/kodac-runtime/test/exact-donor-mapping-attestation.test.ts",
+        "packages/kodac-runtime/test/fixtures"
+      ],
+      "open_prs": [
+        {
+          "number": 653,
+          "title": "docs(o5): authorize admitted sandbox adapter implementation",
+          "head": "e3c66bfcf03ede14d5a56f900e160fd7223f58f4",
+          "branch": "docs/o5-admitted-sandbox-adapter-auth",
+          "base": "406b335277f2df1e3dedf24cdb45847dff919d44"
+        },
+        {
+          "number": 163,
+          "title": "docs(kdo): reconcile Z0L review identity proof",
+          "head": "e5b9ea66ca47b6956f8928055ea10f2cbe3447b1",
+          "branch": "docs/kdo-h4-r4b-phase-b-z0l-review-identity-reconciliation",
+          "base": "9079673a574815db8ae5986cb997c46e3164283f"
+        }
+      ],
+      "readme_blob": "1e046359e0639459810504b3a3e3af4f3c110bfd",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Receipt and approval identity",
+      "maturity_assessment": "TypeScript runtime source sampled",
+      "reuse_decision": "Input digests, exact approval instances and confinement binding",
+      "rejected_scope": "Global privileged coding agent",
+      "target": "Trust/evidence"
+    },
+    {
+      "repository": "TheHalfMoon/kodac-phase-b-gate",
+      "visibility": "private",
+      "default_branch": "main",
+      "head": "79a5e3a5c3b0f4882e8c9c864e314c0fab3c9a40",
+      "branches_seen": 2,
+      "tree_truncated": false,
+      "files_seen": 70,
+      "selected_files": [
+        {
+          "path": "internal/gate/evaluate.go",
+          "blob_sha": "0f9802a8fdf4e64e9bb327be23d9fdac5d78fe53"
+        }
+      ],
+      "manifest_paths": [
+        "go.mod"
+      ],
+      "test_paths": [],
+      "open_prs": [],
+      "readme_blob": "4d370856a2419156f16147722888989286fae752",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Trusted CI gate",
+      "maturity_assessment": "Private Go implementation sampled",
+      "reuse_decision": "Exact repository/head/PR/app/config allowlists",
+      "rejected_scope": "Assuming in-repo policy alone is trusted enforcement",
+      "target": "Release governance"
+    },
+    {
+      "repository": "TheHalfMoon/MedScale",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "ae0441918296c2d1510a71061249c7e55e65d760",
+      "branches_seen": 63,
+      "tree_truncated": false,
+      "files_seen": 1635,
+      "selected_files": [
+        {
+          "path": "docs/planning/DATA_SOURCE_FABRIC_PLAN.md",
+          "blob_sha": "82ab513b09129e800f3d618fb4e8a047fbc3053a"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "crates/medscale-cli/Cargo.toml",
+        "crates/medscale-contracts/Cargo.toml",
+        "crates/medscale-core/Cargo.toml",
+        "crates/medscale-desktop/Cargo.toml",
+        "crates/medscale-fhir/Cargo.toml",
+        "crates/medscale-keys/Cargo.toml",
+        "crates/medscale-network/Cargo.toml",
+        "crates/medscale-pack/Cargo.toml",
+        "crates/medscale-storage/Cargo.toml"
+      ],
+      "test_paths": [
+        "crates/medscale-contracts/tests/object_no_coercion.rs",
+        "crates/medscale-contracts/tests/object_roundtrip.rs",
+        "crates/medscale-contracts/tests/os_sandbox_030.rs",
+        "crates/medscale-contracts/tests/os_sandbox_031.rs",
+        "crates/medscale-contracts/tests/os_sandbox_033.rs",
+        "crates/medscale-contracts/tests/os_sandbox_038.rs",
+        "crates/medscale-contracts/tests/os_sandbox_040.rs",
+        "crates/medscale-contracts/tests/os_sandbox_041.rs",
+        "crates/medscale-contracts/tests/os_sandbox_052.rs",
+        "crates/medscale-contracts/tests/os_sandbox_053.rs",
+        "crates/medscale-core/tests/actions_014.rs",
+        "crates/medscale-core/tests/cli_product_experience_065.rs"
+      ],
+      "open_prs": [
+        {
+          "number": 129,
+          "title": "Spec 075: Data Source Fabric + Data Workbench Foundation",
+          "head": "28c5b635e2d31552620ee0790cc824f2e5226d28",
+          "branch": "spec/075-data-source-fabric",
+          "base": "ae0441918296c2d1510a71061249c7e55e65d760"
+        },
+        {
+          "number": 125,
+          "title": "design: prepare MedScale identity v2 and V0 handoff",
+          "head": "88897e5b82bedbe1d19536b1cf1e862a02b4cfa0",
+          "branch": "design/medscale-identity-v2",
+          "base": "ee8daef3a2782bbdbcb3324766a5d6b95c09fa09"
+        },
+        {
+          "number": 124,
+          "title": "docs: add Orca donor plan to Research OS V2",
+          "head": "a73945dc806953d85f3d397d7752e43f7f373893",
+          "branch": "plan/research-os-v2-orca-donor",
+          "base": "ee8daef3a2782bbdbcb3324766a5d6b95c09fa09"
+        }
+      ],
+      "readme_blob": "4696d7347d90711c9ee3665827c0d65ff79391a6",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Data source fabric",
+      "maturity_assessment": "Rust platform plus planning candidate",
+      "reuse_decision": "Source/snapshot contracts without second storage authority",
+      "rejected_scope": "Clinical capability or research plan as shipped",
+      "target": "Data Fabric"
+    },
+    {
+      "repository": "TheHalfMoon/MESC",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "a2baa30752be719f700c118363c37cc143336601",
+      "branches_seen": 494,
+      "tree_truncated": false,
+      "files_seen": 1387,
+      "selected_files": [
+        {
+          "path": "src/medscale/bench/spec.py",
+          "blob_sha": "d77a68be42db934ed8431805cc447b66b9d4e3ca"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "test_paths": [
+        "tests/_mesc_b2a_portability.py",
+        "tests/_mesc_p01_04b2d_fixtures_v1.py",
+        "tests/_training_authorization_test_support.py",
+        "tests/conftest.py",
+        "tests/fixtures",
+        "tests/fixtures/mesc",
+        "tests/fixtures/mesc/pilot_smoke.jsonl",
+        "tests/test_architecture.py",
+        "tests/test_bench_engine.py",
+        "tests/test_bench_replay.py",
+        "tests/test_bench_tasks.py",
+        "tests/test_cli_mesc_b1.py"
+      ],
+      "open_prs": [
+        {
+          "number": 453,
+          "title": "feat: add governed Hugging Face Trusted Publisher transport",
+          "head": "75890137e369de9db1def22c5891c7aff1740288",
+          "branch": "feat/hf-trusted-publisher-transport-v2",
+          "base": "a2baa30752be719f700c118363c37cc143336601"
+        },
+        {
+          "number": 393,
+          "title": "docs: make MedScale strategy actionable with delivery roadmap and OpenMed gap review",
+          "head": "018b1e90515886a78469190c9b8e0f38893ab391",
+          "branch": "codex/implementation-roadmap-2026-09-09",
+          "base": "ef5a70e86ff829efe52e042aaa37ce4bb8c418fe"
+        }
+      ],
+      "readme_blob": "66de89a215a0cce8569c30f1a8ecaa51e35687e8",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Snapshot-bound benchmark specification",
+      "maturity_assessment": "Python research implementation sampled",
+      "reuse_decision": "Hash-bound dataset/model evaluation; explicit unsupported cases",
+      "rejected_scope": "Unimplemented clinical reasoning advertised as valid",
+      "target": "AI evaluation"
+    },
+    {
+      "repository": "TheHalfMoon/Morize",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "04f1d5658405ce02d14aba978cc0397242755871",
+      "branches_seen": 50,
+      "tree_truncated": false,
+      "files_seen": 111,
+      "selected_files": [
+        {
+          "path": "crates/morize-core/src/mutation.rs",
+          "blob_sha": "4ec11a2968252821033c777c6ba9df0c809d1b3c"
+        },
+        {
+          "path": "crates/morize-core/src/scope.rs",
+          "blob_sha": "0333d8774208dea0c33834878391d3ea0b53967c"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "crates/morize-core/Cargo.toml"
+      ],
+      "test_paths": [],
+      "open_prs": [
+        {
+          "number": 38,
+          "title": "docs: qualify Laya and TinyFish as optional candidates",
+          "head": "935338d294440c42218eb0eae38acbf87709205f",
+          "branch": "plan/add-laya-tinyfish-sources",
+          "base": "04f1d5658405ce02d14aba978cc0397242755871"
+        }
+      ],
+      "readme_blob": "65a3fb450404f8661839cb7cf64500fde281b501",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Memory mutation outcomes/scopes",
+      "maturity_assessment": "Rust type definitions; state machine explicitly absent",
+      "reuse_decision": "COMMITTED/REJECTED/FAILED/UNKNOWN distinction",
+      "rejected_scope": "Assuming enum defines complete recovery implementation",
+      "target": "Memory/Data"
+    },
+    {
+      "repository": "TheHalfMoon/MSTR",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "e87328872232471fa0e1eb05d74223bc0aeaafd3",
+      "branches_seen": 1290,
+      "tree_truncated": false,
+      "files_seen": 772,
+      "selected_files": [
+        {
+          "path": "schemas/mstr-loop-contract-v0.schema.json",
+          "blob_sha": "489327d5d1fa0955c6a9901ea633b79cc4fc8eaa"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "test_paths": [
+        "tests/contract",
+        "tests/contract/test_adaptive_inference_contract.py",
+        "tests/contract/test_b007_protocol_fail_closed.py",
+        "tests/contract/test_b007_tokenizer_economics.py",
+        "tests/contract/test_b008_tokenizer_economics_results.py",
+        "tests/contract/test_b009_training_runtime_compatibility.py",
+        "tests/contract/test_b010_new_candidate_weight_access.py",
+        "tests/contract/test_b012_authority.py",
+        "tests/contract/test_b012_executor_binding.py",
+        "tests/contract/test_b012_qwen_case_checkpoint_runner_shutdown_evidence.py",
+        "tests/contract/test_b012_qwen_one_shot_runtime_cli_incompatibility_evidence.py",
+        "tests/contract/test_b012_qwen_raw_code_case_checkpoint_topology.py"
+      ],
+      "open_prs": [
+        {
+          "number": 203,
+          "title": "fix(b012): migrate Qwen raw-code recovery to pinned completion runtime",
+          "head": "4cda21ddf7c7fcf0083ed1be3f1d170a050cf9f2",
+          "branch": "fix/b012-qwen-raw-completion-runtime-contract",
+          "base": "e87328872232471fa0e1eb05d74223bc0aeaafd3"
+        },
+        {
+          "number": 188,
+          "title": "docs(plan): integrate source adoption capability mining",
+          "head": "cc722dd5ee08e0c94d22e3a5cda0c4c4a7470f92",
+          "branch": "plan/mstr-source-adoption-capability-mining-v2-5e74e77",
+          "base": "5e74e77c1fc86d4ebc7e64654f45bd18f565edd6"
+        }
+      ],
+      "readme_blob": "b86efd139a7c485f1c0d2ef6fe5d5c4aba8d24f0",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Bounded training/research loop contracts",
+      "maturity_assessment": "Research schemas; no trained Qdrat model established",
+      "reuse_decision": "Iteration/time/repair bounds and independent verification",
+      "rejected_scope": "Training stack/model dependency in baseline",
+      "target": "AI evaluation"
+    },
+    {
+      "repository": "TheHalfMoon/Paina",
+      "visibility": "private",
+      "default_branch": "main",
+      "head": "3758b746d88014b95c03f07d28705f1ac98e7548",
+      "branches_seen": 2,
+      "tree_truncated": false,
+      "files_seen": 1,
+      "selected_files": [],
+      "manifest_paths": [],
+      "test_paths": [],
+      "open_prs": [
+        {
+          "number": 1,
+          "title": "docs: establish and harden Paina safe-verification foundation",
+          "head": "37b3d2673ff95e935d197057658634f393bead81",
+          "branch": "planning/foundation-v0",
+          "base": "3758b746d88014b95c03f07d28705f1ac98e7548"
+        }
+      ],
+      "readme_blob": "51fac78623c17758150836fdb11b1467c980dfd5",
+      "classification": "REFERENCE_ONLY",
+      "capability": "Product research branch",
+      "maturity_assessment": "Private default README; active PR metadata inspected",
+      "reuse_decision": "No implementation reuse established",
+      "rejected_scope": "Assuming active PR merged or runtime mature",
+      "target": "Reference only"
+    },
+    {
+      "repository": "TheHalfMoon/ProtocolWISE",
+      "visibility": "private",
+      "default_branch": "main",
+      "head": "7ed9f8670c041794c8fa3397d80ae41d9cf310a4",
+      "branches_seen": 3,
+      "tree_truncated": false,
+      "files_seen": 1,
+      "selected_files": [],
+      "manifest_paths": [],
+      "test_paths": [],
+      "open_prs": [
+        {
+          "number": 1,
+          "title": "docs: establish F0 research and novelty foundation",
+          "head": "a084b2090d0402fd15ae6a2bcf381fccf44ec84d",
+          "branch": "docs/f0-research-foundation",
+          "base": "7ed9f8670c041794c8fa3397d80ae41d9cf310a4"
+        }
+      ],
+      "readme_blob": "1b6158d8d7ab5bd17c13656926f8b575552f5bd0",
+      "classification": "REFERENCE_ONLY",
+      "capability": "Protocol research",
+      "maturity_assessment": "Private default README; active PR metadata inspected",
+      "reuse_decision": "Research planning only",
+      "rejected_scope": "Medical protocol engine in core",
+      "target": "Reference only"
+    },
+    {
+      "repository": "TheHalfMoon/Qdrat",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "e2d288940aab52af881786678b2fc86dfa5c272a",
+      "branches_seen": 2,
+      "tree_truncated": false,
+      "files_seen": 9674,
+      "selected_files": [],
+      "manifest_paths": [
+        "pyproject.toml",
+        "requirements.txt",
+        "static/build/vendor/ionicons/@stencil/core/cli/package.json",
+        "static/build/vendor/ionicons/@stencil/core/compiler/package.json",
+        "static/build/vendor/ionicons/@stencil/core/dev-server/client/package.json",
+        "static/build/vendor/ionicons/@stencil/core/dev-server/package.json",
+        "static/build/vendor/ionicons/@stencil/core/internal/app-data/package.json",
+        "static/build/vendor/ionicons/@stencil/core/internal/client/package.json",
+        "static/build/vendor/ionicons/@stencil/core/internal/hydrate/package.json",
+        "static/build/vendor/ionicons/@stencil/core/internal/package.json",
+        "static/build/vendor/ionicons/@stencil/core/internal/testing/package.json",
+        "static/build/vendor/ionicons/@stencil/core/mock-doc/package.json",
+        "static/build/vendor/ionicons/@stencil/core/package.json",
+        "static/build/vendor/ionicons/@stencil/core/screenshot/package.json",
+        "static/build/vendor/ionicons/@stencil/core/sys/node/package.json",
+        "static/build/vendor/ionicons/@stencil/core/testing/package.json"
+      ],
+      "test_paths": [
+        "accessibility/tests/__init__.py",
+        "accessibility/tests/test_middleware_access.py",
+        "asset/tests/__init__.py",
+        "asset/tests/test_category_smoke.py",
+        "attendance/tests/__init__.py",
+        "attendance/tests/fixtures.py",
+        "attendance/tests/test_adjust_minimum_hour.py",
+        "attendance/tests/test_company_leave_and_range.py",
+        "attendance/tests/test_date_indexes.py",
+        "attendance/tests/test_day_checking.py",
+        "attendance/tests/test_export_holiday.py",
+        "attendance/tests/test_leave_dates_filtering.py"
+      ],
+      "open_prs": [
+        {
+          "number": 1,
+          "title": "Qdrat foundation: universal private Company OS, automation fabric, agents, voice and source landscape",
+          "head": "933f9c1070c151876c1e198d6141413f33e4b6d3",
+          "branch": "foundation/qdrat-people-blueprint",
+          "base": "e2d288940aab52af881786678b2fc86dfa5c272a"
+        }
+      ],
+      "readme_blob": "a696c8b6d9e8f16ebe2139c1a8a9280380583135",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Inherited People foundation",
+      "maturity_assessment": "Django implementation plus unmerged planning PR",
+      "reuse_decision": "Preserve history, functional migration and baseline tests",
+      "rejected_scope": "Foundation documents as implemented Company OS",
+      "target": "Whole product"
+    },
+    {
+      "repository": "TheHalfMoon/Sentrdel",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "f5747319a50831ef7cee983d253c0ca5503c9a64",
+      "branches_seen": 434,
+      "tree_truncated": false,
+      "files_seen": 652,
+      "selected_files": [
+        {
+          "path": "crates/sentrdel-policy/src/narrowing.rs",
+          "blob_sha": "6061c101f7465f050ef41b67eaabb572bbabe749"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "crates/sentrdel-cli/Cargo.toml",
+        "crates/sentrdel-engine/Cargo.toml",
+        "crates/sentrdel-graph/Cargo.toml",
+        "crates/sentrdel-guard/Cargo.toml",
+        "crates/sentrdel-policy/Cargo.toml",
+        "crates/sentrdel-review/Cargo.toml",
+        "crates/sentrdel-schema/Cargo.toml",
+        "crates/sentrdel-store/Cargo.toml",
+        "crates/sentrdel-verify/Cargo.toml"
+      ],
+      "test_paths": [
+        "crates/sentrdel-cli/tests/r3_t015_graph_projection.rs",
+        "crates/sentrdel-cli/tests/r3_t016_scip_bridge.rs",
+        "crates/sentrdel-cli/tests/t065_init_output.rs",
+        "crates/sentrdel-cli/tests/t066_init_adversarial.rs",
+        "crates/sentrdel-cli/tests/t076_reasoning_flags.rs",
+        "crates/sentrdel-cli/tests/t077_release_benchmark.rs",
+        "crates/sentrdel-cli/tests/t079_review_latency.rs",
+        "crates/sentrdel-cli/tests/t120_r3_init_discovery.rs",
+        "crates/sentrdel-engine/tests/t029_adversarial.rs",
+        "crates/sentrdel-engine/tests/t030_coverage_finalization.rs",
+        "crates/sentrdel-graph/tests/t046_finding_context.rs",
+        "crates/sentrdel-guard/tests/t058_mcp_guard_e2e.rs"
+      ],
+      "open_prs": [
+        {
+          "number": 334,
+          "title": "feat(s1): pair bilateral coverage records",
+          "head": "135aa2df9c0f5653fff4e9d8e783bebe8e65085f",
+          "branch": "feat/s1-t012-coverage-pairing",
+          "base": "f5747319a50831ef7cee983d253c0ca5503c9a64"
+        }
+      ],
+      "readme_blob": "6ae8ff8684cdf10bdbea5bd33cbd9c486a87f58f",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Monotonic policy/evidence constraints",
+      "maturity_assessment": "Rust narrowing source sampled",
+      "reuse_decision": "Constraints may tighten; unknown cannot weaken evidence",
+      "rejected_scope": "Autonomous offensive scan workflow",
+      "target": "Trust/governance"
+    },
+    {
+      "repository": "TheHalfMoon/Signthos",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "f945f12fd1a2b600c2c61493162e3654b4d5b50c",
+      "branches_seen": 292,
+      "tree_truncated": false,
+      "files_seen": 611,
+      "selected_files": [
+        {
+          "path": "packages/providers/src/content-identity-admission.js",
+          "blob_sha": "1464c7c510a4ca94f9e460a485f6cd43273387a4"
+        }
+      ],
+      "manifest_paths": [
+        "package.json",
+        "packages/providers/package.json",
+        "tools/provenance/Cargo.toml"
+      ],
+      "test_paths": [
+        "packages/providers/test/content-identity-admission.test.js",
+        "packages/providers/test/pdf-active-content-nonexecution.test.js",
+        "packages/providers/test/pdf-annot-remove-runtime.test.js",
+        "packages/providers/test/pdf-attach-add-runtime.test.js",
+        "packages/providers/test/pdf-attach-remove-runtime.test.js",
+        "packages/providers/test/pdf-extract-runtime.test.js",
+        "packages/providers/test/pdf-flatten-runtime.test.js",
+        "packages/providers/test/pdf-form-fill-runtime.test.js",
+        "packages/providers/test/pdf-form-inspect-runtime.test.js",
+        "packages/providers/test/pdf-image-place-runtime.test.js",
+        "packages/providers/test/pdf-inspect-exact-package-facade.test.js",
+        "packages/providers/test/pdf-inspect-orchestrator.test.js"
+      ],
+      "open_prs": [],
+      "readme_blob": "4915ad76786d49425cc17b0ede73d71ffbc21fd0",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Document identity admission",
+      "maturity_assessment": "JavaScript provider code sampled",
+      "reuse_decision": "Canonical original versus derivative identity and refusal outcomes",
+      "rejected_scope": "Legal signature assurance without jurisdiction qualification",
+      "target": "Documents"
+    },
+    {
+      "repository": "TheHalfMoon/SpecGrain",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "5de7d6499bb0a9e3a191fc0934399cf099d1980a",
+      "branches_seen": 81,
+      "tree_truncated": false,
+      "files_seen": 329,
+      "selected_files": [],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "test_paths": [
+        "tests/test_adapter.py",
+        "tests/test_attempt.py",
+        "tests/test_authoring.py",
+        "tests/test_authoring_cli.py",
+        "tests/test_benchmark.py",
+        "tests/test_cli.py",
+        "tests/test_context.py",
+        "tests/test_dependency.py",
+        "tests/test_dependency_project.py",
+        "tests/test_launch.py",
+        "tests/test_lifecycle.py",
+        "tests/test_method.py"
+      ],
+      "open_prs": [],
+      "readme_blob": "b1d683a1ac7ebb392261b404f8a542e6283649c5",
+      "classification": "DEPENDENCY",
+      "capability": "Specification lifecycle/readiness",
+      "maturity_assessment": "Python stdlib core inspected and cloned",
+      "reuse_decision": "Real SpecNode IDs/readiness/revision/work-packet semantics",
+      "rejected_scope": "Fake future READY state or native executor claims",
+      "target": "Planning"
+    },
+    {
+      "repository": "TheHalfMoon/Tarif",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "b1b3cecc7c2de32a4ecdba02a6bb752ae7a050c5",
+      "branches_seen": 8,
+      "tree_truncated": false,
+      "files_seen": 49,
+      "selected_files": [
+        {
+          "path": "specs/002-action-ir-canonicalization/spec.md",
+          "blob_sha": "6fb8a0e9418646ec0cc2623b640f80268d3c0a15"
+        }
+      ],
+      "manifest_paths": [],
+      "test_paths": [],
+      "open_prs": [
+        {
+          "number": 13,
+          "title": "test(governance): R3 enforcement positive probe",
+          "head": "072a3e43d45785b4bd1e14ddfe380aff3bd49dce",
+          "branch": "governance/r3-enforcement-positive-probe",
+          "base": "b1b3cecc7c2de32a4ecdba02a6bb752ae7a050c5"
+        },
+        {
+          "number": 12,
+          "title": "test(governance): R3 enforcement negative probe — DO NOT MERGE",
+          "head": "59b61c08d7959c75d9a3a4ab71197d05be5d4a82",
+          "branch": "governance/r3-enforcement-negative-probe",
+          "base": "b1b3cecc7c2de32a4ecdba02a6bb752ae7a050c5"
+        },
+        {
+          "number": 11,
+          "title": "feat(002): implement Action IR canonicalization",
+          "head": "ad0aa6029d5efb89f24c43fbf0bd0771c8259e40",
+          "branch": "feat/002-action-ir-canonicalization",
+          "base": "b1b3cecc7c2de32a4ecdba02a6bb752ae7a050c5"
+        }
+      ],
+      "readme_blob": "118e6bebd2610b783e7b4af910e62b99aa16100a",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Typed Action IR",
+      "maturity_assessment": "Specification and active PR; design-stage evidence",
+      "reuse_decision": "Canonical argument distinction and request identity",
+      "rejected_scope": "MCP/context visibility as authority",
+      "target": "Action contract"
+    },
+    {
+      "repository": "TheHalfMoon/Trcel",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": null,
+      "branches_seen": 0,
+      "tree_truncated": null,
+      "files_seen": 0,
+      "selected_files": [],
+      "manifest_paths": [],
+      "test_paths": [],
+      "open_prs": [],
+      "readme_blob": null,
+      "classification": "REFERENCE_ONLY",
+      "capability": "Empty repository",
+      "maturity_assessment": "No commits/branches/source",
+      "reuse_decision": "No reusable capability established",
+      "rejected_scope": "Guessing intended product",
+      "target": "Reference only"
+    },
+    {
+      "repository": "TheHalfMoon/wepld",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "100d5c3c0049fd97e3a1e5d54c5cc9fcc6ca9bde",
+      "branches_seen": 343,
+      "tree_truncated": false,
+      "files_seen": 591,
+      "selected_files": [
+        {
+          "path": "docs/canonical/ARCHITECTURE_INVARIANTS.md",
+          "blob_sha": "58a0abb1d5629dfe97cc6ab60d4ccae6646eaf86"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "apps/desktop/src-tauri/Cargo.toml",
+        "crates/contracts/Cargo.toml",
+        "crates/core/Cargo.toml",
+        "research/harness_h0/Cargo.toml",
+        "third_party/glib-0.18.5-wepld1/Cargo.toml"
+      ],
+      "test_paths": [
+        "crates/contracts/tests/project_v1.rs",
+        "crates/contracts/tests/protocol_v1.rs",
+        "crates/core/tests/cli_v1.rs",
+        "crates/core/tests/doctor_v1.rs",
+        "crates/core/tests/git_topology_v1.rs",
+        "crates/core/tests/identity_store_v1.rs",
+        "crates/core/tests/process_v1.rs",
+        "crates/core/tests/project_v1.rs",
+        "crates/core/tests/s1_011_adversarial_v1.rs",
+        "crates/core/tests/security_sensitive_config_v1.rs",
+        "crates/core/tests/state_v1.rs",
+        "third_party/glib-0.18.5-wepld1/tests/check_gir.rs"
+      ],
+      "open_prs": [
+        {
+          "number": 164,
+          "title": "ci(acquisition): add bounded Pictorial lock-overlay policy v9 candidate",
+          "head": "f91d765d21f497502e21414f49d42869218066b5",
+          "branch": "ci/pictorial-agile-source-admission-v9-lock-overlay-2026-08-24",
+          "base": "08a06e9f2664735eb55db5b2f49f95d3d3f91c3f"
+        },
+        {
+          "number": 162,
+          "title": "fix(vendor): repair PR136 Pictorial lock metadata advisories",
+          "head": "04cc279133d536e2b4b68e01c019d7b595f0ed42",
+          "branch": "repair/pr136-pictorial-lockfile-metadata-2026-08-24",
+          "base": "28f0023b8ffb90c585213762dae5f4c1d57322ef"
+        },
+        {
+          "number": 159,
+          "title": "docs(acquisition): record PR136 Agile static dependency qualification",
+          "head": "5f89e959a1b26ea35aba18ea42c58bc2506bd967",
+          "branch": "evidence/pr136-agile-dependency-resolution-2026-08-24",
+          "base": "08a06e9f2664735eb55db5b2f49f95d3d3f91c3f"
+        },
+        {
+          "number": 136,
+          "title": "feat(vendor): import pinned Pictorial and Agile source snapshots",
+          "head": "28f0023b8ffb90c585213762dae5f4c1d57322ef",
+          "branch": "import/pictorial-agile-full-source-snapshot-2026-08-23",
+          "base": "08a06e9f2664735eb55db5b2f49f95d3d3f91c3f"
+        },
+        {
+          "number": 88,
+          "title": "docs(acquisition): canonicalize repaired MiniMax universal-agent donor reconnaissance",
+          "head": "159057a345de19638cc2a7664b447f1a4a1fd03b",
+          "branch": "research/minimax-universal-agent-review-repair-2026-08-21",
+          "base": "27886783008bd594f95b8d1439fff74bb87914f3"
+        },
+        {
+          "number": 81,
+          "title": "docs(acquisition): add MiniMax universal agent automation donor reconnaissance",
+          "head": "701fcf71185b859d825863a5dfddf55dab9dd0aa",
+          "branch": "research/minimax-universal-agent-automation-2026-08-21",
+          "base": "b028b07495bff32b42d093aebe653199ce59b8a5"
+        },
+        {
+          "number": 73,
+          "title": "docs(acquisition): add JetBrains browser visual-edit donor reconnaissance",
+          "head": "6b9011f0ea796075861e510f5c515e8713064f39",
+          "branch": "research/jetbrains-browser-visual-edit-2026-08-21",
+          "base": "5d25112d506b0044f2e79756869c009c5b5ba358"
+        },
+        {
+          "number": 1,
+          "title": "docs: establish WePLD fresh canonical foundation",
+          "head": "99eb2c20975b5528e37e9fea165753fa8fe9e9c0",
+          "branch": "agent/fresh-reconstitution-foundation",
+          "base": "7813dea9c53863378a5ae2fefcaf66f6b5d43103"
+        }
+      ],
+      "readme_blob": "a16a3b202ec5a067ebde06eb4884351473008a12",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Engineering OS architecture",
+      "maturity_assessment": "Contracts/design with source tree",
+      "reuse_decision": "Findings/reviews never grant effects; no silent fallback",
+      "rejected_scope": "Whole parallel engineering platform",
+      "target": "Governance"
+    },
+    {
+      "repository": "TheHalfMoon/Winds",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "ec214544d94d90b23fe4a0156d0040a2faf0622c",
+      "branches_seen": 270,
+      "tree_truncated": false,
+      "files_seen": 448,
+      "selected_files": [],
+      "manifest_paths": [
+        "Cargo.toml",
+        "desktop/package.json",
+        "desktop/src-tauri/Cargo.toml"
+      ],
+      "test_paths": [
+        "desktop/tests/command-palette-model.test.mjs",
+        "desktop/tests/dependencies.test.mjs",
+        "desktop/tests/dual-session-model.test.mjs",
+        "desktop/tests/fixtures",
+        "desktop/tests/fixtures/visual-fixtures.json",
+        "desktop/tests/format-check.mjs",
+        "desktop/tests/inert-shell.test.mjs",
+        "desktop/tests/left-dock-model.test.mjs",
+        "desktop/tests/performance",
+        "desktop/tests/performance/t143_assemble.py",
+        "desktop/tests/performance/t143_native.py",
+        "desktop/tests/performance/t143_platform_baseline.py"
+      ],
+      "open_prs": [
+        {
+          "number": 248,
+          "title": "spec: define Spec 012 workspace multiplexer and agent plane",
+          "head": "73fb7bf65405fcfffb9ac3398100b29b0fdb5a8e",
+          "branch": "spec/012-workspace-multiplexer-agent-plane",
+          "base": "ec214544d94d90b23fe4a0156d0040a2faf0622c"
+        },
+        {
+          "number": 21,
+          "title": "docs(research): preserve agent intelligence and learning archive",
+          "head": "15ea25865e65ae18e5e925a42115d7eea340fc9e",
+          "branch": "docs/research-agent-intelligence-2026-08-16",
+          "base": "a0582d5b48358bf44ff9dba5248ba1aaf0813416"
+        }
+      ],
+      "readme_blob": "e560168113c802e8aab45ad5b141150ce37b841e",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Independent exact-commit verification",
+      "maturity_assessment": "Repository code/README/tree inspected",
+      "reuse_decision": "Detached revision-bound verification and inspectable checks",
+      "rejected_scope": "Historical reports as current pass",
+      "target": "Testing"
+    },
+    {
+      "repository": "TheHalfMoon/Wispral",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "edacdf7504302cc91ff7138bc6ac2d391e4df1f4",
+      "branches_seen": 186,
+      "tree_truncated": false,
+      "files_seen": 273,
+      "selected_files": [
+        {
+          "path": "docs/canonical/ARCHITECTURE_INVARIANTS.md",
+          "blob_sha": "183d23e2019b85dd4021cf03078f7fdd708459b8"
+        }
+      ],
+      "manifest_paths": [],
+      "test_paths": [],
+      "open_prs": [
+        {
+          "number": 120,
+          "title": "research(000b2): preserve B2R17 moonshine compact capture",
+          "head": "85fe810267eda7ce1be8b76fd4cd769d3a39003d",
+          "branch": "execution/b2r17-final",
+          "base": "edacdf7504302cc91ff7138bc6ac2d391e4df1f4"
+        },
+        {
+          "number": 73,
+          "title": "docs: prepare external source adoption strategy",
+          "head": "ac32dd3e2b9bee7c39d80f9590984bfcf1094710",
+          "branch": "docs/voice-capture-product-references",
+          "base": "16104eacf2d571276452d173ddb54c089faccd0e"
+        }
+      ],
+      "readme_blob": "4cdb990826b67c7ccc3a599086a1661f844f72c9",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Voice trust invariants",
+      "maturity_assessment": "Canonical design inspected",
+      "reuse_decision": "Raw capture/transcript/intent/authorization separation",
+      "rejected_scope": "Speech recognition as consent or authorization",
+      "target": "Voice"
+    },
+    {
+      "repository": "TheHalfMoon/Zyara",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "151a8111c359523d8e30dd9899c0583ca24f8ea4",
+      "branches_seen": 77,
+      "tree_truncated": false,
+      "files_seen": 926,
+      "selected_files": [
+        {
+          "path": "db/migrations/004_durable_events.sql",
+          "blob_sha": "b378f2a817b512ade773e86637d5a0a9dd832687"
+        }
+      ],
+      "manifest_paths": [
+        "apps/api/package.json",
+        "apps/web/package.json",
+        "apps/worker/package.json",
+        "experiments/search/package.json",
+        "package.json",
+        "packages/action-confirmation/package.json",
+        "packages/adapter-harness/package.json",
+        "packages/adapter-ops/package.json",
+        "packages/analytics/package.json",
+        "packages/authorization/package.json",
+        "packages/care-modalities/package.json",
+        "packages/caregiver-access/package.json",
+        "packages/clinical-workflows/package.json",
+        "packages/commerce/package.json",
+        "packages/communication/package.json",
+        "packages/consent-boundaries/package.json"
+      ],
+      "test_paths": [
+        "tests/accessibility",
+        "tests/accessibility/foundation.test.ts",
+        "tests/accessibility/package.json",
+        "tests/e2e",
+        "tests/e2e/package.json",
+        "tests/e2e/patient-to-review.test.ts",
+        "tests/graph-import",
+        "tests/graph-import/import.test.ts",
+        "tests/graph-import/package.json",
+        "tests/graph",
+        "tests/graph/fhir-fixtures.ts",
+        "tests/graph/graph.test.ts"
+      ],
+      "open_prs": [
+        {
+          "number": 94,
+          "title": "feat(web): complete Zyara V1 discovery UI",
+          "head": "b67daef2ac925f7f7a138f89da7ea967e6b657a1",
+          "branch": "ui/zyara-v1-patient-experience",
+          "base": "1d6e3db467bec2eef66d95f27bbc717880d8e918"
+        }
+      ],
+      "readme_blob": "b76f25929ff56135eec088ce17b8d86d1d7408bb",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Atomic events and tenant scoping",
+      "maturity_assessment": "SQL migration sampled",
+      "reuse_decision": "Outbox/inbox + explicit tenant-context patterns",
+      "rejected_scope": "Copying destructive development rollback into production",
+      "target": "Kernel events"
+    },
+    {
+      "repository": "wepld/wepld",
+      "visibility": "public",
+      "default_branch": "main",
+      "head": "993b2fb55af038091f365ad29d0740bdb1bd6c9e",
+      "branches_seen": 9,
+      "tree_truncated": false,
+      "files_seen": 113,
+      "selected_files": [
+        {
+          "path": "docs/canonical/ARCHITECTURE_INVARIANTS.md",
+          "blob_sha": "58a0abb1d5629dfe97cc6ab60d4ccae6646eaf86"
+        }
+      ],
+      "manifest_paths": [],
+      "test_paths": [],
+      "open_prs": [
+        {
+          "number": 11,
+          "title": "docs(product): define S0-B product architecture foundation",
+          "head": "68cab399748c5c103b8f96380da69fdffca4d3fe",
+          "branch": "docs/s0-b-product-architecture-foundation",
+          "base": "993b2fb55af038091f365ad29d0740bdb1bd6c9e"
+        },
+        {
+          "number": 1,
+          "title": "feat: establish evidence-driven Build Feature engineering loop",
+          "head": "d5ef318468b6c35df3c14c1c5f72beb1191baf29",
+          "branch": "feat/build-feature-engineering-memory",
+          "base": "f0ef22c823dc2e6d9002bc8b6400bb194529e16d"
+        }
+      ],
+      "readme_blob": "39a4ea04da609977aabdc33f90debbf405694acb",
+      "classification": "ADAPT_PATTERN",
+      "capability": "Organization engineering contracts",
+      "maturity_assessment": "Additional accessible org repository; design",
+      "reuse_decision": "Cross-repo artifact/review boundary ideas",
+      "rejected_scope": "Duplicate of TheHalfMoon/wepld runtime",
+      "target": "Governance"
+    }
+  ]
+}
