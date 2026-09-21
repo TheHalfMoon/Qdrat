@@ -1,0 +1,70 @@
+{
+  "schema": "qdrat.repair-verification/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "finding_id": "RV-07",
+  "purpose": "Prove that the repaired frozen-lock digest is reproducible from repository content alone, from a clean checkout of the repair commit, and not only from the working tree that produced it.",
+  "verified_at_utc": "2026-09-21T19:05:00Z",
+  "revision": {
+    "branch": "codex/g0-01-lock-digest-repair",
+    "head": "7641e407ef936e7312aa20e891a54fe9088793bb",
+    "tree": "dba262ba4744d218f99cc55ceb747192c36e4e34",
+    "immutable_base": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+    "checkout": "git worktree add --detach <temporary-directory> 7641e407ef936e7312aa20e891a54fe9088793bb",
+    "worktree_clean": true
+  },
+  "checks": [
+    {
+      "id": "lock-digest-repair",
+      "command": "diffcipline check --base ca5ceb361798ff8ba78a8ac86c47de0bc440058e --risk R2 --enterprise-policy .diffcipline/tasks/G0-01-lock-digest-repair.toml --run --json",
+      "result": "PASS",
+      "observed": "verdict PASS; changed_files 5; added_lines 268; deleted_lines 10; scope_violations empty; four verification commands PASS",
+      "record": "evidence/g0-01/lock-digest-repair-diffcipline.json",
+      "stdout": "evidence/g0-01/lock-digest-repair-diffcipline.log"
+    },
+    {
+      "id": "lock-contract-suite-from-a-clean-checkout",
+      "command": "python -m unittest discover -s requirements/tests -p \"test_*.py\"",
+      "environment": "clean detached worktree at the repair commit; CPython 3.12.14",
+      "result": "PASS",
+      "observed": "Ran 33 tests; OK. The same suite reported 'Ran 29 tests; FAILED (failures=1)' at the accepted revision in the same clean-checkout conditions, which is the defect this change repairs.",
+      "note": "The lock file in this checkout is LF with raw sha256 6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b, so the raw and canonical digests coincide here. In a Windows working copy the raw digest is the CRLF one and the canonical digest is unchanged, which is the point of the repair: the recorded value no longer depends on which of the two a machine holds."
+    },
+    {
+      "id": "lock-reconciliation-from-a-clean-checkout",
+      "command": "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip",
+      "result": "PASS",
+      "observed": "distributions 149; installed 150; excluded tool distributions [pip]; verified_listing_entries 149; lock_digest 6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b; status PASS"
+    },
+    {
+      "id": "plan-validator-with-pinned-specgrain-at-the-repair-commit",
+      "command": "python docs/qdrat/plan/validate_plan.py --specgrain-source <pinned SpecGrain checkout>",
+      "result": "PASS",
+      "observed": "status PASS; tasks 96; nodes 96; gates 13; specgrain status PASS at source_sha 5de7d6499bb0a9e3a191fc0934399cf099d1980a; candidate SG-000001; is_ready true; implementation_verified false",
+      "note": "No plan file is part of this repair, so the plan validator is expected to and does return exactly the values recorded at G0-01."
+    },
+    {
+      "id": "frozen-lock-content-unchanged",
+      "command": "compare requirements/locks/linux-amd64-py312.txt across ca5ceb3 and the repair commit",
+      "result": "PASS",
+      "observed": "The lock file is not in the repair's changed-file list and its blob is byte-identical at both revisions; only the digest recorded about it changed."
+    }
+  ],
+  "tool_identity": {
+    "diffcipline": {
+      "binary": "C:/Users/Shehr/bin/diffcipline.exe",
+      "sha256": "5fee721d3837ab86f2c36003d02ca67ebac793ff8dadcdb3b7eea074690e57a8",
+      "matches_release_manifest": true
+    },
+    "specgrain_source": {
+      "checkout": "C:/Users/Shehr/AppData/Local/Temp/qdrat-tools/SpecGrain",
+      "head": "5de7d6499bb0a9e3a191fc0934399cf099d1980a",
+      "clean": true
+    },
+    "host_python": "3.11.15 for the Diffcipline verification commands, which resolve `python` through the host PATH; 3.12.14 for the direct clean-checkout runs recorded above"
+  },
+  "residual_risks": [
+    "This repair is not independently reviewed yet. The G0-01 review receipt is bound to 7f06517 and to the code this repair changes (requirements/tools/lockfile.py, requirements/tests/test_lock_contract.py), so a fresh review round over ca5ceb3..7641e40 is required before the repair revision is treated as reviewed.",
+    "Normalising CRLF to LF when hashing means the digest no longer distinguishes the two line-ending conventions for text artifacts. The repository pins line endings per extension, and the requirement lines are parsed by pip either way, so this is the weaker of the two equivalence classes and the one that matches what git stores."
+  ]
+}

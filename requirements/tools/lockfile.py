@@ -74,6 +74,30 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def canonical_text_bytes(path: Path) -> bytes:
+    """Return a generated text artifact's bytes with CRLF normalised to LF.
+
+    `Path.write_text` translates `\n` to the host's line separator, so on
+    Windows the lock on disk was CRLF while the committed object was LF (this
+    repository pins `*.txt text eol=lf`). Hashing the raw bytes therefore bound
+    one machine's working tree instead of the artifact in the repository, and
+    every re-derivation from a fresh checkout disagreed with the record. The
+    canonical form is what git stores, so it is what the digest must describe.
+    """
+    return path.read_bytes().replace(b"\r\n", b"\n")
+
+
+def sha256_text_file(path: Path) -> str:
+    """Hash a generated text artifact by its LF-canonical content."""
+    return hashlib.sha256(canonical_text_bytes(path)).hexdigest()
+
+
+def write_text_lf(path: Path, text: str) -> None:
+    """Write a generated text artifact with LF newlines on every platform."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8", newline="\n")
+
+
 def read_json(path: Path) -> object:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
@@ -84,10 +108,9 @@ def read_json(path: Path) -> object:
 
 
 def write_json(path: Path, payload: object) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
+    write_text_lf(
+        path,
         json.dumps(payload, indent=2, sort_keys=False, ensure_ascii=False) + "\n",
-        encoding="utf-8",
     )
 
 
@@ -319,7 +342,7 @@ def cmd_build(args: argparse.Namespace) -> int:
     input_path = Path(args.input)
     if not input_path.is_file():
         raise ToolError(f"input requirements file not found: {input_path}")
-    input_sha256 = sha256_file(input_path)
+    input_sha256 = sha256_text_file(input_path)
 
     header = {
         "input_path": args.input_label,
@@ -332,8 +355,7 @@ def cmd_build(args: argparse.Namespace) -> int:
     }
     lock_text = render_lock(args.target, first, header)
     lock_path = Path(args.lock_out)
-    lock_path.parent.mkdir(parents=True, exist_ok=True)
-    lock_path.write_text(lock_text, encoding="utf-8")
+    write_text_lf(lock_path, lock_text)
 
     bootstrap = []
     for raw in args.bootstrap:
@@ -371,7 +393,7 @@ def cmd_build(args: argparse.Namespace) -> int:
             "bootstrap": bootstrap,
             "lock": {
                 "path": args.lock_label,
-                "sha256": sha256_file(lock_path),
+                "sha256": sha256_text_file(lock_path),
                 "line_format": "name==version --hash=sha256:<hex>",
             },
             "distributions": first,
@@ -431,6 +453,26 @@ def cmd_verify(args: argparse.Namespace) -> int:
     if artifacts.get("target") != args.target:
         raise ToolError(
             f"inventory target {artifacts.get('target')!r} does not match {args.target!r}"
+        )
+
+    # The inventory records the digest of the lock it was frozen from. Without
+    # this comparison nothing in the gate would notice a lock that no longer
+    # matches its own record: the unit tests read the committed artifacts, and
+    # the reconciliation below compares the lock's *contents* to the inventory,
+    # not the lock's bytes. Text artifacts are hashed with CRLF normalised to
+    # LF, so this compares content, not the checkout's line endings.
+    recorded_lock = artifacts.get("lock")
+    if not isinstance(recorded_lock, dict) or not isinstance(
+        recorded_lock.get("sha256"), str
+    ):
+        raise ToolError(
+            f"{args.artifacts} must record the frozen lock digest under lock.sha256"
+        )
+    observed_lock_digest = sha256_text_file(Path(args.lock))
+    if observed_lock_digest != recorded_lock["sha256"]:
+        raise ToolError(
+            "the lock does not match the digest recorded in the inventory: "
+            f"observed {observed_lock_digest}, recorded {recorded_lock['sha256']}"
         )
 
     lock = parse_lock(Path(args.lock))
@@ -564,6 +606,7 @@ def cmd_verify(args: argparse.Namespace) -> int:
                 "verified_artifacts": verified_artifacts,
                 "verified_bootstrap_artifacts": verified_bootstrap,
                 "verified_listing_entries": verified_listing,
+                "lock_digest": observed_lock_digest,
                 "status": "PASS",
             }
         )

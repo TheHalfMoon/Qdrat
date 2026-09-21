@@ -32,7 +32,7 @@
   ],
   "lock": {
     "path": "requirements/locks/linux-amd64-py312.txt",
-    "sha256": "e951f4c14695579b7a1b3ce1ba9188c857decab4f8ffbeff8a7db5ba3580c000",
+    "sha256": "6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b",
     "line_format": "name==version --hash=sha256:<hex>"
   },
   "distributions": [
