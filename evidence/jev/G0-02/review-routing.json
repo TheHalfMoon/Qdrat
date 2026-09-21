@@ -1,0 +1,49 @@
+{
+  "schema": "qdrat.jev-decision/v1",
+  "task": "G0-02",
+  "grain_id": "SG-000002",
+  "checkpoint": "review routing before the change is treated as complete",
+  "decision_type": "choice",
+  "question": "What review routing does this G0-02 change require?",
+  "allowed_values": ["auto_continue", "independent_review", "specialist_review", "other"],
+  "selected_value": "independent_review",
+  "confidence": 0.88,
+  "probabilities": {
+    "auto_continue": 0.0,
+    "independent_review": 0.92,
+    "specialist_review": 0.08,
+    "other": 0.0
+  },
+  "input_evidence": {
+    "declared_risk": "R2 (docs/qdrat/plan/tasks/tasks.json G0-02 expected_diff_class)",
+    "behaviour_change": "the shipped image installs a different, hash-verified dependency set than before, and containers serialise their release tasks",
+    "surface": "Dockerfile, docker/lock-requirements.py, docker/release_tasks.py, docker/entrypoint.sh, docker-compose.yml, docker-compose.prod.yml",
+    "evidence_produced": "clean no-cache build, compose config for both stacks, manage.py check, empty-database migrations, repeat bootstrap, a three-container concurrency probe, OS package inventory, health and readiness probes, digest binding",
+    "defects_found_by_the_proof": "the concurrent-bootstrap migration race and a script-execution import failure, both fixed and re-probed",
+    "unresolved": "healthcheck budget on a slow host, no CI for the branch, and no review credential in this environment"
+  },
+  "timestamp_utc": "2026-09-21T20:45:00Z",
+  "tool": {
+    "cli": "jev 0.3.2",
+    "model": "jev-1.13.0",
+    "provider": "typesafe"
+  },
+  "resulting_deterministic_action": "An independent review of the exact revision is required before G0-02 can be treated as complete. Jev classified the routing only: it did not review the change, did not decide whether any test passed, and does not replace the review. The reviewer must bind the exact Grain, WorkPacket, head, diff and evidence, and reviewer unavailability remains not-approval.",
+  "raw_response": {
+    "model": "jev-1.13.0",
+    "id": null,
+    "provider": "typesafe",
+    "answer": {
+      "type": "choice",
+      "choice": "independent_review",
+      "confidence": 0.88,
+      "probabilities": {
+        "auto_continue": 0.0,
+        "independent_review": 0.92,
+        "specialist_review": 0.08,
+        "other": 0.0
+      }
+    },
+    "usage": {"input_tokens": 1231, "output_tokens": 54}
+  }
+}

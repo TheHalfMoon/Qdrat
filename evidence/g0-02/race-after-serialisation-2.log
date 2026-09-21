@@ -1,0 +1,285 @@
+Connection to db (172.20.0.2) 5432 port [tcp/postgresql] succeeded!
+Starting Horilla HR...
+Qdrat image build: version=2.1.6 revision=da6f808bb7a2646a5d851afc696bba62ea8b4b53 built=2026-09-21T20:20:00Z
+Waiting for PostgreSQL at db:5432...
+PostgreSQL is ready!
+Generated a new random SECRET_KEY and saved it to /app/media/.generated_secret_key
+Qdrat release lock 349038592340 acquired after 0.0s (timeout 900s)
+[2026-09-22 01:18:57] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+/opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+[2026-09-22 01:19:01] WARNING horilla.config [-] Database is empty. Using default LDAP settings.
+Operations to perform:
+  Apply all migrations: accessibility, admin, asset, attendance, auditlog, auth, axes, base, biometric, contenttypes, django_apscheduler, employee, facedetection, geofencing, helpdesk, horilla_audit, horilla_auth, horilla_automations, horilla_backup, horilla_dbtemplate, horilla_documents, horilla_ldap, horilla_meet, horilla_theme, horilla_tour, horilla_views, leave, notifications, offboarding, onboarding, payroll, pms, project, recruitment, report, sessions, sites, whatsapp
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0001_initial... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying horilla_auth.0001_initial... OK
+  Applying horilla_audit.0001_initial... OK
+  Applying base.0001_initial... OK
+  Applying employee.0001_initial... OK
+  Applying accessibility.0001_initial... OK
+  Applying accessibility.0002_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying employee.0002_alter_employeeworkinformation_location_and_more... OK
+  Applying employee.0003_alter_actiontype_action_type_alter_employee_dob_and_more... OK
+  Applying employee.0004_alter_employee_phone_and_more... OK
+  Applying employee.0005_alter_employee_phone_and_more... OK
+  Applying asset.0001_initial... OK
+  Applying asset.0002_initial... OK
+  Applying asset.0003_asset_quantity... OK
+  Applying asset.0004_alter_asset_owner... OK
+  Applying asset.0005_assetitem_assetassignment_asset_item_id... OK
+  Applying asset.0006_backfill_asset_items... OK
+  Applying attendance.0001_initial... OK
+  Applying leave.0001_initial... OK
+  Applying attendance.0002_initial... OK
+  Applying base.0002_initial... OK
+  Applying base.0003_alter_dynamicemailconfiguration_company_id_and_more... OK
+  Applying base.0004_rosterpublishlog_roster... OK
+  Applying base.0005_attendanceallowedip_company_id_and_more... OK
+  Applying base.0006_holidays_assigning_type_holidays_department_and_more... OK
+  Applying base.0007_setupchecklistdismissal... OK
+  Applying base.0008_companygroupassignment... OK
+  Applying base.0009_defaultexportpermission... OK
+  Applying base.0010_companylanguagesetting... OK
+  Applying base.0011_alter_companyleaves_options_and_more... OK
+  Applying base.0012_remove_companyleaves_company_id_and_more... OK
+  Applying base.0013_announcementexpire_company_id_and_more... OK
+  Applying base.0014_alter_rotatingworktype_name... OK
+  Applying leave.0002_alter_leaverequest_options... OK
+  Applying leave.0003_leavetype_payment_percentage_leavetype_payment_type_and_more... OK
+  Applying leave.0004_employeepastleaverestrict_company_id... OK
+  Applying leave.0005_remove_holiday_company_id_remove_holiday_created_by_and_more... OK
+  Applying leave.0006_remove_leavetype_color... OK
+  Applying leave.0007_alter_historicalleaverequest_reject_reason_and_more... OK
+  Applying horilla_audit.0002_auditmodelconfig... OK
+  Applying attendance.0003_alter_attendanceovertime_year... OK
+  Applying attendance.0004_historicalattendanceactivity... OK
+  Applying attendance.0005_alter_attendanceovertime_options_and_more... OK
+  Applying attendance.0006_workrecords_unique_work_record_per_employee_per_date... OK
+  Applying attendance.0007_attendanceconflictresolution_attendancedailyhours_and_more... OK
+  Applying attendance.0008_attendance_attendance_date_idx_and_more... OK
+  Applying auditlog.0001_initial... OK
+  Applying auditlog.0002_auto_support_long_primary_keys... OK
+  Applying auditlog.0003_logentry_remote_addr... OK
+  Applying auditlog.0004_logentry_detailed_object_repr... OK
+  Applying auditlog.0005_logentry_additional_data_verbose_name... OK
+  Applying auditlog.0006_object_pk_index... OK
+  Applying auditlog.0007_object_pk_type... OK
+  Applying auditlog.0008_action_index... OK
+  Applying auditlog.0009_alter_logentry_additional_data... OK
+  Applying auditlog.0010_alter_logentry_timestamp... OK
+  Applying auditlog.0011_logentry_serialized_data... OK
+  Applying auditlog.0012_add_logentry_action_access... OK
+  Applying auditlog.0013_alter_logentry_timestamp... OK
+  Applying auditlog.0014_logentry_cid... OK
+  Applying auditlog.0015_alter_logentry_changes... OK
+  Applying auditlog.0016_logentry_remote_port... OK
+  Applying auditlog.0017_add_actor_email... OK
+  Applying axes.0001_initial... OK
+  Applying axes.0002_auto_20151217_2044... OK
+  Applying axes.0003_auto_20160322_0929... OK
+  Applying axes.0004_auto_20181024_1538... OK
+  Applying axes.0005_remove_accessattempt_trusted... OK
+  Applying axes.0006_remove_accesslog_trusted... OK
+  Applying axes.0007_alter_accessattempt_unique_together... OK
+  Applying axes.0008_accessfailurelog... OK
+  Applying axes.0009_add_session_hash... OK
+  Applying axes.0010_accessattemptexpiration... OK
+  Applying base.0015_defaultexportpermission_unique_default_export_permission_per_company_and_more... OK
+  Applying base.0016_seed_default_export_permission... OK
+  Applying biometric.0001_initial... OK
+  Applying django_apscheduler.0001_initial... OK
+  Applying django_apscheduler.0002_auto_20180412_0758... OK
+  Applying django_apscheduler.0003_auto_20200716_1632... OK
+  Applying django_apscheduler.0004_auto_20200717_1043... OK
+  Applying django_apscheduler.0005_migrate_name_to_id... OK
+  Applying django_apscheduler.0006_remove_djangojob_name... OK
+  Applying django_apscheduler.0007_auto_20200717_1404... OK
+  Applying django_apscheduler.0008_remove_djangojobexecution_started... OK
+  Applying django_apscheduler.0009_djangojobexecution_unique_job_executions... OK
+  Applying employee.0006_alter_bonuspoint_encashment_condition_and_more... OK
+  Applying facedetection.0001_initial... OK
+  Applying facedetection.0002_alter_facedetection_start... OK
+  Applying geofencing.0001_initial... OK
+  Applying helpdesk.0001_initial... OK
+  Applying helpdesk.0002_alter_historicalticket_priority_and_more... OK
+  Applying helpdesk.0003_alter_tickettype_prefix_alter_tickettype_title... OK
+  Applying horilla_audit.0003_alter_historytrackingfields_options_and_more... OK
+  Applying horilla_automations.0001_initial... OK
+  Applying horilla_automations.0002_alter_mailautomation_delivery_channel... OK
+  Applying horilla_automations.0003_alter_mailautomation_mail_details_and_more... OK
+  Applying horilla_backup.0001_initial... OK
+  Applying horilla_backup.0002_remove_googledrivebackup_service_account_file_and_more... OK
+  Applying horilla_backup.0003_alter_googledrivebackup_gdrive_folder_id... OK
+  Applying sites.0001_initial... OK
+  Applying sites.0002_alter_domain_unique... OK
+  Applying horilla_dbtemplate.0001_initial... OK
+  Applying horilla_documents.0001_initial... OK
+  Applying horilla_documents.0002_alter_document_reject_reason... OK
+  Applying horilla_ldap.0001_initial... OK
+  Applying horilla_ldap.0002_alter_ldapsettings_options... OK
+  Applying recruitment.0001_initial... OK
+  Applying pms.0001_initial... OK
+  Applying horilla_meet.0001_initial... OK
+  Applying horilla_theme.0001_initial... OK
+  Applying horilla_tour.0001_initial... OK
+  Applying horilla_tour.0002_seed_default_tours... OK
+  Applying horilla_tour.0003_seed_dashboard_highlights_tour... OK
+  Applying horilla_tour.0004_seed_module_tours... OK
+  Applying horilla_tour.0005_fix_sidebar_step_selectors... OK
+  Applying horilla_tour.0006_seed_settings_tours... OK
+  Applying horilla_tour.0007_settings_tours_interactive... OK
+  Applying horilla_tour.0008_fix_create_button_selector... OK
+  Applying horilla_tour.0009_seed_recruitment_dashboard_tour... OK
+  Applying horilla_tour.0010_seed_recruitment_survey_tour... OK
+  Applying horilla_tour.0011_seed_candidate_tour... OK
+  Applying horilla_tour.0012_seed_scheduled_interviews_tour... OK
+  Applying horilla_tour.0013_seed_recruitment_view_tour... OK
+  Applying horilla_tour.0014_seed_stage_tour... OK
+  Applying horilla_tour.0015_fix_stage_create_button_selector... OK
+  Applying horilla_tour.0016_seed_skill_zone_tour... OK
+  Applying horilla_tour.0017_seed_onboarding_pipeline_tour... OK
+  Applying horilla_tour.0018_seed_onboarding_hired_candidates_tour... OK
+  Applying horilla_tour.0019_reseed_onboarding_hired_candidates_tour... OK
+  Applying horilla_tour.0020_seed_employee_profile_tour... OK
+  Applying horilla_tour.0021_seed_document_requests_tour... OK
+  Applying horilla_tour.0022_seed_shift_requests_tour... OK
+  Applying horilla_tour.0023_seed_work_type_requests_tour... OK
+  Applying horilla_tour.0024_seed_rotating_shift_assign_tour... OK
+  Applying horilla_tour.0025_fix_rotating_shift_assign_page_match... OK
+  Applying horilla_tour.0026_seed_rotating_work_type_assign_tour... OK
+  Applying horilla_tour.0027_seed_roster_planner_tour... OK
+  Applying horilla_tour.0028_seed_disciplinary_actions_tour... OK
+  Applying horilla_tour.0029_seed_policies_tour... OK
+  Applying horilla_tour.0030_seed_attendances_tour... OK
+  Applying horilla_tour.0031_seed_attendance_requests_tour... OK
+  Applying horilla_tour.0032_seed_hour_account_tour... OK
+  Applying horilla_tour.0033_seed_attendance_activity_tour... OK
+  Applying horilla_tour.0034_seed_late_come_early_out_tour... OK
+  Applying horilla_tour.0035_seed_my_attendances_tour... OK
+  Applying horilla_tour.0036_seed_my_leave_request_tour... OK
+  Applying horilla_tour.0037_seed_leave_requests_tour... OK
+  Applying horilla_tour.0038_seed_leave_type_tour... OK
+  Applying horilla_tour.0039_seed_assigned_leaves_tour... OK
+  Applying horilla_tour.0040_seed_leave_allocation_requests_tour... OK
+  Applying horilla_tour.0041_seed_compensatory_leave_tour... OK
+  Applying horilla_tour.0042_seed_contracts_tour... OK
+  Applying horilla_tour.0043_seed_allowances_tour... OK
+  Applying horilla_tour.0044_seed_deductions_tour... OK
+  Applying horilla_tour.0045_seed_payslip_tour... OK
+  Applying horilla_tour.0046_seed_loan_advance_salary_tour... OK
+  Applying horilla_tour.0047_seed_reimbursements_tour... OK
+  Applying horilla_tour.0048_fix_filter_search_selectors... OK
+  Applying horilla_tour.0049_fix_actions_button_selectors... OK
+  Applying horilla_tour.0052_seed_objectives_tour... OK
+  Applying horilla_tour.0053_seed_objective_templates_tour... OK
+  Applying horilla_tour.0054_seed_feedbacks_tour... OK
+  Applying horilla_tour.0055_seed_meetings_tour... OK
+  Applying horilla_tour.0056_seed_key_results_tour... OK
+  Applying horilla_tour.0057_seed_employee_bonus_point_tour... OK
+  Applying horilla_tour.0058_seed_period_tour... OK
+  Applying horilla_tour.0059_seed_question_template_tour... OK
+  Applying horilla_tour.0060_seed_exit_process_tour... OK
+  Applying horilla_tour.0061_seed_asset_category_tour... OK
+  Applying horilla_tour.0062_seed_asset_batch_number_tour... OK
+  Applying horilla_tour.0063_seed_asset_section_tour... OK
+  Applying horilla_tour.0064_seed_asset_history_tour... OK
+  Applying horilla_tour.0065_seed_faq_categories_tour... OK
+  Applying horilla_tour.0066_seed_tickets_tour... OK
+  Applying horilla_tour.0067_seed_projects_tour... OK
+  Applying horilla_tour.0068_seed_tasks_tour... OK
+  Applying horilla_tour.0069_seed_timesheets_tour... OK
+  Applying horilla_tour.0070_seed_employee_report_tour... OK
+  Applying horilla_tour.0071_seed_recruitment_report_tour... OK
+  Applying horilla_tour.0072_seed_attendance_report_tour... OK
+  Applying horilla_tour.0073_seed_leave_report_tour... OK
+  Applying horilla_tour.0074_seed_payroll_report_tour... OK
+  Applying horilla_tour.0075_seed_asset_report_tour... OK
+  Applying horilla_tour.0076_seed_pms_report_tour... OK
+  Applying horilla_tour.0077_seed_multiple_approval_condition_tour... OK
+  Applying horilla_tour.0078_seed_multiple_approval_condition_form_tour... OK
+  Applying horilla_tour.0079_seed_mail_templates_tour... OK
+  Applying horilla_tour.0080_seed_automations_tour... OK
+  Applying horilla_tour.0081_seed_holidays_tour... OK
+  Applying horilla_tour.0082_seed_company_leaves_tour... OK
+  Applying horilla_tour.0083_seed_restricted_days_tour... OK
+  Applying horilla_tour.0084_seed_individual_payslip_tour... OK
+  Applying horilla_tour.0085_seed_filing_status_tour... OK
+  Applying horilla_tour.0086_seed_objective_detailed_view_tour... OK
+  Applying horilla_tour.0087_seed_faq_view_tour... OK
+  Applying horilla_views.0001_initial... OK
+  Applying horilla_views.0002_columnorder... OK
+  Applying leave.0008_leaverequest_leaverequest_dates_idx_and_more... OK
+  Applying notifications.0001_initial... OK
+  Applying notifications.0002_alter_notification_options_and_more... OK
+  Applying offboarding.0001_initial... OK
+  Applying offboarding.0002_alter_offboardingemployee_notice_period_ends_and_more... OK
+  Applying offboarding.0003_offboardingtask_is_required... OK
+  Applying offboarding.0004_historicalresignationletter... OK
+  Applying onboarding.0001_initial... OK
+  Applying onboarding.0002_onboardingtask_is_required... OK
+  Applying payroll.0001_initial... OK
+  Applying payroll.0002_alter_allowance_maximum_amount_and_more... OK
+  Applying payroll.0003_alter_payrollsettings_position... OK
+  Applying payroll.0004_alter_allowance_include_active_employees_and_more... OK
+  Applying payroll.0005_alter_allowance_based_on... OK
+  Applying payroll.0006_payslip_unique_payslip_per_employee_period... OK
+  Applying payroll.0007_alter_allowance_amount_and_more... OK
+  Applying payroll.0008_payslip_payslip_end_date_idx_and_more... OK
+  Applying pms.0002_alter_bonuspointsetting_applicable_for_and_more... OK
+  Applying pms.0003_historicalobjective_is_template_and_more... OK
+  Applying pms.0004_bonuspointsetting_company_id... OK
+  Applying pms.0005_alter_period_period_name... OK
+  Applying project.0001_initial... OK
+  Applying project.0002_alter_project_options_alter_task_options... OK
+  Applying project.0003_alter_timesheet_options... OK
+  Applying project.0004_remove_project_members... OK
+  Applying project.0005_alter_timesheet_options... OK
+  Applying project.0006_alter_timesheet_options... OK
+  Applying recruitment.0002_alter_recruitment_options_and_more... OK
+  Applying recruitment.0003_alter_candidate_portfolio_alter_candidate_resume_and_more... OK
+  Applying recruitment.0004_alter_recruitmentgeneralsetting_company_id... OK
+  Applying recruitment.0005_historicalstage... OK
+  Applying recruitment.0006_alter_rejectreason_options_alter_skillzone_options_and_more... OK
+  Applying report.0001_initial... OK
+  Applying report.0002_reporttemplate_is_standard_reporttemplate_visibility_and_more... OK
+  Applying sessions.0001_initial... OK
+  Applying whatsapp.0001_initial... OK
+  Applying whatsapp.0002_whatsappcredientials_meta_app_secret... OK
+Creating default color themes...
+Created theme: Coral Red Theme (Default)
+Created theme: Ocean Blue Theme
+Created theme: Forest Green Theme
+Created theme: Purple Professional Theme
+Created theme: Slate Gray Theme
+Created theme: Indigo Night Theme
+Created theme: Sunset Orange Theme
+Created theme: Crimson Wine Theme
+Created theme: Teal Corporate Theme
+Created theme: Amber Glow Theme
+Created theme: Navy Steel Theme
+Created theme: Rose Gold Theme
+Created theme: Emerald Mint Theme
+
+Successfully created 13 themes.
+Found another file with the destination path 'pipeline/pipeline.js'. It will be ignored since only the first encountered file is collected. If this is not what you want, make sure every static file has a unique path.
+Found another file with the destination path 'recruitment/candidate.js'. It will be ignored since only the first encountered file is collected. If this is not what you want, make sure every static file has a unique path.
+
+5327 static files copied to '/app/staticfiles', 5000 post-processed.
+Starting server...

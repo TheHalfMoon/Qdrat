@@ -1,0 +1,157 @@
+name: qdrat
+services:
+  db:
+    environment:
+      POSTGRES_DB: horilla_db
+      POSTGRES_PASSWORD: horilla_pass
+      POSTGRES_USER: horilla_user
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U horilla_user -d horilla_db
+      timeout: 5s
+      interval: 5s
+      retries: 5
+    image: postgres:16-alpine@sha256:721873c34ceb9f8d8fc265984940dc982404c105f19ad51be9fdc5970a6080ea
+    networks:
+      default: null
+    volumes:
+      - type: volume
+        source: postgres_data
+        target: /var/lib/postgresql/data
+        volume: {}
+  redis:
+    command:
+      - redis-server
+      - --appendonly
+      - 'yes'
+      - --requirepass
+      - horilla_pass
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - -a
+        - horilla_pass
+        - ping
+      timeout: 5s
+      interval: 5s
+      retries: 5
+    image: redis:7-alpine@sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499
+    networks:
+      default: null
+    volumes:
+      - type: volume
+        source: redis_data
+        target: /data
+        volume: {}
+  scheduler:
+    build:
+      context: C:\Users\Shehr\OneDrive\Documents\ChatGPT\Qdrat
+      dockerfile: Dockerfile
+      args:
+        BUILD_DATE: unknown
+        VCS_REF: unknown
+        VERSION: dev
+    command:
+      - python
+      - manage.py
+      - run_scheduler
+    depends_on:
+      db:
+        condition: service_healthy
+        required: true
+      redis:
+        condition: service_healthy
+        required: true
+    environment:
+      ALLOWED_HOSTS: localhost,127.0.0.1,0.0.0.0
+      AXES_PROXY_COUNT: "1"
+      DATABASE_URL: postgres://horilla_user:horilla_pass@db:5432/horilla_db
+      DB_HOST: db
+      DB_INIT_PASSWORD: dev-init-password-change-in-production
+      DEBUG: "1"
+      HORILLA_SKIP_RELEASE_TASKS: "1"
+      REDIS_URL: redis://:horilla_pass@redis:6379/0
+      SECRET_KEY: dev-secret-key-change-in-production
+    healthcheck:
+      disable: true
+    networks:
+      default: null
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: C:\Users\Shehr\OneDrive\Documents\ChatGPT\Qdrat
+        target: /app
+        bind: {}
+      - type: volume
+        source: media
+        target: /app/media
+        volume: {}
+  web:
+    build:
+      context: C:\Users\Shehr\OneDrive\Documents\ChatGPT\Qdrat
+      dockerfile: Dockerfile
+      args:
+        BUILD_DATE: unknown
+        VCS_REF: unknown
+        VERSION: dev
+    depends_on:
+      db:
+        condition: service_healthy
+        required: true
+      redis:
+        condition: service_healthy
+        required: true
+    environment:
+      ALLOWED_HOSTS: localhost,127.0.0.1,0.0.0.0
+      AXES_PROXY_COUNT: "1"
+      CSRF_TRUSTED_ORIGINS: http://localhost:8000
+      DATABASE_URL: postgres://horilla_user:horilla_pass@db:5432/horilla_db
+      DB_HOST: db
+      DB_INIT_PASSWORD: dev-init-password-change-in-production
+      DEBUG: "1"
+      REDIS_URL: redis://:horilla_pass@redis:6379/0
+      SECRET_KEY: dev-secret-key-change-in-production
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://localhost:8000/health/
+      timeout: 30s
+      interval: 30s
+      retries: 3
+      start_period: 1m0s
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8000
+        published: "8000"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\Shehr\OneDrive\Documents\ChatGPT\Qdrat
+        target: /app
+        bind: {}
+      - type: volume
+        source: staticfiles
+        target: /app/staticfiles
+        volume: {}
+      - type: volume
+        source: media
+        target: /app/media
+        volume: {}
+networks:
+  default:
+    name: qdrat_default
+volumes:
+  media:
+    name: qdrat_media
+  postgres_data:
+    name: qdrat_postgres_data
+  redis_data:
+    name: qdrat_redis_data
+  staticfiles:
+    name: qdrat_staticfiles

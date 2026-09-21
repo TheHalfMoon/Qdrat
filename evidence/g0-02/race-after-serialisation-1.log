@@ -1,0 +1,20 @@
+Starting Horilla HR...
+Connection to db (172.20.0.2) 5432 port [tcp/postgresql] succeeded!
+[2026-09-22 01:18:56] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+/opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+[2026-09-22 01:19:01] WARNING horilla.config [-] Database is empty. Using default LDAP settings.
+Qdrat image build: version=2.1.6 revision=da6f808bb7a2646a5d851afc696bba62ea8b4b53 built=2026-09-21T20:20:00Z
+Waiting for PostgreSQL at db:5432...
+PostgreSQL is ready!
+Generated a new random SECRET_KEY and saved it to /app/media/.generated_secret_key
+Qdrat release lock 349038592340 acquired after 298.9s (timeout 900s)
+Operations to perform:
+  Apply all migrations: accessibility, admin, asset, attendance, auditlog, auth, axes, base, biometric, contenttypes, django_apscheduler, employee, facedetection, geofencing, helpdesk, horilla_audit, horilla_auth, horilla_automations, horilla_backup, horilla_dbtemplate, horilla_documents, horilla_ldap, horilla_meet, horilla_theme, horilla_tour, horilla_views, leave, notifications, offboarding, onboarding, payroll, pms, project, recruitment, report, sessions, sites, whatsapp
+Running migrations:
+  No migrations to apply.
+Found another file with the destination path 'pipeline/pipeline.js'. It will be ignored since only the first encountered file is collected. If this is not what you want, make sure every static file has a unique path.
+Found another file with the destination path 'recruitment/candidate.js'. It will be ignored since only the first encountered file is collected. If this is not what you want, make sure every static file has a unique path.
+
+5327 static files copied to '/app/staticfiles', 5000 post-processed.
+Starting server...

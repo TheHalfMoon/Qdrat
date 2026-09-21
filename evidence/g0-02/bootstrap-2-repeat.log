@@ -1,0 +1,59 @@
+web-1  | 2026-09-21T19:54:58.199264383Z Starting Horilla HR...
+web-1  | 2026-09-21T19:54:58.199406498Z Qdrat image build: version=2.1.6 revision=da6f808bb7a2646a5d851afc696bba62ea8b4b53 built=2026-09-21T20:20:00Z
+web-1  | 2026-09-21T19:54:58.199421868Z Waiting for PostgreSQL at db:5432...
+web-1  | 2026-09-21T19:54:58.205599360Z Connection to db (172.20.0.2) 5432 port [tcp/postgresql] succeeded!
+web-1  | 2026-09-21T19:54:58.206008848Z PostgreSQL is ready!
+web-1  | 2026-09-21T19:54:58.836008194Z Generated a new random SECRET_KEY and saved it to /app/media/.generated_secret_key
+web-1  | 2026-09-21T19:55:16.031669248Z [2026-09-22 01:25:16] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+web-1  | 2026-09-21T19:55:26.790125970Z /opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+web-1  | 2026-09-21T19:55:26.790178801Z   warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+web-1  | 2026-09-21T19:55:39.587360475Z Qdrat release lock 349038592340 acquired after 0.0s (timeout 900s)
+web-1  | 2026-09-21T19:55:45.149245780Z Operations to perform:
+web-1  | 2026-09-21T19:55:45.149322924Z   Apply all migrations: accessibility, admin, asset, attendance, auditlog, auth, axes, base, biometric, contenttypes, django_apscheduler, employee, facedetection, geofencing, helpdesk, horilla_audit, horilla_auth, horilla_automations, horilla_backup, horilla_dbtemplate, horilla_documents, horilla_ldap, horilla_meet, horilla_theme, horilla_tour, horilla_views, leave, notifications, offboarding, onboarding, payroll, pms, project, recruitment, report, sessions, sites, whatsapp
+web-1  | 2026-09-21T19:55:45.836431769Z Running migrations:
+web-1  | 2026-09-21T19:55:45.836469881Z   No migrations to apply.
+web-1  | 2026-09-21T19:58:35.903106992Z Found another file with the destination path 'pipeline/pipeline.js'. It will be ignored since only the first encountered file is collected. If this is not what you want, make sure every static file has a unique path.
+web-1  | 2026-09-21T19:58:36.007121675Z Found another file with the destination path 'recruitment/candidate.js'. It will be ignored since only the first encountered file is collected. If this is not what you want, make sure every static file has a unique path.
+web-1  | 2026-09-21T19:58:43.789252472Z 
+web-1  | 2026-09-21T19:58:43.789282049Z 5327 static files copied to '/app/staticfiles', 5000 post-processed.
+web-1  | 2026-09-21T19:58:45.087940502Z Starting server...
+web-1  | 2026-09-21T19:58:45.627813446Z [2026-09-21 19:58:45 +0000] [1] [INFO] Starting gunicorn 23.0.0
+web-1  | 2026-09-21T19:58:45.629490196Z [2026-09-21 19:58:45 +0000] [1] [INFO] Listening at: http://0.0.0.0:8000 (1)
+web-1  | 2026-09-21T19:58:45.629521605Z [2026-09-21 19:58:45 +0000] [1] [INFO] Using worker: gthread
+web-1  | 2026-09-21T19:58:45.633664544Z [2026-09-21 19:58:45 +0000] [212] [INFO] Booting worker with pid: 212
+web-1  | 2026-09-21T19:58:45.728838036Z [2026-09-21 19:58:45 +0000] [213] [INFO] Booting worker with pid: 213
+web-1  | 2026-09-21T19:58:45.784206021Z [2026-09-21 19:58:45 +0000] [214] [INFO] Booting worker with pid: 214
+web-1  | 2026-09-21T19:58:45.813989372Z [2026-09-21 19:58:45 +0000] [215] [INFO] Booting worker with pid: 215
+web-1  | 2026-09-21T19:58:45.894109384Z [2026-09-21 19:58:45 +0000] [216] [INFO] Booting worker with pid: 216
+web-1  | 2026-09-21T19:58:45.992531939Z [2026-09-21 19:58:45 +0000] [217] [INFO] Booting worker with pid: 217
+web-1  | 2026-09-21T19:58:46.044714852Z [2026-09-21 19:58:46 +0000] [218] [INFO] Booting worker with pid: 218
+web-1  | 2026-09-21T19:58:46.111762381Z [2026-09-21 19:58:46 +0000] [219] [INFO] Booting worker with pid: 219
+web-1  | 2026-09-21T19:58:57.061236524Z [2026-09-22 01:28:57] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+web-1  | 2026-09-21T19:58:57.063203906Z [2026-09-22 01:28:57] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+web-1  | 2026-09-21T19:58:57.857379085Z [2026-09-22 01:28:57] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+web-1  | 2026-09-21T19:58:58.361374495Z [2026-09-22 01:28:58] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+web-1  | 2026-09-21T19:58:58.866061553Z [2026-09-22 01:28:58] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+web-1  | 2026-09-21T19:58:58.983839063Z [2026-09-22 01:28:58] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+web-1  | 2026-09-21T19:58:59.398513452Z [2026-09-22 01:28:59] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+web-1  | 2026-09-21T19:58:59.678073433Z [2026-09-22 01:28:59] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+web-1  | 2026-09-21T19:59:07.347838944Z /opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+web-1  | 2026-09-21T19:59:07.348252967Z   warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+web-1  | 2026-09-21T19:59:07.680593686Z /opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+web-1  | 2026-09-21T19:59:07.680691251Z   warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+web-1  | 2026-09-21T19:59:08.643842110Z /opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+web-1  | 2026-09-21T19:59:08.643935182Z   warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+web-1  | 2026-09-21T19:59:08.665358569Z /opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+web-1  | 2026-09-21T19:59:08.665390359Z   warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+web-1  | 2026-09-21T19:59:08.729548467Z /opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+web-1  | 2026-09-21T19:59:08.729663798Z   warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+web-1  | 2026-09-21T19:59:09.619496421Z /opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+web-1  | 2026-09-21T19:59:09.619532287Z   warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+web-1  | 2026-09-21T19:59:09.853674721Z /opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+web-1  | 2026-09-21T19:59:09.853710251Z   warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+web-1  | 2026-09-21T19:59:11.893785835Z /opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+web-1  | 2026-09-21T19:59:11.893828592Z   warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+web-1  | 2026-09-21T19:59:16.051965394Z 127.0.0.1 - - [22/Sep/2026:01:29:16 +0530] "GET /health/ HTTP/1.1" 200 16 "-" "curl/8.14.1" 261702
+web-1  | 2026-09-21T19:59:44.793981174Z 127.0.0.1 - - [22/Sep/2026:01:29:44 +0530] "GET /health/ HTTP/1.1" 200 16 "-" "curl/8.14.1" 193819
+web-1  | 2026-09-21T19:59:45.259330892Z 127.0.0.1 - - [22/Sep/2026:01:29:45 +0530] "GET /ready/ HTTP/1.1" 200 73 "-" "curl/8.14.1" 197782
+web-1  | 2026-09-21T19:59:46.283431553Z 127.0.0.1 - - [22/Sep/2026:01:29:46 +0530] "GET /health/ HTTP/1.1" 200 16 "-" "curl/8.14.1" 159864
+web-1  | 2026-09-21T20:00:16.364818647Z 127.0.0.1 - - [22/Sep/2026:01:30:16 +0530] "GET /health/ HTTP/1.1" 200 16 "-" "curl/8.14.1" 22256

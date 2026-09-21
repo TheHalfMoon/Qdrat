@@ -1,0 +1,218 @@
+{
+  "schema": "qdrat.task-evidence/v1",
+  "task": "G0-02",
+  "grain_id": "SG-000002",
+  "title": "Prove clean image and PostgreSQL bootstrap",
+  "recorded_at_utc": "2026-09-21T20:40:00Z",
+  "revision": {
+    "branch": "codex/g0-02-image-postgres-bootstrap",
+    "immutable_base": "a5834978ea87c14f658adc5f9061526055894012",
+    "commits": [
+      {
+        "revision": "da70381b48c0a5467622dab7ff51c77c5097547b",
+        "purpose": "build the image from the frozen lock and pin every image digest"
+      },
+      {
+        "revision": "1ad211f02673e6f9067d4c8f0ae510554fdaf367",
+        "purpose": "serialise release tasks so concurrent containers cannot race migrations"
+      },
+      {
+        "revision": "da6f808bb7a2646a5d851afc696bba62ea8b4b53",
+        "purpose": "make the release-task runner importable when run as a script"
+      }
+    ],
+    "head_at_proof_time": "da6f808bb7a2646a5d851afc696bba62ea8b4b53"
+  },
+  "image": {
+    "reference": "qdrat-web:latest",
+    "digest": "sha256:facdac25e17569e3d0b3deab59ba0dd83306b56eba783b8ee7d80332c03edd12",
+    "labels": {
+      "org.opencontainers.image.version": "2.1.6",
+      "org.opencontainers.image.revision": "da6f808bb7a2646a5d851afc696bba62ea8b4b53",
+      "org.opencontainers.image.created": "2026-09-21T20:20:00Z"
+    },
+    "interpreter": "CPython 3.12.14 (the only platform G0-01 qualified the lock for)",
+    "build_arguments": {
+      "QDRAT_VERSION": "2.1.6",
+      "QDRAT_VCS_REF": "da6f808bb7a2646a5d851afc696bba62ea8b4b53",
+      "QDRAT_BUILD_DATE": "2026-09-21T20:20:00Z"
+    }
+  },
+  "acceptance": [
+    {
+      "criterion": "Clean no-cache build",
+      "result": "PASS",
+      "command": "docker compose build --no-cache web (QDRAT_VERSION/QDRAT_VCS_REF/QDRAT_BUILD_DATE set)",
+      "observed": "exit 0; builder stage ran docker/lock-requirements.py and installed the lock with --require-hashes; the direct spaCy wheel was fetched from the URL recorded in the artifact inventory; the production stage exported manifest sha256:facdac25e17569e3d0b3deab59ba0dd83306b56eba783b8ee7d80332c03edd12",
+      "records": [
+        "evidence/g0-02/build-no-cache.log (step skeleton and summaries, 58 lines)",
+        "evidence/g0-02/build-no-cache-full.log (complete build output, 171710 bytes, sha256 716d431fde987972a843804ee577559b88ae8ceaff932e1c076ddfc817ebe6b3)"
+      ]
+    },
+    {
+      "criterion": "compose config",
+      "result": "PASS",
+      "commands": [
+        "docker compose config",
+        "docker compose -f docker-compose.yml -f docker-compose.prod.yml config"
+      ],
+      "observed": "both exit 0. The rendered configuration shows the digest-pinned service images (postgres, redis, nginx), the two built services' build arguments, and the scheduler's HORILLA_SKIP_RELEASE_TASKS: \"1\". The production overlay declares env_file: .env, so the validation used a temporary .env holding obviously fake values; it was deleted afterwards and is not committed (it is gitignored).",
+      "records": [
+        "evidence/g0-02/compose-config-dev.log",
+        "evidence/g0-02/compose-config-prod.log"
+      ]
+    },
+    {
+      "criterion": "manage.py check",
+      "result": "PASS",
+      "command": "docker compose exec -T web python manage.py check",
+      "observed": "exit 0; \"System check identified no issues (0 silenced).\" The container was still in its static-collection phase at that moment, which is why the check is run through exec rather than through a health gate.",
+      "records": ["evidence/g0-02/manage-check.log"]
+    },
+    {
+      "criterion": "repeated bootstrap has no migration race",
+      "result": "PASS",
+      "parts": [
+        {
+          "part": "empty database bootstraps successfully",
+          "observed": "250 rows in django_migrations after the first bootstrap; the winner's log applies every migration and reaches \"Starting server...\""
+        },
+        {
+          "part": "repeating the bootstrap applies nothing",
+          "observed": "a container started against the already-migrated database acquires the release lock immediately, reports \"No migrations to apply.\" and starts serving",
+          "records": ["evidence/g0-02/bootstrap-2-repeat.log"]
+        },
+        {
+          "part": "concurrent containers no longer race",
+          "observed": "three containers started at once against an empty database: all three exited 0. One acquired the release lock after 0.0s and applied the migrations; the other two waited 298.9s and 317.9s for the lock and then found \"No migrations to apply.\" Total wall clock 349s.",
+          "records": [
+            "evidence/g0-02/race-after-serialisation-1.log",
+            "evidence/g0-02/race-after-serialisation-2.log",
+            "evidence/g0-02/race-after-serialisation-3.log"
+          ]
+        }
+      ],
+      "prior_failure_preserved": {
+        "measured_before_the_fix": "Two containers started together against an empty database: one exited 0, the other exited 1 with psycopg2.errors.UniqueViolation on \"pg_type_typname_nsp_index\" (Key (typname, typnamespace)=(django_migrations, 2200) already exists) and django.db.migrations.exceptions.MigrationSchemaMissing, i.e. both tried to create the migrations table.",
+        "records": [
+          "evidence/g0-02/race-before-serialisation-1.log",
+          "evidence/g0-02/race-before-serialisation-2.log"
+        ]
+      }
+    },
+    {
+      "criterion": "logs bind image digest",
+      "result": "PASS",
+      "observed": "Every startup begins with \"Qdrat image build: version=2.1.6 revision=da6f808bb7a2646a5d851afc696bba62ea8b4b53 built=2026-09-21T20:20:00Z\". Those three values are the image's QDRAT_BUILD_* environment variables, which come from the build arguments, and the same revision is on the image label org.opencontainers.image.revision. The image itself is identified by digest sha256:facdac25e17569e3d0b3deab59ba0dd83306b56eba783b8ee7d80332c03edd12. A container cannot read its own digest from inside, so the binding is: recorded log + recorded image digest + matching revision in both.",
+      "records": [
+        "evidence/g0-02/bootstrap-2-repeat.log",
+        "evidence/g0-02/race-after-serialisation-1.log"
+      ],
+      "environment_variables": [
+        "QDRAT_BUILD_VERSION=2.1.6",
+        "QDRAT_BUILD_REVISION=da6f808bb7a2646a5d851afc696bba62ea8b4b53",
+        "QDRAT_BUILD_DATE=2026-09-21T20:20:00Z"
+      ]
+    }
+  ],
+  "additional_evidence": {
+    "os_package_inventory": {
+      "record": "evidence/g0-02/os-packages.txt",
+      "command": "docker exec qdrat-web-1 dpkg-query -W -f='${binary:Package}\\t${Version}\\n'",
+      "observed": "157 installed Debian packages with exact versions, from the digest-pinned python:3.12-slim base plus the runtime apt list in the Dockerfile"
+    },
+    "probes": {
+      "health": "GET /health/ -> {\"status\": \"ok\"}",
+      "readiness": "GET /ready/ -> {\"status\": \"ok\", \"database\": \"ok\", \"cache\": \"ok\", \"scheduler\": \"missing\"}. The scheduler field is expected here: only the web service was started. /ready/ reports the scheduler as missing rather than failing, which is the documented default (HORILLA_REQUIRE_SCHEDULER is off)."
+    },
+    "migrations_applied": 250,
+    "specgrain": {
+      "refinement": "evidence/g0-02/refinement.json",
+      "readiness": "evidence/g0-02/specgrain-readiness.json",
+      "workpacket": "evidence/g0-02/workpacket.json",
+      "is_ready": true,
+      "revision_digest": "sha256:6a3477bd61eda3f9253a03af0b2b688f8ddb3a3546bbc05e6b66abfb51581bcc",
+      "packet_digest": "sha256:77d8f54ff0825f8af49cd6d99b8b327b39459b3a24ad18380d5d77ac85fdfa17",
+      "context": "7 selected sources, 11716 of 20000 tokens; the 167 KB artifact inventory was declared optional and omitted rather than evicting a required source"
+    }
+  },
+  "artifact_digests_at_the_head": {
+    "Dockerfile": "f7768cd041b13b8ac0d73f4e4ef37e302f92563177ae8e35bf9500c7b1727dd3",
+    "docker-compose.yml": "73939269ea268520d9e9aaea79f9e9b6fc7cf37b284fb0adeeada3a6dfac2ba5",
+    "docker-compose.prod.yml": "ba43108703935f5caa0f96af8b4118ac705153006b4bc95318df21d0253ac1ee",
+    "docker/entrypoint.sh": "5fdb0d374e1963471ac07eabdf4b22bd7c8e91a5608924365844bcb4549b52e3",
+    "docker/lock-requirements.py": "deb6d759606f3d944dc5ef1c0b218d908e4b035e2ba240581ccfa59a1d30f2a6",
+    "docker/release_tasks.py": "327e1e183263ba79b2b2627006b4487d0b84dafd6f1126b9b67601d2a8e31b1d",
+    "docker/image-digests.json": "672818ea66edeec1b13e9cb980695acf9e8845e63fb39739f7fd7c2dc1a02033",
+    "docker/tests/test_lock_requirements.py": "582d1019e68110128971cef938a0743203e445dd17b9f7ece310756e54760ddd",
+    "docker/tests/test_deployment_contract.py": "3f5a9e33a8f6f7f3c3d0264b6480e2a6542f3a4dff445a93d8d6ac588e8052ee",
+    "canonicalisation": "sha256 over UTF-8 bytes with CRLF normalised to LF, the same rule the G0-01 repair established"
+  },
+  "findings": [
+    {
+      "id": "G0-02-F1",
+      "severity": "high",
+      "state": "FIXED_IN_THIS_CHANGE",
+      "summary": "Two containers of this image started together against an empty database raced on migrations; one died.",
+      "evidence": "evidence/g0-02/race-before-serialisation-1.log and -2.log",
+      "fix": "docker/release_tasks.py runs migrate and collectstatic under a session-level PostgreSQL advisory lock (commit 1ad211f0).",
+      "rechecked": "three containers, empty database, all exit 0, two of them waiting on the lock (evidence/g0-02/race-after-serialisation-*.log)"
+    },
+    {
+      "id": "G0-02-F2",
+      "severity": "high",
+      "state": "FIXED_IN_THIS_CHANGE",
+      "summary": "The new release-task runner could not import the application when executed the way the entrypoint executes it.",
+      "evidence": "The first after-fix probe failed on every container with \"ModuleNotFoundError: No module named 'horilla'\": running python docker/release_tasks.py puts docker/ on sys.path, not the project root.",
+      "fix": "The module binds the project root explicitly (commit da6f808b), with a test that executes it from docker/ in a fresh interpreter.",
+      "note": "This was caught by the proof and not by the unit tests, which is why the proof is not optional."
+    },
+    {
+      "id": "G0-02-F3",
+      "severity": "medium",
+      "state": "RECORDED_NOT_FIXED",
+      "summary": "The web healthcheck declares the container unhealthy during a legitimate first bootstrap on this host.",
+      "evidence": "docker-compose.yml gives web interval 30s, start_period 60s, retries 3, so it reports unhealthy about 150s after start. Measured on this host with the source bind-mounted: 8m51s from container start to 'Listening at http://0.0.0.0:8000' on an empty database (bootstrap-1), and 3m47s for a repeat bootstrap that applied no migrations at all, because collectstatic still walks the bind mount (bootstrap-2-repeat). docker compose up --wait therefore reported 'container qdrat-web-1 is unhealthy' while the bootstrap was in fact progressing, and the same container became healthy at 19:58:45 and answered /health/ and /ready/ with 200.",
+      "why_not_fixed_here": "Choosing a longer grace period trades false-unhealthy for slower detection of a genuinely broken container. That is a deployment-policy decision, not something the evidence forces, so the measurement is recorded and the decision is named as a successor obligation (QDRAT-DEV-HEALTHCHECK-BUDGET) instead of being made silently in this grain.",
+      "measured_numbers": {
+        "cold_bootstrap_seconds": 531,
+        "repeat_bootstrap_to_serving_seconds": 227,
+        "healthcheck_budget_seconds": 150,
+        "empty_database_migrations": 250
+      }
+    },
+    {
+      "id": "G0-02-F4",
+      "severity": "informational",
+      "state": "RECORDED",
+      "summary": "/ready/ reports scheduler \"missing\" whenever only the web service runs.",
+      "evidence": "{\"status\": \"ok\", \"database\": \"ok\", \"cache\": \"ok\", \"scheduler\": \"missing\"} with only web, db and redis started.",
+      "disposition": "Expected: the scheduler is a separate service and /ready/ deliberately does not fail on it unless HORILLA_REQUIRE_SCHEDULER is set. Recorded so the value is not mistaken for a defect in the bootstrap."
+    },
+    {
+      "id": "G0-02-F5",
+      "severity": "blocking",
+      "state": "OPEN",
+      "summary": "No independent review of this change.",
+      "evidence": "Open Code Review v1.12.8 (sha256 150812b67201e5a5fffc4acdd05a468b0737a10606ae109f0ba08541c1bc4a18) is present and its deterministic preview runs, but the review itself needs an LLM endpoint credential (OCR_LLM_URL/OCR_LLM_TOKEN/OCR_LLM_MODEL or ~/.opencodereview/config.json) that does not exist in this environment. The environment's only model credential serves Jev decision models, which answer typed questions rather than reviewing a diff.",
+      "disposition": "Recorded as REVIEW_UNAVAILABLE. Chapter 41 treats that as not-approval, so G0-02 cannot be called independently verified and the accepted-head item cannot honestly be produced for it yet."
+    },
+    {
+      "id": "G0-02-F6",
+      "severity": "informational",
+      "state": "OPEN",
+      "summary": "No CI validates this branch.",
+      "evidence": "The inherited workflows still trigger on dev/v2.0 and 2.0 only.",
+      "disposition": "Carried forward; the G0 exit requires CI on the actual Qdrat PR base and that work is not part of this grain."
+    }
+  ],
+  "not_claimed": [
+    "MERGED",
+    "RELEASED",
+    "G0 gate closure",
+    "VERIFIED task completion",
+    "independent review",
+    "production readiness",
+    "that the development host's measured bootstrap time generalises to other hardware"
+  ]
+}
