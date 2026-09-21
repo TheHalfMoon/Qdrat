@@ -80,6 +80,13 @@ On first launch, Horilla will:
 3. Collect static files
 4. Start the Gunicorn application server
 
+The first launch is not 30–60 seconds: an empty database has ~250 migrations to
+apply, and on a Windows host that bind-mounts the source tree it takes minutes,
+not seconds. G0-02 measured 8m51s from container start to `Listening at
+http://0.0.0.0:8000` on this development host. Later starts apply no migrations
+and are much faster. If you gate on `docker compose up --wait`, give the first
+run a generous window; see section 16 for the measured breakdown.
+
 You'll see the **Database Initialization** page where you can create your first admin user and company.
 
 ### Stopping & Starting
@@ -239,15 +246,24 @@ docker compose exec web python manage.py collectstatic --noinput
 ### Installing New Python Packages
 
 ```bash
-# 1. Add to requirements.txt
+# 1. Add the dependency to requirements.txt (the input, not the lock)
 echo "new-package==1.0.0" >> requirements.txt
 
-# 2. Rebuild the web image
+# 2. Re-freeze the linux/amd64 CPython 3.12 lock and artifact inventory
+#    (see requirements/README.md for the acquisition and proof commands)
+
+# 3. Rebuild the web image, which installs that lock
 make build
 
-# 3. Restart
+# 4. Restart
 make dev
 ```
+
+Editing `requirements.txt` alone changes nothing about what the image installs:
+the build consumes `requirements/locks/linux-amd64-py312.txt` and refuses
+anything that does not match its recorded hash. That is deliberate - the image
+used to resolve `requirements.txt`'s ranges at build time, so two builds of the
+same commit could ship different dependency versions.
 
 ### Running Tests
 
@@ -718,3 +734,54 @@ Makefile                 # Developer convenience commands
 .env.dist             # Environment variable template
 .dockerignore            # Files excluded from Docker build context
 ```
+
+## 16. Image pinning, the frozen lock and release-task serialisation
+
+Three things about this stack are fixed by evidence rather than by preference,
+and all three exist because the previous arrangement could produce a different
+system from the same commit.
+
+**Every image reference is digest-pinned.** `python:3.12-slim` (both stages of
+the `Dockerfile`), `postgres:16-alpine`, `redis:7-alpine` and `nginx:alpine` are
+all referenced as `name@sha256:...`. `docker/image-digests.json` records where
+each digest came from, when it was resolved and which file uses it. The Python
+digest is the same one `requirements/artifacts/linux-amd64-py312.json` records
+as the lock's resolver image, so the interpreter that installs the lock is the
+interpreter the lock was frozen against.
+
+**The image installs the frozen lock, not `requirements.txt`.**
+`docker/lock-requirements.py` renders `requirements/locks/linux-amd64-py312.txt`
+into a single hash-checked requirements file: the 148 distributions that are
+published on an index stay `name==version --hash=sha256:...`, and the one that is
+not (`en_core_web_sm`, a GitHub release asset) becomes
+`en_core_web_sm @ <url>#sha256=...` with the URL taken from the artifact
+inventory. One `pip install --require-hashes` then covers all 149. Changing the
+dependency set means re-freezing the lock, not editing the Dockerfile.
+
+**Release tasks are serialised by a PostgreSQL advisory lock.**
+`docker/release_tasks.py` takes a session-level advisory lock before running
+`migrate` and `collectstatic`, and releases it afterwards. Two containers of
+this image started together against an empty database used to race: one died
+with `duplicate key value violates unique constraint "pg_type_typname_nsp_index"`
+while creating `django_migrations`, and restart-looped until the winner had
+finished. The lock is held on the connection, so a container that dies mid-migrate
+drops it. `QDRAT_RELEASE_LOCK_TIMEOUT` (default 900s) bounds the wait: if a first
+bootstrap legitimately takes longer than that on your host, raise it rather than
+letting two containers write DDL at once.
+
+**A captured log can be tied to an image digest.** A container cannot read its
+own image digest from the inside, so the build bakes the revision and build date
+in as `QDRAT_BUILD_VERSION`, `QDRAT_BUILD_REVISION` and `QDRAT_BUILD_DATE`, and
+the entrypoint prints them on the first lines of every startup:
+
+```
+Starting Horilla HR...
+Qdrat image build: version=2.1.6 revision=<git revision> built=<UTC timestamp>
+```
+
+`docker compose` passes those three values through as build arguments from
+`QDRAT_VERSION`, `QDRAT_VCS_REF` and `QDRAT_BUILD_DATE`. Left unset they are
+`dev`/`unknown`, which is fine for local work and useless for an audit: set them
+in any release build, then record `docker image inspect --format '{{.Id}}'`
+alongside the captured log. Evidence for all of this, including the failing run
+that motivated the lock, is in `evidence/g0-02/`.

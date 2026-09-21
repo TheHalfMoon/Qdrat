@@ -1,0 +1,83 @@
+Starting Horilla HR...
+Connection to db (172.20.0.3) 5432 port [tcp/postgresql] succeeded!
+[2026-09-22 00:58:52] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+/opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+[2026-09-22 00:58:56] WARNING horilla.config [-] Database is empty. Using default LDAP settings.
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 103, in _execute
+Qdrat image build: version=2.1.6 revision=da70381b48c0a5467622dab7ff51c77c5097547b built=2026-09-21T19:35:00Z
+    return self.cursor.execute(sql)
+Waiting for PostgreSQL at db:5432...
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+PostgreSQL is ready!
+Generated a new random SECRET_KEY and saved it to /app/media/.generated_secret_key
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "pg_type_typname_nsp_index"
+Operations to perform:
+DETAIL:  Key (typname, typnamespace)=(django_migrations, 2200) already exists.
+  Apply all migrations: accessibility, admin, asset, attendance, auditlog, auth, axes, base, biometric, contenttypes, django_apscheduler, employee, facedetection, geofencing, helpdesk, horilla_audit, horilla_auth, horilla_automations, horilla_backup, horilla_dbtemplate, horilla_documents, horilla_ldap, horilla_meet, horilla_theme, horilla_tour, horilla_views, leave, notifications, offboarding, onboarding, payroll, pms, project, recruitment, report, sessions, sites, whatsapp
+
+Running migrations:
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/django/db/migrations/recorder.py", line 78, in ensure_schema
+    editor.create_model(self.Migration)
+  File "/opt/venv/lib/python3.12/site-packages/django/db/backends/base/schema.py", line 512, in create_model
+    self.execute(sql, params or None)
+  File "/opt/venv/lib/python3.12/site-packages/django/db/backends/postgresql/schema.py", line 45, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/django/db/backends/base/schema.py", line 204, in execute
+    cursor.execute(sql, params)
+  File "/opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/opt/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 103, in _execute
+    return self.cursor.execute(sql)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "pg_type_typname_nsp_index"
+DETAIL:  Key (typname, typnamespace)=(django_migrations, 2200) already exists.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/manage.py", line 22, in <module>
+    main()
+  File "/app/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/opt/venv/lib/python3.12/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/opt/venv/lib/python3.12/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/opt/venv/lib/python3.12/site-packages/django/core/management/base.py", line 420, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/opt/venv/lib/python3.12/site-packages/django/core/management/base.py", line 464, in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/django/core/management/base.py", line 111, in wrapper
+    res = handle_func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/django/core/management/commands/migrate.py", line 353, in handle
+    post_migrate_state = executor.migrate(
+                         ^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/django/db/migrations/executor.py", line 107, in migrate
+    self.recorder.ensure_schema()
+  File "/opt/venv/lib/python3.12/site-packages/django/db/migrations/recorder.py", line 80, in ensure_schema
+    raise MigrationSchemaMissing(
+django.db.migrations.exceptions.MigrationSchemaMissing: Unable to create the django_migrations table (duplicate key value violates unique constraint "pg_type_typname_nsp_index"
+DETAIL:  Key (typname, typnamespace)=(django_migrations, 2200) already exists.
+)

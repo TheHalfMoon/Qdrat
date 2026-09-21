@@ -64,32 +64,36 @@ if command -v msgfmt >/dev/null 2>&1; then
   fi
 fi
 
-# Run migrations
+# Run migrations (and static collection) under the release lock.
 #
 # HORILLA_SKIP_RELEASE_TASKS=1 skips migrate and collectstatic for containers
 # that share this image but must not perform release tasks -- notably the
-# scheduler service, which starts alongside web. Two containers racing `migrate`
-# can deadlock on the same DDL, and `collectstatic --clear` (below) would wipe
-# STATIC_ROOT out from under a web container already serving from it.
+# scheduler service, which starts alongside web.
+#
+# Two containers racing `migrate` do more than deadlock on DDL: run together
+# against an empty database, one of them dies with "duplicate key value violates
+# unique constraint pg_type_typname_nsp_index" while the other finishes, and the
+# loser restart-loops until it is retried. `collectstatic --clear` in a second
+# container would likewise wipe STATIC_ROOT out from under a web container
+# already serving from it. docker/release_tasks.py serialises both with a
+# PostgreSQL advisory lock, so this is safe whether one container starts or
+# five start at once.
 if [ "${HORILLA_SKIP_RELEASE_TASKS:-0}" = "1" ]; then
   echo "HORILLA_SKIP_RELEASE_TASKS=1 -- skipping migrate and collectstatic."
   echo "Starting server..."
   exec "$@"
 fi
 
-python manage.py migrate --noinput
-
-# Collect static files.
-#
-# --clear is deliberate: STATIC_ROOT is a named volume that outlives the image,
-# and plain collectstatic leaves anything it considers unmodified in place. With
-# CompressedStaticFilesStorage that includes the pre-compressed .gz/.br
-# siblings, so after an upgrade WhiteNoise happily served a previous release's
-# global.js.gz to every browser (which all send Accept-Encoding: gzip) while
-# curl, getting the identity encoding, saw the current file — JS functions
-# "not defined" and half-rendered pages that looked fine to any check that
-# bypassed static serving. Wiping first keeps what we serve equal to the image.
-python manage.py collectstatic --noinput --clear
+# The --clear inside release_tasks.py is deliberate: STATIC_ROOT is a named
+# volume that outlives the image, and plain collectstatic leaves anything it
+# considers unmodified in place. With CompressedStaticFilesStorage that includes
+# the pre-compressed .gz/.br siblings, so after an upgrade WhiteNoise happily
+# served a previous release's global.js.gz to every browser (which all send
+# Accept-Encoding: gzip) while curl, getting the identity encoding, saw the
+# current file — JS functions "not defined" and half-rendered pages that looked
+# fine to any check that bypassed static serving. Wiping first keeps what we
+# serve equal to the image.
+python docker/release_tasks.py
 
 echo "Starting server..."
 exec "$@"
