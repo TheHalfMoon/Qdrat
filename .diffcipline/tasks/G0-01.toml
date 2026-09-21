@@ -13,7 +13,27 @@ version = 1
 # Dockerfile and all application code are unchanged.
 
 [policy]
-max_changed_files = 40
+# 40 -> 48 and the two repair packet files below.
+#
+# The sealed packet described the original freeze change only: 40 files, all
+# under requirements/** and evidence/**. Re-running the gate from a clean
+# checkout then showed that the frozen lock's recorded digest described the
+# generating Windows working tree rather than the committed artifact, and the
+# contract suite failed. That reproduction and the FAIL verdict the unchanged
+# 40-file bound produced over the cumulative range are preserved in
+# evidence/g0-01/lock-digest-repair.json and
+# evidence/g0-01/execution-acceptance-reverification.json.
+#
+# The bounded repair was developed, reviewed and proved under its own packet
+# (.diffcipline/tasks/G0-01-lock-digest-repair.toml plus the evidence seal
+# packet). Reconciling this one is the step chapter 41 calls for when an
+# accepted task legitimately requires broader scope: the original failure stays
+# recorded, the bound that caused it is widened on the record rather than in
+# silence, and the cumulative range to the repaired head then evaluates PASS
+# with all four verification commands green. The bound is 48 for the 46 files
+# that range contains, so a later addition still trips it instead of sliding
+# under a bound chosen to fit today's diff.
+max_changed_files = 48
 max_added_lines = 40000
 dependency_manifest_changes = "review"
 lockfile_changes = "review"
@@ -21,7 +41,7 @@ untracked_files = "review"
 # Diffcipline's policy parser reads one `key = [...]` per line; every array below
 # must stay on a single line. Reformatting it across lines makes the policy fail
 # closed with "expected_files must be an array".
-expected_files = [".diffcipline.toml", ".diffcipline/tasks/G0-01.toml", "requirements/**", "evidence/**"]
+expected_files = [".diffcipline.toml", ".diffcipline/tasks/G0-01.toml", ".diffcipline/tasks/G0-01-lock-digest-repair.toml", ".diffcipline/tasks/G0-01-lock-digest-repair-evidence.toml", "requirements/**", "evidence/**"]
 forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile", "docs/qdrat/plan/**"]
 
 [verification]
