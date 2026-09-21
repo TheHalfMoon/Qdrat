@@ -1,0 +1,40 @@
+{
+  "schema": "qdrat.image-digests/v1",
+  "task": "G0-02",
+  "grain_id": "SG-000002",
+  "purpose": "Record the exact manifest digest behind every image reference the deployment surface names, and how each one was resolved, so a pinned tag can be audited later instead of trusted.",
+  "resolution": {
+    "command": "docker buildx imagetools inspect <reference> --format '{{.Manifest.Digest}}'",
+    "tool": "docker 29.7.2 (client), linux/overlayfs daemon",
+    "resolved_at_utc": "2026-09-21T18:44:00Z",
+    "scope": "linux/amd64 only - the single platform G0-01 qualified the dependency lock for"
+  },
+  "images": [
+    {
+      "reference": "python:3.12-slim",
+      "digest": "sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+      "used_by": ["Dockerfile (builder stage)", "Dockerfile (production stage)"],
+      "note": "The same digest the frozen lock records as its resolver image, so the interpreter that installs the lock is the one the lock was frozen against."
+    },
+    {
+      "reference": "postgres:16-alpine",
+      "digest": "sha256:721873c34ceb9f8d8fc265984940dc982404c105f19ad51be9fdc5970a6080ea",
+      "used_by": ["docker-compose.yml (db)"],
+      "note": "Also the database the inherited unit-test workflow uses, so the empty-database migrations here exercise the same major version."
+    },
+    {
+      "reference": "redis:7-alpine",
+      "digest": "sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499",
+      "used_by": ["docker-compose.yml (redis)"]
+    },
+    {
+      "reference": "nginx:alpine",
+      "digest": "sha256:62ff2089abf5a9ed33bd232895bef5e22f7bb4b200675cec49a5ebc48e3d4ac8",
+      "used_by": ["docker-compose.yml (nginx, production profile)"]
+    }
+  ],
+  "not_pinned_here": [
+    "The application image itself is built from this repository, so it is identified by its build inputs and its resulting image id/digest recorded in evidence/g0-02/, not by a registry digest.",
+    "ghcr.io/oras-project etc. are not used by this deployment surface."
+  ]
+}

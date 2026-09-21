@@ -1,5 +1,13 @@
 # Build stage - for compiling dependencies
-FROM python:3.12-slim AS builder
+#
+# The base is pinned by manifest digest, not by tag. `python:3.12-slim` is a
+# moving target: the same Dockerfile could build a different image next month
+# and nothing in the build would say so. The digest below is exactly the image
+# G0-01 resolved the linux-amd64 CPython 3.12 lock against, so the interpreter
+# that installs the lock is the interpreter the lock was frozen for. Changing it
+# means re-freezing the lock, which is why docker/image-digests.json records
+# where this digest came from.
+FROM python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9 AS builder
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
@@ -26,28 +34,31 @@ RUN apt-get update \
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# Install Python dependencies
-COPY requirements.txt .
-
-# The spaCy model wheel is fetched from a GitHub release rather than PyPI, so
-# pip has no name-based integrity check for it. Assert the installed version
-# after the fact instead of using --hash in requirements.txt: one --hash there
-# flips pip into --require-hashes mode and then all 50 requirements need one.
-ARG SPACY_MODEL_VERSION=3.8.0
-
-# gunicorn and psycopg2-binary are pinned in requirements.txt -- do not repeat
-# them here, an unpinned CLI copy silently overrides the pin.
-RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
-
-# Separate step on purpose: chaining this onto the install with || would report
-# a failed pip run as a version mismatch and send the next person the wrong way.
-RUN pip show en_core_web_sm | grep -qx "Version: ${SPACY_MODEL_VERSION}" \
-    || { echo "ERROR: expected en_core_web_sm ${SPACY_MODEL_VERSION}, got:"; \
-         pip show en_core_web_sm | grep -i version; exit 1; }
+# Install the frozen dependency set.
+#
+# The image installs from requirements/locks/linux-amd64-py312.txt - the same
+# 149 pinned, hash-carrying distributions G0-01 proved installable offline - and
+# not from requirements.txt, whose ranges let pip resolve something different on
+# every build. docker/lock-requirements.py renders the one locked artifact that
+# is not published on an index (en_core_web_sm, a GitHub release asset) as
+# `name @ url#sha256=...`, taking the URL from the artifact inventory, so the
+# whole set installs in one hash-checked pass. Nothing here runs
+# `pip install --upgrade pip`: the interpreter that resolves the lock is the
+# digest-pinned base image's own pip, and upgrading it would reintroduce an
+# unpinned resolver into a build whose point is that nothing is unpinned.
+COPY requirements/locks/linux-amd64-py312.txt requirements/locks/
+COPY requirements/artifacts/linux-amd64-py312.json requirements/artifacts/
+COPY docker/lock-requirements.py docker/
+RUN python docker/lock-requirements.py \
+        --lock requirements/locks/linux-amd64-py312.txt \
+        --artifacts requirements/artifacts/linux-amd64-py312.json \
+        --out /tmp/requirements.lock.txt \
+    && python -m pip install --no-cache-dir --require-hashes \
+        -r /tmp/requirements.lock.txt \
+    && rm -f /tmp/requirements.lock.txt
 
 # Production stage - minimal runtime image
-FROM python:3.12-slim AS production
+FROM python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9 AS production
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -126,6 +137,16 @@ LABEL org.opencontainers.image.title="Horilla HR" \
       org.opencontainers.image.documentation="https://docs.horilla.com" \
       org.opencontainers.image.vendor="Horilla" \
       org.opencontainers.image.licenses="LGPL-2.1"
+
+# The same build identity, as environment variables the entrypoint logs at
+# startup. A container cannot read its own image digest from inside, and a log
+# line that only says "Starting Horilla HR..." cannot be tied to the image that
+# produced it. With these, the startup banner names the revision and build date
+# baked into the image, so docker/image-digests.json can bind a captured log to
+# the exact image digest it came from.
+ENV QDRAT_BUILD_VERSION="${VERSION}" \
+    QDRAT_BUILD_REVISION="${VCS_REF}" \
+    QDRAT_BUILD_DATE="${BUILD_DATE}"
 
 EXPOSE 8000
 

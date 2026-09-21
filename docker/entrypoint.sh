@@ -2,6 +2,12 @@
 set -e
 
 echo "Starting Horilla HR..."
+# Build identity, baked into the image at build time (see the Dockerfile). A
+# container cannot read its own image digest from the inside, so this line is
+# what ties a captured startup log to the image it came from: the digest is
+# recorded next to the log, and the revision and build date below are the ones
+# that were passed as build arguments for that image.
+echo "Qdrat image build: version=${QDRAT_BUILD_VERSION:-unknown} revision=${QDRAT_BUILD_REVISION:-unknown} built=${QDRAT_BUILD_DATE:-unknown}"
 
 DB_HOST="${DB_HOST:-db}"
 DB_PORT="${DB_PORT:-5432}"
