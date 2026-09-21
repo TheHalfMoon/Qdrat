@@ -1,5 +1,7 @@
 version = 1
 
+# Canonical-plan change policy only. Implementation tasks must publish a bounded
+# task-specific policy and required R2/R3 checks before editing product code.
 [policy]
 max_changed_files = 80
 max_added_lines = 45000
