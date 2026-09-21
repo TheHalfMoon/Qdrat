@@ -20,6 +20,18 @@ wheelhouse_name="${3:-wheelhouse}"
 wheelhouse="$run_dir/$wheelhouse_name"
 lockfile=/repo/requirements/tools/lockfile.py
 
+# This script deletes and recreates its own run directory. Refuse anything that
+# is not an absolute, dedicated path: an empty value, "/", or a relative path
+# would delete something this script does not own.
+case "$run_dir" in
+    /*) ;;
+    *) echo "acquire: run_dir must be an absolute path, got '$run_dir'" >&2; exit 2 ;;
+esac
+if [ "$run_dir" = "/" ]; then
+    echo "acquire: refusing to use / as run_dir" >&2
+    exit 2
+fi
+
 rm -rf "$run_dir"
 mkdir -p "$wheelhouse"
 

@@ -329,8 +329,12 @@ LOCK_LINE = re.compile(
 
 def parse_lock(path: Path) -> dict[str, tuple[str, list[str]]]:
     """Parse the locked distribution set, refusing anything unpinned or unhashed."""
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError as exc:
+        raise ToolError(f"cannot read lock file {path}: {exc}") from exc
     requirements: dict[str, tuple[str, list[str]]] = {}
-    for number, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+    for number, raw in enumerate(text.splitlines(), start=1):
         line = raw.strip()
         if not line or line.startswith("#"):
             continue
@@ -382,7 +386,17 @@ def cmd_verify(args: argparse.Namespace) -> int:
     installed = read_json(Path(args.installed))
     if not isinstance(installed, list):
         raise ToolError(f"{args.installed} must be a JSON list of installed distributions")
-    actual = {normalized_name(item["name"]): item["version"] for item in installed}
+    actual = {}
+    for item in installed:
+        if (
+            not isinstance(item, dict)
+            or not isinstance(item.get("name"), str)
+            or not isinstance(item.get("version"), str)
+        ):
+            raise ToolError(
+                f"{args.installed} contains an entry without a name/version string: {item!r}"
+            )
+        actual[normalized_name(item["name"])] = item["version"]
     expected = {name: version for name, (version, _) in lock.items()}
     tooling = {normalized_name(name) for name in args.tool_distribution}
     collision = sorted(tooling & set(expected))
@@ -433,6 +447,26 @@ def cmd_verify(args: argparse.Namespace) -> int:
                 )
             verified_artifacts += 1
 
+    verified_bootstrap = 0
+    if args.bootstrap_dir:
+        directory = Path(args.bootstrap_dir)
+        if not directory.is_dir():
+            raise ToolError(f"bootstrap directory not found: {directory}")
+        declared = artifacts.get("bootstrap", [])
+        if not isinstance(declared, list):
+            raise ToolError(f"{args.artifacts} has a malformed bootstrap section")
+        for entry in declared:
+            artifact = directory / entry["filename"]
+            if not artifact.is_file():
+                raise ToolError(f"declared bootstrap artifact is missing: {artifact}")
+            observed = sha256_file(artifact)
+            if observed != entry["sha256"]:
+                raise ToolError(
+                    f"bootstrap artifact {entry['filename']} does not match the frozen "
+                    f"hash: observed {observed}, recorded {entry['sha256']}"
+                )
+            verified_bootstrap += 1
+
     print(
         json.dumps(
             {
@@ -441,6 +475,7 @@ def cmd_verify(args: argparse.Namespace) -> int:
                 "installed": len(actual),
                 "excluded_tool_distributions": excluded,
                 "verified_artifacts": verified_artifacts,
+                "verified_bootstrap_artifacts": verified_bootstrap,
                 "status": "PASS",
             }
         )
@@ -542,6 +577,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--wheelhouse",
         default="",
         help="recompute the sha256 of every locked artifact on disk",
+    )
+    verify.add_argument(
+        "--bootstrap-dir",
+        default="",
+        help="recompute the sha256 of every build-bootstrap artifact on disk",
     )
     verify.add_argument(
         "--tool-distribution",

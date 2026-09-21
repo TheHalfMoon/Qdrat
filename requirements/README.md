@@ -36,6 +36,18 @@ re-implementation:
   already an application requirement (`setuptools==84.0.0`), so it is locked
   rather than bootstrapped.
 
+pip hash-checks the requirement set it resolves from the lock file; it does not
+hash-check the isolated build environments it creates for sdist-only projects.
+The bootstrap wheel is therefore bound explicitly instead:
+`prove-offline.sh` runs `lockfile.py verify --bootstrap-dir`, which recomputes
+that wheel's sha256 and compares it with the hash recorded in the artifact
+inventory before the artifact is treated as a verified input. A tampered or
+missing bootstrap artifact fails the proof.
+
+`acquire.sh` deletes and recreates its own run directory, so it refuses a run
+directory that is not an absolute path or that is exactly `/` before any
+deletion happens.
+
 ## Procedure
 
 Both stages run inside the pinned builder image and share the repository and a

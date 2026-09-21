@@ -1,22 +1,5 @@
-test_direct_spacy_model_wheel_is_bound_by_url_and_hash (test_lock_contract.FrozenArtifactTests.test_direct_spacy_model_wheel_is_bound_by_url_and_hash) ... ok
-test_every_requirement_is_pinned_and_hashed (test_lock_contract.FrozenArtifactTests.test_every_requirement_is_pinned_and_hashed) ... ok
-test_input_is_bound_by_hash (test_lock_contract.FrozenArtifactTests.test_input_is_bound_by_hash) ... ok
-test_inventory_binds_source_url_hash_and_license (test_lock_contract.FrozenArtifactTests.test_inventory_binds_source_url_hash_and_license) ... ok
-test_lock_file_hash_matches_the_inventory (test_lock_contract.FrozenArtifactTests.test_lock_file_hash_matches_the_inventory) ... ok
-test_lock_matches_artifact_inventory_exactly (test_lock_contract.FrozenArtifactTests.test_lock_matches_artifact_inventory_exactly) ... ok
-test_only_the_single_qualified_target_is_declared (test_lock_contract.FrozenArtifactTests.test_only_the_single_qualified_target_is_declared) ... ok
-test_artifact_without_a_resolution_entry_is_refused (test_lock_contract.IncompleteEvidenceTests.test_artifact_without_a_resolution_entry_is_refused) ... ok
-test_empty_wheelhouse_is_refused (test_lock_contract.IncompleteEvidenceTests.test_empty_wheelhouse_is_refused) ... ok
-test_resolution_without_a_local_artifact_is_refused (test_lock_contract.IncompleteEvidenceTests.test_resolution_without_a_local_artifact_is_refused) ... ok
-test_unpinned_lock_line_is_refused (test_lock_contract.IncompleteEvidenceTests.test_unpinned_lock_line_is_refused) ... ok
-test_matching_inventory_passes (test_lock_contract.InstalledInventoryTests.test_matching_inventory_passes) ... ok
-test_missing_extra_and_version_drift_are_refused (test_lock_contract.InstalledInventoryTests.test_missing_extra_and_version_drift_are_refused) ... ok
-test_digest_drift_between_resolutions_is_refused (test_lock_contract.ResolutionAgreementTests.test_digest_drift_between_resolutions_is_refused) ... ok
-test_identical_resolutions_agree (test_lock_contract.ResolutionAgreementTests.test_identical_resolutions_agree) ... ok
-test_build_rejects_an_unsupported_target (test_lock_contract.UnsupportedTargetTests.test_build_rejects_an_unsupported_target) ... ok
-test_verify_rejects_every_unsupported_target (test_lock_contract.UnsupportedTargetTests.test_verify_rejects_every_unsupported_target) ... ok
-
+......................
 ----------------------------------------------------------------------
-Ran 17 tests in 0.551s
+Ran 22 tests in 1.365s
 
 OK

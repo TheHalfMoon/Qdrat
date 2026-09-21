@@ -16,6 +16,23 @@ version = 1
 # that policy is what Diffcipline evaluates alongside the decisions and baseline
 # verification kept here. The plan-only contract for planning changes is
 # unchanged in docs/qdrat/plan/plan-policy.toml.
+#
+# Independent review of this change (Alibaba Open Code Review v1.12.8, recorded
+# in evidence/g0-01/independent-review.json) raised the residual risk that an
+# empty repository `expected_files` leaves a change without a task policy bounded
+# only by ceilings and forbidden surfaces. Two things follow, and one of them
+# cannot be done here:
+#
+#   * Applied: the sealed canonical plan is now a repository-level forbidden
+#     surface, so no change can modify it without an explicit reconciliation,
+#     whether or not it declares a policy. That is the part of the recommendation
+#     that does not require an organisation-controlled path.
+#   * Remaining: a permissive repository `expected_files` cannot be replaced with
+#     a "minimal fallback contract" here. Enterprise layering is monotonic, so any
+#     fallback list is enforced in addition to the task policy and would reject
+#     correctly-scoped implementation work exactly as the plan-only list did.
+#     Making a task policy mandatory needs a CI-enforced path; the named successor
+#     obligation is recorded in evidence/g0-01/independent-review.json.
 [policy]
 max_changed_files = 80
 max_added_lines = 45000
@@ -23,7 +40,7 @@ dependency_manifest_changes = "review"
 lockfile_changes = "review"
 untracked_files = "review"
 expected_files = []
-forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile"]
+forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile", "docs/qdrat/plan/**"]
 
 [verification]
 r1_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py"]

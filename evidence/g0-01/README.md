@@ -38,6 +38,34 @@ remote before any edit). Target: `linux-amd64-py312` only.
 | `licenses.json` | License metadata read from the installed distributions, merged into the artifact inventory. |
 | `verify.log` | The reconciliation verdict, including the explicit `pip` exclusion. |
 
+## Independent review
+
+Reviewer: **Alibaba Open Code Review v1.12.8** (binary sha256
+`150812b67201e5a5fffc4acdd05a468b0737a10606ae109f0ba08541c1bc4a18`, matched
+against the release's published `sha256sum.txt`), running the model
+`deepseek-v4-pro` over its own deterministic file selection and rule resolution.
+Neither the tool nor the model is the author of this change, and the credential
+used for the model endpoint is supplied through environment variables only and is
+never written to the repository or to any log.
+
+`independent-review.json` holds the binding (base, reviewed head, exact command),
+the coverage numbers, every finding verbatim, and the disposition of each one.
+Round 1 raised five findings:
+
+| # | Severity | Finding | Disposition |
+| --- | --- | --- | --- |
+| 1 | medium | Empty repository `expected_files` leaves a change without a task policy bounded only by ceilings and forbidden surfaces | partially mitigated: the sealed plan is now a repository-level forbidden surface; the rest is accepted residual risk, because a fallback contract is not implementable under monotonic layering, and named as successor `QDRAT-GOV-TASK-POLICY-MANDATORY` |
+| 2 | medium | The un-hashed `wheel` bootstrap would make the offline proof fail | false positive against deterministic evidence (the proof exits 0 and builds both sdists), but it exposed a real fragility, so the bootstrap artifact is now hash-verified at proof time |
+| 3 | low | `rm -rf` on a caller-supplied directory with no guard | fixed |
+| 4 | low | Evidence is only copied on the success path | fixed with an `EXIT` trap |
+| 5 | low | Unreadable lock and malformed inventory entries raise raw tracebacks | fixed, with tests |
+
+The review also recorded a coverage limitation that is worth carrying forward:
+OCR's default rules excluded `requirements/locks/linux-amd64-py312.txt` and
+`requirements/tests/test_lock_contract.py` from first-class review, which are the
+two artifacts most central to this task. The reviewing agent read them as context,
+but that is not the same as reviewing them.
+
 ## Reproduction
 
 ```sh
@@ -82,3 +110,8 @@ cannot inherit partial state. Reverting this change deletes `requirements/locks/
 * No CI run is claimed for this change. The repository workflows trigger only on
   `dev/v2.0` and `2.0`, so a PR stacked on the planning branch cannot be validated
   by them; that gap is recorded rather than worked around.
+* The frozen artifacts were reproduced end to end after the review response -
+  two fresh acquisitions, a fresh freeze and a fresh offline proof - and every
+  digest came out identical (`lock.sha256` `e951f4c1...`, artifact inventory
+  `ffef04fc...`, resolution `c85f76b7...`). That is a positive result, not a
+  claim that an arbitrary future date would resolve the same versions.

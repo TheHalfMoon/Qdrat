@@ -29,6 +29,16 @@ venv="$work/venv"
 rm -rf "$work"
 mkdir -p "$work" "$proof_dir"
 
+# The evidence is most valuable exactly when a step fails, so copy whatever was
+# produced before exiting rather than only on the success path.
+copy_evidence() {
+    status=$?
+    cp "$work/install.log" "$work/pip-check.log" "$work/installed.json" \
+        "$work/licenses.json" "$work/verify.log" "$proof_dir/" 2>/dev/null || true
+    exit "$status"
+}
+trap copy_evidence EXIT
+
 # Work from container-local storage: one sequential copy in, then every read and
 # write during the install happens on the container filesystem.
 cp -r "$run_dir/wheelhouse" "$work/wheelhouse"
@@ -51,13 +61,19 @@ fi
 "$venv/bin/python" -m pip check > "$work/pip-check.log" 2>&1
 "$venv/bin/python" -m pip list --format=json > "$work/installed.json"
 "$venv/bin/python" "$lockfile" license-inventory --out "$work/licenses.json"
+
+# pip hash-checks the locked requirement set, not the isolated build
+# environments it creates for sdist-only distributions, so the bootstrap wheel
+# is bound here instead: its bytes must match the hash recorded in the artifact
+# inventory before it is treated as a verified input.
+set --
+if [ -d "$bootstrap_dir" ]; then
+    set -- --bootstrap-dir "$bootstrap_dir"
+fi
 "$venv/bin/python" "$lockfile" verify \
     --target linux-amd64-py312 \
     --lock "$lock" \
     --artifacts "$artifacts" \
     --installed "$work/installed.json" \
     --wheelhouse "$wheelhouse" \
-    --tool-distribution pip > "$work/verify.log" 2>&1
-
-cp "$work/install.log" "$work/pip-check.log" "$work/installed.json" \
-    "$work/licenses.json" "$work/verify.log" "$proof_dir/"
+    --tool-distribution pip "$@" > "$work/verify.log" 2>&1

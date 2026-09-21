@@ -335,6 +335,12 @@ class IncompleteEvidenceTests(unittest.TestCase):
         with self.assertRaises(lockfile.ToolError):
             lockfile.parse_lock(lock)
 
+    def test_missing_lock_file_is_reported_as_a_tool_error(self):
+        project = TempProject(self)
+        with self.assertRaises(lockfile.ToolError) as caught:
+            lockfile.parse_lock(project.root / "absent-lock.txt")
+        self.assertIn("cannot read lock file", str(caught.exception))
+
 
 class InstalledInventoryTests(unittest.TestCase):
     """The installed distribution set must reconcile with the frozen lock."""
@@ -407,6 +413,94 @@ class InstalledInventoryTests(unittest.TestCase):
         self.assertIn("missing=['other']", message)
         self.assertIn("unexpected=['surprise']", message)
         self.assertIn("mismatched=", message)
+
+    def test_installed_entry_without_name_or_version_is_refused(self):
+        lock, artifacts, root = self._fixture()
+        installed = self._installed(root, [{"name": "demo"}, {"version": "2.0"}])
+        code, message = self._verify(lock, artifacts, installed)
+        self.assertEqual(code, 3)
+        self.assertIn("without a name/version string", message)
+
+
+class BuildBootstrapTests(unittest.TestCase):
+    """The build bootstrap must be bound by hash even though pip does not pin it."""
+
+    def _fixture(self):
+        project = TempProject(self)
+        lock = project.root / "lock.txt"
+        lock.write_text(
+            "demo==1.0 --hash=sha256:" + "a" * 64 + "\n",
+            encoding="utf-8",
+        )
+        bootstrap_dir = project.root / "bootstrap"
+        bootstrap_dir.mkdir(parents=True, exist_ok=True)
+        digest = write_artifact(
+            bootstrap_dir, "wheel-0.47.0-py3-none-any.whl", b"bootstrap"
+        )
+        artifacts = project.root / "artifacts.json"
+        artifacts.write_text(
+            json.dumps(
+                {
+                    "schema": lockfile.ARTIFACTS_SCHEMA,
+                    "target": LOCK_NAME,
+                    "supported_targets": [LOCK_NAME],
+                    "bootstrap": [
+                        {
+                            "name": "wheel",
+                            "version": "0.47.0",
+                            "filename": "wheel-0.47.0-py3-none-any.whl",
+                            "sha256": digest,
+                            "purpose": "build backend for sdist-only distributions",
+                        }
+                    ],
+                    "distributions": [
+                        {"name": "demo", "version": "1.0", "sha256": "a" * 64}
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        installed = project.root / "installed.json"
+        installed.write_text(
+            json.dumps([{"name": "demo", "version": "1.0"}]), encoding="utf-8"
+        )
+        return lock, artifacts, installed, bootstrap_dir
+
+    def _verify(self, lock, artifacts, installed, bootstrap_dir):
+        return run_cli(
+            [
+                "verify",
+                "--target",
+                LOCK_NAME,
+                "--lock",
+                str(lock),
+                "--artifacts",
+                str(artifacts),
+                "--installed",
+                str(installed),
+                "--bootstrap-dir",
+                str(bootstrap_dir),
+            ]
+        )
+
+    def test_matching_bootstrap_artifact_passes(self):
+        lock, artifacts, installed, bootstrap = self._fixture()
+        code, message = self._verify(lock, artifacts, installed, bootstrap)
+        self.assertEqual(code, 0, message)
+
+    def test_tampered_bootstrap_artifact_is_refused(self):
+        lock, artifacts, installed, bootstrap = self._fixture()
+        (bootstrap / "wheel-0.47.0-py3-none-any.whl").write_bytes(b"tampered")
+        code, message = self._verify(lock, artifacts, installed, bootstrap)
+        self.assertEqual(code, 3)
+        self.assertIn("does not match the frozen hash", message)
+
+    def test_missing_bootstrap_artifact_is_refused(self):
+        lock, artifacts, installed, bootstrap = self._fixture()
+        (bootstrap / "wheel-0.47.0-py3-none-any.whl").unlink()
+        code, message = self._verify(lock, artifacts, installed, bootstrap)
+        self.assertEqual(code, 3)
+        self.assertIn("declared bootstrap artifact is missing", message)
 
 
 if __name__ == "__main__":
