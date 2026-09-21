@@ -1,0 +1,56 @@
+{
+  "schema": "qdrat.acceptance-state/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "recorded_at_utc": "2026-09-21T18:12:31Z",
+  "revision": {
+    "branch": "codex/g0-01-freeze-linux-amd64-py312-lock",
+    "head": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+    "tree": "0dcc5fc5d851a37bcbbc4644b99608dd73e5db51",
+    "immutable_base": "144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+    "pull_request": 3
+  },
+  "required_evidence": {
+    "scope-and-base": "PRESENT",
+    "contract-tests": "PRESENT",
+    "recovery-proof": "PRESENT",
+    "diffcipline-proof": "PRESENT with verdict PASS; the aggregate counts inside the sealed record bind the pre-seal head 7f06517, and the exact-head re-run is recorded in evidence/g0-01/reverification.json as RV-01",
+    "independent-review": "PRESENT: four rounds, thirteen findings raised in total, zero open against the frozen artifacts; bound to reviewed_code_head 7f06517855572720867d13bbd113612894109b46; the only later commit (ca5ceb3) changes evidence files only",
+    "accepted-head": "NOT_PRODUCED"
+  },
+  "acceptance": {
+    "independent_exact_revision_verification": "SATISFIED for the reviewed implementation revision 7f06517; the pull-request head ca5ceb3 is an evidence-only descendant of it",
+    "deterministic_reverification_at_head": "PASS for every required deterministic check; see evidence/g0-01/reverification.json",
+    "repository_owner_acceptance": "PENDING",
+    "merged": false,
+    "released": false,
+    "gate_receipt": "NOT_PRODUCED",
+    "state": "INDEPENDENTLY_VERIFIED_AWAITING_OWNER_ACCEPTANCE"
+  },
+  "frontier": {
+    "state": "BLOCKED_PENDING_OWNER_ACCEPTANCE",
+    "blocked_task": "G0-02 / SG-000002 - Prove clean image and PostgreSQL bootstrap",
+    "blocked_task_requirement": "The G0-02 record requires an accepted exact revision containing verified predecessor receipts for G0-01, and the handoff states that G0-02 unlocks only after independently accepted exact-revision evidence.",
+    "other_dependency_satisfied_work": "NONE. G0-01 is the only task without dependencies in EXECUTION_GRAPH.yaml; every other task depends on the G0-01 chain, and each gate requires accepted task receipts plus its measurable exits before it advances.",
+    "engineering_obstacles_remaining": "None known for G0-01: the frozen artifacts, tooling and checks reproduce at the exact head."
+  },
+  "unlock_conditions": [
+    "The repository owner accepts the exact G0-01 revision by merging or approving PR #3; the accepted-head receipt is then produced against that accepted revision and G0-02 becomes dependency-satisfied.",
+    "Alternatively the owner explicitly authorizes executing G0-02 as a stacked descendant of the unmerged head ca5ceb361798ff8ba78a8ac86c47de0bc440058e; that authorization must name the accepted revision, because the canonical plan treats merge as a separate repository policy layer."
+  ],
+  "not_claimed": [
+    "MERGED",
+    "RELEASED",
+    "G0 gate closure",
+    "VERIFIED task completion",
+    "production readiness"
+  ],
+  "supporting_records": [
+    "evidence/g0-01/reverification.json",
+    "evidence/g0-01/independent-review.json",
+    "evidence/g0-01/diffcipline.json",
+    "evidence/g0-01/specgrain-readiness.json",
+    "evidence/jev/G0-01/evidence-completeness-at-head.json",
+    "evidence/jev/G0-01/blocker-classification.json"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "schema": "qdrat.task-reverification/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "purpose": "Reverify the live repository, the remote revision and the sealed G0-01 evidence against the exact current head before any successor work is considered.",
+  "reverified_at_utc": "2026-09-21T18:12:31Z",
+  "repository": {
+    "remote": "https://github.com/TheHalfMoon/Qdrat.git",
+    "default_branch": "main",
+    "default_branch_head": "e2d288940aab52af881786678b2fc86dfa5c272a"
+  },
+  "revision": {
+    "branch": "codex/g0-01-freeze-linux-amd64-py312-lock",
+    "head": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+    "tree": "0dcc5fc5d851a37bcbbc4644b99608dd73e5db51",
+    "immutable_base": "144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+    "changed_files_against_base": 40,
+    "added_lines_against_base": 12550,
+    "deleted_lines_against_base": 4,
+    "remote_head_object_sha": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+    "remote_head_tree_matches_local_tree": true,
+    "worktree_clean_before_any_edit": true
+  },
+  "pull_requests": {
+    "plan_pr": {
+      "number": 2,
+      "branch": "codex/qdrat-canonical-plan",
+      "head": "144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+      "base": "foundation/qdrat-people-blueprint",
+      "base_head": "933f9c1070c151876c1e198d6141413f33e4b6d3",
+      "state": "OPEN",
+      "is_draft": true,
+      "merged": false,
+      "finding": "Unchanged since the planning handoff; neither the plan head nor its foundation base moved."
+    },
+    "implementation_pr": {
+      "number": 3,
+      "branch": "codex/g0-01-freeze-linux-amd64-py312-lock",
+      "head": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+      "base": "codex/qdrat-canonical-plan",
+      "state": "OPEN",
+      "is_draft": false,
+      "merged": false,
+      "mergeable": "MERGEABLE",
+      "merge_state_status": "CLEAN",
+      "review_decision": "",
+      "approvals": 0,
+      "open_review_threads": 0,
+      "finding": "No new commit appeared, so no sealed evidence was invalidated by revision drift. The pull request is still awaiting repository-owner acceptance."
+    }
+  },
+  "checks": [
+    {
+      "id": "plan-validator-with-pinned-specgrain",
+      "command": "python docs/qdrat/plan/validate_plan.py --specgrain-source <pinned SpecGrain checkout>",
+      "result": "PASS",
+      "observed": "status PASS; tasks 96; nodes 96; gates 13; specgrain status PASS at source_sha 5de7d6499bb0a9e3a191fc0934399cf099d1980a; candidate SG-000001; is_ready true; revision_digest sha256:74cfc1f1663a61d86ba9a3ff8ba6152a118b791a3e5a6116da80d67ae7690fa7; implementation_verified false"
+    },
+    {
+      "id": "plan-validator-without-specgrain-source",
+      "command": "python docs/qdrat/plan/validate_plan.py",
+      "result": "PASS",
+      "observed": "status PASS with specgrain status NOT_RUN",
+      "note": "Without --specgrain-source the validator cannot import the real SpecGrain package, so the readiness half of the proof degrades to NOT_RUN. The PASS recorded in specgrain-readiness.json therefore depends on the pinned SpecGrain checkout being present; the bare command does not reproduce it."
+    },
+    {
+      "id": "plan-validator-negative-tests",
+      "command": "python docs/qdrat/plan/test_validate_plan.py",
+      "result": "PASS",
+      "observed": "Ran 7 tests; OK"
+    },
+    {
+      "id": "lock-contract-tests",
+      "command": "python -m unittest discover -s requirements/tests -p \"test_*.py\" -v",
+      "result": "PASS",
+      "observed": "Ran 29 tests; OK"
+    },
+    {
+      "id": "diffcipline-r2-proof",
+      "command": "diffcipline check --base 144935cd6bb64d3448ec3927fa7d1569bee93ca0 --risk R2 --enterprise-policy .diffcipline/tasks/G0-01.toml --run --json",
+      "result": "PASS",
+      "observed": "verdict PASS; changed_files 40; added_lines 12550; deleted_lines 4; scope_violations empty; four verification commands PASS (plan validator, plan negative tests, lock contract tests, lock/artifact/listing reconciliation)",
+      "tool_sha256": "5fee721d3837ab86f2c36003d02ca67ebac793ff8dadcdb3b7eea074690e57a8"
+    },
+    {
+      "id": "lock-artifact-reconciliation",
+      "command": "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip",
+      "result": "PASS",
+      "observed": "distributions 149; installed 150; excluded tool distributions [pip]; verified_listing_entries 149; status PASS"
+    },
+    {
+      "id": "sealed-artifact-digests",
+      "command": "Get-FileHash -Algorithm SHA256 on the tracked frozen artifacts",
+      "result": "PASS",
+      "observed": "requirements/locks/linux-amd64-py312.txt sha256 e951f4c14695579b7a1b3ce1ba9188c857decab4f8ffbeff8a7db5ba3580c000; requirements/artifacts/linux-amd64-py312.json sha256 ffef04fc92a67198de0715397d8a6a3f76e5433070db0613dbb7d04703bb502d; both match the digests recorded in evidence/g0-01/README.md"
+    },
+    {
+      "id": "dual-resolution-agreement",
+      "command": "read evidence/g0-01/resolution-agreement.json",
+      "result": "PASS",
+      "observed": "resolutions A and B both carry resolution_sha256 c85f76b77aa03c232e1dbcd94b1cb4e567a71ddd38530720b4003a3d0f607b73, pip_report_sha256 3f93341035cdfd2d4c41270662a3e760ead211060a5556d396802be7ad9e438b and wheelhouse_listing_sha256 c7146fbcf29f64f115e683e044e63be912b564e3ce05ed0b76cf10dc7c32e51d; agreement identical true; 149 distributions (147 wheels, 2 sdists, 1 direct URL)"
+    },
+    {
+      "id": "pull-request-checks",
+      "command": "gh pr checks 3",
+      "result": "NOT_RUN",
+      "observed": "cubic AI code reviewer: skipping (neutral); CodeRabbit: pass with the message \"Review skipped: reviews are disabled for this base branch\". No workflow run validates this branch.",
+      "note": "The inherited workflows in .github/workflows still trigger only on branches dev/v2.0 and 2.0. This is the known Qdrat pull-request CI gap, recorded here as NOT_RUN and not as a pass."
+    }
+  ],
+  "tool_identity": {
+    "diffcipline": {
+      "binary": "C:/Users/Shehr/bin/diffcipline.exe",
+      "sha256": "5fee721d3837ab86f2c36003d02ca67ebac793ff8dadcdb3b7eea074690e57a8",
+      "matches_release_manifest": true
+    },
+    "specgrain_source": {
+      "checkout": "C:/Users/Shehr/AppData/Local/Temp/qdrat-tools/SpecGrain",
+      "head": "5de7d6499bb0a9e3a191fc0934399cf099d1980a",
+      "matches_pinned_revision": true
+    },
+    "open_code_review_review_tool": {
+      "binary": "C:/Users/Shehr/AppData/Local/Temp/qdrat-tools/bin/opencodereview-windows-amd64.exe",
+      "version": "open-code-review v1.12.8 (5c7b383) windows/amd64",
+      "sha256": "150812b67201e5a5fffc4acdd05a468b0737a10606ae109f0ba08541c1bc4a18",
+      "note": "Pinned binary that produced the four G0-01 review rounds. A different, older binary (v1.12.7, sha256 7c40f72363c66bd49aa16ddde48ddb458eed6d8492c3a0c35a94d6a9bac1bb64) is installed at C:/Users/Shehr/bin/ocr.exe and was not used for that review."
+    }
+  },
+  "environment": {
+    "host": "Windows, Asia/Riyadh",
+    "python": "3.11.15 host interpreter; the sandboxed shell has no working python entry because the local 3.12 trampoline is denied, so the gates were run with the host interpreter",
+    "docker_client": "29.7.2",
+    "docker_daemon": "Reachable only with elevated access; G0-01 does not use it and this reverification did not exercise it.",
+    "model_endpoint_credential_for_review_tool": "Not present in this session, so no fresh review round could be executed for a new revision."
+  },
+  "findings": [
+    {
+      "id": "RV-01",
+      "severity": "low",
+      "state": "OPEN",
+      "summary": "The sealed Diffcipline proof binds the pre-seal head, not the sealed head.",
+      "evidence": "evidence/g0-01/diffcipline.json records added_lines 12390, which is exactly the base..7f06517855572720867d13bbd113612894109b46 total; the exact current head ca5ceb3 totals 12550 added lines for the same 40 files. Re-running the identical Diffcipline command at ca5ceb3 returns PASS with 12550.",
+      "effect": "The verdict and scope result reproduce at the exact head, but the aggregate counts inside the sealed record describe the previous revision.",
+      "disposition": "Preserved as recorded evidence rather than overwritten; the exact-head re-run is captured in this file and the discrepancy is stated in evidence/g0-01/acceptance-state.json."
+    },
+    {
+      "id": "RV-02",
+      "severity": "informational",
+      "state": "RECORDED",
+      "summary": "The independent review is bound to 7f06517 while the pull-request head is ca5ceb3.",
+      "evidence": "evidence/g0-01/independent-review.json carries reviewed_code_head 7f06517855572720867d13bbd113612894109b46 with four rounds and no open findings; git show --stat ca5ceb3 lists only evidence/g0-01/README.md, independent-review.json, diffcipline.json and diffcipline-run.log.",
+      "effect": "Chapter 41 invalidates a receipt when a later code, fixture, policy or dependency change appears. The one later commit changes evidence only, so the receipt is treated as still valid for the implementation revision and the seal commit is recorded as an evidence-only descendant.",
+      "disposition": "Stated explicitly instead of assumed; a fresh review round for the seal commit could not be executed in this session because no model-endpoint credential is available."
+    },
+    {
+      "id": "RV-03",
+      "severity": "blocking",
+      "state": "OPEN",
+      "summary": "The required 'accepted-head' evidence item has not been produced.",
+      "evidence": "docs/qdrat/plan/tasks/tasks.json requires six evidence items for G0-01; five exist. No accepted-head record exists in evidence/g0-01/.",
+      "effect": "G0-01 cannot be shown complete against its own record, and G0-02 requires an accepted exact-revision predecessor.",
+      "disposition": "Recorded as the binding blocker in evidence/g0-01/acceptance-state.json together with the unlock conditions."
+    },
+    {
+      "id": "RV-04",
+      "severity": "informational",
+      "state": "CARRIED_FORWARD",
+      "summary": "The independent review did not cover the two artifacts most central to the task.",
+      "evidence": "evidence/g0-01/independent-review.json coverage_limitation lists requirements/locks/linux-amd64-py312.txt and requirements/tests/test_lock_contract.py as excluded by the review tool's default path and extension rules.",
+      "disposition": "Already named as successor obligation QDRAT-REVIEW-RULES-LOCKFILES; not repaired here because the review rule set is outside G0-01's bounded change."
+    },
+    {
+      "id": "RV-05",
+      "severity": "informational",
+      "state": "OPEN_GAP",
+      "summary": "No Qdrat pull-request CI exists for this branch.",
+      "evidence": ".github/workflows/codeql.yml and docker-ci.yml trigger on branches [dev/v2.0, \"2.0\"]; the pull request shows only third-party review bots, one skipping and one reporting that reviews are disabled for this base branch.",
+      "disposition": "Recorded as NOT_RUN evidence. Repairing it belongs to the canonical CI task and is not performed here."
+    },
+    {
+      "id": "RV-06",
+      "severity": "informational",
+      "state": "OPEN",
+      "summary": "Reproducing the SpecGrain readiness proof depends on an out-of-repository checkout.",
+      "evidence": "The validator reports specgrain status NOT_RUN unless --specgrain-source points at a clean checkout of 5de7d6499bb0a9e3a191fc0934399cf099d1980a; with that checkout the recorded PASS reproduces byte for byte, including revision_digest sha256:74cfc1f1...",
+      "disposition": "Recorded so a future reader does not mistake the degraded NOT_RUN result for a regression."
+    }
+  ],
+  "result": "Deterministic re-verification of the frozen G0-01 artifacts PASSES at the exact head ca5ceb361798ff8ba78a8ac86c47de0bc440058e. The sealed revision is not independently re-reviewed for a later revision, and its acceptance record is incomplete: the accepted-head item is missing and PR #3 remains open and unmerged."
+}

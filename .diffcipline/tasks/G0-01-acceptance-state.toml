@@ -1,0 +1,20 @@
+version = 1
+
+# Task-specific Diffcipline policy for the bounded G0-01 acceptance-state
+# change: append-only evidence under evidence/ plus this policy file.
+#
+# Immutable base: ca5ceb361798ff8ba78a8ac86c47de0bc440058e (the sealed G0-01
+# head that PR #3 carries).
+# Risk: R1. Documentation and machine evidence only: no product code, no
+# dependency manifest, no lock file, no migration, no secret and no pipeline
+# file is touched, so runtime behaviour cannot change.
+# Recovery: revert this bounded commit; nothing else references it.
+
+[policy]
+max_changed_files = 8
+max_added_lines = 2000
+expected_files = [".diffcipline/tasks/G0-01-acceptance-state.toml", "evidence/**"]
+forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile", "requirements/**", "docs/qdrat/plan/**"]
+
+[verification]
+r1_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py"]

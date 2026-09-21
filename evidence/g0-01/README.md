@@ -165,3 +165,43 @@ cannot inherit partial state. Reverting this change deletes `requirements/locks/
   digest came out identical (`lock.sha256` `e951f4c1...`, artifact inventory
   `ffef04fc...`, resolution `c85f76b7...`). That is a positive result, not a
   claim that an arbitrary future date would resolve the same versions.
+
+## Reverification at the exact head and the acceptance state
+
+The sealed work was reverified against the live remote and the exact head before
+any successor task was considered. Head
+`ca5ceb361798ff8ba78a8ac86c47de0bc440058e` (tree
+`0dcc5fc5d851a37bcbbc4644b99608dd73e5db51`) equals the remote branch object, the
+worktree was clean, and neither the plan pull request nor its foundation base had
+moved.
+
+Every deterministic check in this directory reproduces at that head: the plan
+validator with the pinned SpecGrain checkout, its seven negative tests, the 29
+lock contract tests, the Diffcipline R2 proof and the lock/artifact/listing
+reconciliation. The digests recorded above (`e951f4c1...`, `ffef04fc...`,
+`c85f76b7...`) recompute byte for byte.
+
+Four things did not reproduce cleanly and are recorded rather than smoothed over:
+
+* The aggregate counts inside `diffcipline.json` describe the previous revision,
+  not the sealed one: it records 12,390 added lines, which is exactly the total at
+  `7f06517`, while the sealed head totals 12,550 for the same 40 files. The verdict
+  and the scope result do reproduce at the sealed head.
+* The independent review is bound to `7f06517`. The one later commit changes
+  evidence files only, so it is treated as an evidence-only descendant under
+  chapter 41 rather than as an invalidating change. No fresh review round could be
+  executed for it in this session because no model-endpoint credential was
+  available.
+* The required `accepted-head` evidence item does not exist yet, and it cannot
+  honestly be produced before the revision is accepted. See `acceptance-state.json`.
+* The pull request still has no CI: the inherited workflows trigger only on
+  `dev/v2.0` and `2.0`, and both third-party reviewers either skipped or reported
+  that reviews are disabled for this base branch.
+
+`reverification.json` holds the machine record, `acceptance-state.json` holds the
+per-item evidence status and the exact unlock conditions, and the new files under
+`evidence/jev/G0-01/` hold the typed decisions taken at this checkpoint.
+
+Nothing here claims that G0-01 is merged, accepted, verified or released. The
+revision is independently verified at `7f06517` and deterministic at `ca5ceb3`;
+the acceptance decision belongs to the repository owner.
