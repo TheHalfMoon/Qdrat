@@ -20,17 +20,25 @@ wheelhouse_name="${3:-wheelhouse}"
 wheelhouse="$run_dir/$wheelhouse_name"
 lockfile=/repo/requirements/tools/lockfile.py
 
-# This script deletes and recreates its own run directory. Refuse anything that
-# is not an absolute, dedicated path: an empty value, "/", or a relative path
-# would delete something this script does not own.
+# This script deletes and recreates its own run directory, so the guard has to
+# hold for the paths the shell actually means, not just for the literal string.
+# `//`, `/.`, `/tmp/..` and `/work/../..` all reach the filesystem root, so the
+# check normalises by rejecting any non-canonical form and requires the run
+# directory to be at least two levels deep - it may never be a mount root.
 case "$run_dir" in
     /*) ;;
     *) echo "acquire: run_dir must be an absolute path, got '$run_dir'" >&2; exit 2 ;;
 esac
-if [ "$run_dir" = "/" ]; then
-    echo "acquire: refusing to use / as run_dir" >&2
-    exit 2
-fi
+case "/$run_dir/" in
+    *//* | */./* | */../* | */. | */..)
+        echo "acquire: run_dir must be a canonical path without '.' or '..', got '$run_dir'" >&2
+        exit 2
+        ;;
+esac
+case "${run_dir#/}" in
+    */*) ;;
+    *) echo "acquire: run_dir must be at least two levels deep, got '$run_dir'" >&2; exit 2 ;;
+esac
 
 rm -rf "$run_dir"
 mkdir -p "$wheelhouse"

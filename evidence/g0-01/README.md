@@ -60,6 +60,21 @@ Round 1 raised five findings:
 | 4 | low | Evidence is only copied on the success path | fixed with an `EXIT` trap |
 | 5 | low | Unreadable lock and malformed inventory entries raise raw tracebacks | fixed, with tests |
 
+Round 2 reviewed the corrected head `8f630e2333c2bb0eea2c03a5e9eb961c7865f9ca`
+in a fresh session and raised six more findings, three of them substantive:
+
+| # | Severity | Finding | Disposition |
+| --- | --- | --- | --- |
+| 1 | medium | Sealing `docs/qdrat/plan/**` contradicts the comment that the plan-scoped contract is unchanged in `plan-policy.toml` | accepted with correction: the reconciliation path is now stated explicitly - reopening a sealed surface must be its own reviewed commit that removes the entry first |
+| 2 | low | The unittest pattern in the task policy is unquoted, so some shells would glob it | fixed: quoted. Diffcipline runs commands through `cmd /C` on Windows, which does not glob, but quoting removes the dependency on that detail |
+| 3 | high | The run-directory guard only rejected `/`, so `//`, `/.` and `/work/../..` still reached the filesystem root before `rm -rf` | fixed: the guard now requires a canonical absolute path at least two levels deep |
+| 4 | medium | `unquote` after basename let `..%2fsecret` become the path `../secret`, which `verify` then joined onto the wheelhouse with no containment check | fixed: decoding happens before the final segment is taken, and every artifact path is now containment-checked |
+| 5 | low | `build` re-validated nothing, so two resolutions with the same duplicate name could be frozen even though `verify` would later reject them | fixed: `build` re-validates names, fields and uniqueness before rendering |
+| 6 | low | The committed R2 gate never re-hashed an artifact, so a hash altered consistently in both the lock and the inventory would pass | fixed: the gate now reconciles the committed sha256sum listing as a third, independently produced record (`verified_listing_entries: 149`) |
+
+Round 2's coverage stayed at 20 of 26 files; the same lock file and contract test
+suite remain excluded from first-class review by OCR's default rules.
+
 The review also recorded a coverage limitation that is worth carrying forward:
 OCR's default rules excluded `requirements/locks/linux-amd64-py312.txt` and
 `requirements/tests/test_lock_contract.py` from first-class review, which are the

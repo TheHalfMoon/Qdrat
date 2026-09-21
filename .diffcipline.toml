@@ -26,7 +26,14 @@ version = 1
 #   * Applied: the sealed canonical plan is now a repository-level forbidden
 #     surface, so no change can modify it without an explicit reconciliation,
 #     whether or not it declares a policy. That is the part of the recommendation
-#     that does not require an organisation-controlled path.
+#     that does not require an organisation-controlled path. The reconciliation
+#     path is deliberate and explicit: a change that genuinely needs to amend the
+#     plan must remove `docs/qdrat/plan/**` from this list in its own reviewed
+#     commit, and then supply plan-policy.toml as its enterprise policy. Until
+#     that happens, plan-policy.toml's plan-scoped expected_files contract is
+#     inert for planning edits, which is the intended meaning of "the plan is
+#     sealed": its own contract can no longer be applied without first reopening
+#     the surface, by design, in the open.
 #   * Remaining: a permissive repository `expected_files` cannot be replaced with
 #     a "minimal fallback contract" here. Enterprise layering is monotonic, so any
 #     fallback list is enforced in addition to the task policy and would reject

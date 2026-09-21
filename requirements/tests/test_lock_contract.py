@@ -503,5 +503,190 @@ class BuildBootstrapTests(unittest.TestCase):
         self.assertIn("declared bootstrap artifact is missing", message)
 
 
+class PathSafetyTests(unittest.TestCase):
+    """Artifact names must never address anything outside their directory."""
+
+    def test_encoded_traversal_collapses_to_one_segment(self):
+        # Decoding before taking the final segment is what makes this safe: the
+        # result is the file name `secret`, never the path `../secret`.
+        self.assertEqual(
+            lockfile.artifact_filename("https://example.invalid/packages/..%2fsecret"),
+            "secret",
+        )
+        self.assertEqual(
+            lockfile.artifact_filename("https://example.invalid/packages/../secret"),
+            "secret",
+        )
+
+    def test_filename_that_is_only_a_parent_reference_is_refused(self):
+        with self.assertRaises(lockfile.ToolError):
+            lockfile.artifact_filename("https://example.invalid/packages/..")
+        with self.assertRaises(lockfile.ToolError):
+            lockfile.artifact_filename("https://example.invalid/")
+
+    def test_wheelhouse_entry_that_escapes_is_refused(self):
+        project = TempProject(self)
+        outside = project.root / "outside.whl"
+        outside.write_bytes(b"outside")
+        wheelhouse = project.root / "wheelhouse"
+        wheelhouse.mkdir(parents=True, exist_ok=True)
+        lock = project.root / "lock.txt"
+        lock.write_text("demo==1.0 --hash=sha256:" + "a" * 64 + "\n", encoding="utf-8")
+        artifacts = project.root / "artifacts.json"
+        artifacts.write_text(
+            json.dumps(
+                {
+                    "schema": lockfile.ARTIFACTS_SCHEMA,
+                    "target": LOCK_NAME,
+                    "supported_targets": [LOCK_NAME],
+                    "distributions": [
+                        {"name": "demo", "version": "1.0", "filename": "../outside.whl",
+                         "sha256": "a" * 64}
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        installed = project.root / "installed.json"
+        installed.write_text(
+            json.dumps([{"name": "demo", "version": "1.0"}]), encoding="utf-8"
+        )
+        code, message = run_cli(
+            [
+                "verify",
+                "--target",
+                LOCK_NAME,
+                "--lock",
+                str(lock),
+                "--artifacts",
+                str(artifacts),
+                "--installed",
+                str(installed),
+                "--wheelhouse",
+                str(wheelhouse),
+            ]
+        )
+        self.assertEqual(code, 3)
+        self.assertIn("escapes", message)
+
+
+class CommittedListingTests(unittest.TestCase):
+    """A committed sha256sum listing must agree with the artifact inventory."""
+
+    def _fixture(self):
+        project = TempProject(self)
+        digest = "c" * 64
+        lock = project.root / "lock.txt"
+        lock.write_text(
+            "demo==1.0 --hash=sha256:" + digest + "\n", encoding="utf-8"
+        )
+        artifacts = project.root / "artifacts.json"
+        artifacts.write_text(
+            json.dumps(
+                {
+                    "schema": lockfile.ARTIFACTS_SCHEMA,
+                    "target": LOCK_NAME,
+                    "supported_targets": [LOCK_NAME],
+                    "distributions": [
+                        {
+                            "name": "demo",
+                            "version": "1.0",
+                            "filename": "demo-1.0-py3-none-any.whl",
+                            "sha256": digest,
+                        }
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        installed = project.root / "installed.json"
+        installed.write_text(
+            json.dumps([{"name": "demo", "version": "1.0"}]), encoding="utf-8"
+        )
+        return project.root, lock, artifacts, installed
+
+    def _verify(self, root, lock, artifacts, installed, listing):
+        return run_cli(
+            [
+                "verify",
+                "--target",
+                LOCK_NAME,
+                "--lock",
+                str(lock),
+                "--artifacts",
+                str(artifacts),
+                "--installed",
+                str(installed),
+                "--sha256-listing",
+                str(listing),
+            ]
+        )
+
+    def test_matching_listing_passes(self):
+        root, lock, artifacts, installed = self._fixture()
+        listing = root / "wheelhouse.sha256"
+        listing.write_text(
+            "c" * 64 + "  ./demo-1.0-py3-none-any.whl\n", encoding="utf-8"
+        )
+        code, message = self._verify(root, lock, artifacts, installed, listing)
+        self.assertEqual(code, 0, message)
+
+    def test_drifted_listing_is_refused(self):
+        root, lock, artifacts, installed = self._fixture()
+        listing = root / "wheelhouse.sha256"
+        listing.write_text(
+            "d" * 64 + "  ./demo-1.0-py3-none-any.whl\n", encoding="utf-8"
+        )
+        code, message = self._verify(root, lock, artifacts, installed, listing)
+        self.assertEqual(code, 3)
+        self.assertIn("disagrees with the artifact inventory", message)
+
+    def test_malformed_listing_line_is_refused(self):
+        root, lock, artifacts, installed = self._fixture()
+        listing = root / "wheelhouse.sha256"
+        listing.write_text("not-a-sha256  ./demo.whl\n", encoding="utf-8")
+        code, message = self._verify(root, lock, artifacts, installed, listing)
+        self.assertEqual(code, 3)
+        self.assertIn("is not a sha256sum line", message)
+
+    def test_duplicate_resolution_names_are_refused_before_rendering(self):
+        project = TempProject(self)
+        payload = {
+            "schema": lockfile.RESOLUTION_SCHEMA,
+            "target": LOCK_NAME,
+            "python_version": "3.12",
+            "distributions": [
+                {
+                    "name": "demo",
+                    "normalized_name": "demo",
+                    "version": "1.0",
+                    "kind": "wheel",
+                    "filename": "demo-1.0-py3-none-any.whl",
+                    "sha256": "a" * 64,
+                    "url": "https://example.invalid/demo-1.0-py3-none-any.whl",
+                    "direct": False,
+                },
+                {
+                    "name": "Demo",
+                    "normalized_name": "demo",
+                    "version": "1.0",
+                    "kind": "wheel",
+                    "filename": "demo-1.0-py3-none-any.whl",
+                    "sha256": "a" * 64,
+                    "url": "https://example.invalid/demo-1.0-py3-none-any.whl",
+                    "direct": False,
+                },
+            ],
+        }
+        source = project.root / "resolution.json"
+        source.write_text(json.dumps(payload), encoding="utf-8")
+        code, message = run_cli(
+            build_argv(project.root, source, source)
+        )
+        self.assertEqual(code, 3)
+        self.assertIn("duplicate distribution", message)
+        self.assertFalse((project.root / "lock.txt").exists())
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,1 +1,1 @@
-{"target": "linux-amd64-py312", "distributions": 149, "installed": 150, "excluded_tool_distributions": ["pip"], "verified_artifacts": 149, "verified_bootstrap_artifacts": 1, "status": "PASS"}
+{"target": "linux-amd64-py312", "distributions": 149, "installed": 150, "excluded_tool_distributions": ["pip"], "verified_artifacts": 149, "verified_bootstrap_artifacts": 1, "verified_listing_entries": 0, "status": "PASS"}

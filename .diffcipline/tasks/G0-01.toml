@@ -25,4 +25,10 @@ expected_files = [".diffcipline.toml", ".diffcipline/tasks/G0-01.toml", "require
 forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile", "docs/qdrat/plan/**"]
 
 [verification]
-r2_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py", "python -m unittest discover -s requirements/tests -p test_*.py", "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --tool-distribution pip"]
+# The verify command reconciles three independent records: the lock, the artifact
+# inventory, and the sha256sum listing produced over the real artifacts during
+# acquisition. Without the listing the gate would only compare documents to each
+# other and a consistently altered hash in both documents would pass. The
+# bootstrap wheel is not committed, so its own hash binding happens at proof time
+# in prove-offline.sh, not here.
+r2_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py", "python -m unittest discover -s requirements/tests -p \"test_*.py\"", "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip"]

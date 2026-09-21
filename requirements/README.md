@@ -45,8 +45,21 @@ inventory before the artifact is treated as a verified input. A tampered or
 missing bootstrap artifact fails the proof.
 
 `acquire.sh` deletes and recreates its own run directory, so it refuses a run
-directory that is not an absolute path or that is exactly `/` before any
-deletion happens.
+directory before any deletion happens unless it is an absolute, canonical path at
+least two levels deep: relative paths, `//`, `/.`, `/tmp/..` and `/work/../..`
+are all rejected, because a string comparison against `/` alone does not cover the
+paths the shell actually means.
+
+Artifact file names are taken after percent-decoding but never as paths: a URL
+whose final segment decodes to `..` or to something containing a separator is
+refused, and every artifact path is checked for containment inside its directory
+before it is opened or hashed.
+
+Because the wheelhouse itself is not committed, the R2 verification command in
+`.diffcipline/tasks/G0-01.toml` reconciles three independent records instead: the
+lock, the artifact inventory, and `evidence/g0-01/wheelhouse-a.sha256`, the
+sha256sum listing produced over the real artifacts during acquisition. Comparing
+only the two documents would let a hash altered consistently in both pass.
 
 ## Procedure
 

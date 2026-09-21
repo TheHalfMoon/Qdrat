@@ -92,7 +92,57 @@ def write_json(path: Path, payload: object) -> None:
 
 
 def artifact_filename(url: str) -> str:
-    return unquote(Path(urlparse(url).path).name)
+    """Return the artifact file name, refusing anything that is not one path segment.
+
+    The URL is percent-decoded *before* the final segment is taken: decoding
+    afterwards would turn `..%2fsecret` into `../secret`, which is a path and not
+    a file name, and the caller would then join it onto a directory.
+    """
+    name = Path(unquote(urlparse(url).path)).name
+    if not name or name in {".", ".."} or "/" in name or "\\" in name:
+        raise ToolError(f"artifact URL does not name a single file: {url}")
+    return name
+
+
+def contained_path(directory: Path, name: str) -> Path:
+    """Join `name` onto `directory`, refusing anything that escapes it."""
+    candidate = (directory / name).resolve()
+    root = directory.resolve()
+    if candidate.parent != root:
+        raise ToolError(f"artifact path escapes {directory}: {name}")
+    return candidate
+
+
+def read_sha256_listing(path: Path) -> dict[str, str]:
+    """Parse a `sha256sum` listing into {filename: sha256}.
+
+    The listing is produced by GNU sha256sum over the acquired artifacts, so it
+    is an independent computation from pip's own recorded hashes. Committing it
+    lets the lock and the inventory be re-checked byte-for-byte without the
+    wheelhouse itself.
+    """
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError as exc:
+        raise ToolError(f"cannot read sha256 listing {path}: {exc}") from exc
+    listing: dict[str, str] = {}
+    for number, raw in enumerate(text.splitlines(), start=1):
+        line = raw.strip()
+        if not line:
+            continue
+        fields = line.split(None, 1)
+        if len(fields) != 2 or not re.fullmatch(r"[0-9a-f]{64}", fields[0]):
+            raise ToolError(f"{path}:{number} is not a sha256sum line: {raw!r}")
+        name = fields[1].strip().lstrip("*")
+        name = Path(unquote(name)).name
+        if not name or name in {".", ".."}:
+            raise ToolError(f"{path}:{number} does not name a file: {raw!r}")
+        if name in listing:
+            raise ToolError(f"{path}:{number} repeats {name}")
+        listing[name] = fields[0]
+    if not listing:
+        raise ToolError(f"{path} contains no sha256 entries")
+    return listing
 
 
 def artifact_kind(filename: str) -> str:
@@ -203,6 +253,19 @@ def _resolution_distributions(path: Path, target: str) -> list[dict]:
     distributions = payload.get("distributions")
     if not isinstance(distributions, list) or not distributions:
         raise ToolError(f"{path} contains no distributions")
+    seen: set[str] = set()
+    for item in distributions:
+        if not isinstance(item, dict):
+            raise ToolError(f"{path} contains a distribution entry that is not an object")
+        name = item.get("normalized_name")
+        if not isinstance(name, str) or not name:
+            raise ToolError(f"{path} contains a distribution without a normalized name")
+        for field in ("name", "version", "kind", "filename", "sha256", "url"):
+            if not isinstance(item.get(field), str) or not item[field]:
+                raise ToolError(f"{path}: {name} has no {field}")
+        if name in seen:
+            raise ToolError(f"{path} contains duplicate distribution {name}")
+        seen.add(name)
     return distributions
 
 
@@ -436,7 +499,7 @@ def cmd_verify(args: argparse.Namespace) -> int:
         if not wheelhouse.is_dir():
             raise ToolError(f"wheelhouse directory not found: {wheelhouse}")
         for item in artifacts["distributions"]:
-            artifact = wheelhouse / item["filename"]
+            artifact = contained_path(wheelhouse, item["filename"])
             if not artifact.is_file():
                 raise ToolError(f"locked artifact is missing from the wheelhouse: {artifact}")
             observed = sha256_file(artifact)
@@ -456,7 +519,7 @@ def cmd_verify(args: argparse.Namespace) -> int:
         if not isinstance(declared, list):
             raise ToolError(f"{args.artifacts} has a malformed bootstrap section")
         for entry in declared:
-            artifact = directory / entry["filename"]
+            artifact = contained_path(directory, entry["filename"])
             if not artifact.is_file():
                 raise ToolError(f"declared bootstrap artifact is missing: {artifact}")
             observed = sha256_file(artifact)
@@ -467,6 +530,28 @@ def cmd_verify(args: argparse.Namespace) -> int:
                 )
             verified_bootstrap += 1
 
+    verified_listing = 0
+    if args.sha256_listing:
+        listing = read_sha256_listing(Path(args.sha256_listing))
+        recorded = {
+            item["filename"]: item["sha256"] for item in artifacts["distributions"]
+        }
+        if listing != recorded:
+            drift = sorted(
+                f"{name}: listing={listing.get(name)} inventory={recorded.get(name)}"
+                for name in set(listing) ^ set(recorded)
+            )
+            drift += sorted(
+                f"{name}: listing={listing[name]} inventory={recorded[name]}"
+                for name in set(listing) & set(recorded)
+                if listing[name] != recorded[name]
+            )
+            raise ToolError(
+                "the recorded sha256 listing disagrees with the artifact inventory: "
+                + "; ".join(drift)
+            )
+        verified_listing = len(listing)
+
     print(
         json.dumps(
             {
@@ -476,6 +561,7 @@ def cmd_verify(args: argparse.Namespace) -> int:
                 "excluded_tool_distributions": excluded,
                 "verified_artifacts": verified_artifacts,
                 "verified_bootstrap_artifacts": verified_bootstrap,
+                "verified_listing_entries": verified_listing,
                 "status": "PASS",
             }
         )
@@ -582,6 +668,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--bootstrap-dir",
         default="",
         help="recompute the sha256 of every build-bootstrap artifact on disk",
+    )
+    verify.add_argument(
+        "--sha256-listing",
+        default="",
+        help="reconcile a committed sha256sum listing against the artifact inventory",
     )
     verify.add_argument(
         "--tool-distribution",
