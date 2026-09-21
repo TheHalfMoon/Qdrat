@@ -1,0 +1,51 @@
+{
+  "schema": "qdrat.jev-decision/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "checkpoint": "F - evidence completeness at the exact head",
+  "decision_type": "choice",
+  "question": "Is the required evidence set for task G0-01 complete and internally consistent at its exact current head?",
+  "allowed_values": ["complete", "incomplete", "contradictory", "other"],
+  "selected_value": "incomplete",
+  "confidence": 0.98,
+  "probabilities": {
+    "complete": 0.0,
+    "incomplete": 0.98,
+    "contradictory": 0.02,
+    "other": 0.0
+  },
+  "input_evidence": {
+    "required_evidence": "docs/qdrat/plan/tasks/tasks.json tasks[G0-01].evidence_required",
+    "produced": ["scope-and-base", "contract-tests", "recovery-proof", "diffcipline-proof", "independent-review"],
+    "not_produced": ["accepted-head"],
+    "exact_head": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+    "independent_review_binding": "reviewed_code_head 7f06517855572720867d13bbd113612894109b46; the later commit touches evidence files only",
+    "sealed_diffcipline_counts": "bind the pre-seal head 7f06517; the exact-head re-run returns PASS with added_lines 12550",
+    "deterministic_rechecks_at_exact_head": "PASS: plan validator with pinned SpecGrain, 7 plan negative tests, 29 lock contract tests, Diffcipline R2 proof",
+    "pull_request_state": "OPEN, unmerged, no approvals, no review threads"
+  },
+  "timestamp_utc": "2026-09-21T18:12:31Z",
+  "tool": {
+    "cli": "jev 0.3.2",
+    "model": "jev-1.13.0",
+    "provider": "typesafe"
+  },
+  "resulting_deterministic_action": "G0-01 may not advance to VERIFIED. The missing accepted-head item and the stale aggregate counts in the sealed Diffcipline record are recorded forward-only, and the exact-head deterministic re-run is captured in evidence/g0-01/reverification.json. This decision does not replace any review.",
+  "raw_response": {
+    "model": "jev-1.13.0",
+    "id": null,
+    "provider": "typesafe",
+    "answer": {
+      "type": "choice",
+      "choice": "incomplete",
+      "confidence": 0.98,
+      "probabilities": {
+        "complete": 0.0,
+        "incomplete": 0.98,
+        "contradictory": 0.02,
+        "other": 0.0
+      }
+    },
+    "usage": {"input_tokens": 739, "output_tokens": 52}
+  }
+}

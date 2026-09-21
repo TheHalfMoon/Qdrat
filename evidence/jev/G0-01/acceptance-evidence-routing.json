@@ -1,0 +1,47 @@
+{
+  "schema": "qdrat.jev-decision/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "checkpoint": "H - review routing for the acceptance-evidence change",
+  "decision_type": "choice",
+  "question": "Which review routing does this evidence-only change require?",
+  "allowed_values": ["auto_continue", "independent_review", "specialist_review", "other"],
+  "selected_value": "auto_continue",
+  "confidence": 0.52,
+  "probabilities": {
+    "auto_continue": 0.65,
+    "independent_review": 0.33,
+    "specialist_review": 0.0,
+    "other": 0.02
+  },
+  "input_evidence": {
+    "change": "append-only acceptance-state and reverification evidence under evidence/, plus a bounded R1 Diffcipline task policy",
+    "runtime_effect": "none; no product code, dependency manifest, lock file, migration, secret or pipeline file is touched",
+    "declared_risk_class": "R1",
+    "canonical_review_rule": "R2/R3 require independent exact-revision review; the repository review decisions cover dependency manifests, lock files and untracked files"
+  },
+  "timestamp_utc": "2026-09-21T18:12:31Z",
+  "tool": {
+    "cli": "jev 0.3.2",
+    "model": "jev-1.13.0",
+    "provider": "typesafe"
+  },
+  "resulting_deterministic_action": "Proceed on the deterministic proof only. The decision confidence is 0.52, below the threshold for treating it as a mandate, and the bounded R1 change satisfies its Diffcipline profile. Independent review remains mandatory for any later R2/R3 change and is not downgraded by this decision.",
+  "raw_response": {
+    "model": "jev-1.13.0",
+    "id": null,
+    "provider": "typesafe",
+    "answer": {
+      "type": "choice",
+      "choice": "auto_continue",
+      "confidence": 0.52,
+      "probabilities": {
+        "auto_continue": 0.65,
+        "independent_review": 0.33,
+        "specialist_review": 0.0,
+        "other": 0.02
+      }
+    },
+    "usage": {"input_tokens": 535, "output_tokens": 52}
+  }
+}

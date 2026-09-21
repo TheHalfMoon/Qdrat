@@ -1,0 +1,27 @@
+version = 1
+
+# Task-specific Diffcipline policy for the bounded G0-01 acceptance change:
+# the founder execution-acceptance receipt, the accepted-head evidence item, the
+# execution-acceptance reverification, and the cumulative exact-range proof.
+#
+# Immutable base: e6b4e339fc38e5ff4584ca04b38cf02a0c1dbe2b (the acceptance
+# branch after the repaired G0-01 head was merged forward into it).
+# Risk: R1. Machine evidence and this policy file only: no product code, no
+# dependency manifest, no lock file, no migration, no secret and no pipeline
+# file is touched, so runtime behaviour cannot change.
+# Recovery: revert this bounded commit. The accepted head it names is a separate
+# revision and is unaffected.
+
+[policy]
+max_changed_files = 16
+max_added_lines = 4000
+expected_files = [".diffcipline/tasks/G0-01-accepted-head.toml", "evidence/**"]
+# Diffcipline's policy parser reads one `key = [...]` per line; every array below
+# must stay on a single line.
+forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile", "requirements/**", "docs/qdrat/plan/**"]
+
+[verification]
+# Evidence-only change, but the seal must not be able to certify an acceptance
+# whose own artifacts stopped reconciling, so the lock and contract checks run
+# here too.
+r1_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py", "python -m unittest discover -s requirements/tests -p test_*.py", "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip"]

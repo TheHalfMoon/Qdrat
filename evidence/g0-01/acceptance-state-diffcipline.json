@@ -1,0 +1,33 @@
+{
+  "schema": "qdrat.diffcipline-record/v1",
+  "task": "G0-01",
+  "scope": "Bounded acceptance-state change: append-only evidence plus its Diffcipline task policy.",
+  "immutable_base": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+  "risk": "R1",
+  "policy": ".diffcipline/tasks/G0-01-acceptance-state.toml",
+  "tool_sha256": "5fee721d3837ab86f2c36003d02ca67ebac793ff8dadcdb3b7eea074690e57a8",
+  "attempts": [
+    {
+      "attempt": 1,
+      "command": "diffcipline check --base ca5ceb361798ff8ba78a8ac86c47de0bc440058e --risk R1 --enterprise-policy .diffcipline/tasks/G0-01-acceptance-state.toml --run --json",
+      "exit_code": 1,
+      "verdict": "REVIEW",
+      "reason": "untracked files remain: evidence/g0-01/acceptance-state-diffcipline.log",
+      "explanation": "The raw stdout of the gate was being captured into the repository at the same time as the gate ran, so the capture file itself was an untracked path when the policy was evaluated. The repository review decision untracked_files = review therefore returned REVIEW, exactly as configured.",
+      "disposition": "Preserved. The capture file was moved out of the repository (kept at %TEMP%/g0-01-acceptance-diffcipline-attempt-1-review.log) rather than deleted, and attempt 2 was run against the clean worktree. The policy was not weakened and the ceiling was not raised to make attempt 1 pass.",
+      "raw_proof": "{\"schema\":\"diffcipline.proof/v1\",\"schema_version\":\"1.0\",\"policy\":{\"mode\":\"enterprise\",\"sources\":[\".diffcipline/tasks/G0-01-acceptance-state.toml\",\".diffcipline.toml\"]},\"verdict\":\"REVIEW\",\"base\":\"ca5ceb361798ff8ba78a8ac86c47de0bc440058e\",\"changed_files\":7,\"added_lines\":456,\"deleted_lines\":0,\"reasons\":[\"untracked files remain: evidence/g0-01/acceptance-state-diffcipline.log\"],\"risk\":\"R1\",\"scope_violations\":[],\"verification\":[{\"command\":\"python docs/qdrat/plan/validate_plan.py\",\"state\":\"PASS\"},{\"command\":\"python docs/qdrat/plan/test_validate_plan.py\",\"state\":\"PASS\"}]}"
+    },
+    {
+      "attempt": 2,
+      "command": "diffcipline check --base ca5ceb361798ff8ba78a8ac86c47de0bc440058e --risk R1 --enterprise-policy .diffcipline/tasks/G0-01-acceptance-state.toml --run --json",
+      "exit_code": 0,
+      "verdict": "PASS",
+      "bound_revision": "783a2ebdd749e44053380dafa32dd0cdac00daa5",
+      "bound_revision_tree": "0c6ec5cf60f58fc4613f0ae7728f879d770b4f4f",
+      "bound_revision_note": "The evidence commit this proof was produced against; the record you are reading is its evidence-only descendant.",
+      "observed": "changed_files 7; added_lines 456; deleted_lines 0; reasons empty; scope_violations empty; two verification commands PASS",
+      "raw_proof": "{\"schema\":\"diffcipline.proof/v1\",\"schema_version\":\"1.0\",\"policy\":{\"mode\":\"enterprise\",\"sources\":[\".diffcipline/tasks/G0-01-acceptance-state.toml\",\".diffcipline.toml\"]},\"verdict\":\"PASS\",\"base\":\"ca5ceb361798ff8ba78a8ac86c47de0bc440058e\",\"changed_files\":7,\"added_lines\":456,\"deleted_lines\":0,\"files\":[\".diffcipline/tasks/G0-01-acceptance-state.toml\",\"evidence/g0-01/README.md\",\"evidence/g0-01/acceptance-state.json\",\"evidence/g0-01/reverification.json\",\"evidence/jev/G0-01/acceptance-evidence-routing.json\",\"evidence/jev/G0-01/blocker-classification.json\",\"evidence/jev/G0-01/evidence-completeness-at-head.json\"],\"reasons\":[],\"risk\":\"R1\",\"expected_files\":[\".diffcipline/tasks/G0-01-acceptance-state.toml\",\"evidence/**\"],\"forbidden_surfaces\":[\".github/workflows/**\",\"horilla/**\",\"base/**\",\"requirements.txt\",\"Dockerfile\",\"requirements/**\",\"docs/qdrat/plan/**\"],\"scope_violations\":[],\"verification\":[{\"command\":\"python docs/qdrat/plan/validate_plan.py\",\"state\":\"PASS\"},{\"command\":\"python docs/qdrat/plan/test_validate_plan.py\",\"state\":\"PASS\"}]}"
+    }
+  ],
+  "binding_note": "The PASS proof was produced against the evidence commit listed in bound_revision. This record is added afterwards and changes evidence text only, so under chapter 41 it does not invalidate that proof; the same evidence-only-descendant pattern is recorded as RV-01/RV-02 for the sealed G0-01 revision, where the sealed proof counts described the previous revision without saying so. Here the binding is stated explicitly instead."
+}

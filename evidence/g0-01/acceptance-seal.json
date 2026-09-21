@@ -1,0 +1,35 @@
+{
+  "schema": "qdrat.acceptance-seal/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "sealed_at_utc": "2026-09-21T19:27:00Z",
+  "binds": {
+    "acceptance_commit": "2d4abc05c4a80e5d9b7a629bac52ed021d8279bb",
+    "branch": "codex/g0-01-acceptance-state",
+    "pull_request": 4,
+    "base_for_the_seal_proof": "e6b4e339fc38e5ff4584ca04b38cf02a0c1dbe2b",
+    "accepted_execution_predecessor": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+    "accepted_head": "b4531988f4a32143407c5aa2de4d7090d33e4930"
+  },
+  "why": "evidence/g0-01/accepted-head.json says the accepted head is the revision the receipts bind. This record names the commit that actually carries them, because that commit could not name itself.",
+  "proof": {
+    "record": "evidence/g0-01/accepted-head-diffcipline-seal.json",
+    "verdict": "PASS",
+    "changed_files": 8,
+    "added_lines": 498,
+    "deleted_lines": 3,
+    "scope_violations": [],
+    "verification_commands": "four, all PASS",
+    "captured_stdout": [
+      "{\"schema\": \"qdrat.plan-validation/v1\", \"status\": \"PASS\", \"product_tests\": \"NOT_RUN\", \"tasks\": 96, \"nodes\": 96, \"gates\": 13, \"specgrain\": {\"status\": \"NOT_RUN\"}}",
+      ".......",
+      "Ran 7 tests in 2.743s",
+      "OK",
+      ".................................",
+      "Ran 33 tests in 0.897s",
+      "OK",
+      "{\"target\": \"linux-amd64-py312\", \"distributions\": 149, \"installed\": 150, \"excluded_tool_distributions\": [\"pip\"], \"verified_artifacts\": 0, \"verified_bootstrap_artifacts\": 0, \"verified_listing_entries\": 149, \"lock_digest\": \"6e50df341d9ca2547aecea841942b15ab6ea76664de324fd840885fb6ce3ab2b\", \"status\": \"PASS\"}"
+    ]
+  },
+  "notice": "This seal certifies that the acceptance records were produced and gated at an exact revision. It is not a merge, a release, a gate closure or an independent review."
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "qdrat.jev-decision/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "checkpoint": "H - classification of the founder authorization that removes the acceptance boundary",
+  "decision_type": "choice",
+  "question": "What does the founder message authorize at revision ca5ceb361798ff8ba78a8ac86c47de0bc440058e?",
+  "allowed_values": [
+    "explicit_execution_predecessor_acceptance",
+    "ambiguous_authorization",
+    "routine_continuation_only",
+    "other"
+  ],
+  "selected_value": "explicit_execution_predecessor_acceptance",
+  "confidence": 1.0,
+  "probabilities": {
+    "ambiguous_authorization": 0.0,
+    "routine_continuation_only": 0.0,
+    "other": 0.0,
+    "explicit_execution_predecessor_acceptance": 1.0
+  },
+  "input_evidence": {
+    "named_revision": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+    "named_successor": "G0-02 / SG-000002",
+    "quotations_supplied_to_the_model": [
+      "This message is explicit founder authorization to continue execution.",
+      "For execution dependency purposes, I explicitly accept the implementation revision: ca5ceb361798ff8ba78a8ac86c47de0bc440058e as the accepted predecessor for: G0-02 / SG-000002 provided live re-verification confirms that this exact revision still matches the independently verified G0-01 implementation and that no later material change invalidated its evidence.",
+      "This authorization allows G0-02 and its descendants to be developed as stacked work even if PR #3 remains open/unmerged.",
+      "This authorization: does not falsely mark PR #3 as merged; does not claim GitHub branch protection was satisfied when it was not; does not convert missing CI into PASS; does not remove exact-revision evidence requirements.",
+      "It only removes the previous BLOCKED_PENDING_OWNER_ACCEPTANCE execution boundary.",
+      "Record this as: FOUNDER_ACCEPTED_EXECUTION_PREDECESSOR for ca5ceb361798ff8ba78a8ac86c47de0bc440058e.",
+      "Preserve the distinction between: accepted execution predecessor; merged PR; released code; gate closure."
+    ],
+    "live_state_at_classification": "PR #3 OPEN, mergeable CLEAN, mergedAt null, zero approvals; PR #2 and PR #1 open; ca5ceb3 present with tree 0dcc5fc5d851a37bcbbc4644b99608dd73e5db51"
+  },
+  "timestamp_utc": "2026-09-21T18:49:44Z",
+  "tool": {
+    "cli": "jev 0.3.2",
+    "model": "jev-1.13.0",
+    "provider": "typesafe"
+  },
+  "resulting_deterministic_action": "Record FOUNDER_ACCEPTED_EXECUTION_PREDECESSOR for ca5ceb3 and produce the missing accepted-head evidence item. Jev classified the authorization text only: it did not decide whether the predecessor's evidence reproduces, did not approve anything itself, and did not authorise a merge claim. The condition the authorization attaches to itself - live re-verification that no material change invalidated the evidence - is evaluated deterministically in evidence/g0-01/execution-acceptance-reverification.json and in evidence/g0-01/accepted-head.json.",
+  "raw_response": {
+    "model": "jev-1.13.0",
+    "id": null,
+    "provider": "typesafe",
+    "answer": {
+      "type": "choice",
+      "choice": "explicit_execution_predecessor_acceptance",
+      "confidence": 1.0,
+      "probabilities": {
+        "explicit_execution_predecessor_acceptance": 1.0,
+        "ambiguous_authorization": 0.0,
+        "routine_continuation_only": 0.0,
+        "other": 0.0
+      }
+    },
+    "usage": {
+      "input_tokens": 979,
+      "output_tokens": 71
+    }
+  }
+}

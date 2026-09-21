@@ -165,3 +165,83 @@ cannot inherit partial state. Reverting this change deletes `requirements/locks/
   digest came out identical (`lock.sha256` `e951f4c1...`, artifact inventory
   `ffef04fc...`, resolution `c85f76b7...`). That is a positive result, not a
   claim that an arbitrary future date would resolve the same versions.
+
+## Reverification at the exact head and the acceptance state
+
+The sealed work was reverified against the live remote and the exact head before
+any successor task was considered. Head
+`ca5ceb361798ff8ba78a8ac86c47de0bc440058e` (tree
+`0dcc5fc5d851a37bcbbc4644b99608dd73e5db51`) equals the remote branch object, the
+worktree was clean, and neither the plan pull request nor its foundation base had
+moved.
+
+Every deterministic check in this directory reproduces at that head: the plan
+validator with the pinned SpecGrain checkout, its seven negative tests, the 29
+lock contract tests, the Diffcipline R2 proof and the lock/artifact/listing
+reconciliation. The digests recorded above (`e951f4c1...`, `ffef04fc...`,
+`c85f76b7...`) recompute byte for byte.
+
+Four things did not reproduce cleanly and are recorded rather than smoothed over:
+
+* The aggregate counts inside `diffcipline.json` describe the previous revision,
+  not the sealed one: it records 12,390 added lines, which is exactly the total at
+  `7f06517`, while the sealed head totals 12,550 for the same 40 files. The verdict
+  and the scope result do reproduce at the sealed head.
+* The independent review is bound to `7f06517`. The one later commit changes
+  evidence files only, so it is treated as an evidence-only descendant under
+  chapter 41 rather than as an invalidating change. No fresh review round could be
+  executed for it in this session because no model-endpoint credential was
+  available.
+* The required `accepted-head` evidence item does not exist yet, and it cannot
+  honestly be produced before the revision is accepted. See `acceptance-state.json`.
+  (Superseded later in this file: acceptance was granted, and `accepted-head.json`
+  now exists.)
+* The pull request still has no CI: the inherited workflows trigger only on
+  `dev/v2.0` and `2.0`, and both third-party reviewers either skipped or reported
+  that reviews are disabled for this base branch.
+
+`reverification.json` holds the machine record, `acceptance-state.json` holds the
+per-item evidence status and the exact unlock conditions, and the new files under
+`evidence/jev/G0-01/` hold the typed decisions taken at this checkpoint.
+
+## Founder execution acceptance, the repair it required, and the accepted head
+
+The repository owner then granted explicit execution acceptance, recorded verbatim
+and classified by Jev in `evidence/jev/G0-01/execution-predecessor-acceptance.json`
+and `evidence/g0-01/founder-execution-acceptance.json`. It accepts
+`ca5ceb361798ff8ba78a8ac86c47de0bc440058e` as the execution predecessor for
+`G0-02 / SG-000002`, permits that successor to be developed as stacked work while
+PR #3 stays open, and removes the previous `BLOCKED_PENDING_OWNER_ACCEPTANCE`
+boundary - on one stated condition: live re-verification that the named revision
+still matches the independently verified implementation and that no later change
+invalidated its evidence.
+
+That condition is what forced the first clean-checkout run of this task's own
+gates, and that run failed. From a detached worktree at the named revision,
+`test_lock_file_hash_matches_the_inventory` expected `e951f4c1...` and observed
+`6e50df34...`, and the R2 gate over the whole change returned FAIL with "verification
+failed: python -m unittest discover -s requirements/tests -p test_*.py". The cause
+was not the resolution: the lock recorded its own digest over the generating
+Windows working copy (CRLF) while `.gitattributes` pins `*.txt` to LF, so the record
+described a machine rather than the committed artifact. `lock-digest-repair.json`
+holds the reproduction, the mechanism, the blast radius and the repair;
+`lock-digest-repair-verification.json` proves the repaired record from a clean
+checkout, and `lock-digest-repair-diffcipline.json` proves the repair itself.
+
+The repaired revision was then reviewed as a packet in its own right, its own
+packet bound was reconciled on the record because the cumulative range exceeds the
+sealed 40-file ceiling, and the cumulative gate was re-run. The accepted head is
+`b4531988f4a32143407c5aa2de4d7090d33e4930`, where
+`accepted-head-diffcipline.json` records verdict PASS over
+`144935cd..b4531988f` with 46 files and all four verification commands green.
+`execution-acceptance-reverification.json` holds both sides of that comparison:
+every failing check at the named revision, preserved, and every passing check at
+the accepted head.
+
+`accepted-head.json` is the sixth required evidence item. What it does **not** claim
+matters as much as what it does: PR #3 is still open and unmerged, nothing is
+released, G0 is still open and `evidence/gates/G0.json` does not exist, no CI
+validates this branch, and the repair delta `ca5ceb3..b4531988f` has **no independent
+review** - the last completed review is bound to `7f06517`, and Open Code Review
+could not run here because no LLM endpoint credential exists in this environment.
+Under chapter 41 that is ABSTAIN/UNAVAILABLE, which is not approval.

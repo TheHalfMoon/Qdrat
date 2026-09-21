@@ -1,0 +1,52 @@
+{
+  "schema": "qdrat.jev-decision/v1",
+  "task": "G0-01",
+  "grain_id": "SG-000001",
+  "checkpoint": "G - blocker classification at the frontier",
+  "decision_type": "choice",
+  "question": "What is the binding nature of the remaining obstacle that prevents executing the dependency-satisfied successor task G0-02?",
+  "allowed_values": ["engineering_obstacle", "governance_acceptance_boundary", "external_infrastructure", "other"],
+  "selected_value": "governance_acceptance_boundary",
+  "confidence": 0.99,
+  "probabilities": {
+    "engineering_obstacle": 0.0,
+    "governance_acceptance_boundary": 0.99,
+    "external_infrastructure": 0.0,
+    "other": 0.01
+  },
+  "input_evidence": {
+    "repository": "TheHalfMoon/Qdrat",
+    "pull_request": 3,
+    "pull_request_state": "OPEN, unmerged, not draft, no approvals, no open review threads",
+    "branch_protection": "none; no rulesets",
+    "canonical_dependency_rule": "EXECUTION_GRAPH.yaml semantics require independently verified exact-revision receipts; the handoff states that G0-02 unlocks only after independently accepted exact-revision evidence",
+    "independent_review_binding": "7f06517855572720867d13bbd113612894109b46, with ca5ceb3 as an evidence-only descendant",
+    "missing_receipt": "accepted-head",
+    "deterministic_checks_at_head": "PASS",
+    "known_engineering_blockers": "none"
+  },
+  "timestamp_utc": "2026-09-21T18:12:31Z",
+  "tool": {
+    "cli": "jev 0.3.2",
+    "model": "jev-1.13.0",
+    "provider": "typesafe"
+  },
+  "resulting_deterministic_action": "Report the frontier as BLOCKED_PENDING_OWNER_ACCEPTANCE with the exact revision, the evidence state and the unlock conditions; do not claim MERGED, ACCEPTED or a gate receipt. Jev classified the obstacle and did not authorize any successor work.",
+  "raw_response": {
+    "model": "jev-1.13.0",
+    "id": null,
+    "provider": "typesafe",
+    "answer": {
+      "type": "choice",
+      "choice": "governance_acceptance_boundary",
+      "confidence": 0.99,
+      "probabilities": {
+        "engineering_obstacle": 0.0,
+        "external_infrastructure": 0.0,
+        "governance_acceptance_boundary": 0.99,
+        "other": 0.01
+      }
+    },
+    "usage": {"input_tokens": 611, "output_tokens": 64}
+  }
+}
