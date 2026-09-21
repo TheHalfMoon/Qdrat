@@ -2,7 +2,6 @@
   "schema": "qdrat.independent-review/v1",
   "task": "G0-01",
   "grain_id": "SG-000001",
-  "round": 1,
   "reviewer": {
     "tool": "Alibaba Open Code Review",
     "repository": "alibaba/open-code-review",
@@ -11,24 +10,226 @@
     "binary_sha256": "150812b67201e5a5fffc4acdd05a468b0737a10606ae109f0ba08541c1bc4a18",
     "binary_sha256_source": "published sha256sum.txt of release v1.12.8 (matched)",
     "model": "deepseek-v4-pro",
-    "model_protocol": "openai chat completions against api.deepseek.com; credential supplied through environment variables only and never recorded",
-    "session_id": "aaf4bccb-3b3e-4031-ab5e-f9bb60020eff"
+    "model_protocol": "openai chat completions against api.deepseek.com; the credential is supplied through environment variables only, is never written to the repository, and was checked for leakage in each run log",
+    "relation_to_author": "separate process, separate context and a different model than the one that authored the change"
   },
-  "binding": {
-    "base": "144935cd6bb64d3448ec3927fa7d1569bee93ca0",
-    "reviewed_head": "0115aefbea99a7869929611deb16cd66dc43317e",
-    "reviewed_head_note": "This head is the Diffcipline PASS seal commit for the change as first proposed, that is before the review response below.",
-    "diff_command": "opencodereview-windows-amd64.exe review --from 144935cd6bb64d3448ec3927fa7d1569bee93ca0 --to HEAD --format json"
-  },
-  "coverage": {
-    "files_in_diff": 26,
-    "files_reviewed": 19,
-    "comments": 5,
-    "elapsed": "12m54s",
-    "input_tokens": 1258294,
-    "output_tokens": 104862,
-    "tool_calls": 47,
-    "tool_call_failures": 0,
+  "base": "144935cd6bb64d3448ec3927fa7d1569bee93ca0",
+  "rounds": [
+    {
+      "round": 1,
+      "scope": "full change 144935c..0115aef",
+      "to": "0115aefbea99a7869929611deb16cd66dc43317e",
+      "session_id": "aaf4bccb-3b3e-4031-ab5e-f9bb60020eff",
+      "files_in_diff": 26,
+      "files_reviewed": 19,
+      "elapsed": "12m54s",
+      "input_tokens": 1258294,
+      "output_tokens": 104862,
+      "tool_calls": 47,
+      "tool_call_failures": 0,
+      "findings": [
+        {
+          "id": "OCR-1-01",
+          "severity": "medium",
+          "category": "security",
+          "path": ".diffcipline.toml",
+          "start_line": 25,
+          "end_line": 25,
+          "existing_code": "expected_files = []",
+          "suggested_code": "expected_files = []",
+          "finding": "Setting the repository-level `expected_files` to an empty list removes the default scope contract for every change in this repo, not just G0-01. The residual risk is real: any change that arrives without a task-specific policy under `.diffcipline/tasks/<task-id>.toml` is now bounded only by `forbidden_surfaces` and the line/file ceilings, so unexpected product or plan files could slip through unplanned. This is acknowledged in evidence/g0-01/reconciliation.md, but it is still a global reduction in the guardrail. Consider keeping a minimal fallback contract (or enforcing that a task policy is mandatory via an org-controlled path) so changes without an explicit scope still fail closed.",
+          "disposition": "partially_mitigated"
+        },
+        {
+          "id": "OCR-1-02",
+          "severity": "medium",
+          "category": "bug",
+          "path": "requirements/tools/prove-offline.sh",
+          "start_line": 48,
+          "end_line": 49,
+          "existing_code": "\"$venv/bin/python\" -m pip install \"$@\" --require-hashes -r \"$lock\" \\\n    > \"$work/install.log\" 2>&1",
+          "suggested_code": null,
+          "finding": "The offline proof runs with `--require-hashes`, but the `wheel` build backend is only supplied as an un-hashed bootstrap wheel via the extra `--find-links \"$bootstrap_dir\"` — it never appears as a hashed line in `requirements/locks/linux-amd64-py312.txt` (only `setuptools==84.0.0` is pinned there). Installing the two sdist artifacts from the wheelhouse (`pyzk==0.9`, `svglib==1.5.1`) requires building them, and pip's hash-checking mode applies to build dependencies, so pip will refuse to install `wheel` without a hash and the proof fails. Add a hashed `wheel==0.47.0 --hash=sha256:212281cab4dff978f6cedd499cd893e1f620791ca6ff7107cf270781e587eced` entry to the lock (or pre-install setuptools+wheel with hashes into the venv and use `--no-build-isolation`).",
+          "disposition": "false_positive_with_hardening"
+        },
+        {
+          "id": "OCR-1-03",
+          "severity": "low",
+          "category": "maintainability",
+          "path": "requirements/tools/acquire.sh",
+          "start_line": 23,
+          "end_line": 24,
+          "existing_code": "rm -rf \"$run_dir\"\nmkdir -p \"$wheelhouse\"",
+          "suggested_code": "[ -n \"$run_dir\" ] && [ \"$run_dir\" != \"/\" ] || { echo \"refusing unsafe run_dir\" >&2; exit 2; }\nrm -rf \"$run_dir\"\nmkdir -p \"$wheelhouse\"",
+          "finding": "`rm -rf \"$run_dir\"` deletes a caller-supplied path with no guard. A mis-supplied value (empty string, `/`, or an unintended mount point) would recursively delete arbitrary data inside the builder image. Consider validating that `run_dir` is a non-empty, dedicated subdirectory under a known work root before the destructive cleanup.",
+          "disposition": "fixed"
+        },
+        {
+          "id": "OCR-1-04",
+          "severity": "low",
+          "category": "maintainability",
+          "path": "requirements/tools/prove-offline.sh",
+          "start_line": 62,
+          "end_line": 63,
+          "existing_code": "cp \"$work/install.log\" \"$work/pip-check.log\" \"$work/installed.json\" \\\n    \"$work/licenses.json\" \"$work/verify.log\" \"$proof_dir/\"",
+          "suggested_code": null,
+          "finding": "With `set -e` active and no error trap, a failure in `python -m venv`, the `pip install`, `pip check`, `license-inventory`, or `verify` step exits the script before this final `cp`, leaving `proof_dir` empty — exactly the case where these logs are needed to diagnose the failure. Consider copying the logs in a `trap ... EXIT` handler (or at least preserving `install.log` even when a later step fails).",
+          "disposition": "fixed"
+        },
+        {
+          "id": "OCR-1-05",
+          "severity": "low",
+          "category": "maintainability",
+          "path": "requirements/tools/lockfile.py",
+          "start_line": 330,
+          "end_line": 333,
+          "existing_code": "def parse_lock(path: Path) -> dict[str, tuple[str, list[str]]]:\n    \"\"\"Parse the locked distribution set, refusing anything unpinned or unhashed.\"\"\"\n    requirements: dict[str, tuple[str, list[str]]] = {}\n    for number, raw in enumerate(path.read_text(encoding=\"utf-8\").splitlines(), start=1):",
+          "suggested_code": "def parse_lock(path: Path) -> dict[str, tuple[str, list[str]]]:\n    \"\"\"Parse the locked distribution set, refusing anything unpinned or unhashed.\"\"\"\n    try:\n        text = path.read_text(encoding=\"utf-8\")\n    except FileNotFoundError as exc:\n        raise ToolError(f\"missing required input: {path}\") from exc\n    requirements: dict[str, tuple[str, list[str]]] = {}\n    for number, raw in enumerate(text.splitlines(), start=1):",
+          "finding": "`parse_lock()` reads the lock with `path.read_text()` directly, and `cmd_verify()` builds the inventory via `item[\"name\"]`/`item[\"version\"]` without checking each installed entry is a dict with those keys. A missing lock file raises `FileNotFoundError`, and a malformed `installed.json` raises `KeyError`/`TypeError`; `main()` only catches `ToolError`, so these inputs produce a raw traceback instead of the `lockfile:` diagnostic used everywhere else in this module. Consider converting these failures to `ToolError` (as `read_json()` already does).",
+          "disposition": "fixed"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "scope": "full change 144935c..8f630e2",
+      "to": "8f630e2333c2bb0eea2c03a5e9eb961c7865f9ca",
+      "session_id": "f0aaae34-779a-4ffb-885f-2c0f96507ccb",
+      "files_in_diff": 26,
+      "files_reviewed": 20,
+      "elapsed": "12m30s",
+      "input_tokens": 1446435,
+      "output_tokens": 119164,
+      "tool_calls": 48,
+      "tool_call_failures": 0,
+      "findings": [
+        {
+          "id": "OCR-2-01",
+          "severity": "medium",
+          "category": "maintainability",
+          "path": ".diffcipline.toml",
+          "start_line": 43,
+          "end_line": 43,
+          "existing_code": "forbidden_surfaces = [\".github/workflows/**\", \"horilla/**\", \"base/**\", \"requirements.txt\", \"Dockerfile\", \"docs/qdrat/plan/**\"]",
+          "suggested_code": null,
+          "finding": "Adding `docs/qdrat/plan/**` to the repository-level `forbidden_surfaces` makes the earlier claim that \"the plan-only contract ... is unchanged in docs/qdrat/plan/plan-policy.toml\" misleading. `plan-policy.toml` still declares `expected_files = [\"docs/qdrat/plan/**\", ...]`, but because repository-level forbidden surfaces are enforced in addition to any task policy (as the comment states), every planning change that edits `docs/qdrat/plan/**` will now be rejected before its own policy applies. The retained `[verification] r1_commands` also point at this now-sealed surface. If sealing the plan is intended, consider reflecting that in `plan-policy.toml` (or documenting where the explicit reconciliation path is expressed) so the two policies don't contradict each other.",
+          "disposition": "accepted_with_correction"
+        },
+        {
+          "id": "OCR-2-02",
+          "severity": "low",
+          "category": "maintainability",
+          "path": ".diffcipline/tasks/G0-01.toml",
+          "start_line": 28,
+          "end_line": 28,
+          "existing_code": "r2_commands = [\"python docs/qdrat/plan/validate_plan.py\", \"python docs/qdrat/plan/test_validate_plan.py\", \"python -m unittest discover -s requirements/tests -p test_*.py\", \"python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --tool-distribution pip\"]",
+          "suggested_code": null,
+          "finding": "The unittest pattern `-p test_*.py` is unquoted. If Diffcipline executes this through a shell and any file matching `test_*.py` ever appears in the working directory, the shell will expand the glob before unittest receives it, breaking discovery. Elsewhere in the repo this pattern is quoted (`-p \"test_*.py\"` in requirements/README.md and evidence/g0-01/README.md). Quote it here as well for consistency, after confirming the executor's shell behavior.",
+          "disposition": "fixed"
+        },
+        {
+          "id": "OCR-2-03",
+          "severity": "high",
+          "category": "security",
+          "path": "requirements/tools/acquire.sh",
+          "start_line": 30,
+          "end_line": 35,
+          "existing_code": "if [ \"$run_dir\" = \"/\" ]; then\n    echo \"acquire: refusing to use / as run_dir\" >&2\n    exit 2\nfi\n\nrm -rf \"$run_dir\"",
+          "suggested_code": "if [ \"$(readlink -f -- \"$run_dir\" 2>/dev/null || echo /)\" = \"/\" ]; then\n    echo \"acquire: refusing to use / as run_dir\" >&2\n    exit 2\nfi\n\nrm -rf \"$run_dir\"",
+          "finding": "The run-dir guard rejects only non-absolute paths and the literal `/`. Equivalent root paths still pass: `//` (which the kernel treats as `/`), `/tmp/..`, `/.`, or `/work/../..`. After passing the `/*` case, `rm -rf \"$run_dir\"` would then recursively delete `/`, including the bind-mounted `/repo` and `/work`. Normalize the path (or reject `..` components and doubled slashes) before deleting, so the documented safety boundary actually holds.",
+          "disposition": "fixed"
+        },
+        {
+          "id": "OCR-2-04",
+          "severity": "medium",
+          "category": "security",
+          "path": "requirements/tools/lockfile.py",
+          "start_line": 438,
+          "end_line": 439,
+          "existing_code": "        for item in artifacts[\"distributions\"]:\n            artifact = wheelhouse / item[\"filename\"]",
+          "suggested_code": "        wheelhouse_root = wheelhouse.resolve()\n        for item in artifacts[\"distributions\"]:\n            artifact = (wheelhouse / item[\"filename\"]).resolve()\n            if wheelhouse_root not in artifact.parents:\n                raise ToolError(f\"artifact filename escapes the wheelhouse: {item['filename']}\")",
+          "finding": "`artifact_filename()` takes the URL path basename before `unquote`, so an encoded traversal like `..%2fsecret` decodes to `../secret`. `cmd_verify()` then joins it directly onto the wheelhouse (`wheelhouse / item[\"filename\"]`) with no containment check, so a crafted inventory entry can make verification resolve and hash a file outside the wheelhouse (and leak its sha256 via the mismatch error). Add a containment check before hashing each artifact.",
+          "disposition": "fixed"
+        },
+        {
+          "id": "OCR-2-05",
+          "severity": "low",
+          "category": "bug",
+          "path": "requirements/tools/lockfile.py",
+          "start_line": 239,
+          "end_line": 241,
+          "existing_code": "    first = _resolution_distributions(Path(args.resolution_a), args.target)\n    second = _resolution_distributions(Path(args.resolution_b), args.target)\n    if first != second:",
+          "suggested_code": "    first = _resolution_distributions(Path(args.resolution_a), args.target)\n    second = _resolution_distributions(Path(args.resolution_b), args.target)\n    if first != second:",
+          "finding": "`cmd_build()` compares the two resolutions by whole-list equality but does not re-validate that `normalized_name` values are unique (or that required fields exist) in the winning document. `cmd_resolve()` enforces uniqueness, but `_resolution_distributions()` accepts any schema-valid file. If both inputs contain identical duplicate-named entries, `first == second` passes and duplicates are emitted into both the lock (which `parse_lock()` then rejects) and the inventory (where `cmd_verify()`'s dict comprehension silently collapses them last-wins). Re-validate uniqueness before rendering, so build fails cleanly instead of producing a lock/inventory pair that its own verify step cannot reconcile.",
+          "disposition": "fixed"
+        },
+        {
+          "id": "OCR-2-06",
+          "severity": "low",
+          "category": "security",
+          "path": ".diffcipline/tasks/G0-01.toml",
+          "start_line": 28,
+          "end_line": 28,
+          "existing_code": "r2_commands = [\"python docs/qdrat/plan/validate_plan.py\", \"python docs/qdrat/plan/test_validate_plan.py\", \"python -m unittest discover -s requirements/tests -p test_*.py\", \"python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --tool-distribution pip\"]",
+          "suggested_code": null,
+          "finding": "The `lockfile.py verify` step omits `--wheelhouse` (and `--bootstrap-dir`), so this reproducible R2 gate reports `verified_artifacts: 0` (see evidence/g0-01/diffcipline-run.log). `cmd_verify` only re-hashes artifacts when `--wheelhouse` is supplied; without it the gate checks lock↔inventory↔installed consistency but never verifies a single artifact's bytes. For a dependency-freeze task, a consistently tampered sha256 in both the lock file and the artifacts JSON would still pass this gate, because the only byte-level check is the acquisition-time `--wheelhouse` run recorded in evidence but not reproducible from the committed policy. Consider documenting this limitation in the task policy, or adding `--wheelhouse`/`--bootstrap-dir` when the artifacts are available in the verification environment.",
+          "disposition": "fixed"
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "scope": "response delta 8f630e2..bd55d03",
+      "to": "bd55d03c769a90ef446c1e9e65a545745fb61c13",
+      "session_id": "1572f79f-cf29-44c1-913d-627ca8123068",
+      "files_reviewed": 4,
+      "elapsed": "12m27s",
+      "input_tokens": 296646,
+      "output_tokens": 44746,
+      "tool_calls": 26,
+      "tool_call_failures": 0,
+      "findings": [
+        {
+          "id": "OCR-3-01",
+          "severity": "critical",
+          "category": "bug",
+          "path": "requirements/tools/acquire.sh",
+          "start_line": 32,
+          "end_line": 33,
+          "existing_code": "case \"/$run_dir/\" in\n    *//* | */./* | */../* | */. | */..)",
+          "suggested_code": "case \"$run_dir/\" in\n    *//* | */./* | */../* | */. | */..)",
+          "finding": "`run_dir` is guaranteed to start with `/` by the preceding case block, so `\"/$run_dir/\"` always begins with `//` (e.g. `/work/thing` becomes `//work/thing/`). The `*//*` pattern therefore matches every absolute path, and the script rejects all valid inputs with the \"must be a canonical path\" error instead of proceeding. Append only a trailing slash so the root case (`/` -> `//`) is still caught while normal paths survive the check.",
+          "disposition": "fixed"
+        },
+        {
+          "id": "OCR-3-02",
+          "severity": "low",
+          "category": "bug",
+          "path": "requirements/tools/lockfile.py",
+          "start_line": 137,
+          "end_line": 137,
+          "existing_code": "        name = Path(unquote(name)).name",
+          "suggested_code": "        name = Path(name).name",
+          "finding": "Listing lines are raw filesystem names produced by `sha256sum ./*` (e.g. `./foo.whl`), not URLs, so applying `unquote` here double-decodes them. A wheel whose on-disk filename contains a literal percent-encoded-looking sequence (because the URL encoded the `%` as `%25`) would be decoded into a different name and then fail the comparison against `recorded`, which uses the raw `item[\"filename\"]`. Keep only `Path(name).name` to strip the `./` prefix.",
+          "disposition": "fixed"
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "scope": "response delta bd55d03..7f06517",
+      "to": "7f06517855572720867d13bbd113612894109b46",
+      "session_id": "e56fd54a-48bb-4b7f-b4c1-312ec5bf5a2c",
+      "files_reviewed": 2,
+      "elapsed": "1m16s",
+      "input_tokens": 55482,
+      "output_tokens": 6294,
+      "tool_calls": 6,
+      "tool_call_failures": 0,
+      "findings": []
+    }
+  ],
+  "coverage_limitation": {
     "excluded_by_ocr_default_rules": [
       "evidence/g0-01/README.md (unsupported_ext)",
       "evidence/g0-01/reconciliation.md (unsupported_ext)",
@@ -38,78 +239,12 @@
       "requirements/locks/linux-amd64-py312.txt (unsupported_ext)",
       "requirements/tests/test_lock_contract.py (default_path)"
     ],
-    "coverage_limitation": "OCR default path and extension rules excluded the frozen lock file and the contract test suite, the two artifacts most central to this task. The reviewing agent still read the lock and the artifact inventory during its own investigation (visible in the session tool-call trace), but they were not first-class review targets. Recorded as a limitation of this review and as input to follow-up QDRAT-REVIEW-RULES-LOCKFILES."
+    "note": "OCR default path and extension rules exclude the frozen lock file and the contract test suite, the two artifacts most central to this task. The reviewing agent read both during its own investigation, but that is not the same as reviewing them. Carried forward as QDRAT-REVIEW-RULES-LOCKFILES."
   },
-  "findings": [
-    {
-      "id": "OCR-1-01",
-      "severity": "medium",
-      "category": "security",
-      "path": ".diffcipline.toml",
-      "start_line": 25,
-      "end_line": 25,
-      "existing_code": "expected_files = []",
-      "suggested_code": "expected_files = []",
-      "finding": "Setting the repository-level `expected_files` to an empty list removes the default scope contract for every change in this repo, not just G0-01. The residual risk is real: any change that arrives without a task-specific policy under `.diffcipline/tasks/<task-id>.toml` is now bounded only by `forbidden_surfaces` and the line/file ceilings, so unexpected product or plan files could slip through unplanned. This is acknowledged in evidence/g0-01/reconciliation.md, but it is still a global reduction in the guardrail. Consider keeping a minimal fallback contract (or enforcing that a task policy is mandatory via an org-controlled path) so changes without an explicit scope still fail closed.",
-      "disposition": "partially_mitigated",
-      "response": "Applied the part that does not need an organisation-controlled path: docs/qdrat/plan/** is now a repository-level forbidden surface, so the sealed plan cannot be modified by any change, with or without a task policy. The recommended minimal fallback contract is not implementable here: Diffcipline enterprise layering is monotonic and a repository expected_files list is enforced in addition to the task policy, so any fallback would reject correctly-scoped implementation work exactly as the plan-only list did (observed: exit 64 then FAIL before review for the original list). The remaining residual risk is accepted and named as successor obligation QDRAT-GOV-TASK-POLICY-MANDATORY."
-    },
-    {
-      "id": "OCR-1-02",
-      "severity": "medium",
-      "category": "bug",
-      "path": "requirements/tools/prove-offline.sh",
-      "start_line": 48,
-      "end_line": 49,
-      "existing_code": "\"$venv/bin/python\" -m pip install \"$@\" --require-hashes -r \"$lock\" \\\n    > \"$work/install.log\" 2>&1",
-      "suggested_code": null,
-      "finding": "The offline proof runs with `--require-hashes`, but the `wheel` build backend is only supplied as an un-hashed bootstrap wheel via the extra `--find-links \"$bootstrap_dir\"` — it never appears as a hashed line in `requirements/locks/linux-amd64-py312.txt` (only `setuptools==84.0.0` is pinned there). Installing the two sdist artifacts from the wheelhouse (`pyzk==0.9`, `svglib==1.5.1`) requires building them, and pip's hash-checking mode applies to build dependencies, so pip will refuse to install `wheel` without a hash and the proof fails. Add a hashed `wheel==0.47.0 --hash=sha256:212281cab4dff978f6cedd499cd893e1f620791ca6ff7107cf270781e587eced` entry to the lock (or pre-install setuptools+wheel with hashes into the venv and use `--no-build-isolation`).",
-      "disposition": "false_positive_with_hardening",
-      "response": "Deterministic counter-evidence: the network-disabled proof exits 0 and pip builds both sdists, resolving setuptools and wheel from the supplied --find-links directories (evidence/g0-01/install.log shows: Successfully built pyzk svglib). pip applies --require-hashes to the locked requirement set it reads from the requirements file, not to the isolated build environments it creates for sdist-only projects. The finding still identified a real fragility, so prove-offline.sh now calls lockfile.py verify --bootstrap-dir, which recomputes the bootstrap wheel sha256 and compares it with the hash recorded in requirements/artifacts/linux-amd64-py312.json before the artifact is treated as a verified input (verify.log: verified_bootstrap_artifacts=1). A tampered or missing bootstrap artifact now fails the proof, with tests covering both."
-    },
-    {
-      "id": "OCR-1-03",
-      "severity": "low",
-      "category": "maintainability",
-      "path": "requirements/tools/acquire.sh",
-      "start_line": 23,
-      "end_line": 24,
-      "existing_code": "rm -rf \"$run_dir\"\nmkdir -p \"$wheelhouse\"",
-      "suggested_code": "[ -n \"$run_dir\" ] && [ \"$run_dir\" != \"/\" ] || { echo \"refusing unsafe run_dir\" >&2; exit 2; }\nrm -rf \"$run_dir\"\nmkdir -p \"$wheelhouse\"",
-      "finding": "`rm -rf \"$run_dir\"` deletes a caller-supplied path with no guard. A mis-supplied value (empty string, `/`, or an unintended mount point) would recursively delete arbitrary data inside the builder image. Consider validating that `run_dir` is a non-empty, dedicated subdirectory under a known work root before the destructive cleanup.",
-      "disposition": "fixed",
-      "response": "acquire.sh now refuses a run directory that is not an absolute path or that is exactly /, before any deletion; the behaviour and the reasoning are recorded in requirements/README.md."
-    },
-    {
-      "id": "OCR-1-04",
-      "severity": "low",
-      "category": "maintainability",
-      "path": "requirements/tools/prove-offline.sh",
-      "start_line": 62,
-      "end_line": 63,
-      "existing_code": "cp \"$work/install.log\" \"$work/pip-check.log\" \"$work/installed.json\" \\\n    \"$work/licenses.json\" \"$work/verify.log\" \"$proof_dir/\"",
-      "suggested_code": null,
-      "finding": "With `set -e` active and no error trap, a failure in `python -m venv`, the `pip install`, `pip check`, `license-inventory`, or `verify` step exits the script before this final `cp`, leaving `proof_dir` empty — exactly the case where these logs are needed to diagnose the failure. Consider copying the logs in a `trap ... EXIT` handler (or at least preserving `install.log` even when a later step fails).",
-      "disposition": "fixed",
-      "response": "prove-offline.sh copies every produced log and JSON into the proof directory from an EXIT trap, so a failure in any later step still leaves install.log and the other evidence behind."
-    },
-    {
-      "id": "OCR-1-05",
-      "severity": "low",
-      "category": "maintainability",
-      "path": "requirements/tools/lockfile.py",
-      "start_line": 330,
-      "end_line": 333,
-      "existing_code": "def parse_lock(path: Path) -> dict[str, tuple[str, list[str]]]:\n    \"\"\"Parse the locked distribution set, refusing anything unpinned or unhashed.\"\"\"\n    requirements: dict[str, tuple[str, list[str]]] = {}\n    for number, raw in enumerate(path.read_text(encoding=\"utf-8\").splitlines(), start=1):",
-      "suggested_code": "def parse_lock(path: Path) -> dict[str, tuple[str, list[str]]]:\n    \"\"\"Parse the locked distribution set, refusing anything unpinned or unhashed.\"\"\"\n    try:\n        text = path.read_text(encoding=\"utf-8\")\n    except FileNotFoundError as exc:\n        raise ToolError(f\"missing required input: {path}\") from exc\n    requirements: dict[str, tuple[str, list[str]]] = {}\n    for number, raw in enumerate(text.splitlines(), start=1):",
-      "finding": "`parse_lock()` reads the lock with `path.read_text()` directly, and `cmd_verify()` builds the inventory via `item[\"name\"]`/`item[\"version\"]` without checking each installed entry is a dict with those keys. A missing lock file raises `FileNotFoundError`, and a malformed `installed.json` raises `KeyError`/`TypeError`; `main()` only catches `ToolError`, so these inputs produce a raw traceback instead of the `lockfile:` diagnostic used everywhere else in this module. Consider converting these failures to `ToolError` (as `read_json()` already does).",
-      "disposition": "fixed",
-      "response": "parse_lock now converts an unreadable lock file into a ToolError, and verify refuses an installed-inventory entry that is not an object with string name and version fields, so both report through the lockfile: diagnostic instead of a raw traceback. New tests cover the missing-lock and malformed-entry cases."
-    }
-  ],
-  "verdict": "Five findings, none blocking the frozen artifacts. One medium governance finding is partially mitigated with the remainder accepted as named residual risk; one medium bug finding is a false positive contradicted by deterministic evidence, but it did provoke a real hardening; three low maintainability findings are fixed. A second review round binds the corrected revision.",
   "follow_ups": [
     "QDRAT-GOV-TASK-POLICY-MANDATORY: make a task-specific Diffcipline policy mandatory through an organisation-controlled (CI) enforcement path rather than by convention.",
     "QDRAT-REVIEW-RULES-LOCKFILES: extend the review rule set so frozen lock files and contract test suites are first-class review targets instead of default exclusions."
-  ]
+  ],
+  "verdict": "Four rounds, thirteen findings, none open against the frozen artifacts. Every actionable finding was fixed and re-reviewed; the remaining items are one accepted residual governance risk with a named successor, two recorded follow-ups, and one coverage limitation. Round 4 returned no findings, which is where the review loop was closed.",
+  "reviewed_code_head": "7f06517855572720867d13bbd113612894109b46"
 }

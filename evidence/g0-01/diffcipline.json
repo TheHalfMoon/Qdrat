@@ -10,9 +10,9 @@
   },
   "verdict": "PASS",
   "base": "144935cd6bb64d3448ec3927fa7d1569bee93ca0",
-  "changed_files": 35,
-  "added_lines": 11603,
-  "deleted_lines": 3,
+  "changed_files": 40,
+  "added_lines": 12390,
+  "deleted_lines": 4,
   "files": [
     ".diffcipline.toml",
     ".diffcipline/tasks/G0-01.toml",
@@ -23,8 +23,12 @@
     "evidence/g0-01/contract-tests.log",
     "evidence/g0-01/diffcipline-attempt-1.log",
     "evidence/g0-01/diffcipline-attempt-2-review.log",
+    "evidence/g0-01/diffcipline-attempt-3-quoted-pattern.log",
+    "evidence/g0-01/diffcipline-attempt-3-quoted-pattern.out",
+    "evidence/g0-01/diffcipline-run.log",
     "evidence/g0-01/diffcipline.json",
     "evidence/g0-01/environment.json",
+    "evidence/g0-01/independent-review.json",
     "evidence/g0-01/install.log",
     "evidence/g0-01/installed.json",
     "evidence/g0-01/licenses.json",
@@ -33,6 +37,7 @@
     "evidence/g0-01/resolution-a.json",
     "evidence/g0-01/resolution-agreement.json",
     "evidence/g0-01/resolution-b.json",
+    "evidence/g0-01/run-dir-guard-matrix.log",
     "evidence/g0-01/specgrain-check.log",
     "evidence/g0-01/specgrain-readiness.json",
     "evidence/g0-01/verify.log",
@@ -81,7 +86,7 @@
       "state": "PASS"
     },
     {
-      "command": "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --tool-distribution pip",
+      "command": "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip",
       "state": "PASS"
     }
   ]

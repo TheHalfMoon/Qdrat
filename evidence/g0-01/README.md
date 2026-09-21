@@ -48,8 +48,11 @@ Neither the tool nor the model is the author of this change, and the credential
 used for the model endpoint is supplied through environment variables only and is
 never written to the repository or to any log.
 
-`independent-review.json` holds the binding (base, reviewed head, exact command),
-the coverage numbers, every finding verbatim, and the disposition of each one.
+`independent-review.json` holds all four rounds: the binding (base, reviewed head,
+exact command), the coverage numbers, every finding verbatim, and the disposition
+of each one. Thirteen findings were raised in total and none remain open against
+the frozen artifacts.
+
 Round 1 raised five findings:
 
 | # | Severity | Finding | Disposition |
@@ -89,6 +92,23 @@ for was written in a way that broke every valid invocation, and the deterministi
 gates did not catch it because acquisition had already run before the guard was
 strengthened. It was found by re-reviewing the response rather than by trusting
 it, which is the argument for reviewing the fix and not only the fix request.
+
+Round 4 reviewed the round-3 fix as an incremental range (`bd55d03...HEAD`) and
+returned **no findings**. That is where the loop was closed: not because a reviewer
+stopped looking, but because the last delta survived a fresh pass.
+
+The review is not a substitute for the deterministic gates, and it did not always
+point the right way. Round 2 asked for the unittest pattern to be quoted; quoting
+it made `cmd /C` hand the quotes to Python, unittest discovered zero tests, and
+the gate returned FAIL. That failure is preserved verbatim in
+`diffcipline-attempt-3-quoted-pattern.log` and the suggestion was not adopted.
+Each finding is dispositioned on its evidence, not on its severity label.
+
+One correction to an earlier commit message rather than to history: commit
+`3ee0178` says the round-2 findings are dispositioned in
+`evidence/g0-01/independent-review-round-2.json`. No such split file was created;
+every round lives in the single `evidence/g0-01/independent-review.json`, which is
+the source of record.
 
 The review also recorded a coverage limitation that is worth carrying forward:
 OCR's default rules excluded `requirements/locks/linux-amd64-py312.txt` and
