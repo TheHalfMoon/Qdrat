@@ -1,0 +1,1805 @@
+{
+  "observed_at": "2026-09-20",
+  "register": "../SOURCE_AUTHORIZATIONS.md",
+  "count": 76,
+  "sources": [
+    {
+      "repository": "horilla/horilla-hr",
+      "head": "d5cb062d5e2d33beb367f524760593592a16c58e",
+      "branch": "2.0",
+      "archived": false,
+      "description": "Horilla is a free and open source HR software.",
+      "observed_license": "LGPL-2.1",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "8000a6faacf471c537530805ab29523c7732e11a"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml",
+        "requirements.txt"
+      ],
+      "readme_blob": "a696c8b6d9e8f16ebe2139c1a8a9280380583135",
+      "evidence_url": "https://github.com/horilla/horilla-hr/tree/d5cb062d5e2d33beb367f524760593592a16c58e",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "People functional bootstrap",
+      "decision_reason": "Inherited base remains; qualify existing source before expansion"
+    },
+    {
+      "repository": "vitali87/code-graph-rag",
+      "head": "94120a67df5124bd721654c00452dbe935a496a7",
+      "branch": "main",
+      "archived": false,
+      "description": "The ultimate RAG for your monorepo. Query, understand, and edit multi-language codebases with the power of AI and knowledge graphs",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "4765780e733b826ead89a6882b6bb40d83aaf7b3"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "901a0286501a7231ca94a85a113e0581488e473d",
+      "evidence_url": "https://github.com/vitali87/code-graph-rag/tree/94120a67df5124bd721654c00452dbe935a496a7",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Explained code/graph retrieval",
+      "decision_reason": "Company semantics and permission model remain Qdrat-owned"
+    },
+    {
+      "repository": "Graphify-Labs/graphify",
+      "head": "20a20d30d8e7eef77675651f0199d87f913bd3e7",
+      "branch": "v8",
+      "archived": false,
+      "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "blob": "b1d9746fb5c6c39fd502e2ebe432a12ad9a097f3"
+        },
+        {
+          "path": "NOTICE",
+          "blob": "791bf88bb1e50572902dbbe9228153ea29846adf"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "a49abe86382aa0ef963fa15e2a45b958e6b1fa84",
+      "evidence_url": "https://github.com/Graphify-Labs/graphify/tree/20a20d30d8e7eef77675651f0199d87f913bd3e7",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Local extraction and provenance edges",
+      "decision_reason": "No new graph authority or mandatory graph database"
+    },
+    {
+      "repository": "odoo/odoo",
+      "head": "6bae1e2f5eed5aae790944492e3d89d50bab5954",
+      "branch": "19.0",
+      "archived": false,
+      "description": "Odoo. Open Source Apps To Grow Your Business.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "12334e0fdd8d3412d5e1deed72220fcc03431ff2"
+        }
+      ],
+      "manifest_paths": [
+        "requirements.txt"
+      ],
+      "readme_blob": "ac3c04c8f4c53e75a25ec330143f870d2af9ae8b",
+      "evidence_url": "https://github.com/odoo/odoo/tree/6bae1e2f5eed5aae790944492e3d89d50bab5954",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "ERP module and accounting breadth",
+      "decision_reason": "Connect ledger; avoid whole ERP/runtime replacement"
+    },
+    {
+      "repository": "baserow/baserow",
+      "head": "81e094a1f4b3a62625c218d78fe319ba44098617",
+      "branch": "develop",
+      "archived": false,
+      "description": "Build databases, automations, apps & agents with AI — no code.  Open source platform available on cloud and self-hosted. GDPR, HIPAA, SOC 2 compliant. Best Airtable alternative.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "d003cd57e319732e883838c0967d04ca2c86ecf0"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "c8a6db6fb877de0926b2d579e8fa1a836a41af59",
+      "evidence_url": "https://github.com/baserow/baserow/tree/81e094a1f4b3a62625c218d78fe319ba44098617",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Typed custom fields and app views",
+      "decision_reason": "Mixed paths; reuse UX contract not independent identity/database"
+    },
+    {
+      "repository": "zitadel/zitadel",
+      "head": "3ff4fbc7e4f22cd6eee49d3de951350c5ed855cd",
+      "branch": "main",
+      "archived": false,
+      "description": "ZITADEL - Identity infrastructure, simplified for you.",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "bae94e189e62df1b8d5bd11435d954b25bee9d7b"
+        }
+      ],
+      "manifest_paths": [
+        "go.mod",
+        "package.json"
+      ],
+      "readme_blob": "0982150a78bb538faae2ba0f01ea092c4fe2afff",
+      "evidence_url": "https://github.com/zitadel/zitadel/tree/3ff4fbc7e4f22cd6eee49d3de951350c5ed855cd",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "OIDC SAML SCIM MFA identity",
+      "decision_reason": "Customer federation optional; no second mandatory identity service"
+    },
+    {
+      "repository": "apache/superset",
+      "head": "4511c1381930ec53cd74c1e25c3ad4397768e2b4",
+      "branch": "master",
+      "archived": false,
+      "description": "Apache Superset is a Data Visualization and Data Exploration Platform",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE.txt",
+          "blob": "56313ab5a54a163e7d46224cb5470a814c3a2436"
+        },
+        {
+          "path": "NOTICE",
+          "blob": "3bd88e5914f1b40e766b2b99ce5f42e086b852fb"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "961886df64d20b96bc6d3632d29e68dffc074872",
+      "evidence_url": "https://github.com/apache/superset/tree/4511c1381930ec53cd74c1e25c3ad4397768e2b4",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Advanced analytics embedding",
+      "decision_reason": "Optional adapter qualification; permission-aware read views required"
+    },
+    {
+      "repository": "espocrm/espocrm",
+      "head": "8499172c1b631e6fff57093445e11e2440788d6f",
+      "branch": "master",
+      "archived": false,
+      "description": "EspoCRM – Open Source CRM Application",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE.txt",
+          "blob": "bae94e189e62df1b8d5bd11435d954b25bee9d7b"
+        }
+      ],
+      "manifest_paths": [
+        "composer.json",
+        "package.json"
+      ],
+      "readme_blob": "8db5d5758ae6255544833f3fd9354522cf318a5a",
+      "evidence_url": "https://github.com/espocrm/espocrm/tree/8499172c1b631e6fff57093445e11e2440788d6f",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "CRM activities and portal",
+      "decision_reason": "Native shared organization/person model"
+    },
+    {
+      "repository": "getnao/nao",
+      "head": "9952ec789ca3993778750baefff0caece3977a13",
+      "branch": "main",
+      "archived": false,
+      "description": "👾 nao is an open source analytics agent. (1) Create context with nao-core cli, (2) deploy nao chat interface for everyone",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "af04db689f9985d6a3c843fea2f3e8184b3318ce"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "cb1868945279a522046fdd4b144a5fdc2cf0a1d0",
+      "evidence_url": "https://github.com/getnao/nao/tree/9952ec789ca3993778750baefff0caece3977a13",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Analytics context and evaluation",
+      "decision_reason": "Metric definitions shared with BI and AI"
+    },
+    {
+      "repository": "ErugoOSS/Erugo",
+      "head": "922c00c2beafa5b6136ff551333d52387270be49",
+      "branch": "main",
+      "archived": false,
+      "description": "A powerful, self-hosted file-sharing platform built with PHP and Laravel with a Vue.js frontend. It offers secure, customizable file-transfer capabilities through an elegant user interface, giving you complete control over your data while providing a seamless experience for both senders and recipients.",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "325605bc932e34cd59d761a0d68fa92d7328aad1"
+        }
+      ],
+      "manifest_paths": [
+        "composer.json",
+        "package.json"
+      ],
+      "readme_blob": "8524c752f1df680f1fb77c03aa2966162dc07253",
+      "evidence_url": "https://github.com/ErugoOSS/Erugo/tree/922c00c2beafa5b6136ff551333d52387270be49",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Local sharing lifecycle",
+      "decision_reason": "Shared FileObject owner/expiry policy"
+    },
+    {
+      "repository": "hcengineering/platform",
+      "head": "9aa7da386c8eb79a8ed2a7905ea0606ef567a0d0",
+      "branch": "develop",
+      "archived": false,
+      "description": "Huly — All-in-One Project Management Platform (alternative to Linear, Jira, Slack, Notion, Motion)",
+      "observed_license": "EPL-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "e48e0963459bf4c4e175956b657a8f4a91967880"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "0e63d83342b08bab2e605f8650c4c3f774aa3e2a",
+      "evidence_url": "https://github.com/hcengineering/platform/tree/9aa7da386c8eb79a8ed2a7905ea0606ef567a0d0",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Unified work/collaboration",
+      "decision_reason": "Hosted service discontinued per README; no hosted dependency"
+    },
+    {
+      "repository": "papercups-io/papercups",
+      "head": "6a6f5adc7f0cef5813b2c2f1c0659922defaf976",
+      "branch": "master",
+      "archived": false,
+      "description": "Open-source live customer chat",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "3349ffbd98da535072e12b3f15acdc9f2c28e9dd"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "e09a73346d2263d1a0928a34b1b1082ff42a688d",
+      "evidence_url": "https://github.com/papercups-io/papercups/tree/6a6f5adc7f0cef5813b2c2f1c0659922defaf976",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Conversation widget",
+      "decision_reason": "Maintenance mode; no new runtime foundation"
+    },
+    {
+      "repository": "knadh/listmonk",
+      "head": "594b74056dd8a0d3a7621a32898ee38bfbe10e96",
+      "branch": "master",
+      "archived": false,
+      "description": "High performance, self-hosted, newsletter and mailing list manager with a modern dashboard. Single binary app.",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "dbbe3558157f5861bff35dcb37b328b679b0ccfd"
+        }
+      ],
+      "manifest_paths": [
+        "go.mod"
+      ],
+      "readme_blob": "0be3f3ef7ede5c229b6c1668e2c6639394335265",
+      "evidence_url": "https://github.com/knadh/listmonk/tree/594b74056dd8a0d3a7621a32898ee38bfbe10e96",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Campaign segmentation and suppression",
+      "decision_reason": "Generic governed sends; separate channel service only if qualified"
+    },
+    {
+      "repository": "yuzutech/kroki",
+      "head": "f23aee4be7e3dea656240ba64e7c65e78978909a",
+      "branch": "main",
+      "archived": false,
+      "description": "Creates diagrams from textual descriptions!",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "4995bcef128006cfec56461bc42fe27cc2a29129"
+        },
+        {
+          "path": "licenses",
+          "blob": "12b5931f30574050b956ff90a6d27121e2883635"
+        }
+      ],
+      "manifest_paths": [
+        "package.json",
+        "pom.xml"
+      ],
+      "readme_blob": "e234a171a270829d5b6bbf55870c8abeb63e6016",
+      "evidence_url": "https://github.com/yuzutech/kroki/tree/f23aee4be7e3dea656240ba64e7c65e78978909a",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Diagram conversion interface",
+      "decision_reason": "Optional local render adapter; no hosted endpoint default"
+    },
+    {
+      "repository": "langflow-ai/openrag",
+      "head": "dbb6f9e442fe90b2a60414bf2eb6d4c83d1dd30d",
+      "branch": "main",
+      "archived": false,
+      "description": "OpenRAG is a comprehensive, single package Retrieval-Augmented Generation platform built on Langflow, Docling, and Opensearch. ",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "81a3e692a78b1544df67efee0c465741cd54f367"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "f9d30b6fc5856beede071c914de18bfc8898d21d",
+      "evidence_url": "https://github.com/langflow-ai/openrag/tree/dbb6f9e442fe90b2a60414bf2eb6d4c83d1dd30d",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "RAG ingestion orchestration",
+      "decision_reason": "Do not add another workflow/search authority"
+    },
+    {
+      "repository": "documenso/documenso",
+      "head": "e658cc581878f52c03b3e6a8f7ffd613aead4e69",
+      "branch": "main",
+      "archived": false,
+      "description": "The Open Source DocuSign Alternative.",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "0ad25db4bd1d86c452db3f9602ccdbe172438f52"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "ad4d7c5b9f0b7a6be53296888a8e5fd0719bc267",
+      "evidence_url": "https://github.com/documenso/documenso/tree/e658cc581878f52c03b3e6a8f7ffd613aead4e69",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Signing lifecycle",
+      "decision_reason": "Legal signature qualification separate from UI"
+    },
+    {
+      "repository": "postgis/postgis",
+      "head": "84890ccbe53549130de8a2b75a72ab3a54b570d1",
+      "branch": "master",
+      "archived": false,
+      "description": "PostGIS spatial database extension to PostgreSQL [mirror]",
+      "observed_license": "GPL-2.0",
+      "license_paths": [
+        {
+          "path": "COPYING",
+          "blob": "d159169d1050894d3ea3b98e1c965c4058208fe1"
+        },
+        {
+          "path": "LICENSE.TXT",
+          "blob": "403c98bb6d2c550f629a639faa63cebe14ee3111"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "2255fc92f85ecf9ca27f7b6d851eabe1cae5f63c",
+      "evidence_url": "https://github.com/postgis/postgis/tree/84890ccbe53549130de8a2b75a72ab3a54b570d1",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Spatial query primitives",
+      "decision_reason": "Optional DB extension only when geospatial workload requires"
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "head": "f45d81328316d559db0b8cde340b13b5a6e8ce03",
+      "branch": "develop",
+      "archived": false,
+      "description": "Label Studio is a multi-type data labeling and annotation tool with standardized output format",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "3f1aa21f494250562d5e94d96446b3e5cb6e3acb"
+        },
+        {
+          "path": "NOTICE",
+          "blob": "8c1f0ce7cad751b1c2d9aa747f6a1514aa5d3e95"
+        },
+        {
+          "path": "licenses",
+          "blob": "acad501fe9477d0ea177ade7cd1c193f3f21b442"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "9439892d166360a44ded25f96ab2b1ec553ae33b",
+      "evidence_url": "https://github.com/HumanSignal/label-studio/tree/f45d81328316d559db0b8cde340b13b5a6e8ce03",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Annotation and evaluation review",
+      "decision_reason": "Use rights-cleared evaluation corpus; optional isolated review service"
+    },
+    {
+      "repository": "onyx-dot-app/onyx",
+      "head": "711a0479f1630dcce38f8f58212a63080702b753",
+      "branch": "main",
+      "archived": false,
+      "description": "Open Source AI Platform - AI Chat with advanced features that works with every LLM",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "adedc9c96af1a84fa0eeb35361cd4e04c8611b83"
+        }
+      ],
+      "manifest_paths": [
+        "package.json",
+        "pyproject.toml"
+      ],
+      "readme_blob": "093bd5a0fa262c4f9de76c48af794d90788ba879",
+      "evidence_url": "https://github.com/onyx-dot-app/onyx/tree/711a0479f1630dcce38f8f58212a63080702b753",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Enterprise search/connectors",
+      "decision_reason": "Source ACL freshness and shared retrieval contract"
+    },
+    {
+      "repository": "Peppermint-Lab/peppermint",
+      "head": "ba6e2179f9409db76abeb9a3007a262160e24628",
+      "branch": "main",
+      "archived": true,
+      "description": "An open source issue management & help desk solution. A zendesk & jira alternative",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "license",
+          "blob": "9df1a9bd2283c93c20e69a42c31fdfd640095847"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "da38e5ae6cb431cfc0dedc68ad6b0bebc25a22a1",
+      "evidence_url": "https://github.com/Peppermint-Lab/peppermint/tree/ba6e2179f9409db76abeb9a3007a262160e24628",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Helpdesk simplicity",
+      "decision_reason": "Archived; not a maintained runtime candidate"
+    },
+    {
+      "repository": "lukevella/rallly",
+      "head": "5185e3c134eb4fac4f897f27a220e1fbf29fe385",
+      "branch": "main",
+      "archived": false,
+      "description": "Rallly is an open-source scheduling and collaboration tool designed to make organizing events and meetings easier.",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "162676cbef614cc119c0469097f6868178019f95"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "4abef03db4fd37fed4fdaa8ece67ce3ba6989318",
+      "evidence_url": "https://github.com/lukevella/rallly/tree/5185e3c134eb4fac4f897f27a220e1fbf29fe385",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Availability polls",
+      "decision_reason": "Shared Calendar/Conversation rather than another scheduler"
+    },
+    {
+      "repository": "calcom/cal.diy",
+      "head": "54343aa685ae8f33159d2f485ec4a57bad5c574a",
+      "branch": "main",
+      "archived": false,
+      "description": "Scheduling infrastructure for absolutely everyone.",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "98b51fbaac9145f1919fd2a79532acdb04a8f24b"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "4bfd00c01597ecb1fbd76bcaff5d018c7b61b7bd",
+      "evidence_url": "https://github.com/calcom/cal.diy/tree/54343aa685ae8f33159d2f485ec4a57bad5c574a",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Booking UX",
+      "decision_reason": "Upstream recommends personal non-production use"
+    },
+    {
+      "repository": "makeplane/plane",
+      "head": "01064a756221921a1ce3e7941ae4d439f298029a",
+      "branch": "preview",
+      "archived": false,
+      "description": "🔥🔥🔥 Open-source Jira, Linear, Monday, and ClickUp alternative. Plane is a modern project management platform to manage tasks, sprints, docs, and triage.",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE.txt",
+          "blob": "5087e61e24bce453516dd67d07aec21923271472"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "74688cd92c4b14a9e34ad26075fa752a755b21c2",
+      "evidence_url": "https://github.com/makeplane/plane/tree/01064a756221921a1ce3e7941ae4d439f298029a",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Cycles triage work views",
+      "decision_reason": "WorkItem shared model"
+    },
+    {
+      "repository": "posthog/posthog",
+      "head": "5517c962c8bdeab523fc97c500389080e6334084",
+      "branch": "master",
+      "archived": false,
+      "description": ":hedgehog: PostHog is the leading platform for building self-driving products. Our developer tools – AI observability, analytics, session replay, flags, experiments, error tracking, logs, and more – capture all the context agents need to diagnose problems, uncover opportunities, and ship fixes. Steer it all from Slack, web, desktop, or the MCP.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "847d9d3def03458035447bdae131e1981e2a63da"
+        }
+      ],
+      "manifest_paths": [
+        "package.json",
+        "pyproject.toml"
+      ],
+      "readme_blob": "0e1ce30b1dbc16e737a322001b1e8f347ca6fd62",
+      "evidence_url": "https://github.com/posthog/posthog/tree/5517c962c8bdeab523fc97c500389080e6334084",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Event analytics",
+      "decision_reason": "No hidden product telemetry/session recording"
+    },
+    {
+      "repository": "formbricks/formbricks",
+      "head": "79977e0c4bfa70db250d65d09c0b0ff545cf22cb",
+      "branch": "main",
+      "archived": false,
+      "description": "Open Source Qualtrics Alternative",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "b56a41bfa5d40c62715330ae72d81ace69e23509"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "2cbb36971dc5596e52625b427b4cd3aeeb3f267b",
+      "evidence_url": "https://github.com/formbricks/formbricks/tree/79977e0c4bfa70db250d65d09c0b0ff545cf22cb",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Survey design",
+      "decision_reason": "Minimum cohort and response confidentiality"
+    },
+    {
+      "repository": "paperless-ngx/paperless-ngx",
+      "head": "87d157096e14198fa600793951524cd9340c3172",
+      "branch": "dev",
+      "archived": false,
+      "description": "A community-supported supercharged document management system: scan, index and archive all your documents",
+      "observed_license": "GPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "733c072369ca77331f392c40da7404c85c36542c"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "c17f99e92ff91b2e06054f1dcd0bb1a22e5f2ce5",
+      "evidence_url": "https://github.com/paperless-ngx/paperless-ngx/tree/87d157096e14198fa600793951524cd9340c3172",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Document archive OCR lifecycle",
+      "decision_reason": "Single original/derivative/permission plane"
+    },
+    {
+      "repository": "attendize/attendize",
+      "head": "9289acbab1583898fd85aeee66c7b613d8971deb",
+      "branch": "develop",
+      "archived": false,
+      "description": "Attendize is an open-source ticket selling and event management platform built on Laravel.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "e5c8ea40394ad5b195651321fad3083234d18351"
+        }
+      ],
+      "manifest_paths": [
+        "composer.json",
+        "package.json"
+      ],
+      "readme_blob": "3ec59979d5a12fdf0b70404852ce76387228d98a",
+      "evidence_url": "https://github.com/attendize/attendize/tree/9289acbab1583898fd85aeee66c7b613d8971deb",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Event registration",
+      "decision_reason": "Later industry extension; no ticket-sales system now"
+    },
+    {
+      "repository": "flarum/framework",
+      "head": "b91ac1c2045bfcdd7c0392101fb377f616d46491",
+      "branch": "2.x",
+      "archived": false,
+      "description": "Simple forum software for building great communities.",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE.md",
+          "blob": "bb6e15d87e00a2ee6c598c94198d91e8ea3edce1"
+        }
+      ],
+      "manifest_paths": [
+        "composer.json",
+        "package.json"
+      ],
+      "readme_blob": "02e0dd194050d2fa6d37727e76fd29be69ab93ba",
+      "evidence_url": "https://github.com/flarum/framework/tree/b91ac1c2045bfcdd7c0392101fb377f616d46491",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Extension/discussion patterns",
+      "decision_reason": "No separate forum identity by default"
+    },
+    {
+      "repository": "mautic/mautic",
+      "head": "7912edbd7ede249ddbb2721abd6def94bee52f3e",
+      "branch": "7.x",
+      "archived": false,
+      "description": "Mautic: Open Source Marketing Automation Software.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE.txt",
+          "blob": "86c32482c2f36e32fce4969f33193d58a47fdbdb"
+        }
+      ],
+      "manifest_paths": [
+        "composer.json",
+        "package.json"
+      ],
+      "readme_blob": "59c74ee5f9700f46a632a5e350b31e28f9b588c5",
+      "evidence_url": "https://github.com/mautic/mautic/tree/7912edbd7ede249ddbb2721abd6def94bee52f3e",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Marketing journeys",
+      "decision_reason": "Consent/suppression and shared Automation"
+    },
+    {
+      "repository": "infisical/infisical",
+      "head": "bd2179cf211874925e2313664e22dae2501fe30a",
+      "branch": "main",
+      "archived": false,
+      "description": "Infisical is the open-source platform for secrets, certificates, and privileged access management.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "35d53252fdf304d2f39c7d2496e71ae3f6709d22"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "c914e42b31248aaa806982733e4a9c13351b857f",
+      "evidence_url": "https://github.com/infisical/infisical/tree/bd2179cf211874925e2313664e22dae2501fe30a",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Secret lifecycle",
+      "decision_reason": "Optional service; encrypted local secret references first"
+    },
+    {
+      "repository": "strapi/strapi",
+      "head": "d83af0410bf31b034b01757729f2231862ee5e87",
+      "branch": "develop",
+      "archived": false,
+      "description": "🚀 Strapi is the leading open-source headless CMS. It’s 100% JavaScript/TypeScript, fully customizable, and developer-first.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "f63cf15b91b4878a1d3afe0f7c59d28fc7564ebe"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "421efc02367efeb7ca69fd5dc7afece91cbe9433",
+      "evidence_url": "https://github.com/strapi/strapi/tree/d83af0410bf31b034b01757729f2231862ee5e87",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Schema/plugin administration",
+      "decision_reason": "Do not replace Django or expose arbitrary core models"
+    },
+    {
+      "repository": "flagsmith/flagsmith",
+      "head": "190c645d83d11f627a241cd4e5540d0a26ad73ba",
+      "branch": "main",
+      "archived": false,
+      "description": "Flagsmith is an open-source feature flag platform with remote config, experimentation, and self-hosted or cloud deployment options.",
+      "observed_license": "BSD-3-Clause",
+      "license_paths": [
+        {
+          "path": "LICENSE.md",
+          "blob": "839287f5e2c30361597a9d37eea2cfc11d53408c"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "3c5a70545964e19f985887f66975fe28fefca048",
+      "evidence_url": "https://github.com/flagsmith/flagsmith/tree/190c645d83d11f627a241cd4e5540d0a26ad73ba",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Flag rollout",
+      "decision_reason": "Small local versioned feature config first"
+    },
+    {
+      "repository": "chaskiq/chaskiq",
+      "head": "46dfdd11c63c6849ecde16a0dcc54d388e2613a3",
+      "branch": "main",
+      "archived": false,
+      "description": "A full featured Live Chat, Support & Marketing platform, alternative to Intercom, Drift, Crisp.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE.txt",
+          "blob": "59e3e0b5c41c7e3534d4f4f46b8e9d67fb56df48"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "e46cadb198d90f8339a8adb64b27b8b96d0f1ae4",
+      "evidence_url": "https://github.com/chaskiq/chaskiq/tree/46dfdd11c63c6849ecde16a0dcc54d388e2613a3",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Support messaging UX",
+      "decision_reason": "Restricted/mixed source and extra runtime; no core code copy"
+    },
+    {
+      "repository": "hasura/graphql-engine",
+      "head": "9d4df1586326d31937935837fa155b5a5d16eb0a",
+      "branch": "master",
+      "archived": false,
+      "description": "Blazing fast, instant realtime GraphQL APIs on all your data with fine grained access control, also trigger webhooks on database events.",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+        },
+        {
+          "path": "LICENSE-community",
+          "blob": "5816b68a76bcc3af4bd54eb4b294bd7db9fda6e8"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "40f85bb787e53efe6dacc0b98bbef46291f976a9",
+      "evidence_url": "https://github.com/hasura/graphql-engine/tree/9d4df1586326d31937935837fa155b5a5d16eb0a",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Database API policies",
+      "decision_reason": "No auto-exposure of raw company database"
+    },
+    {
+      "repository": "humhub/humhub",
+      "head": "cf51cf811d36d5c1ab59e2fd1e098d67786121ab",
+      "branch": "master",
+      "archived": false,
+      "description": "HumHub is an Open Source Enterprise Social Network. Easy to install, intuitive to use and extendable with countless freely available modules.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "b76f84eeeaa8907391062df1ce0194cd17deca2c"
+        },
+        {
+          "path": "LICENSE.AGPL-3.0-or-later",
+          "blob": "2beb9e16309456b1f4244480f4fe6890324a5064"
+        }
+      ],
+      "manifest_paths": [
+        "composer.json",
+        "package.json"
+      ],
+      "readme_blob": "064b6ccb0059f5227bfd88e8b314afd1faa0a33d",
+      "evidence_url": "https://github.com/humhub/humhub/tree/cf51cf811d36d5c1ab59e2fd1e098d67786121ab",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Company community",
+      "decision_reason": "Shared conversation/profile/permission primitives"
+    },
+    {
+      "repository": "louislam/uptime-kuma",
+      "head": "e62702d868a0b072c6e1870e5278762319637f04",
+      "branch": "master",
+      "archived": false,
+      "description": "A fancy self-hosted monitoring tool",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "b811362292eb825167805e277a3b66909d5175b5"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "d90d46c6563fcbeafb18477b695b4df215794b52",
+      "evidence_url": "https://github.com/louislam/uptime-kuma/tree/e62702d868a0b072c6e1870e5278762319637f04",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Health UX",
+      "decision_reason": "Operational health is not audit or security proof"
+    },
+    {
+      "repository": "taigaio/taiga-back",
+      "head": "eb0803da0150523c990e46a4e47e7447f402b4aa",
+      "branch": "main",
+      "archived": false,
+      "description": null,
+      "observed_license": "MPL-2.0",
+      "license_paths": [
+        {
+          "path": "DCOLICENSE",
+          "blob": "2f160ef93b6fff7199300b761d925c4119e66453"
+        },
+        {
+          "path": "LICENSE",
+          "blob": "a612ad9813b006ce81d1ee438dd784da99a54007"
+        }
+      ],
+      "manifest_paths": [
+        "requirements.txt"
+      ],
+      "readme_blob": "2937275d9aa2d700f1b931b9d630caebdfd508c2",
+      "evidence_url": "https://github.com/taigaio/taiga-back/tree/eb0803da0150523c990e46a4e47e7447f402b4aa",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Agile workflows",
+      "decision_reason": "Back/frontend licenses differ; no whole app import"
+    },
+    {
+      "repository": "outline/outline",
+      "head": "4ed1665728921a94ce40e924e5da407a52c65e0b",
+      "branch": "main",
+      "archived": false,
+      "description": "The fastest knowledge base for growing teams. Beautiful, realtime collaborative, feature packed, and markdown compatible.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "494e025dfbe7f27a338070f48a63b9bb411ea750"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "a60d84414d36fcd25e020ed8a3a9e92e2d011677",
+      "evidence_url": "https://github.com/outline/outline/tree/4ed1665728921a94ce40e924e5da407a52c65e0b",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Knowledge collections",
+      "decision_reason": "Collection UX with object-level current authorization"
+    },
+    {
+      "repository": "bigcapitalhq/bigcapital",
+      "head": "1efc788a6cd427672650db0a8d8a34fd7cc2004a",
+      "branch": "develop",
+      "archived": false,
+      "description": "💵 Independent financial accounting with intelligent reporting, alternative to Quickbooks, Xero, Wave.",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "e066202aa1f8607c2ba4721d6d5fb8f7200c5b16"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "b8eb5c6ba8995fd270e26736ee99996509ced5aa",
+      "evidence_url": "https://github.com/bigcapitalhq/bigcapital/tree/1efc788a6cd427672650db0a8d8a34fd7cc2004a",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Double-entry domains",
+      "decision_reason": "Native ledger remains separately certified"
+    },
+    {
+      "repository": "cortezaproject/corteza",
+      "head": "3835dfc4ac8bd89381753f09042ad147a4502576",
+      "branch": "2024.9.x",
+      "archived": false,
+      "description": "Low-code platform",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "e1e011834edf63013b3d5f51bfe4dd12b7b61ce4",
+      "evidence_url": "https://github.com/cortezaproject/corteza/tree/3835dfc4ac8bd89381753f09042ad147a4502576",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Low-code schema/process",
+      "decision_reason": "One custom-object and Flow contract"
+    },
+    {
+      "repository": "pretix/pretix",
+      "head": "aa14505d2cca8fd446294af38a20afff102a53ea",
+      "branch": "master",
+      "archived": false,
+      "description": "Ticket shop application for conferences, festivals, concerts, tech events, shows, exhibitions, workshops, barcamps, etc.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": ".licenseheader",
+          "blob": "5cbdfddde60a4a0a6e6110c2ad16c34793ec0fe9"
+        },
+        {
+          "path": "LICENSE",
+          "blob": "e96e5434b5270e2d8bdab8721c2346f79f6ad771"
+        }
+      ],
+      "manifest_paths": [
+        "package.json",
+        "pyproject.toml"
+      ],
+      "readme_blob": "4a6bfb99b8de571d999cdb45b9dc73fb80db3f44",
+      "evidence_url": "https://github.com/pretix/pretix/tree/aa14505d2cca8fd446294af38a20afff102a53ea",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Capacity/check-in/events",
+      "decision_reason": "Later pack; source terms/path review needed"
+    },
+    {
+      "repository": "miroslavpejic85/mirotalk",
+      "head": "10a68742fd48acb87202d50533a67e7acb1cc746",
+      "branch": "master",
+      "archived": false,
+      "description": "🚀 Open-source, self-hosted P2P WebRTC video conferencing for fast, private real-time communication. Create browser-based meeting rooms with no downloads or time limits, plus screen sharing, chat, whiteboard, recording, and collaboration.",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "bbbcd390c461e18251a494338d441b313576c118"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "025539e6dded2e375d354c7debb929c2b414970c",
+      "evidence_url": "https://github.com/miroslavpejic85/mirotalk/tree/10a68742fd48acb87202d50533a67e7acb1cc746",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Private WebRTC meetings",
+      "decision_reason": "Optional provider; TURN/network/recording burden"
+    },
+    {
+      "repository": "siglens/siglens",
+      "head": "e7245091af780ee5a592076278e5e3364b41b580",
+      "branch": "develop",
+      "archived": true,
+      "description": "100x Efficient Log Management than Splunk :rocket: Reduce your observability cost by 90%",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "beef293a40004e5e00c76bcd899dda2920e52236"
+        }
+      ],
+      "manifest_paths": [
+        "go.mod",
+        "package.json"
+      ],
+      "readme_blob": "65d74f51480811ecc3f82de9171a2c1e25020768",
+      "evidence_url": "https://github.com/siglens/siglens/tree/e7245091af780ee5a592076278e5e3364b41b580",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Log analysis",
+      "decision_reason": "Archived; use standard local observability contracts"
+    },
+    {
+      "repository": "Stirling-Tools/stirling-pdf",
+      "head": "d6784b3962c18bde49e533c763a14724fc9c6396",
+      "branch": "main",
+      "archived": false,
+      "description": "#1 PDF Application on GitHub that lets you edit PDFs on any device anywhere",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "55798230305f065230c12fb05df6b0eb791608ce"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "c6777f103259cd4e07a2b045bcc7013c69615642",
+      "evidence_url": "https://github.com/Stirling-Tools/stirling-pdf/tree/d6784b3962c18bde49e533c763a14724fc9c6396",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "PDF operations",
+      "decision_reason": "Mixed edition/path; isolated qualified conversion only"
+    },
+    {
+      "repository": "mattermost/mattermost",
+      "head": "80a0d4da72887d2e1b54ba1947d5cbc74f89b894",
+      "branch": "master",
+      "archived": false,
+      "description": "Mattermost is an open source platform for secure collaboration across the entire software development lifecycle..",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE.enterprise",
+          "blob": "c3dc0c6eb1373ae065395ece0312cf293e86ddb7"
+        },
+        {
+          "path": "LICENSE.txt",
+          "blob": "0c795264dce1d9355430b383ccc5b7078e0809e8"
+        },
+        {
+          "path": "NOTICE.txt",
+          "blob": "699d606b5c9aceee9887d3fe0c1648f7b4bdfb60"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "448f0f269a0c92f441527fe51704e3827696d190",
+      "evidence_url": "https://github.com/mattermost/mattermost/tree/80a0d4da72887d2e1b54ba1947d5cbc74f89b894",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Enterprise messaging/plugins",
+      "decision_reason": "Connect existing server first; no duplicate identity"
+    },
+    {
+      "repository": "frappe/hrms",
+      "head": "d222ced551c2d9de2ac67edb89fde121eb39a9af",
+      "branch": "develop",
+      "archived": false,
+      "description": "Open Source HR and Payroll Software",
+      "observed_license": "GPL-3.0",
+      "license_paths": [
+        {
+          "path": "license.txt",
+          "blob": "a238a97b060d8bf487880f88de6114e795f9fba4"
+        }
+      ],
+      "manifest_paths": [
+        "package.json",
+        "pyproject.toml"
+      ],
+      "readme_blob": "2c4c1024f899ff9865bba1eac0591e23705416bd",
+      "evidence_url": "https://github.com/frappe/hrms/tree/d222ced551c2d9de2ac67edb89fde121eb39a9af",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "HCM/payroll domain breadth",
+      "decision_reason": "Do not treat another country's rules as Saudi payroll"
+    },
+    {
+      "repository": "grokability/snipe-it",
+      "head": "4b16384c9289b0c4f1df0235bf6f1b58e08d3f0f",
+      "branch": "master",
+      "archived": false,
+      "description": "A free open source IT asset/license management system",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "2def0e8831c25daae02b8b87cd439da27f1ac1c1"
+        }
+      ],
+      "manifest_paths": [
+        "composer.json",
+        "package.json"
+      ],
+      "readme_blob": "67f2738f17c5f6b42c0fe8595386b5e0dbf019fb",
+      "evidence_url": "https://github.com/grokability/snipe-it/tree/4b16384c9289b0c4f1df0235bf6f1b58e08d3f0f",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Asset assignment lifecycle",
+      "decision_reason": "Shared Asset/Person/Service links"
+    },
+    {
+      "repository": "mintplex-labs/anything-llm",
+      "head": "da6685510ce691b2e1be417f739c7dffee3cfc49",
+      "branch": "master",
+      "archived": false,
+      "description": "Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience ",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "cc42d1d080250fb38c47b81ed8f9fb1d64dc2965"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "f12e66933fd6d57be4ce2c2980c3876d649b59f8",
+      "evidence_url": "https://github.com/mintplex-labs/anything-llm/tree/da6685510ce691b2e1be417f739c7dffee3cfc49",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Local agent UI/tool choice",
+      "decision_reason": "Model availability not authority; no duplicate memory"
+    },
+    {
+      "repository": "teableio/teable",
+      "head": "5ef2238883cad7c3980084de9a9031135fb9734f",
+      "branch": "develop",
+      "archived": false,
+      "description": "✨ AI Spreadsheet for Business",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "AGPL_LICENSE",
+          "blob": "f9ad653ff6096976608e2d0b09fa320bdeacbb0d"
+        },
+        {
+          "path": "LICENSE",
+          "blob": "b5403d3952197adba319dae940a761a0af134674"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "8b4ee9a525798aa936fc46f0a11c7950b87428b5",
+      "evidence_url": "https://github.com/teableio/teable/tree/5ef2238883cad7c3980084de9a9031135fb9734f",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Relational spreadsheet views",
+      "decision_reason": "Core regulated models remain typed"
+    },
+    {
+      "repository": "gorules/zen",
+      "head": "adf7cdf44aa4381967a5bef1908b3b02789c3180",
+      "branch": "master",
+      "archived": false,
+      "description": "Open-source Business Rules Engine for your Rust, NodeJS, Python, Go, Java, C#, Kotlin (JVM), Kotlin (Android) and Swift (iOS) applications.",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "ca6d24c65e30abba58f088862029c25a2890fd06"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml"
+      ],
+      "readme_blob": "9c0e5d2a15a184602ef166c3b277062e32c160a6",
+      "evidence_url": "https://github.com/gorules/zen/tree/adf7cdf44aa4381967a5bef1908b3b02789c3180",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Deterministic rules engine",
+      "decision_reason": "Candidate engine after decimal/unknown/budget conformance"
+    },
+    {
+      "repository": "bluewave-labs/checkmate",
+      "head": "da8b230ceccade54fd6e8dc6f64f283381b63576",
+      "branch": "develop",
+      "archived": false,
+      "description": "Checkmate is an open-source, self-hosted tool designed to track and monitor server hardware, uptime, response times, and incidents in real-time with beautiful visualizations. Don't be shy, join here: https://discord.com/invite/NAb6H3UTjK :)",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "0ad25db4bd1d86c452db3f9602ccdbe172438f52"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "c9d027d509d16a69239922c6f406e7e5659e4589",
+      "evidence_url": "https://github.com/bluewave-labs/checkmate/tree/da8b230ceccade54fd6e8dc6f64f283381b63576",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Incident/health UX",
+      "decision_reason": "No obligatory monitoring server"
+    },
+    {
+      "repository": "umami-software/umami",
+      "head": "ec0ff50388c264ed8ce46f00967e92f7e71476ae",
+      "branch": "master",
+      "archived": false,
+      "description": "Umami is a privacy-first analytics platform. Traffic, campaigns, behavior, conversions, and revenue in one place — no cookies, no surveillance, self-hosted or in the cloud.",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "eff41369347b0c5e88a96bd00c9266343b758e7a"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "c641cee3a9892f2aa0264f8ee093a74f14547705",
+      "evidence_url": "https://github.com/umami-software/umami/tree/ec0ff50388c264ed8ce46f00967e92f7e71476ae",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Privacy-aware aggregates",
+      "decision_reason": "Customer-local opt-in analytics only"
+    },
+    {
+      "repository": "appflowy-io/appflowy",
+      "head": "5cf3a365dec0d59f64bad1ee4bb1050471a39b93",
+      "branch": "main",
+      "archived": false,
+      "description": "Bring projects, wikis, and teams together with AI. AppFlowy is the AI collaborative workspace where you achieve more without losing control of your data. The leading open source Notion alternative.",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "0ad25db4bd1d86c452db3f9602ccdbe172438f52"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "e5d68967564db60b843ecea535b70e57a4f5d969",
+      "evidence_url": "https://github.com/appflowy-io/appflowy/tree/5cf3a365dec0d59f64bad1ee4bb1050471a39b93",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Local documents/projects",
+      "decision_reason": "CRDT collaboration not access authority"
+    },
+    {
+      "repository": "gotenberg/gotenberg",
+      "head": "39e43205b17a21f48af75e13b6f0bd5597c50e9f",
+      "branch": "main",
+      "archived": false,
+      "description": "A developer-friendly API for converting many document formats into PDF files, and more!",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "5a6f068cd23bbcfcacde695ed2d0fe1d03e95627"
+        }
+      ],
+      "manifest_paths": [
+        "go.mod",
+        "package.json"
+      ],
+      "readme_blob": "23f26ef819f1c4bbee312b24aa2746985b97ddba",
+      "evidence_url": "https://github.com/gotenberg/gotenberg/tree/39e43205b17a21f48af75e13b6f0bd5597c50e9f",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Local PDF conversion API",
+      "decision_reason": "Strong optional candidate; offline/fonts/sandbox qualification required"
+    },
+    {
+      "repository": "akaunting/akaunting",
+      "head": "f2d049ed92a6b968e7163f6e02c549b2f5468daa",
+      "branch": "master",
+      "archived": false,
+      "description": "Online Accounting Software",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE.txt",
+          "blob": "5ae8f60a6f51a8add7865c896d4a960afe005095"
+        }
+      ],
+      "manifest_paths": [
+        "composer.json",
+        "package.json"
+      ],
+      "readme_blob": "a30c95c0e942b13d54609f0dc78b5d29be60757a",
+      "evidence_url": "https://github.com/akaunting/akaunting/tree/f2d049ed92a6b968e7163f6e02c549b2f5468daa",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Small-business finance UX",
+      "decision_reason": "Restricted source posture; no accounting copy"
+    },
+    {
+      "repository": "toeverything/affine",
+      "head": "d897bb3d84099e54a6b3c0bd5f4265f8aa87d190",
+      "branch": "canary",
+      "archived": false,
+      "description": "There can be more than Notion and Miro. AFFiNE(pronounced [ə‘fain]) is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use. ",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "ee4c98c5f018d7421d7a4a28d24f0710f1705269"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "blob": "017855f5b3ebdf8ab445c363ca5b55a79bfaa967"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "package.json"
+      ],
+      "readme_blob": "537c3615ba5e354c277a30a3b8cd21faf1ab3503",
+      "evidence_url": "https://github.com/toeverything/affine/tree/d897bb3d84099e54a6b3c0bd5f4265f8aa87d190",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Blocks/canvas local-first UX",
+      "decision_reason": "Mixed source; shared document identity and policy"
+    },
+    {
+      "repository": "gristlabs/grist-core",
+      "head": "87eeb6ab43d6aa04a0bbfe1525f336e2223b3160",
+      "branch": "main",
+      "archived": false,
+      "description": "Grist is the evolution of spreadsheets.",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE.txt",
+          "blob": "40b8ed334bd7578cea0e8e660d4fe914ee115866"
+        },
+        {
+          "path": "NOTICE.txt",
+          "blob": "0ca65d7829178e0610987d4e309aca5697404e00"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "614d6d4338e9c9175ce43f629ca3aef83875afc2",
+      "evidence_url": "https://github.com/gristlabs/grist-core/tree/87eeb6ab43d6aa04a0bbfe1525f336e2223b3160",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Relational spreadsheet/forms",
+      "decision_reason": "No embedded unrestricted Python formulas"
+    },
+    {
+      "repository": "element-hq/element-web",
+      "head": "359a8b7345f8e5d00959f689972486c285a8eab4",
+      "branch": "develop",
+      "archived": false,
+      "description": "A glossy Matrix collaboration client for the web.",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE-AGPL-3.0",
+          "blob": "19bae35887757f088b6c6bbad90a7dbc8791f641"
+        },
+        {
+          "path": "LICENSE-COMMERCIAL",
+          "blob": "173e03e0c035b652da531fb58c734737c0284a47"
+        },
+        {
+          "path": "LICENSE-GPL-3.0",
+          "blob": "e72bfddabc15be5718a7cc061ac10e47741d8219"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "3a18763b13d380fc9ab84fe48de5524ad6e76b7e",
+      "evidence_url": "https://github.com/element-hq/element-web/tree/359a8b7345f8e5d00959f689972486c285a8eab4",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Matrix messaging clients",
+      "decision_reason": "Existing provider integration; encryption/search tradeoffs explicit"
+    },
+    {
+      "repository": "localstack/localstack",
+      "head": "8b9a79f05846835cf4dff63ab7eefdde9df83783",
+      "branch": "main",
+      "archived": true,
+      "description": "💻 A fully functional local AWS cloud stack. Develop and test your cloud & Serverless apps offline",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE.txt",
+          "blob": "cdb01382c05f99cf5d255048379a13acd5700b99"
+        }
+      ],
+      "manifest_paths": [
+        "pyproject.toml"
+      ],
+      "readme_blob": "0d78c2be49085191d6c09cba2cf3d441498d6094",
+      "evidence_url": "https://github.com/localstack/localstack/tree/8b9a79f05846835cf4dff63ab7eefdde9df83783",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Offline test emulation",
+      "decision_reason": "Archived public repo; no runtime dependence"
+    },
+    {
+      "repository": "uvdesk/community-skeleton",
+      "head": "6f35040f447f7fe1dcd254e259e7b7e0a9f7a79f",
+      "branch": "master",
+      "archived": false,
+      "description": "UVdesk Open Source Community Helpdesk is a comprehensive ticketing support system designed for everyone, offering robust features to streamline customer support and collaboration.",
+      "observed_license": "OSL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE.txt",
+          "blob": "42d55ec19e2316378005af9fd29cb2ca3896430a"
+        }
+      ],
+      "manifest_paths": [
+        "composer.json"
+      ],
+      "readme_blob": "341870ffad06fb4eeaab2e4c33545fd162880bf1",
+      "evidence_url": "https://github.com/uvdesk/community-skeleton/tree/6f35040f447f7fe1dcd254e259e7b7e0a9f7a79f",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Helpdesk extension model",
+      "decision_reason": "Extra PHP/Symfony runtime not justified"
+    },
+    {
+      "repository": "block/buzz",
+      "head": "ef2aa1ae38fadcc0bc22b8bf6ed96b35933146be",
+      "branch": "main",
+      "archived": false,
+      "description": "A hive mind communication platform",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "862ee3c28647e7a58801a75236855c269c1448ae"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "package.json"
+      ],
+      "readme_blob": "56439f00bc1565ce7aca273a886eecdc12df5c1d",
+      "evidence_url": "https://github.com/block/buzz/tree/ef2aa1ae38fadcc0bc22b8bf6ed96b35933146be",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Human/agent principals and evidence",
+      "decision_reason": "Do not inherit Nostr substrate"
+    },
+    {
+      "repository": "chaitanyagiri/munder-difflin",
+      "head": "c7c8921f4491104d342861e32fa214e486442304",
+      "branch": "main",
+      "archived": false,
+      "description": "A local multi-agent harness that works with your existing Claude Code, Codex subscriptions, allows you to run an office of agents",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "69073fc3d4afe3a681f675e3543b534b608f37e3"
+        },
+        {
+          "path": "LICENSE-ASSETS",
+          "blob": "5eec3aa1e5c04ca29b07fd44d811413e4545bb05"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "a717a50dbfb0172136e664b6284587d647111b72",
+      "evidence_url": "https://github.com/chaitanyagiri/munder-difflin/tree/c7c8921f4491104d342861e32fa214e486442304",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Bounded supervisor/mailbox",
+      "decision_reason": "CLI subscription wrapper not provider-neutral Company OS foundation"
+    },
+    {
+      "repository": "jaredrhod/fullstack-agent",
+      "head": "5bb159f47dbd6fa8f108651d0532a43aef16346b",
+      "branch": "main",
+      "archived": false,
+      "description": "Give your AI a full stack: memory, voice, face, and hands. This is the \"I want an AI agent\" shortcut. It sets up the entire jaredrhod stack for you with an installation wizard. Select which pieces you want or do it all!",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "be3f7b28e564e7dd05eaf59d64adba1a4065ac0e"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "a16e9f6f8fe1e8e3fbc51a5d5efde1025f8efe12",
+      "evidence_url": "https://github.com/jaredrhod/fullstack-agent/tree/5bb159f47dbd6fa8f108651d0532a43aef16346b",
+      "classification": "REFERENCE_ONLY",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Memory/voice setup UX",
+      "decision_reason": "README requires Claude Code; not offline/provider-agnostic baseline"
+    },
+    {
+      "repository": "opensandbox-group/OpenSandbox",
+      "head": "07e95cccd294b92f81bb715d22af6da2b619227d",
+      "branch": "main",
+      "archived": false,
+      "description": "Secure, Fast, and Extensible Sandbox runtime for AI agents.",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "b09cd7856d58590578ee1a4f3ad45d1310a97f87"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "68857200bb903d797bac95a59a0fa5d924fb38e4",
+      "evidence_url": "https://github.com/opensandbox-group/OpenSandbox/tree/07e95cccd294b92f81bb715d22af6da2b619227d",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Sandbox SDK/runtime abstraction",
+      "decision_reason": "Candidate execution adapter; must prove confinement on supported host"
+    },
+    {
+      "repository": "OpenWhispr/openwhispr",
+      "head": "6d56d75e7e13ec47009e573e9ff4cded0d0ccc61",
+      "branch": "main",
+      "archived": false,
+      "description": "Voice-to-text dictation app with local (Nvidia Parakeet/Whisper) and cloud models (BYOK). Privacy-first and available cross-platform.",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "96cbe9720e34c13191bda9c9704e1353c0760dc7"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "e9140c42ca3adf963129ca4705429d613139a68f",
+      "evidence_url": "https://github.com/OpenWhispr/openwhispr/tree/6d56d75e7e13ec47009e573e9ff4cded0d0ccc61",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Local dictation/voice UX",
+      "decision_reason": "No ambient microphone or provider fallback"
+    },
+    {
+      "repository": "Starmel/OpenSuperWhisper",
+      "head": "c8e6fe79d6851078940f459ab7dbc8ee39e2a97d",
+      "branch": "develop",
+      "archived": false,
+      "description": "macOS dictation app",
+      "observed_license": "MIT",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "d90d265162fc8336375c68d7c8d3d42649e0003b"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "d469bddad619554ab3ea0ade5e4f578c8b2feac8",
+      "evidence_url": "https://github.com/Starmel/OpenSuperWhisper/tree/c8e6fe79d6851078940f459ab7dbc8ee39e2a97d",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "macOS capture/hotkeys",
+      "decision_reason": "Platform-specific optional adapter"
+    },
+    {
+      "repository": "BraaMohammed/bricks",
+      "head": "586186e0d71d49a1a2fb762b66f65ad4f33d44f6",
+      "branch": "main",
+      "archived": false,
+      "description": "Bricks is the open-source, fully local alternative to Clay.com. It combines AI agents, advanced web scraping, and Puppeteer automation to turn raw CSV data into actionable business intelligence — without subscriptions, vendor lock-in, or sending your data to the cloud.",
+      "observed_license": "UNKNOWN",
+      "license_paths": [],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "39fed8ab05d320861945e4c6bb3960b71c4798c3",
+      "evidence_url": "https://github.com/BraaMohammed/bricks/tree/586186e0d71d49a1a2fb762b66f65ad4f33d44f6",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Enrichment preview/provider cost",
+      "decision_reason": "No root public license; grant acknowledged; BYOK calls still egress"
+    },
+    {
+      "repository": "n8n-io/n8n",
+      "head": "0b2ff221c1e3b8acf46c9ab9faf2e82bd2e757db",
+      "branch": "master",
+      "archived": false,
+      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "CONTRIBUTOR_LICENSE_AGREEMENT.md",
+          "blob": "b4a3c7e8f6f1cbe11b21cc89957d9dc8e5b4969e"
+        },
+        {
+          "path": "LICENSE.md",
+          "blob": "f85f59baa906530c26cee26e0c9ddd6bd5f86dbd"
+        },
+        {
+          "path": "LICENSE_EE.md",
+          "blob": "b47966a6c05809c90723aa4beaf47cbbd34fac1b"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "21909fae00cbad4f18af84d2948752445051a915",
+      "evidence_url": "https://github.com/n8n-io/n8n/tree/0b2ff221c1e3b8acf46c9ab9faf2e82bd2e757db",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Workflow and connector ergonomics",
+      "decision_reason": "Restricted/mixed source; no second execution engine"
+    },
+    {
+      "repository": "activepieces/activepieces",
+      "head": "cdc72d3194cfc313f136754b121c37fe90eaed62",
+      "branch": "main",
+      "archived": false,
+      "description": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI Workflows & AI Agents • MCPs for AI Agents",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "73e0a2f7acf13c780655de40183b06a0a93e091b"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "83e16d857968de7c88600a6536d32042202b2348",
+      "evidence_url": "https://github.com/activepieces/activepieces/tree/cdc72d3194cfc313f136754b121c37fe90eaed62",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Typed pieces and human input",
+      "decision_reason": "Qualify selected SDK patterns; do not import enterprise paths blindly"
+    },
+    {
+      "repository": "refly-ai/refly",
+      "head": "71f8b875c8751e881776749d8ed7a74383b65fb0",
+      "branch": "main",
+      "archived": false,
+      "description": "The first open-source agent skills builder. Define skills by vibe workflow, run on Claude Code, Cursor, Codex & more. Build Clawdbot 🦞· APIs for Lovable · Bots for Slack & Lark/Feishu · Skills are infrastructure, not prompts.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "0a1e3f2b02fcbeffd2f01f6a3f886f6ee8571db7"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "017939cde2f5f110e7190aa25e08206c416a7416",
+      "evidence_url": "https://github.com/refly-ai/refly/tree/71f8b875c8751e881776749d8ed7a74383b65fb0",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Skills and intervenable workflows",
+      "decision_reason": "Skill version is not runtime authorization"
+    },
+    {
+      "repository": "Rheosoph/flow-like",
+      "head": "71e45a42bb920d38b6eed6c1669f14e9286eacfb",
+      "branch": "dev",
+      "archived": false,
+      "description": "Flow-Like: Strongly Typed Enterprise Scale Workflows. Built for scalability, speed, seamless AI integration and rich customization.",
+      "observed_license": "NOASSERTION",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "0406aa1cb723abce135e56f589089078c41b2bbb"
+        }
+      ],
+      "manifest_paths": [
+        "Cargo.toml",
+        "package.json"
+      ],
+      "readme_blob": "9eacc390e94e0675b6143f7fc54b3c4d9010cb13",
+      "evidence_url": "https://github.com/Rheosoph/flow-like/tree/71e45a42bb920d38b6eed6c1669f14e9286eacfb",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Typed flows/canvas/run evidence",
+      "decision_reason": "Runtime replaceable; no new canonical app/data model"
+    },
+    {
+      "repository": "livecontext-ai/livecontext-ce",
+      "head": "354d4fb41bf74de4901c805af49ff5cfff9f0452",
+      "branch": "main",
+      "archived": false,
+      "description": "The AI automation platform, self-hosted. Describe the job in chat and LiveContext builds it: readable workflows, scoped AI agents, and small apps your team uses. Chat, Workflow, Agent and App on one canvas.",
+      "observed_license": "AGPL-3.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "be3f7b28e564e7dd05eaf59d64adba1a4065ac0e"
+        },
+        {
+          "path": "NOTICE",
+          "blob": "926ad5aa20665c5beaacd5f953df7fa2ecf22ef9"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "blob": "41b58abdb2e83d90f4bbd698251a3fe98135b082"
+        }
+      ],
+      "manifest_paths": [],
+      "readme_blob": "7c163845e4831792c7e7dd590cc5a15be3192611",
+      "evidence_url": "https://github.com/livecontext-ai/livecontext-ce/tree/354d4fb41bf74de4901c805af49ff5cfff9f0452",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Chat/flow/app convergence",
+      "decision_reason": "Separate authoring from runtime grants and budget enforcement"
+    },
+    {
+      "repository": "raghav3600/Altclay",
+      "head": "874d0ed8ef0a279b12c4ec01e87d42a5a7130b0d",
+      "branch": "claude/freeclay-spreadsheet-tool-BErkj",
+      "archived": false,
+      "description": null,
+      "observed_license": "UNKNOWN",
+      "license_paths": [],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": null,
+      "evidence_url": "https://github.com/raghav3600/Altclay/tree/874d0ed8ef0a279b12c4ec01e87d42a5a7130b0d",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Small-batch enrichment and cost preview",
+      "decision_reason": "No README; CLAUDE/package inspected: remote BYOK and Vercel analytics, not air-gapped"
+    },
+    {
+      "repository": "eigent-ai/eigent",
+      "head": "0035d94213b29f98309c1854b68233de6697822b",
+      "branch": "main",
+      "archived": false,
+      "description": "Eigent: The Open Source Cowork Desktop - Local and Free Alternative to Claude Cowork and Codex",
+      "observed_license": "Apache-2.0",
+      "license_paths": [
+        {
+          "path": "LICENSE",
+          "blob": "7a9e1a9aeaed631cb451438d525c4fee0712362d"
+        },
+        {
+          "path": "licenses",
+          "blob": "4974041ba9404e674b93b73a7fcc610440d8ac86"
+        }
+      ],
+      "manifest_paths": [
+        "package.json"
+      ],
+      "readme_blob": "b7946166e44cf1665717b4987f3154242b428d0f",
+      "evidence_url": "https://github.com/eigent-ai/eigent/tree/0035d94213b29f98309c1854b68233de6697822b",
+      "classification": "ADAPT_PATTERN",
+      "qualification": "Research snapshot; no source imported or donor tests run. Repository license metadata is not file-level clearance.",
+      "capability": "Local multi-agent workforce",
+      "decision_reason": "Narrow delegation/action contracts rather than desktop OS embedding"
+    },
+    {
+      "repository": "Geta",
+      "head": null,
+      "classification": "REJECT",
+      "evidence_url": "https://github.com/Geta",
+      "qualification": "Organization catalog inspected; Optimizely/.NET specialization adds no baseline Company OS capability.",
+      "capability": "Optimizely/.NET utilities",
+      "decision_reason": "No material baseline fit from organization catalog"
+    },
+    {
+      "repository": "clay.com",
+      "head": null,
+      "classification": "REFERENCE_ONLY",
+      "evidence_url": "https://university.clay.com/docs/workflow-faqs",
+      "qualification": "Product docs inspected. Founder grant acknowledged; exact code package unresolved and no code intake proposed.",
+      "capability": "Waterfalls/record workflows/enrichment",
+      "decision_reason": "Product docs only; exact authorized source package not identified"
+    }
+  ]
+}

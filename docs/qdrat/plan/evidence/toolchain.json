@@ -1,0 +1,66 @@
+{
+  "tools": [
+    {
+      "repository": "TheHalfMoon/SpecGrain",
+      "inspected_head": "5de7d6499bb0a9e3a191fc0934399cf099d1980a",
+      "paths": [
+        {
+          "path": "src/specgrain/model.py",
+          "sha256": "fe2127622727e4cc2e2030341babf1fe46a2b8da8bab0a88d04ea28358358270"
+        },
+        {
+          "path": "src/specgrain/refinement.py",
+          "sha256": "cadd4db3f17ca74fc09ee17d2aafa4241d347979c4e55a81c7711740cf5bdbab"
+        },
+        {
+          "path": "src/specgrain/readiness.py",
+          "sha256": "18f51630aa9990407d2ef6106c5e1158ee8b31bf9b9c7b4b4522fceaa3e1bbe2"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "f9bd6621fa5134890f74d185dc23c77d2bf0c22e11c2b4fb87441859ca3bb551"
+        }
+      ],
+      "use": "Temporary planning tool; no copied source or product dependency",
+      "grant": "Standing founder source authorization; preserve upstream LICENSE",
+      "modifications": "None to upstream source",
+      "update": "Re-pin and inspect schema/policy changes before changing tool revision",
+      "replacement": "Retain portable Qdrat tasks/contracts/evidence; requalify any replacement adapter",
+      "dependencies": "Python 3.11+ standard library core; loaded locally without package installation",
+      "execution": "SpecNode parsing/refinement/readiness for 96 nodes; first candidate only checked for readiness"
+    },
+    {
+      "repository": "TheHalfMoon/Diffcipline",
+      "inspected_head": "1e6d14f77b95bb132b42276f10d67f1018ab5bb6",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "3ca8a944870ae71468e84744086b6f41f5328da9020ca7809f84aa5fdf7bb192"
+        },
+        {
+          "path": "Cargo.toml",
+          "sha256": "5668fae9412c20e68e467dec405d9d3ab9112b4840bc2cfd20072536030e2303"
+        },
+        {
+          "path": "crates/diffcipline-cli/Cargo.toml",
+          "sha256": "83b93e230a5fc00b6a43095b5765de7c9dc6968f22590fbdc537e35391ee385d"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "682eb5820498195487a145c81e4c2e94478d6b4d430c4962c86fe9a5c1731d1e"
+        }
+      ],
+      "use": "Temporary planning tool; no copied source or product dependency",
+      "grant": "Standing founder source authorization; preserve upstream LICENSE",
+      "modifications": "None to upstream source",
+      "update": "Re-pin and inspect schema/policy changes before changing tool revision",
+      "replacement": "Retain portable Qdrat tasks/contracts/evidence; requalify any replacement adapter",
+      "dependencies": "Dependency-free Rust crate; native release executable used after missing-linker build failure",
+      "release_commit": "5cb1c77340b75649f6168e0e8f66479ea047ea96",
+      "release_tag": "v1.0.0",
+      "release_asset": "diffcipline-x86_64-pc-windows-msvc.exe",
+      "asset_sha256": "5fee721d3837ab86f2c36003d02ca67ebac793ff8dadcdb3b7eea074690e57a8",
+      "verification": "Downloaded bytes matched GitHub immutable release asset digest; full Sigstore attestation verification NOT_RUN"
+    }
+  ]
+}

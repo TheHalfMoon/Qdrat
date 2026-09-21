@@ -1,0 +1,1430 @@
+{
+  "schema": "qdrat.execution-graph/v1",
+  "plan_version": "1.0.0",
+  "repository": "TheHalfMoon/Qdrat",
+  "foundation_head": "933f9c1070c151876c1e198d6141413f33e4b6d3",
+  "current_gate": "G0",
+  "first_task": "G0-01",
+  "semantics": "JSON is valid YAML 1.2. Dependencies require independently verified exact-revision receipts. SHAPED is not executable authorization. No native Diffcipline scheduler is claimed.",
+  "gates": [
+    {
+      "id": "G0",
+      "title": "Baseline",
+      "dependencies": [],
+      "tasks": [
+        "G0-01",
+        "G0-02",
+        "G0-03",
+        "G0-04",
+        "G0-05",
+        "G0-06"
+      ],
+      "state": "OPEN",
+      "exit": [
+        "Two independent Linux amd64 Python 3.12 resolutions have identical normalized locks/artifact hashes; offline install and pip check exit 0",
+        "Clean image and empty PostgreSQL migrations succeed; inherited tests and coverage floor 26 retained; CI runs against actual Qdrat PR base",
+        "SBOM/notices/image inventory and route/model/job/dependency/backup inventory reviewed; every failed or inconclusive check remains visibly unresolved",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: live foundation truth reverified"
+      ],
+      "completion_evidence": "evidence/gates/G0.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G1",
+      "title": "Kernel and trust",
+      "dependencies": [
+        "G0"
+      ],
+      "tasks": [
+        "G1-01",
+        "G1-02",
+        "G1-03",
+        "G1-04",
+        "G1-05",
+        "G1-06",
+        "G1-07",
+        "G1-08",
+        "G1-09",
+        "G1-10",
+        "G1-11"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "Policy corpus denies every cross-tenant/forbidden-field/delegation-expiry fixture; workers and exports use current policy",
+        "One atomic object/domain/outbox transaction demonstrated with duplicate/idempotent command and concurrent-revision rejection",
+        "Protected media, secret rotation, encrypted complete backup/restore and expiring bootstrap prove recovery; core shell journeys pass Arabic/English keyboard checks",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G0"
+      ],
+      "completion_evidence": "evidence/gates/G1.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G2",
+      "title": "Data connections",
+      "dependencies": [
+        "G1"
+      ],
+      "tasks": [
+        "G2-01",
+        "G2-02",
+        "G2-03",
+        "G2-04",
+        "G2-05",
+        "G2-06",
+        "G2-07",
+        "G2-08"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "Import/reconciliation fixtures preserve keys, counts, totals, ACL, attachments and missing-versus-forbidden fields with zero unexplained discrepancies",
+        "CDC snapshot/watermark crash/resume proves no loss; incompatible drift suspends writes; write-owner overlap rejected",
+        "Remote lost-response fixture enters UNKNOWN_OUTCOME and no duplicate effect; bridge disconnect resumes from durable checkpoint without inbound public access",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G1"
+      ],
+      "completion_evidence": "evidence/gates/G2.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G3",
+      "title": "Durable automation",
+      "dependencies": [
+        "G1"
+      ],
+      "tasks": [
+        "G3-01",
+        "G3-02",
+        "G3-03",
+        "G3-04",
+        "G3-05",
+        "G3-06",
+        "G3-07",
+        "G3-08"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "Crash before/after local commit and remote response produces no lost run or unapproved duplicate effect in fake-provider corpus",
+        "Expired/revised approval, delegated scope and shared budgets fail closed under concurrent attempts",
+        "Bounded loops, timers/DST, human waits, parallel steps, cancellation, replay without effects and forward compensation all have passing assertions",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G1"
+      ],
+      "completion_evidence": "evidence/gates/G3.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G4",
+      "title": "People core and knowledge",
+      "dependencies": [
+        "G2",
+        "G3"
+      ],
+      "tasks": [
+        "G4-01",
+        "G4-02",
+        "G4-03",
+        "G4-04",
+        "G4-05",
+        "G4-06",
+        "G4-07",
+        "G4-08",
+        "G4-09",
+        "G4-10",
+        "G4-11",
+        "G4-12"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "Directory-to-contract-to-leave-to-approval-to-document journey passes on supported no-AI profile in Arabic and English",
+        "Employment/leave/time/recruiting/performance/rewards fixture suite passes effective-date, concurrency, privacy and audit assertions",
+        "Pilot import has zero unexplained key/count/business-total differences; confidential search revocation and projection rebuild pass",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G2, G3"
+      ],
+      "completion_evidence": "evidence/gates/G4.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G5",
+      "title": "Saudi payroll qualification",
+      "dependencies": [
+        "G4"
+      ],
+      "tasks": [
+        "G5-01",
+        "G5-02",
+        "G5-03",
+        "G5-04",
+        "G5-05",
+        "G5-06"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "Country rule matrix contains official source/effective date/cohort and qualified payroll-review owner for every active calculation",
+        "Golden payroll/EOSB/leave/overtime/GOSI fixtures reconcile exact decimal amounts including retroactive/edge cohorts",
+        "At least two consecutive shadow payroll periods reconcile to accepted customer payroll with zero unexplained differences; dual control and duplicate WPS export prevention pass; qualification owner signs release",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G4"
+      ],
+      "completion_evidence": "evidence/gates/G5.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G6",
+      "title": "Work and Service",
+      "dependencies": [
+        "G4"
+      ],
+      "tasks": [
+        "G6-01",
+        "G6-02",
+        "G6-03",
+        "G6-04",
+        "G6-05",
+        "G6-06",
+        "G6-07",
+        "G6-08"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "Work hierarchy/dependency/capacity fixtures and one complete public-case/internal-fulfillment journey pass without audience leakage",
+        "SLA/OLA tests cover business calendars, pause/resume, DST, routing and escalation; message retry never duplicates delivery silently",
+        "Jira/Zendesk/ServiceNow sample migrations reconcile IDs, states, comments, permissions and attachments; unsupported fields are reported rather than discarded",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G4"
+      ],
+      "completion_evidence": "evidence/gates/G6.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G7",
+      "title": "Commercial and asset operations",
+      "dependencies": [
+        "G6"
+      ],
+      "tasks": [
+        "G7-01",
+        "G7-02",
+        "G7-03",
+        "G7-04",
+        "G7-05",
+        "G7-06",
+        "G7-07",
+        "G7-08",
+        "G7-09",
+        "G7-10"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "Account/contact merges preserve external identity and permission provenance; enrichment respects row/provider budget, consent and freshness",
+        "Purchase/receipt/invoice discrepancies stop approval; ledger proposal debits equal credits and source acceptance reconciles",
+        "Asset custody and resource reservation concurrency reject conflicts; campaign suppression is enforced at dispatch; renewal/health factors are explainable",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G6"
+      ],
+      "completion_evidence": "evidence/gates/G7.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G8",
+      "title": "Studio analytics and extensions",
+      "dependencies": [
+        "G4"
+      ],
+      "tasks": [
+        "G8-01",
+        "G8-02",
+        "G8-03",
+        "G8-04",
+        "G8-05",
+        "G8-06",
+        "G8-07"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "Custom schema/formula publication rejects cycles, core-object overrides, incompatible referenced field changes and unauthorized queries",
+        "Extension install/upgrade/export proves signature, permission review, compatibility and recovery on supported profiles",
+        "One metric definition yields identical authorized values in dashboard, export and AI-query adapter; no raw DB credentials exposed",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G4"
+      ],
+      "completion_evidence": "evidence/gates/G8.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G9",
+      "title": "AI execution and voice",
+      "dependencies": [
+        "G4",
+        "G6"
+      ],
+      "tasks": [
+        "G9-01",
+        "G9-02",
+        "G9-03",
+        "G9-04",
+        "G9-05",
+        "G9-06",
+        "G9-07",
+        "G9-08",
+        "G9-09"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "No-egress/no-AI mode works with remote providers unavailable; local model/profile/corpus digests recorded",
+        "Every prohibited action in evaluation corpus is denied; citations resolve only authorized source revisions; abstention/quality results reported with denominators",
+        "Sandbox confinement/resource/cancel/artifact-custody qualification passes on declared host or profile stays disabled",
+        "Foreground voice consent, Arabic/English correction, transcript-to-draft and approval have passing journeys; raw audio deletion propagates to derivatives subject to holds",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G4, G6"
+      ],
+      "completion_evidence": "evidence/gates/G9.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G10",
+      "title": "Production operations and release",
+      "dependencies": [
+        "G5"
+      ],
+      "tasks": [
+        "G10-01",
+        "G10-02",
+        "G10-03",
+        "G10-04",
+        "G10-05",
+        "G10-06"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "Clean customer host installs from complete verified offline bundle with network disabled and no public-cloud authentication",
+        "Backup restored to a second host reconciles database/blobs/keys/config/checkpoints; outbound effects remain paused until reconciliation",
+        "Upgrade from previous supported release and tested rollback/forward repair pass; diagnostics redact secrets; known vulnerabilities/risk dispositions and support matrix recorded",
+        "People production release includes G0–G5 receipts and only optional modules with their own completed gates; disabled modules do not silently ship enabled",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G5"
+      ],
+      "completion_evidence": "evidence/gates/G10.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G11",
+      "title": "HA and scale",
+      "dependencies": [
+        "G10"
+      ],
+      "tasks": [
+        "G11-01",
+        "G11-02",
+        "G11-03"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "Web/worker crash, stale worker, database failover, network partition and blob outage tests preserve fencing and reconcile effects",
+        "Kubernetes/private-HA installation and recovery run on explicitly declared platform/runtime versions",
+        "Chapter 33 workload budgets measured with hardware/data/concurrency/cache details and no unexplained failure; capacity limits published",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G10"
+      ],
+      "completion_evidence": "evidence/gates/G11.json (future receipt; not present or passed yet)"
+    },
+    {
+      "id": "G12",
+      "title": "Later domain replacement admission",
+      "dependencies": [
+        "G7",
+        "G9",
+        "G11"
+      ],
+      "tasks": [
+        "G12-01",
+        "G12-02"
+      ],
+      "state": "LOCKED",
+      "exit": [
+        "Native-ledger admission produces a separate jurisdiction/period/currency/posting/migration specification and evidence program before any replacement authorization",
+        "Additional country/industry pack admission defines namespaced objects/rules/permissions, upgrade/deletion/compatibility and qualified owner; no fork of core authority",
+        "All listed task receipts accepted at compatible exact revisions; unresolved critical failures block this gate"
+      ],
+      "entry": [
+        "Predecessor gates accepted: G7, G9, G11"
+      ],
+      "completion_evidence": "evidence/gates/G12.json (future receipt; not present or passed yet)"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "G0-01",
+      "grain_id": "SG-000001",
+      "gate": "G0",
+      "dependencies": [],
+      "state": "REFINING",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G0-02",
+      "grain_id": "SG-000002",
+      "gate": "G0",
+      "dependencies": [
+        "G0-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G0-03",
+      "grain_id": "SG-000003",
+      "gate": "G0",
+      "dependencies": [
+        "G0-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G0-04",
+      "grain_id": "SG-000004",
+      "gate": "G0",
+      "dependencies": [
+        "G0-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G0-05",
+      "grain_id": "SG-000005",
+      "gate": "G0",
+      "dependencies": [
+        "G0-04"
+      ],
+      "state": "SHAPED",
+      "risk": "R0",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G0-06",
+      "grain_id": "SG-000006",
+      "gate": "G0",
+      "dependencies": [
+        "G0-05"
+      ],
+      "state": "SHAPED",
+      "risk": "R0",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G1-01",
+      "grain_id": "SG-000007",
+      "gate": "G1",
+      "dependencies": [
+        "G0-06"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G1-02",
+      "grain_id": "SG-000008",
+      "gate": "G1",
+      "dependencies": [
+        "G1-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G1-03",
+      "grain_id": "SG-000009",
+      "gate": "G1",
+      "dependencies": [
+        "G1-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G1-04",
+      "grain_id": "SG-000010",
+      "gate": "G1",
+      "dependencies": [
+        "G1-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G1-05",
+      "grain_id": "SG-000011",
+      "gate": "G1",
+      "dependencies": [
+        "G1-04"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G1-06",
+      "grain_id": "SG-000012",
+      "gate": "G1",
+      "dependencies": [
+        "G1-05"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G1-07",
+      "grain_id": "SG-000013",
+      "gate": "G1",
+      "dependencies": [
+        "G1-06"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G1-08",
+      "grain_id": "SG-000014",
+      "gate": "G1",
+      "dependencies": [
+        "G1-07"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G1-09",
+      "grain_id": "SG-000015",
+      "gate": "G1",
+      "dependencies": [
+        "G1-08"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G1-10",
+      "grain_id": "SG-000016",
+      "gate": "G1",
+      "dependencies": [
+        "G1-09"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G1-11",
+      "grain_id": "SG-000017",
+      "gate": "G1",
+      "dependencies": [
+        "G1-10"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G2-01",
+      "grain_id": "SG-000018",
+      "gate": "G2",
+      "dependencies": [
+        "G1-11"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G2-02",
+      "grain_id": "SG-000019",
+      "gate": "G2",
+      "dependencies": [
+        "G2-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G2-03",
+      "grain_id": "SG-000020",
+      "gate": "G2",
+      "dependencies": [
+        "G2-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G2-04",
+      "grain_id": "SG-000021",
+      "gate": "G2",
+      "dependencies": [
+        "G2-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G2-05",
+      "grain_id": "SG-000022",
+      "gate": "G2",
+      "dependencies": [
+        "G2-04"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G2-06",
+      "grain_id": "SG-000023",
+      "gate": "G2",
+      "dependencies": [
+        "G2-05"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G2-07",
+      "grain_id": "SG-000024",
+      "gate": "G2",
+      "dependencies": [
+        "G2-06"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G2-08",
+      "grain_id": "SG-000025",
+      "gate": "G2",
+      "dependencies": [
+        "G2-07"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G3-01",
+      "grain_id": "SG-000026",
+      "gate": "G3",
+      "dependencies": [
+        "G1-11"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G3-02",
+      "grain_id": "SG-000027",
+      "gate": "G3",
+      "dependencies": [
+        "G3-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G3-03",
+      "grain_id": "SG-000028",
+      "gate": "G3",
+      "dependencies": [
+        "G3-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G3-04",
+      "grain_id": "SG-000029",
+      "gate": "G3",
+      "dependencies": [
+        "G3-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G3-05",
+      "grain_id": "SG-000030",
+      "gate": "G3",
+      "dependencies": [
+        "G3-04"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G3-06",
+      "grain_id": "SG-000031",
+      "gate": "G3",
+      "dependencies": [
+        "G3-05"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G3-07",
+      "grain_id": "SG-000032",
+      "gate": "G3",
+      "dependencies": [
+        "G3-06"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G3-08",
+      "grain_id": "SG-000033",
+      "gate": "G3",
+      "dependencies": [
+        "G3-07"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-01",
+      "grain_id": "SG-000034",
+      "gate": "G4",
+      "dependencies": [
+        "G2-08",
+        "G3-08"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-02",
+      "grain_id": "SG-000035",
+      "gate": "G4",
+      "dependencies": [
+        "G4-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-03",
+      "grain_id": "SG-000036",
+      "gate": "G4",
+      "dependencies": [
+        "G4-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-04",
+      "grain_id": "SG-000037",
+      "gate": "G4",
+      "dependencies": [
+        "G4-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-05",
+      "grain_id": "SG-000038",
+      "gate": "G4",
+      "dependencies": [
+        "G4-04"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-06",
+      "grain_id": "SG-000039",
+      "gate": "G4",
+      "dependencies": [
+        "G4-05"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-07",
+      "grain_id": "SG-000040",
+      "gate": "G4",
+      "dependencies": [
+        "G4-06"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-08",
+      "grain_id": "SG-000041",
+      "gate": "G4",
+      "dependencies": [
+        "G4-07"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-09",
+      "grain_id": "SG-000042",
+      "gate": "G4",
+      "dependencies": [
+        "G4-08"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-10",
+      "grain_id": "SG-000043",
+      "gate": "G4",
+      "dependencies": [
+        "G4-09"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-11",
+      "grain_id": "SG-000044",
+      "gate": "G4",
+      "dependencies": [
+        "G4-10"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G4-12",
+      "grain_id": "SG-000045",
+      "gate": "G4",
+      "dependencies": [
+        "G4-11"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G5-01",
+      "grain_id": "SG-000046",
+      "gate": "G5",
+      "dependencies": [
+        "G4-12"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G5-02",
+      "grain_id": "SG-000047",
+      "gate": "G5",
+      "dependencies": [
+        "G5-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G5-03",
+      "grain_id": "SG-000048",
+      "gate": "G5",
+      "dependencies": [
+        "G5-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G5-04",
+      "grain_id": "SG-000049",
+      "gate": "G5",
+      "dependencies": [
+        "G5-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G5-05",
+      "grain_id": "SG-000050",
+      "gate": "G5",
+      "dependencies": [
+        "G5-04"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G5-06",
+      "grain_id": "SG-000051",
+      "gate": "G5",
+      "dependencies": [
+        "G5-05"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G6-01",
+      "grain_id": "SG-000052",
+      "gate": "G6",
+      "dependencies": [
+        "G4-12"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G6-02",
+      "grain_id": "SG-000053",
+      "gate": "G6",
+      "dependencies": [
+        "G6-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G6-03",
+      "grain_id": "SG-000054",
+      "gate": "G6",
+      "dependencies": [
+        "G6-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G6-04",
+      "grain_id": "SG-000055",
+      "gate": "G6",
+      "dependencies": [
+        "G6-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G6-05",
+      "grain_id": "SG-000056",
+      "gate": "G6",
+      "dependencies": [
+        "G6-04"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G6-06",
+      "grain_id": "SG-000057",
+      "gate": "G6",
+      "dependencies": [
+        "G6-05"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G6-07",
+      "grain_id": "SG-000058",
+      "gate": "G6",
+      "dependencies": [
+        "G6-06"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G6-08",
+      "grain_id": "SG-000059",
+      "gate": "G6",
+      "dependencies": [
+        "G6-07"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G7-01",
+      "grain_id": "SG-000060",
+      "gate": "G7",
+      "dependencies": [
+        "G6-08"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G7-02",
+      "grain_id": "SG-000061",
+      "gate": "G7",
+      "dependencies": [
+        "G7-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G7-03",
+      "grain_id": "SG-000062",
+      "gate": "G7",
+      "dependencies": [
+        "G7-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G7-04",
+      "grain_id": "SG-000063",
+      "gate": "G7",
+      "dependencies": [
+        "G7-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G7-05",
+      "grain_id": "SG-000064",
+      "gate": "G7",
+      "dependencies": [
+        "G7-04"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G7-06",
+      "grain_id": "SG-000065",
+      "gate": "G7",
+      "dependencies": [
+        "G7-05"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G7-07",
+      "grain_id": "SG-000066",
+      "gate": "G7",
+      "dependencies": [
+        "G7-06"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G7-08",
+      "grain_id": "SG-000067",
+      "gate": "G7",
+      "dependencies": [
+        "G7-07"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G7-09",
+      "grain_id": "SG-000068",
+      "gate": "G7",
+      "dependencies": [
+        "G7-08"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G7-10",
+      "grain_id": "SG-000069",
+      "gate": "G7",
+      "dependencies": [
+        "G7-09"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G8-01",
+      "grain_id": "SG-000070",
+      "gate": "G8",
+      "dependencies": [
+        "G4-12"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G8-02",
+      "grain_id": "SG-000071",
+      "gate": "G8",
+      "dependencies": [
+        "G8-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G8-03",
+      "grain_id": "SG-000072",
+      "gate": "G8",
+      "dependencies": [
+        "G8-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G8-04",
+      "grain_id": "SG-000073",
+      "gate": "G8",
+      "dependencies": [
+        "G8-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G8-05",
+      "grain_id": "SG-000074",
+      "gate": "G8",
+      "dependencies": [
+        "G8-04"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G8-06",
+      "grain_id": "SG-000075",
+      "gate": "G8",
+      "dependencies": [
+        "G8-05"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G8-07",
+      "grain_id": "SG-000076",
+      "gate": "G8",
+      "dependencies": [
+        "G8-06"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G9-01",
+      "grain_id": "SG-000077",
+      "gate": "G9",
+      "dependencies": [
+        "G4-12",
+        "G6-08"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G9-02",
+      "grain_id": "SG-000078",
+      "gate": "G9",
+      "dependencies": [
+        "G9-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G9-03",
+      "grain_id": "SG-000079",
+      "gate": "G9",
+      "dependencies": [
+        "G9-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G9-04",
+      "grain_id": "SG-000080",
+      "gate": "G9",
+      "dependencies": [
+        "G9-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G9-05",
+      "grain_id": "SG-000081",
+      "gate": "G9",
+      "dependencies": [
+        "G9-04"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G9-06",
+      "grain_id": "SG-000082",
+      "gate": "G9",
+      "dependencies": [
+        "G9-05"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G9-07",
+      "grain_id": "SG-000083",
+      "gate": "G9",
+      "dependencies": [
+        "G9-06"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G9-08",
+      "grain_id": "SG-000084",
+      "gate": "G9",
+      "dependencies": [
+        "G9-07"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G9-09",
+      "grain_id": "SG-000085",
+      "gate": "G9",
+      "dependencies": [
+        "G9-08"
+      ],
+      "state": "SHAPED",
+      "risk": "R2",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G10-01",
+      "grain_id": "SG-000086",
+      "gate": "G10",
+      "dependencies": [
+        "G5-06"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G10-02",
+      "grain_id": "SG-000087",
+      "gate": "G10",
+      "dependencies": [
+        "G10-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G10-03",
+      "grain_id": "SG-000088",
+      "gate": "G10",
+      "dependencies": [
+        "G10-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G10-04",
+      "grain_id": "SG-000089",
+      "gate": "G10",
+      "dependencies": [
+        "G10-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G10-05",
+      "grain_id": "SG-000090",
+      "gate": "G10",
+      "dependencies": [
+        "G10-04"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G10-06",
+      "grain_id": "SG-000091",
+      "gate": "G10",
+      "dependencies": [
+        "G10-05"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G11-01",
+      "grain_id": "SG-000092",
+      "gate": "G11",
+      "dependencies": [
+        "G10-06"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G11-02",
+      "grain_id": "SG-000093",
+      "gate": "G11",
+      "dependencies": [
+        "G11-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G11-03",
+      "grain_id": "SG-000094",
+      "gate": "G11",
+      "dependencies": [
+        "G11-02"
+      ],
+      "state": "SHAPED",
+      "risk": "R3",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G12-01",
+      "grain_id": "SG-000095",
+      "gate": "G12",
+      "dependencies": [
+        "G7-10",
+        "G9-09",
+        "G11-03"
+      ],
+      "state": "SHAPED",
+      "risk": "R0",
+      "record": "tasks/tasks.json"
+    },
+    {
+      "id": "G12-02",
+      "grain_id": "SG-000096",
+      "gate": "G12",
+      "dependencies": [
+        "G12-01"
+      ],
+      "state": "SHAPED",
+      "risk": "R0",
+      "record": "tasks/tasks.json"
+    }
+  ]
+}

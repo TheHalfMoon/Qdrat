@@ -1,0 +1,17 @@
+{
+  "repository": "TheHalfMoon/Qdrat",
+  "source_branch": "foundation/qdrat-people-blueprint",
+  "source_head": "933f9c1070c151876c1e198d6141413f33e4b6d3",
+  "main": "e2d288940aab52af881786678b2fc86dfa5c272a",
+  "planning_branch": "codex/qdrat-canonical-plan",
+  "source_pr": 1,
+  "source_pr_state": "OPEN",
+  "source_pr_merged": false,
+  "observed_at": "2026-09-20",
+  "specgrain_head": "5de7d6499bb0a9e3a191fc0934399cf099d1980a",
+  "diffcipline_head": "1e6d14f77b95bb132b42276f10d67f1018ab5bb6",
+  "runtime_validation": "NOT_RUN in planning session; historical Docker build INCONCLUSIVE",
+  "local_checkout": "Shallow checkout of existing foundation history, not a new root",
+  "reverified_at": "2026-09-21",
+  "reverification": "GitHub main/foundation/PR1/SpecGrain/Diffcipline refs unchanged; PR1 remains OPEN, nondraft, unmerged"
+}
