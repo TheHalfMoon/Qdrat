@@ -1,0 +1,67 @@
+{
+  "schema": "diffcipline.proof/v1",
+  "schema_version": "1.0",
+  "policy": {
+    "mode": "enterprise",
+    "sources": [
+      ".diffcipline/tasks/G0-01-lock-digest-repair.toml",
+      ".diffcipline.toml"
+    ]
+  },
+  "verdict": "PASS",
+  "base": "ca5ceb361798ff8ba78a8ac86c47de0bc440058e",
+  "changed_files": 5,
+  "added_lines": 268,
+  "deleted_lines": 10,
+  "files": [
+    ".diffcipline/tasks/G0-01-lock-digest-repair.toml",
+    "evidence/g0-01/lock-digest-repair.json",
+    "requirements/artifacts/linux-amd64-py312.json",
+    "requirements/tests/test_lock_contract.py",
+    "requirements/tools/lockfile.py"
+  ],
+  "reasons": [],
+  "risk": "R2",
+  "expected_files": [
+    ".diffcipline/tasks/G0-01-lock-digest-repair.toml",
+    "requirements/tools/lockfile.py",
+    "requirements/tests/test_lock_contract.py",
+    "requirements/artifacts/linux-amd64-py312.json",
+    "evidence/**"
+  ],
+  "forbidden_surfaces": [
+    ".github/workflows/**",
+    "horilla/**",
+    "base/**",
+    "requirements.txt",
+    "Dockerfile",
+    "requirements/locks/**",
+    "docs/qdrat/plan/**"
+  ],
+  "scope_violations": [],
+  "verification": [
+    {
+      "command": "python docs/qdrat/plan/validate_plan.py",
+      "state": "PASS"
+    },
+    {
+      "command": "python docs/qdrat/plan/test_validate_plan.py",
+      "state": "PASS"
+    },
+    {
+      "command": "python -m unittest discover -s requirements/tests -p test_*.py",
+      "state": "PASS"
+    },
+    {
+      "command": "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --sha256-listing evidence/g0-01/wheelhouse-a.sha256 --tool-distribution pip",
+      "state": "PASS"
+    }
+  ],
+  "tool": {
+    "binary": "C:/Users/Shehr/bin/diffcipline.exe",
+    "sha256": "5fee721d3837ab86f2c36003d02ca67ebac793ff8dadcdb3b7eea074690e57a8",
+    "executed_at_utc": "2026-09-21T19:02:00Z",
+    "worktree_clean_before_run": true,
+    "evidence_only_descendant": false
+  }
+}

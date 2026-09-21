@@ -1,0 +1,23 @@
+version = 1
+
+# Task-specific Diffcipline policy for the bounded evidence seal of the G0-01
+# lock-digest repair: the exact-base R2 proof, its captured stdout, and the
+# clean-checkout verification record.
+#
+# Immutable base: 7641e407ef936e7312aa20e891a54fe9088793bb (the repair commit).
+# Risk: R1. Machine evidence and this policy file only: no product code, no
+# dependency manifest and no pipeline file is touched, so runtime behaviour
+# cannot change.
+# Recovery: revert this bounded commit; the repair commit it documents is
+# unaffected.
+
+[policy]
+max_changed_files = 8
+max_added_lines = 1500
+expected_files = [".diffcipline/tasks/G0-01-lock-digest-repair-evidence.toml", "evidence/**"]
+forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile", "requirements/**", "docs/qdrat/plan/**"]
+
+[verification]
+# The lock contract suite is included even though this change is evidence-only:
+# the seal must not be able to certify a repaired record whose own suite fails.
+r1_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py", "python -m unittest discover -s requirements/tests -p test_*.py"]
