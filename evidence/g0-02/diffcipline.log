@@ -1,0 +1,17 @@
+{"schema": "qdrat.plan-validation/v1", "status": "PASS", "product_tests": "NOT_RUN", "tasks": 96, "nodes": 96, "gates": 13, "specgrain": {"status": "NOT_RUN"}}
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 1.987s
+
+OK
+.................................
+----------------------------------------------------------------------
+Ran 33 tests in 0.883s
+
+OK
+...............................
+----------------------------------------------------------------------
+Ran 31 tests in 0.321s
+
+OK
+{"schema":"diffcipline.proof/v1","schema_version":"1.0","policy":{"mode":"enterprise","sources":[".diffcipline/tasks/G0-02.toml",".diffcipline.toml"]},"verdict":"PASS","base":"a5834978ea87c14f658adc5f9061526055894012","changed_files":31,"added_lines":5926,"deleted_lines":47,"reasons":[],"risk":"R2","scope_violations":[],"verification":[{"command":"python docs/qdrat/plan/validate_plan.py","state":"PASS"},{"command":"python docs/qdrat/plan/test_validate_plan.py","state":"PASS"},{"command":"python -m unittest discover -s requirements/tests -p test_*.py","state":"PASS"},{"command":"python -m unittest discover -s docker/tests -p test_*.py","state":"PASS"}]}
