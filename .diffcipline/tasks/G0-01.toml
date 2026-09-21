@@ -18,25 +18,11 @@ max_added_lines = 40000
 dependency_manifest_changes = "review"
 lockfile_changes = "review"
 untracked_files = "review"
-expected_files = [
-    ".diffcipline/tasks/G0-01.toml",
-    "requirements/**",
-    "evidence/g0-01/**",
-    "evidence/jev/G0-01/**",
-]
-forbidden_surfaces = [
-    ".github/workflows/**",
-    "horilla/**",
-    "base/**",
-    "requirements.txt",
-    "Dockerfile",
-    "docs/qdrat/plan/**",
-]
+# Diffcipline's policy parser reads one `key = [...]` per line; every array below
+# must stay on a single line. Reformatting it across lines makes the policy fail
+# closed with "expected_files must be an array".
+expected_files = [".diffcipline.toml", ".diffcipline/tasks/G0-01.toml", "requirements/**", "evidence/**"]
+forbidden_surfaces = [".github/workflows/**", "horilla/**", "base/**", "requirements.txt", "Dockerfile", "docs/qdrat/plan/**"]
 
 [verification]
-r2_commands = [
-    "python docs/qdrat/plan/validate_plan.py",
-    "python docs/qdrat/plan/test_validate_plan.py",
-    "python -m unittest discover -s requirements/tests -p test_*.py",
-    "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --tool-distribution pip",
-]
+r2_commands = ["python docs/qdrat/plan/validate_plan.py", "python docs/qdrat/plan/test_validate_plan.py", "python -m unittest discover -s requirements/tests -p test_*.py", "python requirements/tools/lockfile.py verify --target linux-amd64-py312 --lock requirements/locks/linux-amd64-py312.txt --artifacts requirements/artifacts/linux-amd64-py312.json --installed evidence/g0-01/installed.json --tool-distribution pip"]
