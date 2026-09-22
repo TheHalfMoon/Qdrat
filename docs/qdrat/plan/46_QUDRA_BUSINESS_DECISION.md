@@ -218,6 +218,268 @@ Before action, Qdrat rechecks:
 
 No model confidence can bypass this layer.
 
+
+## 4A. Qudra Capability Decision Engine
+
+The strongest Qudra design combines the **Treg-style Capability Fabric** with **local Jev-style decision engines** into one governed operating layer.
+
+The two systems solve complementary problems:
+
+- Capability Fabric answers: **What can Qdrat do here?**
+- Qudra local decision engines answer: **Which eligible capability or sequence best fits this business situation?**
+- Qdrat policy answers: **Which of those actions is actually allowed?**
+- Qdrat Flow/Action execution answers: **How do we execute and prove it?**
+
+The combined loop is:
+
+```text
+Business intent / event / enquiry / task
+        |
+        v
+DecisionCase + Company Brain context
+        |
+        v
+Capability search
+        |
+        v
+Policy eligibility filter
+        |
+        v
+Local Qudra decision/ranking
+        |
+        v
+CapabilityPlan
+        |
+        v
+Rules + approval + budget + revision checks
+        |
+        v
+Local execution
+        |
+        v
+Evidence + outcome
+        |
+        v
+Calibration / playbook learning
+```
+
+### Capability Graph
+
+Qdrat should maintain a local **Capability Graph** derived from installed Qdrat modules, connectors, Studio extensions, MCP adapters, CLI adapters, local models, local browser actions, local host actions and approved skills.
+
+Each capability should include semantic and operational metadata:
+
+```text
+BusinessCapability
+  capability_id
+  human_name
+  purpose
+  domains[]
+  intents[]
+  input_schema
+  output_schema
+  side_effects
+  data_classes
+  required_scopes
+  required_objects
+  preconditions
+  execution_provider
+  execution_location
+  deterministic_or_probabilistic
+  offline_supported
+  risk_tier
+  approval_policy
+  expected_latency
+  expected_resource_cost
+  monetary_cost
+  idempotency
+  replay_semantics
+  compensation
+  evidence_contract
+  health
+  quality_metrics
+  version
+```
+
+Qudra can search this graph semantically and structurally, but semantic similarity does not make a capability eligible. Policy filtering occurs before selection.
+
+### Local capability ranking
+
+For a DecisionCase, Qudra may generate a bounded set of policy-eligible capability candidates and ask a local decision engine to score or rank them.
+
+Example typed decision:
+
+```text
+Decision:
+  "Which capability is the best next step?"
+
+Options:
+  A. service.case.create
+  B. service.incident.create
+  C. crm.opportunity.create
+  D. finance.invoice.lookup
+  E. work.task.assign
+  F. human.review
+
+Criteria:
+  - user intent
+  - object context
+  - evidence
+  - urgency
+  - business impact
+  - capability fit
+  - risk
+  - current system state
+```
+
+Local providers such as Decider, SemIf or Bespoke Nimble may implement this scoring. Qudra records the probability/confidence distribution and may abstain.
+
+### CapabilityPlan
+
+For multi-step work, Qudra should produce a typed **CapabilityPlan** before execution:
+
+```text
+CapabilityPlan
+  decision_case
+  objective
+  plan_revision
+  steps[]
+    capability_id
+    provider_id
+    input_refs
+    expected_output
+    preconditions
+    side_effect_class
+    risk
+    approval_requirement
+    budget
+    timeout
+    fallback
+    compensation
+  assumptions[]
+  uncertainties[]
+  expected_outcome
+  evidence_requirements[]
+```
+
+The plan is a proposal, not authority.
+
+Each step is re-authorized immediately before execution against the current object revision, policy, credentials and budget.
+
+### Decision-to-action compiler
+
+A major Qudra feature should be a **Decision-to-Action Compiler**:
+
+```text
+Natural business request
+  -> structured intent
+  -> Company Brain context
+  -> eligible capability set
+  -> local decision/ranking
+  -> typed CapabilityPlan
+  -> deterministic validation
+  -> preview
+  -> approval where required
+  -> Flow/Action execution
+```
+
+This allows Qudra to convert business language into governed local work without exposing users to raw tools or vendor names.
+
+### Capability composition
+
+Qudra should be able to compose local capabilities when no single capability completes the job.
+
+Example:
+
+```text
+"Prepare a renewal proposal for Acme."
+
+1. crm.account.read
+2. contract.current_terms.read
+3. service.open_cases.read
+4. finance.payment_status.read
+5. company_brain.account_summary
+6. qdra.renewal_risk.score
+7. pricing.discount_simulate
+8. document.proposal.draft
+9. human.review
+10. crm.activity.record
+```
+
+A local LLM may propose composition. Local decision engines may rank alternatives. Rules and policy validate the plan.
+
+### Capability Packs
+
+Capabilities should be distributable in signed local packs:
+
+- People Pack
+- Work Pack
+- Service Pack
+- CRM Pack
+- Finance Pack
+- Procurement Pack
+- Ops Pack
+- Trust Pack
+- Research Pack
+- Document Pack
+- Desktop/Host Pack
+
+A customer can install, disable, update or remove packs without changing the Qudra decision contract.
+
+### Local credential broker
+
+The Treg pattern of server-side credential injection should be adapted into Qdrat's existing secret-reference model.
+
+Qudra and models should receive:
+
+```text
+capability_id + scoped credential reference
+```
+
+not raw secrets.
+
+A capability executor resolves the secret only at the execution boundary and only for the declared destination/purpose.
+
+### Capability health and reliability
+
+Qudra must know whether a capability is currently usable.
+
+Health may include:
+
+- installed;
+- configured;
+- credential-valid;
+- local service healthy;
+- dependency available;
+- model loaded;
+- browser available;
+- sandbox available;
+- rate/resource budget available;
+- last success/failure;
+- latency distribution.
+
+An unhealthy capability should not be ranked as the primary action unless the plan explicitly includes recovery/fallback.
+
+### Tool and capability learning
+
+Qudra should learn operationally from outcomes without autonomously rewriting permissions.
+
+It may measure:
+
+- success rate;
+- failure rate;
+- average latency;
+- human override;
+- action reversal;
+- business outcome;
+- provider quality;
+- resource cost.
+
+These measurements can influence future local ranking after controlled evaluation and versioned promotion.
+
+They cannot change scopes, grants or approval policy.
+
+
 ## 5. Qudra Action Card
 
 The primary user experience is a Qudra Action Card inside Home, My Work, Inbox and domain pages.
