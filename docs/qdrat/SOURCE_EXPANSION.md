@@ -216,6 +216,16 @@ The 2026-09-22 founder direction adds a focused source family for Qdrat's option
 
 Architecture and task binding is defined in `docs/qdrat/plan/44_INTELLIGENCE_FABRIC_AMENDMENT.md`; source-level intake guidance is in `45_INTELLIGENCE_SOURCE_INTAKE.md`.
 
+## Discovered public sources — decision optimization and process intelligence
+
+| Source | Status / observed license | Gap covered | Initial Qdrat posture |
+|---|---|---|---|
+| google/or-tools | Active; Apache-2.0 | Local constraint optimization, CP-SAT, scheduling, assignment, routing and allocation | Strong optional DEPENDENCY candidate behind Qdrat OptimizationProblem/OptimizationResult contracts |
+| process-intelligence-solutions/pm4py | Active; AGPL-3.0 | Process discovery, conformance and process-mining algorithms | REFERENCE_ONLY / isolated evaluation by default; Qdrat owns ProcessEvent/Projection contracts |
+| py-why/dowhy | Active; MIT | Explicit causal inference, identification and refutation/sensitivity patterns | Optional DEPENDENCY/REFERENCE candidate for carefully scoped local causal analysis |
+
+These sources support Qudra Optimization, Simulation and Process Intelligence. They do not change the principle that deterministic Qdrat rules, domain records and policy remain authoritative.
+
 ## Reverification rule
 
 Repository licenses, editions, default branches and product boundaries can change. Before any code intake, reverify the exact source commit and path-level license at that time. This document records research truth, not a permanent license guarantee.
