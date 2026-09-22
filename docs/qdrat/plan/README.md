@@ -9,7 +9,7 @@ The sealed 1.0.0 plan remains the immutable parent snapshot. A later founder-dir
 - [44_INTELLIGENCE_FABRIC_AMENDMENT.md](44_INTELLIGENCE_FABRIC_AMENDMENT.md)
 - [45_INTELLIGENCE_SOURCE_INTAKE.md](45_INTELLIGENCE_SOURCE_INTAKE.md)
 
-The amendment adds engine-independent Document Intelligence, Company Brain/RAG, PLD/Decision Plane, Capability Fabric, local-first browser/research and additional execution backends using the newly authorized source set. It **does not change Gate 0 ordering or invalidate active G0 evidence**. Its obligations are inputs to future SpecGrain refinement of the existing G4/G7/G8/G9/G10/G11 nodes; any task that becomes too broad must split into child SpecNodes without weakening parent acceptance.
+The amendment adds engine-independent Document Intelligence, Company Brain/RAG, **Qudra Business Decision**, Capability Fabric, local-first browser/research and additional execution backends using the newly authorized source set. It **does not change Gate 0 ordering or invalidate active G0 evidence**. Its obligations are inputs to future SpecGrain refinement of the existing G4/G7/G8/G9/G10/G11 nodes; any task that becomes too broad must split into child SpecNodes without weakening parent acceptance.
 
 Read 00 (truth), 07–08 (product and architecture), CONTRACTS (normative interfaces), 39–42 (gates and execution), then 43 (Muse handoff). Research registers support decisions; they never grant runtime authority. Historical documents remain evidence and standing founder authority remains effective.
 
