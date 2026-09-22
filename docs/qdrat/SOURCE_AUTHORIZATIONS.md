@@ -10,7 +10,7 @@ The Qdrat founder has explicitly stated that Qdrat has permission to copy, use, 
 
 The founder has further directed that this permission is standing authorization and must not be repeatedly questioned or re-requested during ordinary project execution.
 
-Authorization source: founder statements in the project conversation on 2026-09-11, with additional source authorization recorded on 2026-09-18.
+Authorization source: founder statements in the project conversation on 2026-09-11, with additional source authorization recorded on 2026-09-18 and 2026-09-22.
 
 Authorization status: `FOUNDER_STANDING_AUTHORIZATION`.
 
@@ -105,6 +105,15 @@ When importing code, record at minimum: source repository, exact commit/tag, sou
 | 74 | https://github.com/livecontext-ai/livecontext-ce | FOUNDER_STANDING_AUTHORIZATION — full source | Selective donor/reference; chat-to-workflow + agent + app + tables, scoped agent budgets, approvals, integration catalog and self-hosted runtime; public AGPL-3.0 posture |
 | 75 | https://github.com/raghav3600/Altclay | FOUNDER_STANDING_AUTHORIZATION — full source; resolved from https://openclay.io | Selective donor/reference for browser-local spreadsheet enrichment, BYO model keys, stateless enrichment API, live web research and zero-account/privacy-first UX; exact path/license qualification required |
 | 76 | https://github.com/eigent-ai/eigent | FOUNDER_STANDING_AUTHORIZATION — full source; resolved from founder-provided Eigent Clay-alternative reference | Qualified donor/reference; Apache-2.0; local multi-agent workforce, MCP/skills, browser/terminal toolkits, recurring automation and model-agnostic local deployment |
+
+| 77 | https://github.com/google/ax | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified reference/dependency candidate; Apache-2.0; declarative sandboxed agent tasks, workspaces, gateways, resource/network controls and optional cluster execution patterns |
+| 78 | https://github.com/superdesigndev/treg | FOUNDER_STANDING_AUTHORIZATION — full source; separate founder permission asserted | Selective donor/reference; capability/tool/CLI/skill registry, server-side credential injection, cost/audit and MCP patterns; public license carries additional hosted-service restrictions, so copied paths must bind founder-grant evidence |
+| 79 | https://github.com/aayushch/laya | FOUNDER_STANDING_AUTHORIZATION — full source; resolved from https://laya.aay.sh | Qualified donor/reference; Apache-2.0; local-first Intelligence Inbox, Coherence/context association, hybrid retrieval, agent workspaces, approvals and budget UX |
+| 80 | https://github.com/TheoLeeCJ/SemIf | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified PLD donor/reference; MIT; local typed option scoring, shared-state reuse, calibration and GGUF/MLX/MPS/CUDA decision backends |
+| 81 | https://huggingface.co/bespokelabs/Bespoke-Nimble-9B | FOUNDER_STANDING_AUTHORIZATION — model/source artifacts | Qualified PLD model candidate; Apache-2.0 metadata; structured prediction/evidence-grounding adapter over Qwen3.5-9B; exact base-model/adapter/runtime provenance required |
+| 82 | https://github.com/Mapika/decider | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified PLD dependency/donor candidate; Apache-2.0; trained local Choice/Score/Noul decision models, calibration and Jev-compatible System-One API patterns |
+| 83 | https://github.com/tinyfish-io | FOUNDER_STANDING_AUTHORIZATION — organization source | Selective donor/reference family; AgentQL/browser extraction, live dataset research, MCP/integration and browser-resilience patterns; mixed licenses across repos and hosted TinyFish remains optional remote egress only |
+| 84 | https://github.com/wonderwhy-er/DesktopCommanderMCP | FOUNDER_STANDING_AUTHORIZATION — full source; resolved from https://desktopcommander.app | Qualified donor/reference; MIT; local filesystem/terminal/process/session and audit patterns for explicit host-capability adapters; never treated as sandbox authority |
 
 ## Future additions
 
