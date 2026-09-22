@@ -14,7 +14,7 @@ Add one shared optional **Qdrat Intelligence Fabric** with six replaceable plane
 
 1. **Document Intelligence** — parse/OCR/layout/table/form/image understanding into provenance-bearing document artifacts.
 2. **Company Brain / Retrieval** — structured lookup, Company Twin graph, lexical search, optional semantic retrieval, reranking, temporal/event memory, and exact citations.
-3. **Qudra Business Decision** — local evidence-backed business triage, recommendation, decision support, simulation and bounded action across Qdrat domains.
+3. **Qudra Business Decision** — local evidence-backed business triage, recommendation, multi-option Decision Frontiers, simulation and bounded action across Qdrat domains.
 4. **Capability Fabric** — one Qdrat-owned catalog for Actions, tools, skills, CLIs, MCP adapters and provider capabilities.
 5. **Research / Browser Plane** — governed local-first web research, structured extraction, dataset construction and refresh.
 6. **Execution Plane** — isolated agent execution by default, with separately authorized host-machine and cluster backends.
@@ -65,7 +65,7 @@ Every local provider invocation should record, as appropriate:
 - evidence/provenance reference;
 - whether the result is deterministic, probabilistic or generative.
 
-See `46_QUDRA_BUSINESS_DECISION.md` for the complete product contract.
+See `46_QUDRA_BUSINESS_DECISION.md` for the complete product contract and `47_QUDRA_OPTION_ENGINE.md` for multi-objective option generation, Pareto filtering, sensitivity, reversibility and trade-off UX.
 
 ## 4. Document Intelligence
 
