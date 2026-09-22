@@ -199,6 +199,23 @@ The combined source portfolio now gives Qdrat serious references or donor candid
 
 The remaining problem is no longer finding one application for every category. It is designing **one Qdrat semantic and interaction model** so these capabilities reinforce each other instead of recreating a fragmented suite inside a single repository.
 
+## Founder-authorized additions — Intelligence Fabric
+
+The 2026-09-22 founder direction adds a focused source family for Qdrat's optional Intelligence Fabric. These are not separate products inside Qdrat; they are provider/donor/reference candidates behind Qdrat-owned contracts.
+
+| Source | Primary lesson for Qdrat | Initial disposition |
+|---|---|---|
+| `google/ax` | declarative agent Task/Workspace/Gateway/Model, resource/network fences, suspend/resume | optional cluster execution reference/backend |
+| `superdesigndev/treg` | capability-first registry, tools/CLIs/skills, credential injection, cost/audit, MCP | Capability Fabric selective donor; founder grant evidence required for restricted hosted-service paths |
+| `aayushch/laya` | local-first action cards, Coherence, context association, hybrid retrieval, agent workspace, budgets | Intelligence Inbox + Company Brain donor/reference |
+| `TheoLeeCJ/SemIf` | typed local probability decisions, calibration, shared-state reuse | PLD provider/reference |
+| `Mapika/decider` | trained Choice/Score/Noul decisions, Jev-compatible service shape | PLD provider/dependency candidate |
+| `bespokelabs/Bespoke-Nimble-9B` | structured/evidence-grounded 9B decision adapter | optional quality PLD model profile |
+| `tinyfish-io/*` | AgentQL semantic extraction, browser automation, live-dataset research, MCP adapters | local research/browser donor family; hosted TinyFish optional egress only |
+| `wonderwhy-er/DesktopCommanderMCP` | filesystem/terminal/process/session and local audit mechanics | explicit trusted-host adapter; never sandbox authority |
+
+Architecture and task binding is defined in `docs/qdrat/plan/44_INTELLIGENCE_FABRIC_AMENDMENT.md`; source-level intake guidance is in `45_INTELLIGENCE_SOURCE_INTAKE.md`.
+
 ## Reverification rule
 
 Repository licenses, editions, default branches and product boundaries can change. Before any code intake, reverify the exact source commit and path-level license at that time. This document records research truth, not a permanent license guarantee.
