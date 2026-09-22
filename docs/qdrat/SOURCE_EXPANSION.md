@@ -208,9 +208,9 @@ The 2026-09-22 founder direction adds a focused source family for Qdrat's option
 | `google/ax` | declarative agent Task/Workspace/Gateway/Model, resource/network fences, suspend/resume | optional cluster execution reference/backend |
 | `superdesigndev/treg` | capability-first registry, tools/CLIs/skills, credential injection, cost/audit, MCP | Capability Fabric selective donor; founder grant evidence required for restricted hosted-service paths |
 | `aayushch/laya` | local-first action cards, Coherence, context association, hybrid retrieval, agent workspace, budgets | Intelligence Inbox + Company Brain donor/reference |
-| `TheoLeeCJ/SemIf` | typed local probability decisions, calibration, shared-state reuse | PLD provider/reference |
-| `Mapika/decider` | trained Choice/Score/Noul decisions, Jev-compatible service shape | PLD provider/dependency candidate |
-| `bespokelabs/Bespoke-Nimble-9B` | structured/evidence-grounded 9B decision adapter | optional quality PLD model profile |
+| `TheoLeeCJ/SemIf` | typed local probability decisions, calibration, shared-state reuse | Qudra decision-engine provider/reference |
+| `Mapika/decider` | trained Choice/Score/Noul decisions, Jev-compatible service shape | Qudra decision-engine provider/dependency candidate |
+| `bespokelabs/Bespoke-Nimble-9B` | structured/evidence-grounded 9B decision adapter | optional Qudra local decision-model profile |
 | `tinyfish-io/*` | AgentQL semantic extraction, browser automation, live-dataset research, MCP adapters | local research/browser donor family; hosted TinyFish optional egress only |
 | `wonderwhy-er/DesktopCommanderMCP` | filesystem/terminal/process/session and local audit mechanics | explicit trusted-host adapter; never sandbox authority |
 
