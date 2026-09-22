@@ -1026,3 +1026,5 @@ Do not expose "PLD" as the product name.
 Technical documentation may mention typed probabilistic decision techniques only when discussing model implementation, benchmarks or source provenance.
 
 The product is the business capability, not the underlying model family.
+
+For material multi-option decisions, Qudra must use the Decision Frontier and OptionSet contract defined in `47_QUDRA_OPTION_ENGINE.md` rather than collapsing trade-offs into a single opaque recommendation.
