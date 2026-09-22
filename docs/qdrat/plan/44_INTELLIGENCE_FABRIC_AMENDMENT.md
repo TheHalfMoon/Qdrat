@@ -14,7 +14,7 @@ Add one shared optional **Qdrat Intelligence Fabric** with six replaceable plane
 
 1. **Document Intelligence** — parse/OCR/layout/table/form/image understanding into provenance-bearing document artifacts.
 2. **Company Brain / Retrieval** — structured lookup, Company Twin graph, lexical search, optional semantic retrieval, reranking, temporal/event memory, and exact citations.
-3. **Decision Plane / PLD** — typed probabilistic local decisions for routing, scoring, classification, triage and guardrails.
+3. **Qudra Business Decision** — local evidence-backed business triage, recommendation, decision support, simulation and bounded action across Qdrat domains.
 4. **Capability Fabric** — one Qdrat-owned catalog for Actions, tools, skills, CLIs, MCP adapters and provider capabilities.
 5. **Research / Browser Plane** — governed local-first web research, structured extraction, dataset construction and refresh.
 6. **Execution Plane** — isolated agent execution by default, with separately authorized host-machine and cluster backends.
@@ -25,7 +25,7 @@ Every plane is optional. Qdrat must retain a supported no-AI/no-vector/no-browse
 
 ```text
 MODEL != AUTHORITY
-PLD_DECISION != AUTHORIZATION
+QUDRA_RECOMMENDATION != AUTHORIZATION
 RAG_RESULT != TRUTH
 TOOL_DISCOVERY != TOOL_PERMISSION
 BROWSER_ACCESS != EGRESS_PERMISSION
@@ -36,36 +36,36 @@ GRAPH_PROJECTION != TRANSACTIONAL_AUTHORITY
 AGENT_COMPLETION != TRUSTED_COMPLETION
 ```
 
-PostgreSQL and Qdrat domain contracts remain authoritative. Graph, vector, PLD, OCR, browser and agent outputs are evidence-bearing derived/proposal artifacts unless an existing Qdrat command/action contract explicitly commits them.
+PostgreSQL and Qdrat domain contracts remain authoritative. Graph, vector, Qudra recommendations, OCR, browser and agent outputs are evidence-bearing derived/proposal artifacts unless an existing Qdrat command/action contract explicitly commits them.
 
-## 3. User choice and operating profiles
+## 3. Local intelligence profiles and user choice
 
-The product must expose intelligence capability choices rather than a single opaque AI toggle.
+All Qdrat intelligence features are customer-controlled and local by architecture. The user can enable or disable Document Intelligence, Company Brain semantic retrieval, Qudra Business Decision, local browser research, local agents and explicit host capabilities independently.
 
-Required profiles:
+Required local profiles:
 
-| Profile | Remote egress | OCR | Retrieval | PLD | Browser/research | Host computer |
+| Profile | Intelligence egress | OCR | Retrieval | Qudra | Browser/research | Host computer |
 |---|---|---|---|---|---|---|
 | Air-gapped | DENY | local only | local only | local only | local/off | explicit local grants only |
-| Private | DENY by default | local preferred | local | local | local | ask/scoped |
-| Balanced | ASK | local preferred | local-first | local preferred | local-first | scoped |
-| Max quality | policy-controlled | best eligible | hybrid | best eligible | eligible local/remote | scoped |
-| Custom | explicit policy | explicit | explicit | explicit | explicit | explicit |
+| Local Core | DENY | optional local | structured/FTS | deterministic + small local decision engine | off | off |
+| Local Standard | DENY | local | local hybrid | local decision + local LLM | local | ask/scoped |
+| Local Pro | DENY | local best-qualified | local hybrid + reranker | local decision + local reasoning/simulation | local parallel research | scoped |
+| Custom Local | DENY | explicit local provider | explicit local provider | explicit local provider | explicit local provider | explicit local grants |
 
-The user can enable/disable each plane independently.
+There is no remote-model or remote-decision fallback in Qudra Business Decision.
 
-**No local-to-cloud fallback may be silent.** If a local engine fails and a remote engine is eligible, Qdrat must either follow an explicit saved routing policy or present a clear one-time/always/cancel choice before egress.
+External business APIs/connectors may still be used when a company explicitly configures them for normal business integration, but Qudra decision context, OCR, retrieval, reranking and reasoning stay inside customer-controlled Qdrat infrastructure.
 
-Every provider invocation must expose or record, as appropriate:
+Every local provider invocation should record, as appropriate:
 
 - provider and exact engine/model version or digest;
-- local vs remote execution;
-- data classes allowed;
-- egress destination;
-- estimated/actual cost where applicable;
+- hardware/runtime profile;
+- data classes used;
 - latency/resource budget;
-- retention posture;
-- evidence/provenance reference.
+- evidence/provenance reference;
+- whether the result is deterministic, probabilistic or generative.
+
+See `46_QUDRA_BUSINESS_DECISION.md` for the complete product contract.
 
 ## 4. Document Intelligence
 
@@ -143,9 +143,9 @@ Required retrieval evidence:
 
 Embedding indexes remain rebuildable projections. Qdrat must work without pgvector or another vector service.
 
-## 6. Decision Plane / PLD
+## 6. Qudra Business Decision
 
-Add a Qdrat-owned typed probabilistic decision contract under G9-01 and G9-03.
+Add Qudra Business Decision as the Qdrat-owned local business decision capability under G9-01/G9-03, using typed probabilistic models only as one implementation technique.
 
 ```text
 DecisionRequest
@@ -170,7 +170,7 @@ DecisionResult
   evidence_refs
 ```
 
-PLD is for fuzzy, bounded System-One-shaped work such as:
+Qudra may use local typed decision models for fuzzy, bounded business triage such as:
 
 - routing and triage;
 - priority/classification;
@@ -182,16 +182,16 @@ PLD is for fuzzy, bounded System-One-shaped work such as:
 - support/work-item classification;
 - low-cost guardrails before expensive agents.
 
-PLD must **not** decide deterministic facts such as hashes, balances, test pass/fail, schema validity, permissions, or whether a payment/payroll/employment action is authorized.
+Qudra's probabilistic engines must **not** decide deterministic facts such as hashes, balances, test pass/fail, schema validity, permissions, or whether a payment/payroll/employment action is authorized.
 
 Candidate providers to benchmark behind the same contract:
 
 - `Mapika/decider`;
 - `TheoLeeCJ/SemIf`;
 - `bespokelabs/Bespoke-Nimble-9B`;
-- Jev/TypeSafe as an optional remote/BYOK comparison provider when policy allows.
+- Jev/TypeSafe as a development/research benchmark reference only; it is not a Qudra runtime provider.
 
-Do not hard-code a winner before G9-06/G11-03 measurements. Compare accuracy, calibration, abstention, Arabic/English behavior, latency, RAM/VRAM, startup cost and offline packaging.
+Do not hard-code a winner before G9-06/G11-03 measurements. Compare accuracy, calibration, abstention, Arabic/English behavior, latency, RAM/VRAM, startup cost and offline packaging. Runtime candidates must pass fully local qualification.
 
 ## 7. Capability Fabric
 
@@ -265,7 +265,7 @@ native integration/API
   -> raw input only when explicitly allowed
 ```
 
-Remote TinyFish services are optional providers under the same egress policy, never the only browser/research implementation.
+Hosted TinyFish services are research references only for Qudra's intelligence runtime. Qdrat must implement or qualify a customer-controlled local research/browser path.
 
 A research dataset row must retain source URLs/references, capture time, evidence spans/artifacts, confidence/verification state and refresh lineage.
 
@@ -281,7 +281,7 @@ Provider classes:
 | local container/process sandbox | lightweight single-server profile |
 | Google AX | optional cluster/enterprise high-throughput agent workload backend |
 | Desktop Commander local MCP patterns | explicit trusted-host capability adapter, not a sandbox |
-| remote desktop relay | optional separately qualified remote-egress profile only |
+| remote desktop relay | reference only; not a Qudra local intelligence runtime |
 
 Google AX contributes Task/Workspace/Gateway/Model, egress fencing, resource quotas and suspend/resume patterns. It must not make Kubernetes mandatory for normal Qdrat installations.
 
@@ -330,9 +330,9 @@ Do not create a second notification product. Intelligence cards are projections 
 | `google/ax` | cluster agent execution and isolation/control-plane patterns | REFERENCE + optional execution backend; no mandatory Kubernetes |
 | `superdesigndev/treg` | local capability/tool/CLI/skill registry and credential broker patterns | SELECTIVE_DONOR; founder grant evidence mandatory for copied hosted-service-restricted paths |
 | `aayushch/laya` | Intelligence Inbox, Coherence/context association, hybrid search, agent workspace, budget UX | SELECTIVE_DONOR/REFERENCE |
-| `TheoLeeCJ/SemIf` | local typed probability decisions | PLD provider/reference |
-| `Mapika/decider` | trained local decision models and Jev-compatible System-One API pattern | PLD provider/dependency candidate |
-| `bespokelabs/Bespoke-Nimble-9B` | local structured/evidence-grounded decision model candidate | PLD model candidate |
+| `TheoLeeCJ/SemIf` | local typed probability decisions | Qudra decision-engine provider/reference |
+| `Mapika/decider` | trained local decision models and Jev-compatible System-One API pattern | Qudra decision-engine provider/dependency candidate |
+| `bespokelabs/Bespoke-Nimble-9B` | local structured/evidence-grounded decision model candidate | Qudra local decision-model candidate |
 | `tinyfish-io/*` | local web extraction/research patterns, AgentQL, live dataset workflows | SELECTIVE_DONOR/REFERENCE; remote services optional only |
 | `wonderwhy-er/DesktopCommanderMCP` | local host filesystem/terminal/process capability patterns | SELECTIVE_DONOR/REFERENCE; never treated as sandbox |
 
@@ -347,13 +347,13 @@ This amendment deliberately does not renumber the 96-task DAG.
 | G4-03 | Company Twin relationships become a retrieval route, never retrieval-only truth |
 | G7-03 | capability-based enrichment waterfalls, TinyFish-style research datasets, cost/egress/verification |
 | G8-07 | shared capability descriptors across SDK/webhook/MCP exposure |
-| G9-01 | model **and decision-engine** registry; local/remote PLD profiles |
+| G9-01 | local model and **Qudra Business Decision** engine registry; no remote intelligence fallback |
 | G9-02 | Company Brain layered retrieval, context association, temporal memory and citations |
 | G9-03 | Treg-style capability catalog, skills/tools/CLI/MCP providers and bounded proposals |
 | G9-04 | provider-neutral ExecutionRequest: OpenSandbox/local/AX/explicit host adapter |
 | G9-05 | artifact custody, host/sandbox evidence, provider usage, kill/revocation |
-| G9-06 | Arabic/English LLM + PLD + retrieval evaluation and calibration |
-| G10-02 | offline OCR/embedding/reranker/PLD/model packs with digests |
+| G9-06 | Arabic/English local LLM + Qudra decision + retrieval evaluation and calibration |
+| G10-02 | offline OCR/embedding/reranker/Qudra decision/model packs with digests |
 | G11-03 | measured provider-selection triggers and resource envelopes |
 
 During refinement, any task that becomes too broad must split into child SpecNodes while preserving the parent acceptance requirements. No implementation should be pulled forward merely because this amendment exists.
@@ -379,7 +379,7 @@ Before a provider becomes a default, measure it on Qdrat-owned, rights-cleared w
 - Arabic/English exact and semantic search;
 - graph-vs-lexical-vs-vector ablations.
 
-### PLD
+### Qudra Business Decision engines
 - task accuracy/balanced accuracy as appropriate;
 - calibration/ECE;
 - abstention quality;
@@ -431,9 +431,9 @@ Required defenses include:
 - a second identity system for agents;
 - vendor-specific domain models;
 - unrestricted Desktop Commander-style host access;
-- silent TinyFish/Jev/other remote fallback;
+- remote intelligence/decision fallback;
 - replacing deterministic rules with probabilistic models;
-- treating PLD confidence as permission;
+- treating Qudra confidence as permission;
 - treating OCR text or RAG passages as authoritative business facts;
 - wholesale import of any donor.
 
