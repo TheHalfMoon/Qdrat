@@ -255,3 +255,21 @@ Prefer robust options when the nominal optimum is fragile and the business prior
 - py-why/dowhy — DISCOVERED_PUBLIC_SOURCE; MIT; optional local causal-analysis candidate.
 
 No source becomes a default merely because this plan names it.
+
+## 15. External product benchmarks
+
+These are product/architecture benchmarks, not source dependencies:
+
+- Pega Next Best Action / Customer Decision Hub: real-time next-best-action patterns that combine business rules, predictive/adaptive decisioning and engagement constraints. Qudra generalizes the idea beyond customer engagement into every Qdrat domain.
+- Palantir Ontology / AIP: the useful pattern is binding enterprise objects, logic and actions into an operational decision layer. Qdrat applies this through Company Twin + Qudra + Capability Graph while retaining Qdrat-owned authority.
+- Celonis Process Intelligence: the useful pattern is reconstructing how processes actually run from event evidence, identifying bottlenecks/deviations and connecting insight to improvement.
+- FICO Decision Management / Decision Optimizer: the useful pattern is combining rules, analytics, optimization, simulation and learning loops rather than asking one model to solve every decision.
+
+Reference URLs observed during planning:
+- https://www.pega.com/technology/next-best-action
+- https://palantir.com/docs/foundry/platform-overview/overview/
+- https://www.celonis.com/insights/topics/what-is-process-mining
+- https://www.fico.com/en/glossary/decision-management
+- https://developers.google.com/optimization/cp
+
+Qdrat must copy jobs and architecture lessons, not proprietary product boundaries.
