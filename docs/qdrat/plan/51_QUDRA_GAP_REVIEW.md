@@ -431,6 +431,51 @@ Resolution:
 - export of DecisionCase/OptionSet/evidence;
 - disabling Qudra never deletes business state.
 
+
+## 47. Fast-filter false negatives
+Risk: a fast semantic filter discards the one piece of evidence that would change a material decision.
+
+Resolution:
+- permission-aware lexical/deterministic candidate generation first;
+- recall targets per use case;
+- keep-when-uncertain for high-impact decisions;
+- protected source classes that cannot be pruned;
+- rejected-candidate sampling and false-negative benchmark;
+- full-search fallback when evidence coverage is insufficient.
+
+## 48. Fast-classifier overconfidence
+Risk: a low-cost local classifier becomes the de facto final answer because it is fast.
+
+Resolution:
+- confidence is routing evidence only;
+- thresholds calibrated per DecisionType;
+- explicit abstention;
+- Confidence Ladder to more context, stronger local model, or human;
+- shadow evaluation before production routing;
+- no confidence threshold can authorize side effects.
+
+## 49. Apple runtime lock-in
+Risk: Core ML / ANE performance causes Qdrat to require Apple hardware or diverge semantically by platform.
+
+Resolution:
+- Qdrat owns the typed-decision contract;
+- CoreMLDecisionProvider is an optional runtime profile;
+- CPU/GPU local providers remain supported;
+- cross-provider fidelity fixtures;
+- hardware-specific benchmarks and capacity limits;
+- offline bundles pinned independently per platform.
+
+## 50. Second agent-session authority
+Risk: adopting an agent harness creates a second durable session/workflow system beside Qdrat Flow/Run.
+
+Resolution:
+- Unreal Agent patterns are adapted, not made canonical;
+- Qdrat Run/StepAttempt remains durable execution authority;
+- tool translation produces Qdrat Operation/Action proposals;
+- append-only/fork/recovery semantics map to existing evidence;
+- context omission records are metadata, not a parallel memory authority;
+- operation managers remain adapters behind Qdrat execution contracts.
+
 ## 46. Final plan readiness check
 
 The Qudra amendment is implementation-ready only if:
