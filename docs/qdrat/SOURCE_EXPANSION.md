@@ -199,6 +199,52 @@ The combined source portfolio now gives Qdrat serious references or donor candid
 
 The remaining problem is no longer finding one application for every category. It is designing **one Qdrat semantic and interaction model** so these capabilities reinforce each other instead of recreating a fragmented suite inside a single repository.
 
+## Founder-authorized additions — Intelligence Fabric
+
+The 2026-09-22 founder direction adds a focused source family for Qdrat's optional Intelligence Fabric. These are not separate products inside Qdrat; they are provider/donor/reference candidates behind Qdrat-owned contracts.
+
+| Source | Primary lesson for Qdrat | Initial disposition |
+|---|---|---|
+| `google/ax` | declarative agent Task/Workspace/Gateway/Model, resource/network fences, suspend/resume | optional cluster execution reference/backend |
+| `superdesigndev/treg` | capability-first registry, tools/CLIs/skills, credential injection, cost/audit, MCP | Capability Fabric selective donor; founder grant evidence required for restricted hosted-service paths |
+| `aayushch/laya` | local-first action cards, Coherence, context association, hybrid retrieval, agent workspace, budgets | Intelligence Inbox + Company Brain donor/reference |
+| `TheoLeeCJ/SemIf` | typed local probability decisions, calibration, shared-state reuse | Qudra decision-engine provider/reference |
+| `Mapika/decider` | trained Choice/Score/Noul decisions, Jev-compatible service shape | Qudra decision-engine provider/dependency candidate |
+| `bespokelabs/Bespoke-Nimble-9B` | structured/evidence-grounded 9B decision adapter | optional Qudra local decision-model profile |
+| `tinyfish-io/*` | AgentQL semantic extraction, browser automation, live-dataset research, MCP adapters | local research/browser donor family; hosted TinyFish optional egress only |
+| `wonderwhy-er/DesktopCommanderMCP` | filesystem/terminal/process/session and local audit mechanics | explicit trusted-host adapter; never sandbox authority |
+
+Architecture and task binding is defined in `docs/qdrat/plan/44_INTELLIGENCE_FABRIC_AMENDMENT.md`; source-level intake guidance is in `45_INTELLIGENCE_SOURCE_INTAKE.md`.
+
+## Discovered public sources — decision optimization and process intelligence
+
+| Source | Status / observed license | Gap covered | Initial Qdrat posture |
+|---|---|---|---|
+| google/or-tools | Active; Apache-2.0 | Local constraint optimization, CP-SAT, scheduling, assignment, routing and allocation | Strong optional DEPENDENCY candidate behind Qdrat OptimizationProblem/OptimizationResult contracts |
+| process-intelligence-solutions/pm4py | Active; AGPL-3.0 | Process discovery, conformance and process-mining algorithms | REFERENCE_ONLY / isolated evaluation by default; Qdrat owns ProcessEvent/Projection contracts |
+| py-why/dowhy | Active; MIT | Explicit causal inference, identification and refutation/sensitivity patterns | Optional DEPENDENCY/REFERENCE candidate for carefully scoped local causal analysis |
+
+These sources support Qudra Optimization, Simulation and Process Intelligence. They do not change the principle that deterministic Qdrat rules, domain records and policy remain authoritative.
+
+## Founder-authorized additions — fast local triage and durable agent execution
+
+The 2026-09-23 founder direction adds four sources that strengthen Qudra's local fast-path intelligence and agent execution semantics.
+
+| Source | Primary lesson for Qdrat | Initial disposition |
+|---|---|---|
+| `mizorewww/laya-coreml` | Core ML / Apple Neural Engine typed decisions, multilingual offline bundles, calibration safeguards, conversion-fidelity and power/latency evidence | Optional Apple Silicon Qudra decision-runtime profile; never a cross-platform baseline dependency |
+| `caio0452/jev_search` | Two-stage file/chunk prioritization before decision scoring, parallel high-priority scan and thresholded semantic filtering | Adapt the search pipeline pattern only; replace remote OpenRouter/Jev calls with local Qudra Classification Fabric and benchmark false-negative risk |
+| `unreallabsai/unreal-agent` | Idempotent input inbox, append-only/forkable session history, omission-aware context building, pure tool translators and serializable asynchronous operations | Strengthen Qdrat Run/Flow and Decision-to-Action execution invariants; do not create a second session/workflow authority |
+| `mrmps/classifier-dev` / `classifier.dev` | High-throughput batch classification, calibrated confidence, multi-label mode, REST/MCP/CLI surfaces, eval harness, feedback receipts and confidence escalation | Build a local Qudra Classification Fabric; hosted classifier.dev remains a research benchmark, not a Qudra intelligence dependency |
+
+### Derived architecture requirements
+
+1. **Qudra Fast Triage** — process large queues using deterministic/lexical prefiltering plus a small local calibrated classifier before expensive reasoning.
+2. **Local Confidence Ladder** — low-confidence items escalate locally: fast local decision engine -> retrieve more context -> stronger local model -> human review. No cloud escalation.
+3. **Semantic Filter** — search candidates, documents, logs or backlog items are filtered only after permission-aware candidate generation; uncertain candidates are kept by default to control false negatives.
+4. **Edge Runtime Profiles** — Apple Silicon may use Core ML/ANE, while Linux/Windows/macOS remain supported through replaceable local CPU/GPU backends.
+5. **Durable Agent Operation Boundary** — model/tool-call translation is separated from execution; input redelivery is idempotent; operations are versioned/serializable; context truncation/omission is recorded; Qdrat Flow/Run remains canonical.
+
 ## Reverification rule
 
 Repository licenses, editions, default branches and product boundaries can change. Before any code intake, reverify the exact source commit and path-level license at that time. This document records research truth, not a permanent license guarantee.
