@@ -226,6 +226,25 @@ Architecture and task binding is defined in `docs/qdrat/plan/44_INTELLIGENCE_FAB
 
 These sources support Qudra Optimization, Simulation and Process Intelligence. They do not change the principle that deterministic Qdrat rules, domain records and policy remain authoritative.
 
+## Founder-authorized additions — fast local triage and durable agent execution
+
+The 2026-09-23 founder direction adds four sources that strengthen Qudra's local fast-path intelligence and agent execution semantics.
+
+| Source | Primary lesson for Qdrat | Initial disposition |
+|---|---|---|
+| `mizorewww/laya-coreml` | Core ML / Apple Neural Engine typed decisions, multilingual offline bundles, calibration safeguards, conversion-fidelity and power/latency evidence | Optional Apple Silicon Qudra decision-runtime profile; never a cross-platform baseline dependency |
+| `caio0452/jev_search` | Two-stage file/chunk prioritization before decision scoring, parallel high-priority scan and thresholded semantic filtering | Adapt the search pipeline pattern only; replace remote OpenRouter/Jev calls with local Qudra Classification Fabric and benchmark false-negative risk |
+| `unreallabsai/unreal-agent` | Idempotent input inbox, append-only/forkable session history, omission-aware context building, pure tool translators and serializable asynchronous operations | Strengthen Qdrat Run/Flow and Decision-to-Action execution invariants; do not create a second session/workflow authority |
+| `mrmps/classifier-dev` / `classifier.dev` | High-throughput batch classification, calibrated confidence, multi-label mode, REST/MCP/CLI surfaces, eval harness, feedback receipts and confidence escalation | Build a local Qudra Classification Fabric; hosted classifier.dev remains a research benchmark, not a Qudra intelligence dependency |
+
+### Derived architecture requirements
+
+1. **Qudra Fast Triage** — process large queues using deterministic/lexical prefiltering plus a small local calibrated classifier before expensive reasoning.
+2. **Local Confidence Ladder** — low-confidence items escalate locally: fast local decision engine -> retrieve more context -> stronger local model -> human review. No cloud escalation.
+3. **Semantic Filter** — search candidates, documents, logs or backlog items are filtered only after permission-aware candidate generation; uncertain candidates are kept by default to control false negatives.
+4. **Edge Runtime Profiles** — Apple Silicon may use Core ML/ANE, while Linux/Windows/macOS remain supported through replaceable local CPU/GPU backends.
+5. **Durable Agent Operation Boundary** — model/tool-call translation is separated from execution; input redelivery is idempotent; operations are versioned/serializable; context truncation/omission is recorded; Qdrat Flow/Run remains canonical.
+
 ## Reverification rule
 
 Repository licenses, editions, default branches and product boundaries can change. Before any code intake, reverify the exact source commit and path-level license at that time. This document records research truth, not a permanent license guarantee.
