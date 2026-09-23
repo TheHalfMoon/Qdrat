@@ -101,6 +101,38 @@ packages:
     outputs: [playbook_candidate, shadow_validation, promotion_record]
     acceptance: [no_self_modifying_policy, human_review, fixtures_required, rollback, history_preserved]
 
+  - id: QD-F13
+    title: Local Classification Fabric
+    parents: [G9-01]
+    depends_on: [QD-F03]
+    risk: R2
+    outputs: [ClassificationRequest, ClassificationResult, confidence_ladder]
+    acceptance: [offline_only, stable_input_order, per_decision_thresholds, arabic_english_eval, no_text_persistence_default, no_remote_fallback]
+
+  - id: QD-F14
+    title: Semantic Filter and Evidence Triage
+    parents: [G4-02, G9-02]
+    depends_on: [QD-F13]
+    risk: R2
+    outputs: [CandidateFilter, FilterEvidence, rejected_candidate_sample]
+    acceptance: [permission_before_evaluation, false_negative_benchmark, keep_uncertain_high_impact, no_arbitrary_host_scan, source_span_citations]
+
+  - id: QD-F15
+    title: Edge Decision Runtime Profiles
+    parents: [G9-01, G10-02, G11-03]
+    depends_on: [QD-F03]
+    risk: R2
+    outputs: [DecisionRuntimeProfile, CoreMLDecisionProvider, local_runtime_bundle]
+    acceptance: [apple_optional, hardware_qualified, digest_bound, capacity_error_explicit, calibration_safeguards, offline_no_download]
+
+  - id: QD-F16
+    title: Durable Agent Operation Boundary
+    parents: [G3-02, G9-04, G9-05]
+    depends_on: [QD-F02]
+    risk: R3
+    outputs: [InputDedupReceipt, OperationProposal, ContextBuildResult]
+    acceptance: [idempotent_redelivery, translator_no_io, versioned_serializable_operations, unknown_outcome_safe, context_omission_visible, no_second_orchestrator]
+
   - id: QD-D01
     title: Work Decision Pack
     parents: [G6-03]
