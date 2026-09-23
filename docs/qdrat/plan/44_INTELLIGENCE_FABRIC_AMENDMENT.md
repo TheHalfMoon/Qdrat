@@ -65,7 +65,7 @@ Every local provider invocation should record, as appropriate:
 - evidence/provenance reference;
 - whether the result is deterministic, probabilistic or generative.
 
-See `46_QUDRA_BUSINESS_DECISION.md` for the complete product contract and `47_QUDRA_OPTION_ENGINE.md` for multi-objective option generation, Pareto filtering, sensitivity, reversibility and trade-off UX.
+See `46_QUDRA_BUSINESS_DECISION.md` for the complete product contract, `47_QUDRA_OPTION_ENGINE.md` for multi-objective option generation, and `52_QUDRA_FAST_LOCAL_INTELLIGENCE.md` for fast local classification, semantic filtering, edge-runtime profiles and durable agent-operation boundaries.
 
 ## 4. Document Intelligence
 
@@ -335,6 +335,10 @@ Do not create a second notification product. Intelligence cards are projections 
 | `bespokelabs/Bespoke-Nimble-9B` | local structured/evidence-grounded decision model candidate | Qudra local decision-model candidate |
 | `tinyfish-io/*` | local web extraction/research patterns, AgentQL, live dataset workflows | SELECTIVE_DONOR/REFERENCE; remote services optional only |
 | `wonderwhy-er/DesktopCommanderMCP` | local host filesystem/terminal/process capability patterns | SELECTIVE_DONOR/REFERENCE; never treated as sandbox |
+| `mizorewww/laya-coreml` | Core ML / Apple Neural Engine local typed-decision runtime, multilingual offline bundles and calibration/fidelity evidence | Qudra edge-runtime provider candidate; Apple acceleration optional, never baseline |
+| `caio0452/jev_search` | two-stage lexical/chunk prioritization and decision-based semantic filtering | SELECTIVE_DONOR/REFERENCE; replace remote inference with local Qudra Classification Fabric and benchmark false negatives |
+| `unreallabsai/unreal-agent` | idempotent inputs, append-only/forkable session patterns, omission-aware context, pure tool translators and serializable operations | SELECTIVE_DONOR; adapt invariants into Qdrat Run/Flow, never create a second orchestrator |
+| `mrmps/classifier-dev` | batch classification, calibrated confidence, multi-label, REST/MCP/CLI, evals and confidence escalation | SELECTIVE_DONOR/REFERENCE for local Qudra Classification Fabric; hosted service not runtime dependency |
 
 ## 12. Existing execution graph mapping
 
@@ -347,14 +351,14 @@ This amendment deliberately does not renumber the 96-task DAG.
 | G4-03 | Company Twin relationships become a retrieval route, never retrieval-only truth |
 | G7-03 | capability-based enrichment waterfalls, TinyFish-style research datasets, cost/egress/verification |
 | G8-07 | shared capability descriptors across SDK/webhook/MCP exposure |
-| G9-01 | local model and **Qudra Business Decision** engine registry; no remote intelligence fallback |
-| G9-02 | Company Brain layered retrieval, context association, temporal memory and citations |
+| G9-01 | local model and **Qudra Business Decision** engine registry, local batch Classification Fabric and hardware-specific edge-runtime profiles; no remote intelligence fallback |
+| G9-02 | Company Brain layered retrieval, context association, temporal memory, citations and permission-aware Semantic Filter with false-negative controls |
 | G9-03 | Treg-style capability catalog, skills/tools/CLI/MCP providers and bounded proposals |
-| G9-04 | provider-neutral ExecutionRequest: OpenSandbox/local/AX/explicit host adapter |
-| G9-05 | artifact custody, host/sandbox evidence, provider usage, kill/revocation |
+| G9-04 | provider-neutral ExecutionRequest plus versioned serializable operation boundary and pure tool-translation semantics |
+| G9-05 | artifact custody, input deduplication, context omission/truncation evidence, host/sandbox evidence, provider usage, kill/revocation |
 | G9-06 | Arabic/English local LLM + Qudra decision + retrieval evaluation and calibration |
-| G10-02 | offline OCR/embedding/reranker/Qudra decision/model packs with digests |
-| G11-03 | measured provider-selection triggers and resource envelopes |
+| G10-02 | offline OCR/embedding/reranker/Qudra decision/classification/model/runtime packs with digests, including optional Core ML bundles |
+| G11-03 | measured provider-selection triggers and resource envelopes, including batch throughput, filter recall, calibration and edge-runtime latency/energy where relevant |
 
 During refinement, any task that becomes too broad must split into child SpecNodes while preserving the parent acceptance requirements. No implementation should be pulled forward merely because this amendment exists.
 
@@ -388,7 +392,20 @@ Before a provider becomes a default, measure it on Qdrat-owned, rights-cleared w
 - RAM/VRAM;
 - cold-start;
 - model size;
-- stability under option order and paraphrase perturbation.
+- stability under option order and paraphrase perturbation;
+- batch throughput and stable input ordering;
+- fast-path vs deep-local escalation quality;
+- edge-runtime conversion fidelity and capacity behavior.
+
+### Fast triage and semantic filter
+- classification accuracy/calibration by DecisionType;
+- false-negative/recall target before pruning;
+- keep-when-uncertain behavior;
+- Arabic/English;
+- batch throughput and memory;
+- protected-source retention;
+- context omission/truncation visibility;
+- no remote fallback.
 
 ### Tools/research/execution
 - capability discovery precision;
@@ -435,7 +452,10 @@ Required defenses include:
 - replacing deterministic rules with probabilistic models;
 - treating Qudra confidence as permission;
 - treating OCR text or RAG passages as authoritative business facts;
-- wholesale import of any donor.
+- wholesale import of any donor;
+- silent context truncation;
+- unbenchmarked semantic pruning that can hide decision-changing evidence;
+- Apple-only Qudra architecture.
 
 ## 16. Completion condition for this amendment
 
