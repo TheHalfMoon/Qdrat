@@ -476,7 +476,7 @@ Resolution:
 - context omission records are metadata, not a parallel memory authority;
 - operation managers remain adapters behind Qdrat execution contracts.
 
-## 46. Final plan readiness check
+## 51. Final plan readiness check
 
 The Qudra amendment is implementation-ready only if:
 - all canonical contracts have clear ownership;
