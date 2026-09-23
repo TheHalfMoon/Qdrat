@@ -10,7 +10,7 @@ The Qdrat founder has explicitly stated that Qdrat has permission to copy, use, 
 
 The founder has further directed that this permission is standing authorization and must not be repeatedly questioned or re-requested during ordinary project execution.
 
-Authorization source: founder statements in the project conversation on 2026-09-11, with additional source authorization recorded on 2026-09-18 and 2026-09-22.
+Authorization source: founder statements in the project conversation on 2026-09-11, with additional source authorization recorded on 2026-09-18, 2026-09-22 and 2026-09-23.
 
 Authorization status: `FOUNDER_STANDING_AUTHORIZATION`.
 
@@ -114,6 +114,11 @@ When importing code, record at minimum: source repository, exact commit/tag, sou
 | 82 | https://github.com/Mapika/decider | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified Qudra decision-engine dependency/donor candidate; Apache-2.0; trained local Choice/Score/Noul decision models, calibration and Jev-compatible typed-decision API patterns |
 | 83 | https://github.com/tinyfish-io | FOUNDER_STANDING_AUTHORIZATION — organization source | Selective donor/reference family; AgentQL/browser extraction, live dataset research, MCP/integration and browser-resilience patterns; mixed licenses across repos and hosted TinyFish remains optional remote egress only |
 | 84 | https://github.com/wonderwhy-er/DesktopCommanderMCP | FOUNDER_STANDING_AUTHORIZATION — full source; resolved from https://desktopcommander.app | Qualified donor/reference; MIT; local filesystem/terminal/process/session and audit patterns for explicit host-capability adapters; never treated as sandbox authority |
+
+| 85 | https://github.com/mizorewww/laya-coreml | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified Qudra local decision-runtime donor/dependency candidate; Apache-2.0; Core ML/Apple Neural Engine typed decisions, multilingual offline bundles, calibration safeguards and reproducible benchmark patterns |
+| 86 | https://github.com/caio0452/jev_search | FOUNDER_STANDING_AUTHORIZATION — full source | Selective donor/reference; two-stage file/chunk prioritization and decision-based semantic filtering; current public repo has no root LICENSE and uses remote OpenRouter, so Qdrat must preserve founder-grant evidence and replace remote inference with local Qudra engines |
+| 87 | https://github.com/unreallabsai/unreal-agent | FOUNDER_STANDING_AUTHORIZATION — full source | Qualified donor/reference; MIT; async-first agent harness, idempotent inbox, append-only/forkable session patterns, context omission records, typed tool translators and serializable durable operation semantics |
+| 88 | https://github.com/mrmps/classifier-dev | FOUNDER_STANDING_AUTHORIZATION — full source; resolved from https://classifier.dev | Qualified donor/reference; MIT; batch zero-shot classification, calibrated confidence, multi-label, REST/MCP/CLI surfaces, eval harness, feedback/receipt patterns and confidence-based escalation; hosted runtime is reference-only because Qudra intelligence remains local |
 
 ## Future additions
 
