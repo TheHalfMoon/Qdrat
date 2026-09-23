@@ -265,6 +265,90 @@ Acceptance:
 - degraded outcomes can disable/revert the playbook;
 - original decision history preserved.
 
+### QD-F13 — Local Classification Fabric
+Parent: G9-01.
+Depends on: QD-F03.
+
+Deliver:
+- ClassificationRequest / ClassificationResult;
+- single-label and multi-label local classification;
+- batching;
+- calibrated confidence / abstention;
+- local Confidence Ladder;
+- REST/SDK/MCP/CLI adapters through Qdrat API conventions;
+- evaluation and feedback receipts.
+
+Acceptance:
+- fully offline execution;
+- stable input ordering;
+- per-DecisionType thresholds;
+- Arabic/English qualification;
+- no request-text persistence by default;
+- low confidence escalates only to more local context/model or human review;
+- no cloud fallback.
+
+### QD-F14 — Semantic Filter and Evidence Triage
+Parents: G4-02, G9-02.
+Depends on: QD-F13.
+
+Deliver:
+- permission-aware candidate enumeration;
+- deterministic/lexical first-pass priority;
+- provenance-bound chunking;
+- local parallel classification;
+- keep-when-uncertain policy;
+- rejected-candidate audit sampling;
+- search/backlog/log/document filtering adapters.
+
+Acceptance:
+- permission checks occur before content evaluation;
+- false-negative benchmark and recall target;
+- protected source classes cannot be silently pruned;
+- uncertain evidence retained for high-impact decisions;
+- no arbitrary host scan;
+- every retained result cites source/object span.
+
+### QD-F15 — Edge Decision Runtime Profiles
+Parents: G9-01, G10-02, G11-03.
+Depends on: QD-F03.
+
+Deliver:
+- replaceable local runtime profile contract;
+- optional Core ML / Apple Neural Engine provider;
+- CPU/GPU local provider compatibility;
+- offline model bundle metadata;
+- capacity/error contract;
+- calibration and conversion-fidelity evidence.
+
+Acceptance:
+- Apple-specific acceleration is optional;
+- runtime profile chosen from measured qualified hardware;
+- model/tokenizer/runtime digests bound;
+- over-capacity requests fail explicitly rather than silently truncate;
+- calibration safeguards tested;
+- no on-demand network model download in offline profiles.
+
+### QD-F16 — Durable Agent Operation Boundary
+Parents: G3-02, G9-04, G9-05.
+Depends on: QD-F02.
+
+Deliver:
+- stable input deduplication identity;
+- pure tool-call translator contract;
+- serializable/versioned Operation proposal;
+- mapping into Qdrat Run / StepAttempt;
+- context omission/truncation record;
+- recovery/fork/replay rules;
+- model-facing result formatter.
+
+Acceptance:
+- redelivered external input is idempotent;
+- translation performs no hidden I/O;
+- operation state is distinct from tool-translation state;
+- UNKNOWN_OUTCOME never becomes blind retry;
+- omitted/truncated context is inspectable;
+- no second workflow/session authority is created.
+
 ## 3. Domain packs
 
 ### QD-D01 — Work Decision Pack
