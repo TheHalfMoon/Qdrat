@@ -1,0 +1,234 @@
+version: "1.0"
+status: "planning_extension"
+parent_plan_version: "1.0.0"
+parent_plan_head: "144935cd6bb64d3448ec3927fa7d1569bee93ca0"
+execution_rule: "Convert each eligible package into real SpecGrain child nodes against live repository truth; this file does not bypass canonical dependencies."
+
+packages:
+  - id: QD-F01
+    title: Decision contracts and storage
+    parents: [G3-06, G4-03, G8-01]
+    depends_on: []
+    risk: R2
+    outputs: [DecisionType, DecisionCase, ObjectiveProfile, ConstraintSet]
+    acceptance: [tenant_isolation, revision_binding, retention_deletion, bilingual_labels, stale_execution_blocked]
+
+  - id: QD-F02
+    title: Capability Graph
+    parents: [G8-07, G9-03]
+    depends_on: []
+    risk: R2
+    outputs: [BusinessCapability, CapabilityPack, capability_health]
+    acceptance: [no_scope_widening, no_raw_secret_context, disabled_capability_excluded, provider_swap_contract]
+
+  - id: QD-F03
+    title: Local Qudra decision-engine adapters
+    parents: [G9-01]
+    depends_on: []
+    risk: R2
+    outputs: [typed_decision_interface, local_engine_adapters, calibration_contract]
+    acceptance: [offline_only, schema_validation, arabic_english_eval, no_remote_fallback, model_digest_evidence]
+
+  - id: QD-F04
+    title: Option Engine core
+    parents: []
+    depends_on: [QD-F01, QD-F02, QD-F03]
+    risk: R2
+    outputs: [BusinessOption, OptionSet, DecisionFrontier]
+    acceptance: [hard_constraints_first, pareto_filter, option_diversity, no_action_supported, stale_context_invalidates]
+
+  - id: QD-F05
+    title: Scenario engine
+    parents: []
+    depends_on: [QD-F04]
+    risk: R1
+    outputs: [Scenario, sensitivity_analysis]
+    acceptance: [no_production_mutation, fact_assumption_forecast_separation, replayable_revision, recommendation_change_explained]
+
+  - id: QD-F06
+    title: Optimization adapter
+    parents: [G6-02, G7-07]
+    depends_on: [QD-F04]
+    risk: R2
+    outputs: [OptimizationProblem, OptimizationResult, local_solver_adapter]
+    acceptance: [hard_constraints_never_relaxed, infeasible_first_class, solver_evidence, deterministic_fixtures, timeout_safe]
+
+  - id: QD-F07
+    title: Process Intelligence
+    parents: [G3-07, G6-07]
+    depends_on: [QD-F01]
+    risk: R1
+    outputs: [ProcessEvent, ProcessProjection, bottleneck_opportunity]
+    acceptance: [rebuildable_projection, source_links_complete, no_source_mutation, permission_aware, process_revision_bound]
+
+  - id: QD-F08
+    title: Outcome and calibration store
+    parents: []
+    depends_on: [QD-F04]
+    risk: R2
+    outputs: [DecisionOutcome, calibration_metrics, override_history]
+    acceptance: [purpose_controlled, no_sensitive_training_default, retention_propagates, outcome_distinct_from_choice]
+
+  - id: QD-F09
+    title: Decision Studio
+    parents: [G8-04]
+    depends_on: [QD-F01, QD-F02, QD-F04]
+    risk: R2
+    outputs: [DecisionType_editor, publish_lifecycle, evaluation_pack]
+    acceptance: [draft_simulate_publish, incompatible_change_detection, rollback, scope_validation, evaluation_required]
+
+  - id: QD-F10
+    title: Shared Qudra UX
+    parents: [G6-04]
+    depends_on: [QD-F04]
+    risk: R1
+    outputs: [ActionCard, CompareOptions, EvidenceDrawer, DecisionRoom, BusinessInbox]
+    acceptance: [arabic_english_rtl, accessibility, evidence_visible, alternative_selectable, destructive_preview]
+
+  - id: QD-F11
+    title: Local Decision-to-Action compiler
+    parents: [G3-05]
+    depends_on: [QD-F02, QD-F04]
+    risk: R3
+    outputs: [CapabilityPlan, plan_validator, preview_handoff]
+    acceptance: [eligibility_enforced, step_reauthorization, unhealthy_capability_blocks, external_write_reconciliation]
+
+  - id: QD-F12
+    title: Decision learning and playbook promotion
+    parents: [G3-06]
+    depends_on: [QD-F07, QD-F08]
+    risk: R3
+    outputs: [playbook_candidate, shadow_validation, promotion_record]
+    acceptance: [no_self_modifying_policy, human_review, fixtures_required, rollback, history_preserved]
+
+  - id: QD-F13
+    title: Local Classification Fabric
+    parents: [G9-01]
+    depends_on: [QD-F03]
+    risk: R2
+    outputs: [ClassificationRequest, ClassificationResult, confidence_ladder]
+    acceptance: [offline_only, stable_input_order, per_decision_thresholds, arabic_english_eval, no_text_persistence_default, no_remote_fallback]
+
+  - id: QD-F14
+    title: Semantic Filter and Evidence Triage
+    parents: [G4-02, G9-02]
+    depends_on: [QD-F13]
+    risk: R2
+    outputs: [CandidateFilter, FilterEvidence, rejected_candidate_sample]
+    acceptance: [permission_before_evaluation, false_negative_benchmark, keep_uncertain_high_impact, no_arbitrary_host_scan, source_span_citations]
+
+  - id: QD-F15
+    title: Edge Decision Runtime Profiles
+    parents: [G9-01, G10-02, G11-03]
+    depends_on: [QD-F03]
+    risk: R2
+    outputs: [DecisionRuntimeProfile, CoreMLDecisionProvider, local_runtime_bundle]
+    acceptance: [apple_optional, hardware_qualified, digest_bound, capacity_error_explicit, calibration_safeguards, offline_no_download]
+
+  - id: QD-F16
+    title: Durable Agent Operation Boundary
+    parents: [G3-02, G9-04, G9-05]
+    depends_on: [QD-F02]
+    risk: R3
+    outputs: [InputDedupReceipt, OperationProposal, ContextBuildResult]
+    acceptance: [idempotent_redelivery, translator_no_io, versioned_serializable_operations, unknown_outcome_safe, context_omission_visible, no_second_orchestrator]
+
+  - id: QD-D01
+    title: Work Decision Pack
+    parents: [G6-03]
+    depends_on: [QD-F06, QD-F10]
+    risk: R2
+    experiences: [TaskIntake, Scheduler, ResourceOptimizer, ProjectRescue, PortfolioOptimizer, MeetingToDecision]
+
+  - id: QD-D02
+    title: Service Decision Pack
+    parents: [G6-07]
+    depends_on: [QD-F10]
+    risk: R2
+    experiences: [ClientEnquiry, CaseRouter, ResponseOptions, SLARescue, IncidentCommander, ProblemFinder]
+
+  - id: QD-D03
+    title: Customer and CRM Decision Pack
+    parents: [G7-04]
+    depends_on: [QD-F10]
+    risk: R2
+    experiences: [AccountBrief, CustomerRescue, RenewalAdvisor, DealDesk, PricingOptions, NextBestAction]
+
+  - id: QD-D04
+    title: Finance Decision Pack
+    parents: [G7-08]
+    depends_on: [QD-F05, QD-F10]
+    risk: R3
+    experiences: [CashPriority, CollectionsAdvisor, ExpenseException, ReconciliationException, BudgetReallocator, CashflowScenario]
+
+  - id: QD-D05
+    title: Procurement Decision Pack
+    parents: [G7-07]
+    depends_on: [QD-F06, QD-F10]
+    risk: R2
+    experiences: [PurchaseAdvisor, VendorCompare, VendorNegotiator, SupplierRisk, RenewReplace]
+
+  - id: QD-D06
+    title: People Decision Pack
+    parents: [G4-12]
+    depends_on: [QD-F06, QD-F10]
+    risk: R3
+    experiences: [WorkforcePlanner, ShiftScheduler, OnboardingRescue, OffboardingAssurance, SkillsGap, LeaveImpact, HiringSupport]
+    hard_rule: "Consequential employment decisions remain human-controlled."
+
+  - id: QD-D07
+    title: Ops Decision Pack
+    parents: [G7-10]
+    depends_on: [QD-F06, QD-F10]
+    risk: R2
+    experiences: [MaintenanceAdvisor, AssetAdvisor, FacilityScheduler, ServiceImpact, CapacityPlanner]
+
+  - id: QD-D08
+    title: Trust Decision Pack
+    parents: [G5-06]
+    depends_on: [QD-F10]
+    risk: R3
+    experiences: [AccessReview, PolicyImpact, ComplianceEvidence, SecurityTriage, ChangeRisk]
+
+  - id: QD-D09
+    title: Executive Decision Pack
+    parents: []
+    depends_on: [QD-D01, QD-D02, QD-D03, QD-D04, QD-D05, QD-D06, QD-D07, QD-D08, QD-F07]
+    risk: R2
+    experiences: [OperatingBrief, ExecutiveDecisionRoom, StrategicPortfolio, BusinessPulse]
+
+rollout:
+  - id: QD-L01
+    title: Observe and Shadow
+    depends_on: [QD-F04, QD-F08]
+    side_effects: false
+  - id: QD-L02
+    title: Recommend
+    depends_on: [QD-L01]
+    side_effects: false
+  - id: QD-L03
+    title: Prepare
+    depends_on: [QD-L02, QD-F11]
+    side_effects: "drafts_and_previews_only"
+  - id: QD-L04
+    title: Execute Bounded
+    depends_on: [QD-L03]
+    side_effects: true
+    hard_rule: "Only exact qualified low-risk actions under normal Qdrat authorization."
+  - id: QD-L05
+    title: Playbook Promotion
+    depends_on: [QD-L01, QD-F12]
+    side_effects: "published_rules_and_flows_after_review"
+
+global_acceptance:
+  - local_intelligence_only
+  - no_remote_model_fallback
+  - permission_leakage_zero_on_required_corpus
+  - hard_constraint_violation_zero_on_required_corpus
+  - exact_evidence_binding
+  - arabic_english_rtl
+  - retention_deletion_propagation
+  - backup_restore_qualified
+  - upgrade_rollback_defined
+  - no_autonomous_high_impact_employment
+  - no_model_confidence_as_authority
