@@ -22,6 +22,7 @@ The sealed 1.0.0 plan remains the immutable parent snapshot. Founder-directed po
 - [56_QUDRA_IMPLEMENTATION_EXTENSION_2.md](56_QUDRA_IMPLEMENTATION_EXTENSION_2.md)
 - [QUDRA_EXECUTION_EXTENSION_2.yaml](QUDRA_EXECUTION_EXTENSION_2.yaml)
 - [57_QUDRA_EXPANSION_GAP_REVIEW.md](57_QUDRA_EXPANSION_GAP_REVIEW.md)
+- [58_SOURCE_INTAKE_DBX_PAPERCLIP_SYNAPLAN.md](58_SOURCE_INTAKE_DBX_PAPERCLIP_SYNAPLAN.md)
 
 Source authority for the 2026-09-29 expansion is recorded in `../SOURCE_AUTHORIZATIONS_2026-09-29_AMENDMENT.md` as effective entries 89–91 for `t8y2/dbx`, `paperclipai/paperclip`, and `metadist/synaplan` until folded into the main register.
 
