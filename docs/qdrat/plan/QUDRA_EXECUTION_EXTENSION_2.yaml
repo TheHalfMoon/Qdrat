@@ -1,0 +1,92 @@
+version: "1.0"
+status: "planning_extension"
+parent_extension: "QUDRA_EXECUTION_EXTENSION.yaml"
+source_amendment: "SOURCE_AUTHORIZATIONS_2026-09-29_AMENDMENT.md"
+execution_rule: "Convert each eligible package into real SpecGrain child nodes against live repository truth; this file does not bypass canonical dependencies or Qudra extension 1."
+
+packages:
+  - id: QD-F17
+    title: Data Workbench and Schema Snapshot
+    parent_contracts: [G2-01, G1, G8-07]
+    depends_on: []
+    risk: R2
+    outputs: [DataSchemaSnapshot, SourceWorkspace, MetadataSearch, SchemaDiff]
+    acceptance: [single_datasource_authority, permission_aware_metadata, credential_refs_only, snapshot_digest_bound, explicit_unsupported_ops, bilingual_accessible]
+
+  - id: QD-F18
+    title: Governed Query Transfer and Lineage
+    parent_contracts: [G2, G3, G4-03]
+    depends_on: [QD-F17]
+    risk: R3
+    outputs: [DataQueryPlan, QueryEffectClass, FieldLineage, TransferRun, ReconciliationLedger]
+    acceptance: [effect_class_not_model_authority, write_policy_enforced, bounded_queries, resumable_transfer, reconciled_counts_checksums, inferred_lineage_labeled, no_raw_credentials]
+
+  - id: QD-F19
+    title: Goal Graph and Agent Profile
+    parent_contracts: [G1, G6]
+    depends_on: [QD-F01]
+    risk: R2
+    outputs: [GoalGraphProjection, AgentProfile, AgentAssignment]
+    acceptance: [agent_not_employee, goal_not_permission, tenant_scoped_assignments, revoke_expiry_enforced, runs_link_business_purpose]
+
+  - id: QD-F20
+    title: Atomic Work Lease and Duty Cycle
+    parent_contracts: [G3, G6]
+    depends_on: [QD-F19]
+    risk: R3
+    outputs: [WorkLease, DutyCycle, WakeupReceipt]
+    acceptance: [atomic_single_claim, stale_generation_fenced, coalesced_wakeup, pause_kill_enforced, unknown_outcome_no_replay]
+
+  - id: QD-F21
+    title: Agent Resource Budgets Skills and Evaluation
+    parent_contracts: [G9-06]
+    depends_on: [QD-F02, QD-F08, QD-F19, QD-F20]
+    risk: R2
+    outputs: [AgentResourceBudget, AgentSkill, AgentEvaluationPack, AgentPerformanceView]
+    acceptance: [local_resource_accounting, budget_safe_stop, skill_version_bound, no_auto_policy_promotion, secret_free_exports, outcome_over_throughput]
+
+  - id: QD-F22
+    title: Agent Workforce UX and Portable Team Packs
+    parent_contracts: [G8]
+    depends_on: [QD-F10, QD-F19, QD-F20, QD-F21]
+    risk: R2
+    outputs: [AgentWorkforceView, AgentTeamPack]
+    acceptance: [no_employee_confusion, authorized_management_actions, secret_scrubbing, import_preview_collision_handling, responsive_manager_journey]
+
+  - id: QD-F23
+    title: Local Reasoning Graph
+    parent_contracts: [G3]
+    depends_on: [QD-F04, QD-F11, QD-F16]
+    risk: R3
+    outputs: [ReasoningGraph, ReasoningNode, ReasoningGraphRun]
+    acceptance: [no_direct_side_effects, effects_compile_capability_plan, deterministic_graph_revision, explicit_partial_failure, analysis_vs_action_visible, no_second_workflow]
+
+  - id: QD-F24
+    title: Local Engine Router and Readiness Inventory
+    parent_contracts: [G9-01, G11-03]
+    depends_on: [QD-F03, QD-F13, QD-F15, QD-F23]
+    risk: R2
+    outputs: [LocalEngineProfile, EngineReadinessInventory, LocalEngineRoute]
+    acceptance: [no_remote_fallback, ready_qualified_only, artifact_digests_verified, context_capacity_preflight, reproducible_routing, quality_threshold_first]
+
+  - id: QD-F25
+    title: Optional Local Sidecars and Air-Gap Capability Lifecycle
+    parent_contracts: [G10-02, G10, G9]
+    depends_on: [QD-F24]
+    risk: R2
+    outputs: [LocalServiceCapability, AirGapCapabilityManifest, SidecarLifecycle]
+    acceptance: [disabled_means_absent_ui, core_independent, no_airgap_download, full_digest_inventory, network_disabled_readiness, dependency_scoped_removal]
+
+global_acceptance:
+  - qdrat_authority_preserved
+  - no_cloud_qdra_intelligence
+  - no_second_workflow_or_identity_authority
+  - no_agent_legal_employee_confusion
+  - no_goal_derived_permission
+  - no_raw_database_or_model_secrets
+  - exact_source_provenance
+  - exact_revision_evidence
+  - arabic_english_rtl
+  - deletion_retention_propagation
+  - upgrade_rollback_recovery_defined
+  - airgap_offline_qualified
